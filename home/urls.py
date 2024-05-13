@@ -7,6 +7,6 @@ urlpatterns = [
    path('', index, name="home")
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = 'AOF Adminsitration'                  
+admin.site.site_header = 'AOF Administration'                  
 admin.site.index_title = 'Dashboard'                
 admin.site.site_title = 'AOF Admin'

@@ -1,0 +1,42 @@
+/* -------------------------------------------------------
+
+    AOF css
+
+------------------------------------------------------- */
+/*
+
+/* ===================================
+    01. Google font
+====================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+:root {
+    --alt-font: 'Space Grotesk', sans-serif;
+    --primary-font: "Inter", sans-serif;
+}
+
+/* ===================================
+    02. CSS color variable
+====================================== */
+:root {
+    --base-color: #e99022; 
+    --medium-gray: #7b7a7a;
+    --dark-gray: #1d1d1d;  
+    --charcoal-blue: #232323;
+    --secondary-color: #2946f3;
+    --white: #ffffff;
+    --black: #000000;
+    --red: #dc3131;
+    --medium-slate-blue: #374162;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
+    color: var(--medium-gray);
+    -moz-osx-font-smoothing: grayscale;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+}
