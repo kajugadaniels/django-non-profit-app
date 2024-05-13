@@ -9,6 +9,17 @@
     <meta charset="UTF-8">
     <meta name="description" content="AOF ">
     <title>AOF - {% block title %} Home {% endblock %}</title>
+    <!-- favicon icon -->
+    <link rel="shortcut icon" href="{% static 'frontend/images/logo/logo-white.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'frontend/images/logo-white.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'frontend/images/logo-white.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'frontend/images/logo-white.png' %}">
+
+    <!-- google fonts preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- style sheets -->
     <link rel="stylesheet" href="{% static 'frontend/css/vendors.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'frontend/css/icon.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}"/>
@@ -25,7 +36,7 @@
     {% include 'frontend/inc/footer.html' %}
 
     <script type="text/javascript" src="{% static 'frontend/js/jquery.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/js/vendor.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/js/vendors.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'frontend/js/main.js' %}"></script>
 </body>
 </html>
