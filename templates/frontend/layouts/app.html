@@ -9,22 +9,23 @@
     <meta charset="UTF-8">
     <meta name="description" content="AOF ">
     <title>AOF - {% block title %} Home {% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'frontend/css/vendors.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'frontend/css/icon.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'frontend/css/responsive.css' %}"/>
+    <link rel="stylesheet" href="{% static 'frontend/css/custom.css' %}"/>
 </head>
-<body>
-    <!--TODO: Add Navbar  -->
+<body data-mobile-nav-trigger-alignment="right" data-mobile-nav-style="modern" data-mobile-nav-bg-color="#1d1d1d">
+    {% include 'frontend/inc/header.html' %}
     
-{% block content %}
+    {% block content %}
 
-{% endblock content %}
-    <!-- TODO: Add footer -->
-    <!-- Add aos -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
+    {% endblock content %}
+
+    {% include 'frontend/inc/footer.html' %}
+
     <script type="text/javascript" src="{% static 'frontend/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/js/vendor.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'frontend/js/main.js' %}"></script>
-    <script>
-        AOS.init();
-    </script>
 </body>
 </html>
