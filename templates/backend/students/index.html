@@ -1,0 +1,54 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid product-wrapper">
+        <div class="col-md-12 project-list">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Students</h4>
+                    </div>
+                    <div class="col-md-6">                    
+                        <div class="form-group mb-0 me-0"></div>
+                        <a class="btn btn-primary py-3" href="{% url 'frontend:addStudent' %}">
+                            <i data-feather="plus-square"></i>
+                            Add New Student
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-grid">
+            <div class="product-wrapper-grid">
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 xl-3">
+                        <div class="card">
+                            <div class="product-box">
+                                <div class="product-img">
+                                    <img class="img-fluid" src="{% static 'frontend/images/students/1.jpg' %}" alt="">
+                                    <div class="product-hover">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icon-eye"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-details">
+                                    <a href="#">
+                                        <h4>Mfuranzima Geoffrey</h4>
+                                    </a>
+                                    <p>13 years old male</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

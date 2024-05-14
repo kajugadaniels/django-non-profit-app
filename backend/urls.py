@@ -9,7 +9,11 @@ app_name = 'backend'
 urlpatterns = [
    path('', user_login, name="login"),
    path('logout/', user_logout, name='logout'),
-   path('dashboard', dashboard, name="dashboard"),
+
+   path('dashboard/', dashboard, name="dashboard"),
+
+   path('students/', getStudents, name='getStudents',)
+   path('students/create', addStudent, name='addStudent',)
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  

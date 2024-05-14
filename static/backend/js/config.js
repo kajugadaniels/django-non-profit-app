@@ -1,8 +1,8 @@
 (function () {
-  var primary = localStorage.getItem("primary") || "#15548C";
+  var primary = localStorage.getItem("primary") || "#7A70BA";
   var secondary = localStorage.getItem("secondary") || "#48A3D7";
 
-  window.AosAdminConfig = {
+  window.MofiAdminConfig = {
     // Theme Primary Color
     primary: primary,
     // theme secondary color

@@ -29,3 +29,9 @@ def user_logout(request):
 @login_required
 def dashboard(request):
     return render(request, 'backend/dashboard.html')
+
+def getStudents(request):
+    return render(request, 'backend/students/index.html')
+
+def addStudent(request):
+    return render(request, 'backend/students/create.html')
