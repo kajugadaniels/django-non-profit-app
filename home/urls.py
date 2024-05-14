@@ -7,7 +7,8 @@ from django.contrib import admin
 app_name = 'frontend'
 
 urlpatterns = [
-   path('', index, name="home")
+   path('', index, name="home"),
+   path('our-history/', history, name="history"),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  
