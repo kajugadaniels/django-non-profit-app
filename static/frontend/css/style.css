@@ -3546,7 +3546,7 @@ input:focus, select:focus, textarea:focus, .form-control:focus {
 }
 /* Border color */
 .border-color-base-color {
-  border-color: var(--base-color) !important;
+  border-color: var(--medium-gray) !important;
 }
 .border-color-white {
   border-color: var(--white) !important;
