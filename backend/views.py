@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from home.forms import UserLoginForm
@@ -21,6 +21,10 @@ def user_login(request):
             messages.error(request, 'Invalid credentials. Please check your email and password.')
             return redirect('backend:login')
     return render(request, 'backend/auth/login.html', {'form': form})
+
+def user_logout(request):
+    logout(request)
+    return redirect('backend:login')
 
 @login_required
 def dashboard(request):

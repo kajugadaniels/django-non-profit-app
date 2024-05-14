@@ -52,7 +52,7 @@
                             <img class="img-30" src="{% static 'frontend/images/dashblogo-white/profile.png' %}" alt="">
                             <div class="flex-grow-1">
                                 <span>
-                                    {{ request.user.name }}
+                                    {{ request.user.email }}
                                 </span>
                             </div>
                         </div>
@@ -65,8 +65,8 @@
                                 </a>
                             </li>
 
-                            <form id="logout-form" action="#" method="POST" class="d-none">
-                                @csrf
+                            <form id="logout-form" action="{% url 'backend:logout' %}" method="POST" class="d-none">
+                                {% csrf_token %}
                             </form>
                         </ul>
                     </li>
