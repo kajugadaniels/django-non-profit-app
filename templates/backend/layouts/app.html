@@ -1,35 +1,96 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="description" content="AOF ">
+    <title>AOF - Admin</title>
     <!-- favicon icon -->
     <link rel="shortcut icon" href="{% static 'frontend/images/logo/logo-black.png' %}">
     <link rel="apple-touch-icon" href="{% static 'frontend/images/logo-black.png' %}">
     <link rel="apple-touch-icon" sizes="72x72" href="{% static 'frontend/images/logo-black.png' %}">
     <link rel="apple-touch-icon" sizes="114x114" href="{% static 'frontend/images/logo-black.png' %}">
-    <title>AOS Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/bootstrap.css' %}">
+    <!-- Icons-->
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/font-awesome.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/vendors/icofont.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/vendors/themify.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/vendors/feather-icon.css' %}">
+    <!-- Plugins Css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/vendors/scrollbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/vendors/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/vendors/datatables.css' %}">
+    <!-- Style sheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/vendors/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'backend/css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'backend/css/responsive.css' %}">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
 
-    {% block content %}
+    <div class="loader-wrapper">
+        <div class="loader loader-1">
+            <div class="loader-outter"></div>
+            <div class="loader-inner"></div>
+            <div class="loader-inner-1"></div>
+        </div>
+    </div>
 
-    {% endblock content %}
+    <div class="tap-top">
+        <i data-feather="chevrons-up"></i>
+    </div>
+
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+        {% include 'backend/inc/header.html' %}
+
+        <div class="page-body-wrapper">
+            {% include 'backend/inc/sidebar.html' %}
+
+
+            <div class="page-body">
+                {% include 'backend/inc/message.html' %}
+
+
+                {% block content %}
+                
+                {% endblock content %}
+            </div>
+            {% include 'backend/inc/footer.html' %}
+        </div>
+    </div>
 
     <script src="{% static 'backend/js/jquery.min.js' %}"></script>
-    <script src="{% static 'backend/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'backend/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <!-- Icons -->
+    <script src="{% static 'backend/js/icons/feather-icon/feather.min.js' %}"></script>
+    <script src="{% static 'backend/js/icons/feather-icon/feather-icon.js' %}"></script>
+    <!-- scrollbar js-->
+    <script src="{% static 'backend/js/scrollbar/simplebar.js' %}"></script>
+    <script src="{% static 'backend/js/scrollbar/custom.js' %}"></script>
+    <!-- Sidebar jquery-->
     <script src="{% static 'backend/js/config.js' %}"></script>
+    <script src="{% static 'backend/js/sidebar-menu.js' %}"></script>
+    <script src="{% static 'backend/js/sidebar-pin.js' %}"></script>
+    <!-- Plugins JS start-->
+    <script src="{% static 'backend/js/slick/slick.min.js' %}"></script>
+    <script src="{% static 'backend/js/slick/slick.js' %}"></script>
+    <script src="{% static 'backend/js/header-slick.js' %}"></script>
+    <script src="{% static 'backend/js/notify/bootstrap-notify.min.js' %}"></script>
+    <!-- Data Tables -->
+    <script src="{% static 'backend/js/datatable/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'backend/js/datatable/datatables/datatable.custom.js' %}"></script>
+    <script src="{% static 'backend/js/datatable/datatables/datatable.custom1.js' %}"></script>
+
+    <script src="{% static 'backend/js/animation/wow/wow.min.js' %}"></script>
     <script src="{% static 'backend/js/script.js' %}"></script>
+    <script src="{% static 'backend/js/theme-customizer/customizer.js' %}"></script>
+    <script>new WOW().init();</script>
 </body>
 </html>

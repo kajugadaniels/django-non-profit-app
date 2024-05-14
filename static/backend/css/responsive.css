@@ -1042,10 +1042,10 @@
     border-top: 1px dashed rgba(0, 0, 0, 0.2);
   }
   [class=dark-only] .page-wrapper.compact-wrapper .page-header .page-title {
-    background-color: #2A3650;
+    background-color: #fff;
   }
   [dir=rtl] [class=dark-only] .page-wrapper.compact-wrapper .page-header .page-title {
-    background-color: #2A3650;
+    background-color: #fff;
   }
   .todo-list-wrapper #todo-list li .task-container .task-label {
     min-width: 460px;
@@ -3950,4 +3950,3 @@
 /**=====================
      62. Responsive CSS Ends
 ==========================**/
-/*# sourceMappingURL=responsive.css.map */

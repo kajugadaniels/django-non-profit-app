@@ -1,4 +1,3 @@
-
 :root {
   --theme-deafult: #15548C;
   --theme-secondary: #48A3D7;
@@ -42,6 +41,7 @@
   --active-eye: #313036;
   --active-tear: #76b5e7;
   --active-shadow-angry: #e94f1d;
+  /* Do not show the "remove tag" (x) button when only a single tag remains */
 }
 :root .customLook {
   --tag-bg: var(--theme-deafult);

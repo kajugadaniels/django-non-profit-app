@@ -9188,7 +9188,7 @@ button:focus {
   text-align: left;
 }
 .sidebar-list li a:hover {
-  color: var(--base-color) !important;
+  color: var(--theme-deafult);
 }
 .sidebar-list li .item-qty {
   font-size: 14px;
