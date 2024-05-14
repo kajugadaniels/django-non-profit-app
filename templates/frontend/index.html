@@ -608,4 +608,29 @@
         </div>
     </section>
 
+    <section class="big-section position-relative"> 
+        <div class="background-position-center-top background-no-repeat position-absolute h-100 w-100 left-0px top-0px" style="background-image: url({% static 'frontend/images/bg-1.png' %})"></div>
+        <div class="container position-relative">
+            <div class="row justify-content-center mb-8 lg-mb-8px" data-anime='{ "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <div class="col-xl-4 col-md-5">
+                    <h2 class="alt-font text-dark-gray mb-30px fw-600 ls-minus-3px fs-34">
+                        AOF believes that Christ welcomes all
+                        <i class="bi bi-heart-fill d-inline-block align-top ms-10px animation-zoom icon-very-medium text-red"></i>
+                    </h2>
+                </div>
+                <div class="col-xl-6 col-md-7 overflow-hidden offset-xl-2"> 
+                    <div class="swiper" data-slider-options='{ "slidesPerView": 1, "spaceBetween": 40, "loop": true, "autoplay": { "delay": 8000, "disableOnInteraction": false }, "navigation": { "nextEl": ".slider-one-slide-next-1", "prevEl": ".slider-one-slide-prev-1" }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "992": { "slidesPerView": 1 }, "768": { "slidesPerView":1 }, "320": { "slidesPerView": 1 } }, "effect": "slide" }'>
+                        <div class="swiper-wrapper"> 
+                            <div class="swiper-slide">
+                                <h5 class="text-dark-gray mb-15px w-95 xl-w-100 lh-40 ls-minus-1px alt-font fs-24">
+                                    Our policy supports providing hope and promoting change irrespective of race or religion. We embrace supporters and volunteers from all backgrounds. At Africa Oasis Foundation , our motivation stems from <span class="text-decoration-line-bottom-medium fw-700">Jeremiah 29:11</span> that says “For I know the plans I have for you, ‘declares the Lord’ plans to prosper you and not to harm you, plans to give you hope and a future.”
+                                </h5>
+                            </div>
+                        </div>  
+                    </div> 
+                </div>
+            </div> 
+        </div>
+    </section>
+
 {% endblock %}
