@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/responsive.css' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+<body>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <script src="{% static 'backend/js/jquery.min.js' %}"></script>
+    <script src="{% static 'backend/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'backend/js/config.js' %}"></script>
+    <script src="{% static 'backend/js/script.js' %}"></script>
+</body>
+</html>
