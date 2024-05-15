@@ -39,10 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Custom apps
     'home',
     'backend',
+
+    # Third party packages
     "whitenoise.runserver_nostatic",
     'django_quill',
+    'taggit',
 ]
 
 MIDDLEWARE = [

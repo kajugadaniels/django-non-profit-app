@@ -1,8 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
 from home.forms import UserLoginForm
 from django.contrib import messages
+from backend.models import Student
+from backend.forms import StudentForm
 
 def user_login(request):
     if request.user.is_authenticated:
@@ -32,11 +35,42 @@ def dashboard(request):
 
 @login_required
 def getStudents(request):
-    return render(request, 'backend/students/index.html')
+    students = Student.objects.all()
+    
+    context = {
+        'students': students,
+    }
+
+    return render(request, 'backend/students/index.html', context)
 
 @login_required
 def addStudent(request):
-    return render(request, 'backend/students/create.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        image = request.FILES.get('image')
+        birthday = request.POST.get('birthday')
+        gender = request.POST.get('gender')
+        spo_cover = request.POST.get('spo_cover')
+        description = request.POST.get('description')
+
+        # Create the slug based on the student name
+        slug = slugify(name)
+
+        # Create the student object
+        student = Student.objects.create(
+            name=name,
+            slug=slug,
+            image=image,
+            birthday=birthday,
+            gender=gender,
+            spo_cover=spo_cover,
+            description=description
+        )
+
+        # Redirect to a success page or another view
+        return redirect('backend:getStudents')  # Change 'success_page' to your actual URL name or view
+    else:
+        return render(request, 'backend/students/create.html')
 
 @login_required
 def editStudent(request):

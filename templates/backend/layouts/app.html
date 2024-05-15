@@ -61,6 +61,8 @@
 
 
             <div class="page-body">
+                {% include "backend/inc/message.html" %}
+
                 {% block content %}{% endblock %}
             </div>
             {% include 'backend/inc/footer.html' %}
@@ -101,7 +103,6 @@
     <script src="{% static 'backend/js/select2/intltelinput.min.js' %}"></script>
     <script src="{% static 'backend/js/add-product/select4-custom.js' %}"></script>
     <script src="{% static 'backend/js/editors/quill.js' %}"></script>
-    <script src="{% static 'backend/js/custom-add-product.js' %}"></script>
     <script src="{% static 'backend/js/form-validation-custom.js' %}"></script>
     <script src="{% static 'backend/js/height-equal.js' %}"></script>
     <script src="{% static 'backend/js/tooltip-init.js' %}"></script>

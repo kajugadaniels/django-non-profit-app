@@ -15,62 +15,56 @@
                         </div>
                         <hr>
                         <div class="form theme-form">
-                            <form class="price-wrapper">
+                            <form class="price-wrapper" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
                                 <div class="row g-3 custom-input">
                                     <div class="col-sm-6"> 
                                         <label class="form-label">Student Name</label>
-                                        <input class="form-control" type="number">
+                                        <input class="form-control" name="name" type="text">
                                     </div>
                                     <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label">Image</label>
+                                                <div class="input-group flatpicker-calender product-date">
+                                                    <input class="form-control" name="image" type="file">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-4">
                                         <div class="row">
                                             <div class="col-12">
                                                 <label class="form-label">Birthday</label>
                                                 <div class="input-group flatpicker-calender product-date">
-                                                    <input class="form-control" id="datetime-local1" type="date">
+                                                    <input class="form-control" name="birthday" type="date">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row g-3 custom-input">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="row">
                                             <div class="col-12">
                                                 <label class="form-label">Gender</label>
-                                                <select class="form-select" id="validationDefault04" required="">
+                                                <select class="form-select" name="gender">
                                                     <option selected="" value="">Select Gender</option>
-                                                    <option>Male</option>
-                                                    <option>Female</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="row g-2 product-tag">
+                                    <div class="col-sm-4">
+                                        <div class="row">
                                             <div class="col-12">
-                                                <label class="form-label d-block m-0">Sponsorship Covers</label>
-                                            </div>
-                                            <div class="col-12">
-                                                <input name="basic-tags" value="School fees,">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row g-3 custom-input">
-                                    <div class="col-sm-12">
-                                        <div class="col-12">
-                                            <div class="sidebar-body">
-                                                <div class="product-upload mt-3">
-                                                    <p>Product Gallery</p>
-                                                    <div class="dropzone dropzone-light bg-light-primary" id="multiFileUpload" action="/upload.php">
-                                                        <div class="dz-message needsclick">
-                                                            <svg>
-                                                                <use href="{% static 'backend/svg/icon-sprite.svg#file-upload1' %}"></use>
-                                                            </svg>
-                                                            <h5>Drag files here</h5><span class="note needsclick">Add Product Gallery Images</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <label class="form-label">Sponsorship Covers</label>
+                                                <select class="form-select" name="spo_cover">
+                                                    <option value="School Fees">School Fees</option>
+                                                    <option value="Shelter">Shelter</option>
+                                                    <option value="Clothes">Clothes</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +73,7 @@
                                     <div class="col-sm-12">
                                         <div class="col-12">
                                             <label class="form-label">Additional Information</label>
-                                            <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Additional Information"></textarea>
+                                            <textarea name="description" rows="10" class="form-control" placeholder="Additional Information"></textarea>
                                         </div>
                                     </div>
                                 </div>

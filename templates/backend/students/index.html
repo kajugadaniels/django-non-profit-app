@@ -31,53 +31,56 @@
                                     <th> <span class="f-light f-w-600">Action</span></th>
                                     </tr>
                                 </thead>
-                                <tbody> 
-                                    <tr class="product-removes">
-                                        <td>
-                                            <div class="form-check"> 
-                                                <input class="form-check-input checkbox-primary" type="checkbox">
-                                            </div>
-                                        </td>
-                                        <td> 
-                                            <div class="product-names">
-                                                <div class="light-product-box">
-                                                    <img class="img-fluid" src="{% static 'frontend/images/students/1.jpg' %}" alt="laptop">
+                                <tbody>
+                                    
+                                    {% for student in students %}
+                                        <tr class="product-removes">
+                                            <td>
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input checkbox-primary" type="checkbox">
                                                 </div>
-                                                <p>Mfuranzima Geoffrey</p>
-                                            </div>
-                                        </td>
-                                        <td> 
-                                            <p class="f-light">13 Years Old</p>
-                                        </td>
-                                        <td> 
-                                            <p class="f-light">June 17, 2011</p>
-                                        </td>
-                                        <td> 
-                                            <p class="f-light">Male</p>
-                                        </td>
-                                        <td> 
-                                            <p class="f-light">
-                                                School fees, Uniform, Camp
-                                            </p>
-                                        </td>
-                                        <td>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit...
-                                            </p>
-                                        </td>
-                                        <td> 
-                                            <div class="product-action">
-                                                <a href="{% url 'backend:editStudent' %}"> 
-                                                    <svg>    
-                                                        <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
+                                            </td>
+                                            <td> 
+                                                <div class="product-names">
+                                                    <div class="light-product-box">
+                                                        <img class="img-fluid" src="{{ student.image.url }}" alt="laptop">
+                                                    </div>
+                                                    <p>{{ student.name }}</p>
+                                                </div>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ student.age }}</p>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ student.birthday }}</p>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ student.gender }}</p>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">
+                                                    {{ student.spo_cover }}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    {{ student.description }}
+                                                </p>
+                                            </td>
+                                            <td> 
+                                                <div class="product-action">
+                                                    <a href="{% url 'backend:editStudent' %}"> 
+                                                        <svg>    
+                                                            <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <svg>
+                                                        <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
                                                     </svg>
-                                                </a>
-                                                <svg>
-                                                    <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
-                                                </svg>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
