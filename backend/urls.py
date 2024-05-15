@@ -1,13 +1,13 @@
 from django.urls import path
 from django.conf import settings
-from .views import *
+from backend.views import *
 from django.conf.urls.static import static
 from django.contrib import admin
 
 app_name = 'backend'
 
 urlpatterns = [
-   path('', user_login, name="login"),
+   path('login/', user_login, name="login"),
    path('logout/', user_logout, name='logout'),
 
    path('dashboard/', dashboard, name="dashboard"),

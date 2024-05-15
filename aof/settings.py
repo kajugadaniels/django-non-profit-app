@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
     # Custom apps
     'home',
     'backend',
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     # Third party packages
     "whitenoise.runserver_nostatic",
     'django_quill',
-    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +158,24 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://aof-production-00fd.up.railway.app','https://*.127.0.0.1']
 AUTH_USER_MODEL = "home.UserAccount"
+
+QUILL_CONFIGS = {
+    'default':{
+        'theme': 'snow',
+        'modules': {
+            'syntax': True,
+            'toolbar': [
+                [
+                    {'font': []},
+                    {'header': []},
+                    {'align': []},
+                    'bold', 'italic', 'underline', 'strike', 'blockquote',
+                    {'color': []},
+                    {'background': []},
+                ],
+                ['code-block', 'link'],
+                ['clean'],
+            ]
+        }
+    }
+}

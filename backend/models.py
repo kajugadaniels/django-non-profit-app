@@ -1,12 +1,14 @@
 from django.db import models
 from django.utils.text import slugify
 from datetime import date
+from django_quill.fields import QuillField
 
 class Student(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
     )
+
     SPONSORSHIP_COVER_CHOICES = (
         ('School Fees', 'School Fees'),
         ('Clothes', 'Clothes'),
@@ -21,6 +23,7 @@ class Student(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
     description = models.TextField()
+    # description = QuillField()
 
     @property
     def age(self):
