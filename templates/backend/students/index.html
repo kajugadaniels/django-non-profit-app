@@ -2,48 +2,83 @@
 {% load static %}
 {% block content %}
 
-    <div class="container-fluid product-wrapper">
-        <div class="col-md-12 project-list">
-            <div class="card">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>Students</h4>
-                    </div>
-                    <div class="col-md-6">                    
-                        <div class="form-group mb-0 me-0"></div>
-                        <a class="btn btn-primary py-3" href="{% url 'frontend:addStudent' %}">
-                            <i data-feather="plus-square"></i>
-                            Add New Student
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="product-grid">
-            <div class="product-wrapper-grid">
-                <div class="row">
-                    <div class="col-xl-3 col-sm-6 xl-3">
-                        <div class="card">
-                            <div class="product-box">
-                                <div class="product-img">
-                                    <img class="img-fluid" src="{% static 'frontend/images/students/1.jpg' %}" alt="">
-                                    <div class="product-hover">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="icon-eye"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-details">
-                                    <a href="#">
-                                        <h4>Mfuranzima Geoffrey</h4>
-                                    </a>
-                                    <p>13 years old male</p>
-                                </div>
+    <div class="container-fluid">
+        <div class="row"> 
+            <div class="col-sm-12"> 
+                <div class="card"> 
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div> 
+                                <a class="btn btn-primary" href="{% url 'backend:addStudent' %}"><i class="fa fa-plus"></i>Add Student</a>
                             </div>
+                        </div>
+                        <div class="list-product">
+                            <table class="table" id="project-status">
+                                <thead> 
+                                    <tr> 
+                                    <th>
+                                        <div class="form-check"> 
+                                            <input class="form-check-input checkbox-primary" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th> <span class="f-light f-w-600">Student</span></th>
+                                    <th> <span class="f-light f-w-600">Age</span></th>
+                                    <th> <span class="f-light f-w-600">Birthday</span></th>
+                                    <th> <span class="f-light f-w-600">Gender</span></th>
+                                    <th> <span class="f-light f-w-600">Sponsor Cover</span></th>
+                                    <th> <span class="f-light f-w-600">Description</span></th>
+                                    <th> <span class="f-light f-w-600">Action</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                    <tr class="product-removes">
+                                        <td>
+                                            <div class="form-check"> 
+                                                <input class="form-check-input checkbox-primary" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td> 
+                                            <div class="product-names">
+                                                <div class="light-product-box">
+                                                    <img class="img-fluid" src="{% static 'frontend/images/students/1.jpg' %}" alt="laptop">
+                                                </div>
+                                                <p>Mfuranzima Geoffrey</p>
+                                            </div>
+                                        </td>
+                                        <td> 
+                                            <p class="f-light">13 Years Old</p>
+                                        </td>
+                                        <td> 
+                                            <p class="f-light">June 17, 2011</p>
+                                        </td>
+                                        <td> 
+                                            <p class="f-light">Male</p>
+                                        </td>
+                                        <td> 
+                                            <p class="f-light">
+                                                School fees, Uniform, Camp
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit...
+                                            </p>
+                                        </td>
+                                        <td> 
+                                            <div class="product-action">
+                                                <a href="#"> 
+                                                    <svg>    
+                                                        <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
+                                                    </svg>
+                                                </a>
+                                                <svg>
+                                                    <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
+                                                </svg>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
