@@ -46,31 +46,16 @@ def getStudents(request):
 @login_required
 def addStudent(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        image = request.FILES.get('image')
-        birthday = request.POST.get('birthday')
-        gender = request.POST.get('gender')
-        spo_cover = request.POST.get('spo_cover')
-        description = request.POST.get('description')
-
-        # Create the slug based on the student name
-        slug = slugify(name)
-
-        # Create the student object
-        student = Student.objects.create(
-            name=name,
-            slug=slug,
-            image=image,
-            birthday=birthday,
-            gender=gender,
-            spo_cover=spo_cover,
-            description=description
-        )
-
-        # Redirect to a success page or another view
-        return redirect('backend:getStudents')  # Change 'success_page' to your actual URL name or view
+        form = StudentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Student created successfully!')
+            return redirect('backend:getStudents')  # Redirect to the student list page or another appropriate page
+        else:
+            messages.error(request, 'Error creating student. Please check the form.')
     else:
-        return render(request, 'backend/students/create.html')
+        form = StudentForm()
+    return render(request, 'backend/students/create.html', {'form': form})
 
 @login_required
 def editStudent(request):

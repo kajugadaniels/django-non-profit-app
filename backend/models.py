@@ -6,7 +6,12 @@ class Student(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
-        ('O', 'Other'),
+    )
+    SPONSORSHIP_COVER_CHOICES = (
+        ('School Fees', 'School Fees'),
+        ('Clothes', 'Clothes'),
+        ('Medicines', 'Medicines'),
+        ('Food', 'Food'),
     )
 
     name = models.CharField(max_length=255)
@@ -14,7 +19,7 @@ class Student(models.Model):
     image = models.ImageField(upload_to='students/', blank=True)
     birthday = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    spo_cover = models.CharField(max_length=30)
+    spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
     description = models.TextField()
 
     @property
