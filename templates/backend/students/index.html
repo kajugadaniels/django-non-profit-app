@@ -8,7 +8,8 @@
                 <div class="card"> 
                     <div class="card-body">
                         <div class="list-product-header">
-                            <div> 
+                            <div class="d-flex justify-content-between">
+                                <h4>Students</h4>
                                 <a class="btn btn-primary" href="{% url 'backend:addStudent' %}"><i class="fa fa-plus"></i>Add Student</a>
                             </div>
                         </div>
@@ -66,7 +67,7 @@
                                         </td>
                                         <td> 
                                             <div class="product-action">
-                                                <a href="#"> 
+                                                <a href="{% url 'backend:editStudent' %}"> 
                                                     <svg>    
                                                         <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
                                                     </svg>
