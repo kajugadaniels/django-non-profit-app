@@ -46,3 +46,9 @@ def donate(request):
     }
 
     return render(request, 'frontend/sponsor/index.html', context)
+
+def store(request):
+    return render(request, 'frontend/store/index.html')
+
+def product(request):
+    return render(request, 'frontend/store/product.html')
