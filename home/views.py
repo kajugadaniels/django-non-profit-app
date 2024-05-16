@@ -48,7 +48,13 @@ def donate(request):
     return render(request, 'frontend/sponsor/index.html', context)
 
 def store(request):
-    return render(request, 'frontend/store/index.html')
+    products = Product.objects.all()
+
+    context = {
+        'products': products
+    }
+
+    return render(request, 'frontend/store/index.html', context)
 
 def product(request):
     return render(request, 'frontend/store/product.html')
