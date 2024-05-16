@@ -64,3 +64,24 @@ def product(request, slug):
     }
 
     return render(request, 'frontend/store/product.html', context)
+
+def education(request):
+    return render(request, 'frontend/what-we-do/education.html')
+
+def farmingOutreach(request):
+    return render(request, 'frontend/what-we-do/farming-outreach.html')
+
+def feedingOutreach(request):
+    return render(request, 'frontend/what-we-do/feeding-outreach.html')
+
+def educationSponsorship(request):
+    return render(request, 'frontend/what-we-do/educational-sponsorship.html')
+
+def medicalCare(request):
+    return render(request, 'frontend/what-we-do/medical-care.html')
+
+def OasisAcademy(request):
+    return render(request, 'frontend/what-we-do/oasis-academy.html')
+
+def gospelTeaching(request):
+    return render(request, 'frontend/what-we-do/gospel-teaching.html')
