@@ -1,0 +1,60 @@
+<section class="position-relative bg-very-light-gray">
+    <div class="container" data-anime='{ "el": "childs", "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+        <div class="row mb-3">
+            <div class="col text-center">
+                <h2 class="fw-700 alt-font text-dark-gray ls-minus-2px">Your Partnership Changes lives</h2> 
+                <p>
+                    Your faithful generosity allows AOF to meet the physical, emotional, and spiritual needs of many of the most vulnerable children and families in Bugesera, Rwanda. Lives are transformed, relationships are restored, and communities are changed because of your generosity.
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center position-relative z-index-1">
+            <div class="col-xl-8 col-lg-12">    
+                <form method="post" class="row contact-form-style-02">    
+                    {% csrf_token %}
+                    <div class="col-md-12 mb-30px">
+                        <label class="fw-500 text-black">Fullname</label>
+                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Fullname" />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-30px">
+                            <label class="fw-500 text-black">Email</label>
+                            <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Email" />
+                        </div>
+                        <div class="col-md-4 mb-30px">
+                            <label class="fw-500 text-black">Amount</label>
+                            <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="$5.0" />
+                        </div>
+                        <div class="col-md-4 mb-30px">
+                            <label class="fw-500 text-black">Payment Option</label>
+                            <div class="select">
+                                <select class="form-control border-radius-4px border-color-white box-shadow-double-large" name="select" aria-label="select-doctor">
+                                    <option value="">Select Payment Option</option>
+                                    <option value="One Time">One Time</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Annually">Annually</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-30px">
+                        <label class="fw-500 text-black">Card Number</label>
+                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Card Number" />
+                    </div>
+                    <div class="col-xl-6 col-md-7">
+                        <button class="btn btn-extra-large btn-gradient-fuel-yellow-blue fw-400" type="submit">
+                            <span>
+                                <span><i class="bi bi-calendar-check"></i></span>
+                                <span class="btn-double-text" data-text="Send your donation">Send your donation</span> 
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-results mt-20px d-none"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

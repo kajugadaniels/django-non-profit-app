@@ -37,3 +37,6 @@ def getStudent(request, slug):
     }
     
     return render(request, 'frontend/students/show.html', context)
+
+def donate(request):
+    return render(request, 'frontend/sponsor/index.html')

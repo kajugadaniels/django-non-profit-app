@@ -12,6 +12,7 @@ urlpatterns = [
    path('what-we-do/', whatWeDo, name="whatWeDo"),
    path('students/', students, name="students"),
    path('student/<slug>', getStudent, name='getStudent'),
+   path('donate/', donate, name="donate"),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  
