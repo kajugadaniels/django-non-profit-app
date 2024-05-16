@@ -285,121 +285,29 @@
                     <div class="outside-box-right-25 sm-outside-box-right-0">
                         <div class="swiper slider-one-slide" data-slider-options='{ "slidesPerView": 1, "spaceBetween": 30, "loop": true, "navigation": { "nextEl": ".slider-one-slide-next-1", "prevEl": ".slider-one-slide-prev-1" }, "autoplay": { "delay": 4000, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "1200": { "slidesPerView": 4 }, "992": { "slidesPerView": 3 }, "768": { "slidesPerView": 2 }, "320": { "slidesPerView": 1 } }, "effect": "slide" }'>
                             <div class="swiper-wrapper">
-                                <!-- start slider item -->
-                                <div class="swiper-slide">
-                                    <div class="interactive-banner-style-09 border-radius-6px overflow-hidden position-relative">
-                                        <img src="{% static 'frontend/images/students/1.jpg' %}" alt="" />
-                                        <div class="opacity-very-light bg-slate-blue"></div>
-                                        <div class="image-content h-100 w-100 bg-gradient-gray-light-dark-transparent ps-15 pe-15 pt-13 pb-13 md-p-10 d-flex justify-content-bottom align-items-start flex-column">
-                                            <div class="hover-label-icon position-relative z-index-9">
-                                                <div class="label bg-base-color fw-600 text-white text-uppercase border-radius-30px ps-20px pe-20px fs-12 ls-05px" style="background: #2946f3;">Not sponsored</div>
-                                                <i class="line-icon-Financial text-white icon-extra-large"></i>
+                                {% for student in students %}
+                                    <div class="swiper-slide">
+                                        <div class="interactive-banner-style-09 border-radius-6px overflow-hidden position-relative">
+                                            <img src="{{ student.image.url }}" alt="" />
+                                            <div class="opacity-very-light bg-slate-blue"></div>
+                                            <div class="image-content h-100 w-100 bg-gradient-gray-light-dark-transparent ps-15 pe-15 pt-13 pb-13 md-p-10 d-flex justify-content-bottom align-items-start flex-column">
+                                                <div class="hover-label-icon position-relative z-index-9">
+                                                    <div class="label bg-base-color fw-600 text-white text-uppercase border-radius-30px ps-20px pe-20px fs-12 ls-05px" style="background: #2946f3;">Not sponsored</div>
+                                                    <i class="line-icon-Financial text-white icon-extra-large"></i>
+                                                </div>
+                                                <div class="mt-auto d-flex align-items-start w-100 z-index-1 position-relative overflow-hidden flex-column">
+                                                    <span class="text-white fw-600 fs-20">{{ student.name }}</span>
+                                                    <span class="content-title text-white fs-13 fw-500 text-uppercase ls-05px">{{ student.age }} Years Old, {{ student.gender }}</span>
+                                                    <a href="{% url 'frontend:getStudent' student.slug %}" class="content-title-hover fs-13 lh-24 fw-500 ls-05px text-uppercase text-white opacity-6 text-decoration-line-bottom">See More</a>
+                                                    <span class="content-arrow lh-42px rounded-circle bg-white w-50px h-50px ms-20px text-center"><i class="fa-solid fa-chevron-right text-dark-gray fs-16"></i></span>
+                                                </div>
+                                                <div class="position-absolute left-0px top-0px w-100 h-100 bg-gradient-regal-blue-transparent opacity-9"></div>
+                                                <div class="box-overlay bg-gradient-dark-transparent"></div>
+                                                <a href="#" class="position-absolute z-index-1 top-0px left-0px h-100 w-100"></a>
                                             </div>
-                                            <div class="mt-auto d-flex align-items-start w-100 z-index-1 position-relative overflow-hidden flex-column">
-                                                <span class="text-white fw-600 fs-20">MFURANZIMA Geoffrey</span>
-                                                <span class="content-title text-white fs-13 fw-500 text-uppercase ls-05px">13 Years old, Male</span>
-                                                <a href="#" class="content-title-hover fs-13 lh-24 fw-500 ls-05px text-uppercase text-white opacity-6 text-decoration-line-bottom">See More</a>
-                                                <span class="content-arrow lh-42px rounded-circle bg-white w-50px h-50px ms-20px text-center"><i class="fa-solid fa-chevron-right text-dark-gray fs-16"></i></span>
-                                            </div>
-                                            <div class="position-absolute left-0px top-0px w-100 h-100 bg-gradient-regal-blue-transparent opacity-9"></div>
-                                            <div class="box-overlay bg-gradient-dark-transparent"></div>
-                                            <a href="#" class="position-absolute z-index-1 top-0px left-0px h-100 w-100"></a>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- end slider item -->
-                                <!-- start slider item -->
-                                <div class="swiper-slide">
-                                    <div class="interactive-banner-style-09 border-radius-6px overflow-hidden position-relative">
-                                        <img src="{% static 'frontend/images/students/2.jpg' %}" alt="" />
-                                        <div class="opacity-very-light bg-slate-blue"></div>
-                                        <div class="image-content h-100 w-100 bg-gradient-gray-light-dark-transparent ps-15 pe-15 pt-13 pb-13 md-p-10 d-flex justify-content-bottom align-items-start flex-column">
-                                            <div class="hover-label-icon position-relative z-index-9">
-                                                <div class="label bg-base-color fw-600 text-white text-uppercase border-radius-30px ps-20px pe-20px fs-12 ls-05px" style="background: #2946f3;">Not sponsored</div>
-                                                <i class="line-icon-Financial text-white icon-extra-large"></i>
-                                            </div>
-                                            <div class="mt-auto d-flex align-items-start w-100 z-index-1 position-relative overflow-hidden flex-column">
-                                                <span class="text-white fw-600 fs-20">IKIZERE anick</span>
-                                                <span class="content-title text-white fs-13 fw-500 text-uppercase ls-05px">11 Years old, Female</span>
-                                                <a href="#" class="content-title-hover fs-13 lh-24 fw-500 ls-05px text-uppercase text-white opacity-6 text-decoration-line-bottom">See More</a>
-                                                <span class="content-arrow lh-42px rounded-circle bg-white w-50px h-50px ms-20px text-center"><i class="fa-solid fa-chevron-right text-dark-gray fs-16"></i></span>
-                                            </div>
-                                            <div class="position-absolute left-0px top-0px w-100 h-100 bg-gradient-regal-blue-transparent opacity-9"></div>
-                                            <div class="box-overlay bg-gradient-dark-transparent"></div>
-                                            <a href="#" class="position-absolute z-index-1 top-0px left-0px h-100 w-100"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end slider item -->
-                                <!-- start slider item -->
-                                <div class="swiper-slide">
-                                    <div class="interactive-banner-style-09 border-radius-6px overflow-hidden position-relative">
-                                        <img src="{% static 'frontend/images/students/3.jpg' %}" alt="" />
-                                        <div class="opacity-very-light bg-slate-blue"></div>
-                                        <div class="image-content h-100 w-100 bg-gradient-gray-light-dark-transparent ps-15 pe-15 pt-13 pb-13 md-p-10 d-flex justify-content-bottom align-items-start flex-column">
-                                            <div class="hover-label-icon position-relative z-index-9">
-                                                <div class="label bg-base-color fw-600 text-white text-uppercase border-radius-30px ps-20px pe-20px fs-12 ls-05px" style="background: #2946f3;">Not sponsored</div>
-                                                <i class="line-icon-Financial text-white icon-extra-large"></i>
-                                            </div>
-                                            <div class="mt-auto d-flex align-items-start w-100 z-index-1 position-relative overflow-hidden flex-column">
-                                                <span class="text-white fw-600 fs-20">GWANEZA Neilla Olga</span>
-                                                <span class="content-title text-white fs-13 fw-500 text-uppercase ls-05px">9 Years old, Female</span>
-                                                <a href="#" class="content-title-hover fs-13 lh-24 fw-500 ls-05px text-uppercase text-white opacity-6 text-decoration-line-bottom">See More</a>
-                                                <span class="content-arrow lh-42px rounded-circle bg-white w-50px h-50px ms-20px text-center"><i class="fa-solid fa-chevron-right text-dark-gray fs-16"></i></span>
-                                            </div>
-                                            <div class="position-absolute left-0px top-0px w-100 h-100 bg-gradient-regal-blue-transparent opacity-9"></div>
-                                            <div class="box-overlay bg-gradient-dark-transparent"></div>
-                                            <a href="#" class="position-absolute z-index-1 top-0px left-0px h-100 w-100"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end slider item -->
-                                <!-- start slider item -->
-                                <div class="swiper-slide">
-                                    <div class="interactive-banner-style-09 border-radius-6px overflow-hidden position-relative">
-                                        <img src="{% static 'frontend/images/students/4.jpg' %}" alt="" />
-                                        <div class="opacity-very-light bg-slate-blue"></div>
-                                        <div class="image-content h-100 w-100 bg-gradient-gray-light-dark-transparent ps-15 pe-15 pt-13 pb-13 md-p-10 d-flex justify-content-bottom align-items-start flex-column">
-                                            <div class="hover-label-icon position-relative z-index-9">
-                                                <div class="label bg-base-color fw-600 text-white text-uppercase border-radius-30px ps-20px pe-20px fs-12 ls-05px" style="background: #2946f3;">Not sponsored</div>
-                                                <i class="line-icon-Financial text-white icon-extra-large"></i>
-                                            </div>
-                                            <div class="mt-auto d-flex align-items-start w-100 z-index-1 position-relative overflow-hidden flex-column">
-                                                <span class="text-white fw-600 fs-20">NDAYIZERE Theophile</span>
-                                                <span class="content-title text-white fs-13 fw-500 text-uppercase ls-05px">18 Years old, Male</span>
-                                                <a href="#" class="content-title-hover fs-13 lh-24 fw-500 ls-05px text-uppercase text-white opacity-6 text-decoration-line-bottom">See More</a>
-                                                <span class="content-arrow lh-42px rounded-circle bg-white w-50px h-50px ms-20px text-center"><i class="fa-solid fa-chevron-right text-dark-gray fs-16"></i></span>
-                                            </div>
-                                            <div class="position-absolute left-0px top-0px w-100 h-100 bg-gradient-regal-blue-transparent opacity-9"></div>
-                                            <div class="box-overlay bg-gradient-dark-transparent"></div>
-                                            <a href="#" class="position-absolute z-index-1 top-0px left-0px h-100 w-100"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end slider item -->
-                                <!-- start slider item -->
-                                <div class="swiper-slide">
-                                    <div class="interactive-banner-style-09 border-radius-6px overflow-hidden position-relative">
-                                        <img src="{% static 'frontend/images/students/5.jpg' %}" alt="" />
-                                        <div class="opacity-very-light bg-slate-blue"></div>
-                                        <div class="image-content h-100 w-100 bg-gradient-gray-light-dark-transparent ps-15 pe-15 pt-13 pb-13 md-p-10 d-flex justify-content-bottom align-items-start flex-column">
-                                            <div class="hover-label-icon position-relative z-index-9">
-                                                <div class="label bg-base-color fw-600 text-white text-uppercase border-radius-30px ps-20px pe-20px fs-12 ls-05px" style="background: #2946f3;">Not sponsored</div>
-                                                <i class="line-icon-Financial text-white icon-extra-large"></i>
-                                            </div>
-                                            <div class="mt-auto d-flex align-items-start w-100 z-index-1 position-relative overflow-hidden flex-column">
-                                                <span class="text-white fw-600 fs-20">Manzi Luck Brigitte</span>
-                                                <span class="content-title text-white fs-13 fw-500 text-uppercase ls-05px">14 Years old, Female</span>
-                                                <a href="#" class="content-title-hover fs-13 lh-24 fw-500 ls-05px text-uppercase text-white opacity-6 text-decoration-line-bottom">See More</a>
-                                                <span class="content-arrow lh-42px rounded-circle bg-white w-50px h-50px ms-20px text-center"><i class="fa-solid fa-chevron-right text-dark-gray fs-16"></i></span>
-                                            </div>
-                                            <div class="position-absolute left-0px top-0px w-100 h-100 bg-gradient-regal-blue-transparent opacity-9"></div>
-                                            <div class="box-overlay bg-gradient-dark-transparent"></div>
-                                            <a href="#" class="position-absolute z-index-1 top-0px left-0px h-100 w-100"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end slider item -->
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

@@ -60,29 +60,31 @@
             <div class="col-12">
                 <ul class="blog-side-image blog-wrapper grid-loading grid grid-3col xxl-grid-2col xl-grid-2col lg-grid-2col md-grid-1col sm-grid-1col xs-grid-1col gutter-extra-large">
                     <li class="grid-sizer"></li>
-                    <li class="grid-item">
-                        <div class="blog-box d-md-flex d-block flex-row h-100 border-radius-6px overflow-hidden box-shadow-extra-large">
-                            <div class="blog-content w-50 sm-w-100 pt-50px pb-40px ps-40px pe-40px xl-p-30px bg-white d-flex flex-column justify-content-center align-items-start last-paragraph-no-margin">
-                                <a href="#" class="categories-btn bg-dark-gray text-white text-uppercase fw-500 mb-30px">Not Sponsored</a>
-                                <a href="#" class="card-title text-dark-gray text-dark-gray-hover mb-5px fw-600 fs-18 lh-28">
-                                    Mfuranzima Geoffrey
-                                </a>
-                                <span>
-                                    Age: <strong>13 Years Old</strong>
-                                </span>
-                                <p>
-                                    Geoffrey lives in KAMABUYE Sector with his both parents and 2 siblings. His parents have no own house.
-                                </p>
-                                <div class="mt-15px">
-                                    <span class="separator bg-dark-gray"></span>
-                                    <a href="#" class="text-dark-gray text-dark-gray-hover d-inline-block fs-15 fw-500 fw-500">More Details</a>
+                    {% for student in students %}
+                        <li class="grid-item">
+                            <div class="blog-box d-md-flex d-block flex-row h-100 border-radius-6px overflow-hidden box-shadow-extra-large">
+                                <div class="blog-content w-50 sm-w-100 pt-50px pb-40px ps-40px pe-40px xl-p-30px bg-white d-flex flex-column justify-content-center align-items-start last-paragraph-no-margin">
+                                    <a href="{% url 'frontend:getStudent' student.slug %}" class="categories-btn bg-dark-gray text-white text-uppercase fw-500 mb-30px">Not Sponsored</a>
+                                    <a href="{% url 'frontend:getStudent' student.slug %}" class="card-title text-dark-gray text-dark-gray-hover mb-5px fw-600 fs-18 lh-28">
+                                        {{ student.name }}
+                                    </a>
+                                    <span>
+                                        Age: <strong>{{ student.age }}</strong>
+                                    </span>
+                                    <p>
+                                        {{ student.description|truncatewords:10 }}
+                                    </p>
+                                    <div class="mt-15px">
+                                        <span class="separator bg-dark-gray"></span>
+                                        <a href="{% url 'frontend:getStudent' student.slug %}" class="text-dark-gray text-dark-gray-hover d-inline-block fs-15 fw-500 fw-500">More Details</a>
+                                    </div>
+                                </div>
+                                <div class="blog-image w-50 sm-w-100 cover-background" style="background-image: url({{ student.image.url }})">
+                                    <a href="{% url 'frontend:getStudent' student.slug %}" class="blog-post-image-overlay"></a>
                                 </div>
                             </div>
-                            <div class="blog-image w-50 sm-w-100 cover-background" style="background-image: url({% static 'frontend/images/students/1.jpg' %})">
-                                <a href="#" class="blog-post-image-overlay"></a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-12 mt-4 d-flex justify-content-center">
@@ -92,10 +94,10 @@
                             <i class="feather icon-feather-arrow-left fs-18 d-xs-none"></i>
                         </a>
                     </li>
-                    <li class="page-item">
+                    <li class="page-item active">
                         <a class="page-link" href="#">01</a>
                     </li>
-                    <li class="page-item active">
+                    <li class="page-item">
                         <a class="page-link" href="#">02</a>
                     </li>
                     <li class="page-item">
