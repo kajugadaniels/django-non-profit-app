@@ -56,5 +56,11 @@ def store(request):
 
     return render(request, 'frontend/store/index.html', context)
 
-def product(request):
-    return render(request, 'frontend/store/product.html')
+def product(request, slug):
+    product = Product.objects.get(slug=slug)
+    
+    context = {
+        'product': product
+    }
+
+    return render(request, 'frontend/store/product.html', context)

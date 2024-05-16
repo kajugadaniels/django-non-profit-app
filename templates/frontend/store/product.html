@@ -1,8 +1,86 @@
 {% extends 'frontend/layouts/app.html' %}
 {% load static %}
-{% block title %} Product {% endblock %}
+{% block title %} {{ product.name }} {% endblock %}
 {% block content %}
 
-Product
+<section class="pt-60px"></section>
+
+<section class="pt-60px pb-0 md-pt-30px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 pe-50px md-pe-15px md-mb-40px">
+                <div class="row overflow-hidden position-relative">
+                    <div class="col-12 col-lg-10 position-relative order-lg-2 product-image ps-30px md-ps-15px">
+                        <div class="swiper product-image-slider" data-slider-options='{ "spaceBetween": 10, "loop": true, "autoplay": { "delay": 2000, "disableOnInteraction": false }, "watchOverflow": true, "navigation": { "nextEl": ".slider-product-next", "prevEl": ".slider-product-prev" }, "thumbs": { "swiper": { "el": ".product-image-thumb", "slidesPerView": "auto", "spaceBetween": 15, "direction": "vertical", "navigation": { "nextEl": ".swiper-thumb-next", "prevEl": ".swiper-thumb-prev" } } } }' data-thumb-slider-md-direction="horizontal">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide gallery-box">
+                                    <a href="{{ product.image.url }}" data-group="lightbox-gallery" title="Relaxed corduroy shirt">
+                                        <img class="w-100" src="{{ product.image.url }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-7 product-info">
+                <h4 class="alt-font text-dark-gray fw-500 mb-5px">
+                    {{ product.name }}
+                </h4>
+                <p>
+                    {{ product.description }}
+                </p>
+                <div class="d-block d-sm-flex align-items-center mb-15px">
+                    <div class="col-xl-12 col-lg-12">    
+                        <form method="post" class="row contact-form-style-02">    
+                            {% csrf_token %}
+                            <div class="col-md-12 mb-30px">
+                                <label class="fw-500 text-black">Fullname</label>
+                                <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Fullname" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-30px">
+                                    <label class="fw-500 text-black">Email</label>
+                                    <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Email" />
+                                </div>
+                                <div class="col-md-4 mb-30px">
+                                    <label class="fw-500 text-black">Amount</label>
+                                    <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="$5.0" />
+                                </div>
+                                <div class="col-md-4 mb-30px">
+                                    <label class="fw-500 text-black">Payment Option</label>
+                                    <div class="select">
+                                        <select class="form-control border-radius-4px border-color-white box-shadow-double-large" name="select" aria-label="select-doctor">
+                                            <option value="">Payment Option</option>
+                                            <option value="One Time">One Time</option>
+                                            <option value="Weekly">Weekly</option>
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="Annually">Annually</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-30px">
+                                <label class="fw-500 text-black">Card Number</label>
+                                <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Card Number" />
+                            </div>
+                            <div class="col-xl-6 col-md-7">
+                                <button class="btn btn-extra-large btn-gradient-fuel-yellow-blue fw-400" type="submit">
+                                    <span>
+                                        <span><i class="bi bi-calendar-check"></i></span>
+                                        <span class="btn-double-text" data-text="Send your donation">Send your donation</span> 
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-results mt-20px d-none"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
