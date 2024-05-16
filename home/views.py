@@ -5,3 +5,6 @@ def index(request):
 
 def history(request):
     return render(request, 'frontend/history.html')
+
+def whatWeDo(request):
+    return render(request, 'frontend/what-we-do/index.html')
