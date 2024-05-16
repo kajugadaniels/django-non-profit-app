@@ -8,3 +8,6 @@ def history(request):
 
 def whatWeDo(request):
     return render(request, 'frontend/what-we-do/index.html')
+
+def students(request):
+    return render(request, 'frontend/students/index.html')
