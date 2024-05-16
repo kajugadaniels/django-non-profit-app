@@ -1,1 +1,63 @@
-Sponsorship
+<div class="background-repeat position-relative overflow-hidden">
+    <div class="container">
+        <div class="row justify-content-center mb-2">
+            <div class="col-lg-6 text-center" data-anime='{ "el": "childs", "translateY": [15, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <h2 class="fw-700 alt-font text-dark-gray ls-minus-2px">AOF SCHOLARSHIP</h2> 
+                <p>
+                    Your monthly gift of $40 is life-changing as it makes it possible for ONE hungry child to eat, be able to go to school in a safe environment, receive medical care, and learn about the life-changing love of Jesus.
+                </p>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2" data-anime='{ "el": "childs", "translateY": [30, 0], "translateX": [-30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+            {% for student in students %}
+                <div class="col text-center team-style-05 md-mb-20px">
+                    <div class="interactive-banner-style-09 border-radius-6px overflow-hidden position-relative mb-10">
+                        <img src="{{ student.image.url }}" alt="" />
+                        <div class="opacity-very-light bg-slate-blue"></div>
+                        <div class="image-content h-100 w-100 bg-gradient-gray-light-dark-transparent ps-15 pe-15 pt-13 pb-13 md-p-10 d-flex justify-content-bottom align-items-start flex-column">
+                            <div class="hover-label-icon position-relative z-index-9">
+                                <div class="label bg-base-color fw-600 text-white text-uppercase border-radius-30px ps-20px pe-20px fs-12 ls-05px" style="background: #2946f3;">Not sponsored</div>
+                                <i class="line-icon-Financial text-white icon-extra-large"></i>
+                            </div>
+                            <div class="mt-auto d-flex align-items-start w-100 z-index-1 position-relative overflow-hidden flex-column">
+                                <span class="text-white fw-600 fs-14">{{ student.name }}</span>
+                                <span class="content-title text-white fs-13 fw-500 text-uppercase ls-05px">{{ student.age }} Years Old, {{ student.gender }}</span>
+                                <a href="{% url 'frontend:getStudent' student.slug %}" class="content-title-hover fs-13 lh-24 fw-500 ls-05px text-uppercase text-white opacity-6 text-decoration-line-bottom">See More</a>
+                                <span class="content-arrow lh-42px rounded-circle bg-white w-50px h-50px ms-20px text-center"><i class="fa-solid fa-chevron-right text-dark-gray fs-16"></i></span>
+                            </div>
+                            <div class="position-absolute left-0px top-0px w-100 h-100 bg-gradient-regal-blue-transparent opacity-9"></div>
+                            <div class="box-overlay bg-gradient-dark-transparent"></div>
+                            <a href="#" class="position-absolute z-index-1 top-0px left-0px h-100 w-100"></a>
+                        </div>
+                    </div>
+                </div> 
+            {% endfor %}
+        </div>
+        <div class="col-12 mt-4 d-flex justify-content-center">
+            <ul class="pagination pagination-style-01 fs-13 fw-500 mb-0">
+                <li class="page-item">
+                    <a class="page-link" href="#">
+                        <i class="feather icon-feather-arrow-left fs-18 d-xs-none"></i>
+                    </a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">01</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">02</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">03</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">04</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">
+                        <i class="feather icon-feather-arrow-right fs-18 d-xs-none"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
