@@ -1,0 +1,54 @@
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} Our History {% endblock %}
+{% block content %}
+
+<section class="big-section position-relative">
+    <div id="particles-style-01" class="position-absolute h-100 top-0 left-0 w-100" data-particle="true" data-particle-options='{"particles":{"number":{"value":25,"density":{"enable":true,"value_area":800}},"color":{"value":"#115cfa"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":4,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true}'></div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center mb-6 text-center text-lg-start">
+            <div class="col-xxl-6 col-lg-6 md-mb-20px" data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <h2 class="alt-font text-dark-gray fw-700 ls-minus-2px mb-0">
+                    Team
+                </h2>
+            </div>
+            <div class="col-xxl-6 col-lg-6 col-md-8 col-sm-10 last-paragraph-no-margin" data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <p>
+                    An organization is only as strong as the people who are working toward the same purpose. Thankfully, we have some of the best people in the world at the Africa Oasis Foundation, and we are extremely blessed to have an incredible staff. Our clear mission unifies us, and their dedication and passion are what make our organization thrive.
+                </p>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center">
+            {% for person in team %}
+                <div class="col text-center team-style-04 md-mb-50px">
+                    <figure class="mb-0 position-relative">
+                        <img src="{{ person.image.url }}" class="border-radius-10px" alt=""/>
+                        <figcaption class="w-100 ps-50px pe-50px">
+                            <div class="position-relative p-35px lg-p-25px pb-0 border-radius-10px" style="background-color: #15548C;">
+                                <div class="social-icon mb-20px">
+                                    <a href="https://www.facebook.com/" target="_blank" class="text-white">
+                                        <i class="fa-brands fa-facebook-f icon-small"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/" target="_blank" class="text-white">
+                                        <i class="fa-brands fa-instagram icon-small"></i>
+                                    </a>
+                                    <a href="https://www.twitter.com/" target="_blank" class="text-white">
+                                        <i class="fa-brands fa-twitter icon-small"></i>
+                                    </a>
+                                </div>
+                                <div class="fs-14 fw-500 text-white lh-20">{{ person.name }}</div>
+                                <span class="text-white opacity-7 d-inline-block fs-15">{{ person.title }}</span>
+                                <br>
+                                <a href="#">
+                                    <span class="text-white opacity-7 d-inline-block fs-15">Read more</span>
+                                </a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

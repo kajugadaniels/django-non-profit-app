@@ -10,6 +10,7 @@ urlpatterns = [
    path('', index, name="home"),
 
    path('our-history/', history, name="history"),
+   path('team/', team, name="team"),
 
    path('what-we-do/', whatWeDo, name="whatWeDo"),
    path('what-we-do/education', education, name="education"),

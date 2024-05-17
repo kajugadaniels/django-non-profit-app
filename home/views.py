@@ -17,6 +17,15 @@ def index(request):
 def history(request):
     return render(request, 'frontend/history.html')
 
+def team(request):
+    team = Team.objects.all()
+
+    context = {
+        'team': team
+    }
+
+    return render(request, 'frontend/team.html', context)
+
 def whatWeDo(request):
     return render(request, 'frontend/what-we-do/index.html')
 
