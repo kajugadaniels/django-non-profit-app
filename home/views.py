@@ -116,3 +116,6 @@ def viewBlog(request, slug):
     }
 
     return render(request, 'frontend/blog/show.html', context)
+
+def faq(request):
+    return render(request, 'frontend/faq.html')

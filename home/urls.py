@@ -29,9 +29,11 @@ urlpatterns = [
 
    path('store/', store, name="store"),
    path('store/<slug>', product, name="product"),
-
+   
    path('blog/', blog, name="blog"),
    path('blog/<slug>', viewBlog, name="viewBlog"),
+   
+   path('faq/', faq, name="faq"),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  
