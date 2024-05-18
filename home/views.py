@@ -47,6 +47,10 @@ def getStudent(request, slug):
     
     return render(request, 'frontend/students/show.html', context)
 
+def give(request):
+
+    return render(request, 'frontend/give.html')
+
 def donate(request):
     students = Student.objects.all()
     

@@ -24,6 +24,7 @@ urlpatterns = [
    path('students/', students, name="students"),
    path('student/<slug>', getStudent, name='getStudent'),
 
+   path('give/', give, name="give"),
    path('donate/', donate, name="donate"),
 
    path('store/', store, name="store"),
