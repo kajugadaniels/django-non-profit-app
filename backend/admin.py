@@ -4,3 +4,4 @@ from backend.models import *
 admin.site.register(Student)
 admin.site.register(Product)
 admin.site.register(Team)
+admin.site.register(Blog)
