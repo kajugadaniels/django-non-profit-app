@@ -1,1 +1,145 @@
-{{ student.name }}
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} {{ student.name }} {% endblock %}
+{% block content %}
+
+<section class="pt-60px"></section>
+
+<section class="pt-40px pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 md-mb-40px" data-anime='{ "translate": [0, 0], "opacity": [0,1], "duration": 600, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <div class="row overflow-hidden position-relative">
+                    <div class="col-12 position-relative product-image">
+                        <div class="swiper product-image-slider" data-slider-options='{ "spaceBetween": 0, "watchOverflow": true, "navigation": { "nextEl": ".slider-product-next", "prevEl": ".slider-product-prev" }, "thumbs": { "swiper": { "el": ".product-image-thumb", "slidesPerView": "5", "spaceBetween": 15 } } }' data-swiper-thumb-click="1">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide gallery-box">
+                                    <a href="{{ student.image.url }}" data-group="lightbox-gallery" title="Minimalist wooden chair">
+                                        <img class="w-100" src="{{ student.image.url }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 offset-lg-1 product-info" data-anime='{ "translate": [0, 0], "opacity": [0,1], "duration": 600, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <span class="fw-500 text-dark-gray d-block">{{ student.age }} Years Old, {{ student.gender }}</span>
+                <h5 class="alt-font text-dark-gray fw-700 mb-10px">{{ student.name }}</h5>
+                <div class="d-block d-sm-flex align-items-center mb-20px">
+                    <div>
+                        <span class="text-dark-gray fw-500">Birthday: </span>
+                        {{ student.birthday }}
+                    </div>
+                </div>
+                <div class="col-xl-12 col-lg-12">  
+                    <h5 class="alt-font text-dark-gray fw-700 mb-10px fs-20">
+                        Your Sponsorship
+                    </h5>
+                    <form method="post" class="row contact-form-style-02">    
+                        {% csrf_token %}
+                        <div class="col-md-12 mb-30px">
+                            <label class="fw-500 text-black">Fullname</label>
+                            <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Fullname" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-30px">
+                                <label class="fw-500 text-black">Email</label>
+                                <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Email" />
+                            </div>
+                            <div class="col-md-4 mb-30px">
+                                <label class="fw-500 text-black">Amount</label>
+                                <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="$5.0" />
+                            </div>
+                            <div class="col-md-4 mb-30px">
+                                <label class="fw-500 text-black">Payment Option</label>
+                                <div class="select">
+                                    <select class="form-control border-radius-4px border-color-white box-shadow-double-large" name="select" aria-label="select-doctor">
+                                        <option value="">Select Payment Option</option>
+                                        <option value="One Time">One Time</option>
+                                        <option value="Weekly">Weekly</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Annually">Annually</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-30px">
+                            <label class="fw-500 text-black">Card Number</label>
+                            <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Card Number" />
+                        </div>
+                        <div class="col-xl-6 col-md-7">
+                            <button class="btn btn-extra-large btn-gradient-fuel-yellow-blue fw-400" type="submit">
+                                <span>
+                                    <span><i class="bi bi-calendar-check"></i></span>
+                                    <span class="btn-double-text" data-text="Send your donation">Send your donation</span> 
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-results mt-20px d-none"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="tab">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 tab-style-04" data-anime='{ "translate": [0, 0], "opacity": [0,1], "duration": 600, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <ul class="nav nav-tabs border-0 justify-content-center alt-font fs-17 fw-500">
+                    <li class="nav-item"><a data-bs-toggle="tab" href="#tab_five1" class="nav-link active">Description<span class="tab-border bg-dark-gray"></span></a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab_five2">Sponsorship Cover<span class="tab-border bg-dark-gray"></span></a></li>
+                </ul>
+                <div class="mb-6 h-1px w-100 bg-extra-medium-gray sm-mt-10px"></div>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active show" id="tab_five1">
+                        <div class="row align-items-center justify-content-center mb-5 sm-mb-10">
+                            <div class="col-xl-12 col-lg-12 md-mb-40px">
+                                <p>
+                                    {{ student.description }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tab_five2">
+                        <div class="row m-0">
+                            <div class="col-12">
+                                <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2 mb-5 sm-mb-10 border border-1 border-color-extra-medium-gray g-0">
+                                    <div class="col border-end xs-border-end-0 md-border-bottom border-color-extra-medium-gray last-paragraph-no-margin text-center ps-3 pe-3 pt-4 pb-4 xl-ps-2 xl-pe-2 md-p-30px">
+                                        {% comment %} Use svg icon here {% endcomment %}
+                                        <span class="d-block fs-15 fw-700 text-dark-gray text-uppercase ls-05px mb-5px">School fees</span>
+                                    </div>
+                                    <div class="col border-end xs-border-end-0 md-border-bottom border-color-extra-medium-gray last-paragraph-no-margin text-center ps-3 pe-3 pt-4 pb-4 xl-ps-2 xl-pe-2 md-p-30px">
+                                        {% comment %} Use svg icon here {% endcomment %}
+                                        <span class="d-block fs-15 fw-700 text-dark-gray text-uppercase ls-05px mb-5px">Scholatic material</span>
+                                    </div>
+                                    <div class="col border-end xs-border-end-0 md-border-bottom border-color-extra-medium-gray last-paragraph-no-margin text-center ps-3 pe-3 pt-4 pb-4 xl-ps-2 xl-pe-2 md-p-30px">
+                                        {% comment %} Use svg icon here {% endcomment %}
+                                        <span class="d-block fs-15 fw-700 text-dark-gray text-uppercase ls-05px mb-5px">Medical assistance</span>
+                                    </div>
+                                    <div class="col border-end xs-border-end-0 md-border-bottom border-color-extra-medium-gray last-paragraph-no-margin text-center ps-3 pe-3 pt-4 pb-4 xl-ps-2 xl-pe-2 md-p-30px">
+                                        {% comment %} Use svg icon here {% endcomment %}
+                                        <span class="d-block fs-15 fw-700 text-dark-gray text-uppercase ls-05px mb-5px">Uniform / Years</span>
+                                    </div>
+                                    <div class="col border-end xs-border-end-0 md-border-bottom border-color-extra-medium-gray last-paragraph-no-margin text-center ps-3 pe-3 pt-4 pb-4 xl-ps-2 xl-pe-2 md-p-30px">
+                                        {% comment %} Use svg icon here {% endcomment %}
+                                        <span class="d-block fs-15 fw-700 text-dark-gray text-uppercase ls-05px mb-5px">Center Day</span>
+                                    </div>
+                                    <div class="col border-end xs-border-end-0 md-border-bottom border-color-extra-medium-gray last-paragraph-no-margin text-center ps-3 pe-3 pt-4 pb-4 xl-ps-2 xl-pe-2 md-p-30px">
+                                        {% comment %} Use svg icon here {% endcomment %}
+                                        <span class="d-block fs-15 fw-700 text-dark-gray text-uppercase ls-05px mb-5px">Camp</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
