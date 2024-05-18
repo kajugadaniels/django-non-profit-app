@@ -388,89 +388,35 @@
                 <div class="col-12">
                     <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
                         <li class="grid-sizer"></li>
-                        <li class="grid-item">
-                            <div class="card bg-transparent border-0 h-100">
-                                <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                    <a href="#">
-                                        <img src="{% static 'frontend/images/blog/1.png' %}" alt />
-                                    </a>
+                        {% for blog in blog %}
+                            <li class="grid-item">
+                                <div class="card bg-transparent border-0 h-100">
+                                    <div class="blog-image position-relative overflow-hidden border-radius-4px">
+                                        <a href="{% url 'frontend:viewBlog' blog.slug %}">
+                                            <img src="{% static 'frontend/images/blog/1.png' %}" alt />
+                                        </a>
+                                    </div>
+                                    <div class="card-body px-0 pt-30px pb-30px">
+                                        <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">
+                                            {{ blog.title }}
+                                        </a>
+                                        <p class="mb-10px w-95">
+                                            {{ blog.description|truncatewords:10 }}
+                                        </p>
+                                        <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">
+                                            More reading
+                                            <i class="feather icon-feather-arrow-right icon-very-small"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="card-body px-0 pt-30px pb-30px">
-                                    <a href="#" class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">4 Creative Ways You Can Partner With Us</a>
-                                    <p class="mb-10px w-95">
-                                        This family of BAZUBAGIRA Rosalie a mother of 7 children lives in,..
-                                    </p>
-                                    <a href="#" class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">
-                                        More reading
-                                        <i class="feather icon-feather-arrow-right icon-very-small"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="grid-item">
-                            <div class="card bg-transparent border-0 h-100">
-                                <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                    <a href="#">
-                                        <img src="{% static 'frontend/images/blog/1.png' %}" alt />
-                                    </a>
-                                </div>
-                                <div class="card-body px-0 pt-30px pb-30px">
-                                    <a href="#" class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">4 Creative Ways You Can Partner With Us</a>
-                                    <p class="mb-10px w-95">
-                                        This family of BAZUBAGIRA Rosalie a mother of 7 children lives in,..
-                                    </p>
-                                    <a href="#" class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">
-                                        More reading
-                                        <i class="feather icon-feather-arrow-right icon-very-small"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="grid-item">
-                            <div class="card bg-transparent border-0 h-100">
-                                <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                    <a href="#">
-                                        <img src="{% static 'frontend/images/blog/1.png' %}" alt />
-                                    </a>
-                                </div>
-                                <div class="card-body px-0 pt-30px pb-30px">
-                                    <a href="#" class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">4 Creative Ways You Can Partner With Us</a>
-                                    <p class="mb-10px w-95">
-                                        This family of BAZUBAGIRA Rosalie a mother of 7 children lives in,..
-                                    </p>
-                                    <a href="#" class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">
-                                        More reading
-                                        <i class="feather icon-feather-arrow-right icon-very-small"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="grid-item">
-                            <div class="card bg-transparent border-0 h-100">
-                                <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                    <a href="#">
-                                        <img src="{% static 'frontend/images/blog/1.png' %}" alt />
-                                    </a>
-                                </div>
-                                <div class="card-body px-0 pt-30px pb-30px">
-                                    <a href="#" class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">4 Creative Ways You Can Partner With Us</a>
-                                    <p class="mb-10px w-95">
-                                        This family of BAZUBAGIRA Rosalie a mother of 7 children lives in,..
-                                    </p>
-                                    <a href="#" class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">
-                                        More reading
-                                        <i class="feather icon-feather-arrow-right icon-very-small"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                    
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col-12 mt-2 d-flex justify-content-center">
                     <ul class="pagination pagination-style-01 fs-13 fw-500 mb-0">
                         <li class="page-item">
-                            <a class="page-link" href="#">
+                            <a class="page-link" href="{% url 'frontend:blog' %}">
                                 See More
                                 <i class="feather icon-feather-arrow-right fs-18 d-xs-none"></i>
                             </a>

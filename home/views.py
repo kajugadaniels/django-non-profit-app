@@ -4,12 +4,12 @@ from django.shortcuts import render
 
 def index(request):
     all_students = list(Student.objects.all())
-
-    # Select 7 students randomly
     random_students = sample(all_students, 7)
+    blog = Blog.objects.all()
     
     context = {
         'students': random_students,
+        'blog': blog
     }
 
     return render(request, 'frontend/index.html', context)
