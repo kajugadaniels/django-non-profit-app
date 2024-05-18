@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from datetime import date
 from django_quill.fields import QuillField
-
+from django.utils import timezone
 class Student(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
@@ -72,9 +72,11 @@ class Team(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
+    subTitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True, blank=True)
     image = models.ImageField(upload_to='store/')
-    description = models.TextField()
+    description = QuillField()
+    created_on =  models.DateTimeField(default=timezone.now)
 
     def save(self, *args, **kwargs):
         if not self.slug:
