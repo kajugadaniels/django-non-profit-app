@@ -99,7 +99,7 @@ def donate(request):
             try:
                 product = stripe.Product.create(
                         name="AOF Foundation",
-                        description="Your mift of $"+str(amount)+" is life-changing as it makes it possible for ONE hungry child to eat, be able to go to school in a safe environment, receive medical care, and learn about the life-changing love of Jesus."
+                        description="Your gift of $"+str(amount)+" is life-changing as it makes it possible for ONE hungry child to eat, be able to go to school in a safe environment, receive medical care, and learn about the life-changing love of Jesus."
                     )
                 productId = product.id
                 if amount:
