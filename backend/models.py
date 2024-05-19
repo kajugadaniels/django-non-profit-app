@@ -1,9 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 from datetime import date
-from datetime import datetime
 from django_quill.fields import QuillField
-
+from django.utils import timezone
 class Student(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
@@ -23,8 +22,8 @@ class Student(models.Model):
     birthday = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
-    # description = models.TextField()
-    description = QuillField()
+    description = models.TextField()
+    # description = QuillField()
 
     @property
     def age(self):
@@ -46,8 +45,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='store/')
     unit = models.CharField(max_length=255, default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    # description = models.TextField()
-    description = QuillField()
+    description = models.TextField()
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -62,8 +60,7 @@ class Team(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='store/')
-    # description = models.TextField()
-    description = QuillField()
+    description = models.TextField()
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -75,14 +72,11 @@ class Team(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
+    subTitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True, blank=True)
     image = models.ImageField(upload_to='store/')
-    # description = models.TextField()
     description = QuillField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    published_at = models.DateTimeField(null=True, blank=True)
-    is_published = models.BooleanField(default=False)
+    created_on =  models.DateTimeField(default=timezone.now)
 
     def save(self, *args, **kwargs):
         if not self.slug:
