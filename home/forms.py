@@ -22,9 +22,4 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Password"}))
 
 
-class DonationForm(forms.Form):
-    amount = forms.DecimalField(max_digits=10, decimal_places=2, required=True)
-    email = forms.EmailField()
-    fullname = forms.CharField(max_length=100, required=True)
-    paymentOptions = forms.CharField(max_length=100, required=True)
     
