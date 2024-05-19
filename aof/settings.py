@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     # Custom apps
     'home',
     'backend',
-
+    "api",
     # Third party packages
     "whitenoise.runserver_nostatic",
     'django_quill',
+    "corsheaders",
+    "drf_yasg"
 ]
 
 MIDDLEWARE = [
@@ -58,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'aof.urls'
@@ -151,6 +155,7 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_AUTOREFRESH = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -179,3 +184,4 @@ QUILL_CONFIGS = {
         }
     }
 }
+CORS_ALLOW_ALL_ORIGINS=True
