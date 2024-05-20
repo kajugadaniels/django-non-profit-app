@@ -3,7 +3,7 @@ from django_quill.forms import QuillFormField
 from backend.models import Student
 
 class StudentForm(forms.ModelForm):
-    description = QuillFormField()
+    # description = QuillFormField()
 
     class Meta:
         model = Student
@@ -14,5 +14,5 @@ class StudentForm(forms.ModelForm):
             'birthday': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'gender': forms.Select(attrs={'class': 'form-select'}, choices=Student.GENDER_CHOICES),
             'spo_cover': forms.Select(attrs={'class': 'form-select'}, choices=Student.SPONSORSHIP_COVER_CHOICES),
-            # 'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Additional Information'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Additional Information'}),
         }
