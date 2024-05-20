@@ -1,11 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.utils.text import slugify
-from home.forms import UserLoginForm
+from home.forms import *
 from django.contrib import messages
-from backend.models import Student
-from backend.forms import StudentForm
+from backend.models import *
+from backend.forms import *
 
 def user_login(request):
     if request.user.is_authenticated:
@@ -60,3 +59,15 @@ def addStudent(request):
 @login_required
 def editStudent(request):
     return render(request, 'backend/students/edit.html')
+
+@login_required
+def getTeam(request):
+    return render(request, 'backend/team/index.html')
+
+@login_required
+def addTeam(request):
+    return render(request, 'backend/team/create.html')
+
+@login_required
+def editTeam(request):
+    return render(request, 'backend/team/edit.html')
