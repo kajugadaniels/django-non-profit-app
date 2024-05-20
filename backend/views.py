@@ -68,9 +68,11 @@ def editStudent(request):
 @login_required
 def getTeam(request):
     team = Team.objects.all()
+    students = Student.objects.all()
     
     context = {
-        'team': team
+        'team': team,
+        'students': students
     }
     
     return render(request, 'backend/team/index.html', context)

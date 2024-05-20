@@ -9,8 +9,8 @@
                     <div class="card-body">
                         <div class="list-product-header">
                             <div class="d-flex justify-content-between">
-                                <h4>Team</h4>
-                                <a class="btn btn-primary" href="{% url 'backend:addTeam' %}"><i class="fa fa-plus"></i>Add a Member</a>
+                                <h4>Team Members</h4>
+                                <a class="btn btn-primary" href="{% url 'backend:addTeam' %}"><i class="fa fa-plus"></i>Add Team</a>
                             </div>
                         </div>
                         <div class="list-product">
@@ -23,7 +23,7 @@
                                         </div>
                                     </th>
                                     <th> <span class="f-light f-w-600">Member</span></th>
-                                    <th> <span class="f-light f-w-600">Title</span></th>
+                                    <th> <span class="f-light f-w-600">Position</span></th>
                                     <th> <span class="f-light f-w-600">Description</span></th>
                                     <th> <span class="f-light f-w-600">Action</span></th>
                                     </tr>
@@ -44,6 +44,9 @@
                                                     </div>
                                                     <p>{{ person.name }}</p>
                                                 </div>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ person.position }}</p>
                                             </td>
                                             <td>
                                                 <p>
