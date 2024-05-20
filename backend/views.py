@@ -62,7 +62,13 @@ def editStudent(request):
 
 @login_required
 def getTeam(request):
-    return render(request, 'backend/team/index.html')
+    team = Team.objects.all()
+    
+    context = {
+        'team': team
+    }
+    
+    return render(request, 'backend/team/index.html', context)
 
 @login_required
 def addTeam(request):

@@ -2,8 +2,75 @@
 {% load static %}
 {% block content %}
 
-    <div class="container-fluid dashboard-2">
-        Team Members
+    <div class="container-fluid">
+        <div class="row"> 
+            <div class="col-sm-12"> 
+                <div class="card"> 
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Team</h4>
+                                <a class="btn btn-primary" href="{% url 'backend:addTeam' %}"><i class="fa fa-plus"></i>Add a Member</a>
+                            </div>
+                        </div>
+                        <div class="list-product">
+                            <table class="table" id="project-status">
+                                <thead> 
+                                    <tr> 
+                                    <th>
+                                        <div class="form-check"> 
+                                            <input class="form-check-input checkbox-primary" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th> <span class="f-light f-w-600">Member</span></th>
+                                    <th> <span class="f-light f-w-600">Title</span></th>
+                                    <th> <span class="f-light f-w-600">Description</span></th>
+                                    <th> <span class="f-light f-w-600">Action</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for person in team %}
+                                        <tr class="product-removes">
+                                            <td>
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input checkbox-primary" type="checkbox">
+                                                </div>
+                                            </td>
+                                            <td> 
+                                                <div class="product-names">
+                                                    <div class="light-product-box">
+                                                        <img class="img-fluid" src="{{ person.image.url }}" alt="laptop">
+                                                    </div>
+                                                    <p>{{ person.name }}</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    {{ person.description|truncatewords:14 }}
+                                                </p>
+                                            </td>
+                                            <td> 
+                                                <div class="product-action">
+                                                    <a href="{% url 'backend:editTeam' %}"> 
+                                                        <svg>    
+                                                            <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <svg>
+                                                        <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
+                                                    </svg>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
