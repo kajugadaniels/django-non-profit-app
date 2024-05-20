@@ -19,6 +19,10 @@ urlpatterns = [
    path('team/', getTeam, name='getTeam'),
    path('team/create', addTeam, name='addTeam'),
    path('team/<slug>', editTeam, name='editTeam'),
+
+   path('blog/', getBlog, name='getBlog'),
+   path('blog/create', addBlog, name='addBlog'),
+   path('blog/<slug>', editBlog, name='editBlog'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  

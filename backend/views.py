@@ -109,3 +109,15 @@ def editTeam(request, slug):
     }
 
     return render(request, 'backend/team/edit.html', context)
+
+@login_required
+def getBlog(request):
+    return render(request, 'backend/blog/index.html')
+
+@login_required
+def addBlog(request):
+    return render(request, 'backend/blog/create.html')
+
+@login_required
+def editBlog(request, slug):
+    return render(request, 'backend/blog/edit.html')
