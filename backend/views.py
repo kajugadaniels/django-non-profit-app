@@ -112,7 +112,13 @@ def editTeam(request, slug):
 
 @login_required
 def getBlog(request):
-    return render(request, 'backend/blog/index.html')
+    blogs = Blog.objects.all()
+
+    context = {
+        'blogs': blogs
+    }
+
+    return render(request, 'backend/blog/index.html', context)
 
 @login_required
 def addBlog(request):
