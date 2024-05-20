@@ -225,3 +225,6 @@ def viewBlog(request, slug):
 
 def faq(request):
     return render(request, 'frontend/faq.html')
+
+def contact(request):
+    return render(request, 'frontend/contact.html')
