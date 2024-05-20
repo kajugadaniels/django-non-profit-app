@@ -8,17 +8,16 @@ from dotenv import load_dotenv
 load_dotenv()
 import os
 from .forms import *
-# Create your  views here.
 
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 publickey =  os.getenv("STRIPE_PUBLIC_KEY")
+
 def index(request):
-    all_students = list(Student.objects.all())
-    random_students = sample(all_students, 7)
+    students = Student.objects.all()
     blog = Blog.objects.all()
     
     context = {
-        'students': random_students,
+        'students': students,
         'blog': blog
     }
 

@@ -8,7 +8,6 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('backend', '0010_blog_subtitle'),
         ('home', '0003_donate'),
     ]
 

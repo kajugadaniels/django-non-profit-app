@@ -401,7 +401,7 @@
                                             {{ blog.title }}
                                         </a>
                                         <p class="mb-10px w-95">
-                                            {{ blog.subTitle|truncatewords:10 }}
+                                            {{ blog.description|safe|truncatewords:10 }}
                                         </p>
                                         <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">
                                             More reading
