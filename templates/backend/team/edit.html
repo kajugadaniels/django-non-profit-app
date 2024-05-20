@@ -1,9 +1,62 @@
 {% extends 'backend/layouts/app.html' %}
 {% load static %}
 {% block content %}
-
-    <div class="container-fluid dashboard-2">
-        Edit Member
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Edit a Member ({{ person.name }})</h4>
+                                <a class="btn btn-primary" href="{% url 'backend:getTeam' %}"><i class="fa fa-eye"></i>View Members</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form theme-form">
+                            <form class="price-wrapper" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-4"> 
+                                        <label class="form-label">Name</label>
+                                        {{ form.name }}
+                                    </div>
+                                    <div class="col-sm-4"> 
+                                        <label class="form-label">Position</label>
+                                        {{ form.position }}
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label">Image</label>
+                                                <div class="input-group flatpicker-calender product-date">
+                                                    {{ form.image }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-12">
+                                        <div class="col-12">
+                                            <label class="form-label">Description</label>
+                                            {{ form.description }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <div class="text-end">
+                                            <button class="btn btn-primary me-3">Update Member({{ person.name }})</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
 {% endblock %}

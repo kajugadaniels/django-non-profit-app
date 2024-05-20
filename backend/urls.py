@@ -14,11 +14,11 @@ urlpatterns = [
 
    path('students/', getStudents, name='getStudents'),
    path('student/create', addStudent, name='addStudent'),
-   path('student/slug', editStudent, name='editStudent'),
+   path('student/<slug>', editStudent, name='editStudent'),
 
    path('team/', getTeam, name='getTeam'),
    path('team/create', addTeam, name='addTeam'),
-   path('team/slug', editTeam, name='editTeam'),
+   path('team/<slug>', editTeam, name='editTeam'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  

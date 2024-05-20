@@ -62,17 +62,21 @@ def addStudent(request):
     return render(request, 'backend/students/create.html', context)
 
 @login_required
-def editStudent(request):
-    return render(request, 'backend/students/edit.html')
+def editStudent(request, slug):
+    student = Student.objects.get(slug=slug)
+    
+    context = {
+        'student': student
+    }
+
+    return render(request, 'backend/students/edit.html', context)
 
 @login_required
 def getTeam(request):
     team = Team.objects.all()
-    students = Student.objects.all()
     
     context = {
         'team': team,
-        'students': students
     }
     
     return render(request, 'backend/team/index.html', context)
@@ -97,5 +101,11 @@ def addTeam(request):
     return render(request, 'backend/team/create.html', context)
 
 @login_required
-def editTeam(request):
-    return render(request, 'backend/team/edit.html')
+def editTeam(request, slug):
+    person = Team.objects.get(slug=slug)
+    
+    context = {
+        'person': person
+    }
+
+    return render(request, 'backend/team/edit.html', context)
