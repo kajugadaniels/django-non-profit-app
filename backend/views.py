@@ -148,3 +148,11 @@ def editBlog(request, slug):
     }
     
     return render(request, 'backend/blog/edit.html', context)
+
+@login_required
+def donate(request):
+    return render(request, 'backend/donate/donate.html')
+
+@login_required
+def donateToStudent(request):
+    return render(request, 'backend/donate/donate-to-student.html')

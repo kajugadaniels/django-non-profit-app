@@ -23,6 +23,9 @@ urlpatterns = [
    path('blog/', getBlog, name='getBlog'),
    path('blog/create', addBlog, name='addBlog'),
    path('blog/<slug>', editBlog, name='editBlog'),
+
+   path('donate/', donate, name='donate'),
+   path('donate-to-student', donateToStudent, name='donateToStudent'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  
