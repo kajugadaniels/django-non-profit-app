@@ -3,4 +3,99 @@
 {% block title %} Give {% endblock %}
 {% block content %}
 
+<section class="cover-background one-third-screen sm-h-500px" style="background-image:url({% static 'frontend/images/our-story-bg.png' %});">
+    <div class="opacity-medium bg-dark-slate-blue"></div> 
+    <div class="container h-100"> 
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="col-xxl-8 col-lg-10 mb-9 md-mb-15 sm-mb-0 position-relative z-index-1 text-center d-flex flex-wrap align-items-center justify-content-center" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>   
+                <h1 class="text-white fw-600 ls-minus-2px mb-45px">
+                    Give 
+                </h1> 
+            </div>  
+        </div> 
+    </div>
+    <div class="shape-image-animation bottom-0 p-0 w-100 d-none d-md-block"> 
+        <svg xmlns="http://www.w3.org/2000/svg" widht="3000" height="400" viewBox="0 180 2500 200" fill="#ffffff"> 
+        <path class="st1" d="M 0 250 C 1200 400 1200 50 3000 250 L 3000 550 L 0 550 L 0 250">
+        <animate
+            attributeName="d"
+            dur="5s"
+            values="M 0 250 C 1200 400 1200 50 3000 250 L 3000 550 L 0 550 L 0 250;
+                    M 0 250 C 400 50 400 400 3000 250 L 3000 550 L 0 550 L 0 250;
+                    M 0 250 C 1200 400 1200 50 3000 250 L 3000 550 L 0 550 L 0 250"
+            repeatCount="indefinite"
+            />
+        </path>
+        </svg>
+    </div> 
+</section>
+
+<section class="big-section position-relative">
+    <div id="particles-style-01" class="h-100 position-absolute left-0px top-0 w-100 z-index-minus-1" data-particle="true" data-particle-options='{"particles": {"number": {"value": 25,"density": {"enable": true,"value_area": 2000}},"color": {"value": ["#ffc700", "#232323"]},"shape": {"type": "circle","stroke":{"width":0,"color":"#000000"}},"opacity": {"value": 1,"random": false,"anim": {"enable": false,"speed": 1,"sync": false}},"size": {"value": 8,"random": true,"anim": {"enable": false,"sync": true}},"line_linked":{"enable":false,"distance":0,"color":"#ffffff","opacity":0.4,"width":1},"move": {"enable": true,"speed":1,"direction": "right","random": false,"straight": false}},"interactivity": {"detect_on": "canvas","events": {"onhover": {"enable": false,"mode": "repulse"},"onclick": {"enable": false,"mode": "push"},"resize": true}},"retina_detect": false}'></div> 
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-8 text-center mb-3">
+                <h2 class="text-dark-gray fw-600 ls-minus-2px mb-40px">
+                    We can give without loving,
+                    but we can’t love without giving.
+                </h2>
+                <p>
+                    2 Corinthians 9:7 says, “Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver.” ❤️😊
+                </p>
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#collapseFour" class="accordion-toggle btn btn-extra-large btn-transparent-dark-gray btn-slide-down btn-rounded me-5px ms-5px mb-15px">Give Now<span class="bg-dark-gray"></span></a>
+            </div>
+            <div id="collapseFour" class="collapse">
+                <div class="tab-pane fade in active show" id="tab_first1">
+                    <div class="row justify-content-center">
+                        <form method="post" action="" class="row contact-form-style-02">    
+                            {% csrf_token %}
+                            <div class="col-md-12 mb-30px">
+                                <label class="fw-500 text-black">Fullname</label>
+                                <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Fullname" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-30px">
+                                    <label class="fw-500 text-black">Email</label>
+                                    <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Email" />
+                                </div>
+                                <div class="col-md-4 mb-30px">
+                                    <label class="fw-500 text-black">Amount</label>
+                                    <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="$5.0" />
+                                </div>
+                                <div class="col-md-4 mb-30px">
+                                    <label class="fw-500 text-black">Payment Option</label>
+                                    <div class="select">
+                                        <select class="form-control border-radius-4px border-color-white box-shadow-double-large" name="select" aria-label="select-doctor">
+                                            <option value="">Payment Option</option>
+                                            <option value="One Time">One Time</option>
+                                            <option value="Weekly">Weekly</option>
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="Annually">Annually</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-30px">
+                                <label class="fw-500 text-black">Card Number</label>
+                                <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Card Number" />
+                            </div>
+                            <div class="col-xl-6 col-md-7">
+                                <button class="btn btn-extra-large btn-gradient-fuel-yellow-blue fw-400" type="submit">
+                                    <span>
+                                        <span><i class="bi bi-calendar-check"></i></span>
+                                        <span class="btn-double-text" data-text="Send your donation">Send your donation</span> 
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-results mt-20px d-none"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
