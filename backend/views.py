@@ -141,4 +141,10 @@ def addBlog(request):
 
 @login_required
 def editBlog(request, slug):
-    return render(request, 'backend/blog/edit.html')
+    blog = Blog.objects.get(slug=slug)
+    
+    context = {
+        'blog': blog
+    }
+    
+    return render(request, 'backend/blog/edit.html', context)
