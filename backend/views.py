@@ -49,12 +49,17 @@ def addStudent(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Student created successfully!')
-            return redirect('backend:getStudents')  # Redirect to the student list page or another appropriate page
+            return redirect('backend:getStudents')
         else:
             messages.error(request, 'Error creating student. Please check the form.')
     else:
         form = StudentForm()
-    return render(request, 'backend/students/create.html', {'form': form})
+    
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/students/create.html', context)
 
 @login_required
 def editStudent(request):
@@ -72,7 +77,22 @@ def getTeam(request):
 
 @login_required
 def addTeam(request):
-    return render(request, 'backend/team/create.html')
+    if request.method == 'POST':
+        form = TeamForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Team Member created successfully!')
+            return redirect('backend:getTeam')
+        else:
+            messages.error(request, 'Error creating a team member. Please check the form.')
+    else:
+        form = TeamForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/team/create.html', context)
 
 @login_required
 def editTeam(request):

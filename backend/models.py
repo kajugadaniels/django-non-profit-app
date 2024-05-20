@@ -58,7 +58,7 @@ class Product(models.Model):
 class Team(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
-    title = models.CharField(max_length=255)
+    position = models.CharField(max_length=255)
     image = models.ImageField(upload_to='team/')
     description = models.TextField()
 
