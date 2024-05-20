@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from home.forms import *
 from django.contrib import messages
+from home.models import *
 from backend.models import *
 from backend.forms import *
 
@@ -151,8 +152,20 @@ def editBlog(request, slug):
 
 @login_required
 def donate(request):
-    return render(request, 'backend/donate/donate.html')
+    donate = Donate.objects.all()
+    
+    context = {
+        'donate': donate
+    }
+    
+    return render(request, 'backend/donate/donate.html', context)
 
 @login_required
 def donateToStudent(request):
-    return render(request, 'backend/donate/donate-to-student.html')
+    donate = DonateToStudents.objects.all()
+    
+    context = {
+        'donate': donate
+    }
+    
+    return render(request, 'backend/donate/donate-to-student.html', context)
