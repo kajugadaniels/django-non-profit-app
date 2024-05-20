@@ -76,7 +76,7 @@ class Blog(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     image = models.ImageField(upload_to='store/')
     description = QuillField()
-    created_on =  models.DateTimeField(default=timezone.now)
+    created_on = models.DateTimeField(default=timezone.now)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -85,3 +85,13 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Testimonial(models.Model):
+    name = models.CharField(max_length=255)
+    position = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='testimonial/')
+    message = models.TextField()
+    created_on = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name
