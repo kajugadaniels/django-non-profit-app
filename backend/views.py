@@ -122,7 +122,22 @@ def getBlog(request):
 
 @login_required
 def addBlog(request):
-    return render(request, 'backend/blog/create.html')
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Blog created successfully!')
+            return redirect('backend:getBlog')
+        else:
+            messages.error(request, 'Error creating a blog. Please check the form.')
+    else:
+        form = BlogForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/blog/create.html', context)
 
 @login_required
 def editBlog(request, slug):

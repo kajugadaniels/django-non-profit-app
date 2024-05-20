@@ -74,8 +74,9 @@ class Blog(models.Model):
     title = models.CharField(max_length=255)
     subTitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True, blank=True)
-    image = models.ImageField(upload_to='store/')
-    description = QuillField()
+    image = models.ImageField(upload_to='blog/')
+    # description = QuillField()
+    description = models.TextField()
     created_on = models.DateTimeField(default=timezone.now)
 
     def save(self, *args, **kwargs):
