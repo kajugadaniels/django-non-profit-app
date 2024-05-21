@@ -20,7 +20,12 @@ class Student(models.Model):
 
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
-    image = models.ImageField(upload_to='students/', blank=True)
+    image = ProcessedImageField(
+        upload_to='students/',
+        processors=[ResizeToFill(1296, 1556)],
+        format='JPEG',
+        options={'quality': 90},
+    )
     birthday = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
@@ -44,7 +49,12 @@ class Student(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
-    image = models.ImageField(upload_to='store/')
+    image = ProcessedImageField(
+        upload_to='store/',
+        processors=[ResizeToFill(800, 800)],
+        format='JPEG',
+        options={'quality': 90},
+    )
     unit = models.CharField(max_length=255, default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
@@ -62,6 +72,12 @@ class Team(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     position = models.CharField(max_length=255)
     image = models.ImageField(upload_to='team/')
+    image = ProcessedImageField(
+        upload_to='team/',
+        processors=[ResizeToFill(1200, 1500)],
+        format='JPEG',
+        options={'quality': 90},
+    )
     description = models.TextField()
 
     def save(self, *args, **kwargs):
@@ -76,7 +92,12 @@ class Blog(models.Model):
     title = models.CharField(max_length=255)
     subTitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True, blank=True)
-    image = models.ImageField(upload_to='blog/')
+    image = ProcessedImageField(
+        upload_to='blog/',
+        processors=[ResizeToFill(3600, 2026)],
+        format='JPEG',
+        options={'quality': 90},
+    )
     # description = QuillField()
     description = models.TextField()
     created_on = models.DateTimeField(default=timezone.now)
@@ -112,7 +133,12 @@ class Project(models.Model):
 class Testimonial(models.Model):
     name = models.CharField(max_length=255)
     position = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='testimonial/')
+    image = ProcessedImageField(
+        upload_to='testimonial/',
+        processors=[ResizeToFill(300, 300)],
+        format='JPEG',
+        options={'quality': 90},
+    )
     message = models.TextField()
     created_on = models.DateTimeField(default=timezone.now)
 
