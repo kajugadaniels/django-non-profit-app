@@ -124,9 +124,21 @@ def addTeam(request):
 
 @login_required
 def editTeam(request, slug):
-    person = Team.objects.get(slug=slug)
-    
+    person = get_object_or_404(Team, slug=slug)
+
+    if request.method == 'POST':
+        form = TeamForm(request.POST, request.FILES, instance=person)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Team updated successfully!')
+            return redirect('backend:getTeam')
+        else:
+            messages.error(request, 'Error updating the team member. Please check the form.')
+    else:
+        form = TeamForm(instance=person)
+        
     context = {
+        'form': form,
         'person': person
     }
 
