@@ -53,9 +53,9 @@ class ProductForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
         }
 
-class BlogForm(forms.ModelForm):
+class ProjectForm(forms.ModelForm):
     class Meta:
-        model = Blog
+        model = Project
         fields = ['title', 'image', 'description']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Project Title'}),

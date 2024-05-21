@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     'django_quill',
     "corsheaders",
-    "drf_yasg"
+    "drf_yasg",
+    'imagekit'
 ]
 
 MIDDLEWARE = [

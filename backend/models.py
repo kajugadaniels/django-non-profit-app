@@ -3,6 +3,8 @@ from django.utils.text import slugify
 from datetime import date
 from django_quill.fields import QuillField
 from django.utils import timezone
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
 class Student(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
@@ -90,15 +92,19 @@ class Blog(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
-    image = models.ImageField(upload_to='projects/')
-    # description = QuillField()
+    image = ProcessedImageField(
+        upload_to='projects/',
+        processors=[ResizeToFill(3600, 2026)],
+        format='JPEG',
+        options={'quality': 90},
+    )
     description = models.TextField()
     created_on = models.DateTimeField(default=timezone.now)
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        super(Blog, self).save(*args, **kwargs)
+        super(Project, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title

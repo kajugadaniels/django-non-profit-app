@@ -1,6 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from imagekit.processors import SmartResize
+from imagekit.models import ProcessedImageField
 from home.forms import *
 from django.contrib import messages
 from home.models import *
@@ -237,7 +239,22 @@ def getProjects(request):
 
 @login_required
 def addProject(request):
-    return render(request, 'backend/projects/create.html')
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Project created successfully!')
+            return redirect('backend:getProjects')
+        else:
+            messages.error(request, 'Error creating a project. Please check the form.')
+    else:
+        form = ProjectForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/projects/create.html', context)
 
 @login_required
 def editProject(request):
