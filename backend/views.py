@@ -244,9 +244,21 @@ def addBlog(request):
 
 @login_required
 def editBlog(request, slug):
-    blog = Blog.objects.get(slug=slug)
-    
+    blog = get_object_or_404(Blog, slug=slug)
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=blog)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Blog updated successfully!')
+            return redirect('backend:getBlog')
+        else:
+            messages.error(request, 'Error updating the blog. Please check the form.')
+    else:
+        form = BlogForm(instance=blog)
+        
     context = {
+        'form': form,
         'blog': blog
     }
     
