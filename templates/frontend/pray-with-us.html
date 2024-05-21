@@ -1,0 +1,104 @@
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} Pray With Us {% endblock %}
+{% block content %}
+
+<section class="p-0 bg-dark-gray overflow-hidden">
+    <div class="container-fluid p-0"> 
+        <div class="row justify-content-center g-0">
+            <div class="col-lg-6 md-h-550px xs-h-400px overflow-hidden" data-anime='{ "translateY": [0, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <div class="h-100 cover-background" style="background-image: url({% static 'frontend/images/heart.jpg' %})"></div>
+            </div>
+            <div class="col-lg-6 col-md-10 ps-8 pe-8 pt-7 pb-7" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 600, "delay": 200, "staggervalue": 100, "easing": "easeOutQuad" }'> 
+                <h2 class="alt-font fw-500 text-white ls-minus-2px">How you can pray with us.</h2> 
+                <p class="w-100 sm-w-100 mx-auto mx-lg-0" data-anime='{ "el": "lines", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                    Never underestimate what your prayers can and will do!
+                </p>
+                <div class="icon-with-text-style-08 mb-15px">
+                    <div class="feature-box feature-box-left-icon-middle">
+                        <div class="feature-box-icon feature-box-icon-rounded w-45px h-45px rounded-circle border border-2 border-color-transparent-white-light box-shadow-large me-15px">
+                            <i class="fa-solid fa-check icon-very-small text-white"></i>
+                        </div>
+                        <div class="feature-box-content"> 
+                            <span class="fs-18 alt-font d-block text-white">Pray for Us.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-with-text-style-08 mb-15px">
+                    <div class="feature-box feature-box-left-icon-middle">
+                        <div class="feature-box-icon feature-box-icon-rounded w-45px h-45px rounded-circle border border-2 border-color-transparent-white-light box-shadow-large me-15px">
+                            <i class="fa-solid fa-check icon-very-small text-white"></i>
+                        </div>
+                        <div class="feature-box-content"> 
+                            <span class="fs-18 alt-font d-block text-white">Pray for Rwanda.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-with-text-style-08">
+                    <div class="feature-box feature-box-left-icon-middle">
+                        <div class="feature-box-icon feature-box-icon-rounded w-45px h-45px rounded-circle border border-2 border-color-transparent-white-light box-shadow-large me-15px">
+                            <i class="fa-solid fa-check icon-very-small text-white"></i>
+                        </div>
+                        <div class="feature-box-content"> 
+                            <span class="fs-18 alt-font d-block text-white">Pray For the Children</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="down-section">
+    <div id="particles-01" data-particle="true" data-particle-options='{"particles": {"number": {"value": 6,"density": {"enable": true,"value_area": 1000}},"color":{"value":["#b7b9be", "#dd6531"]},"shape": {"type": "circle","stroke":{"width":0,"color":"#000000"}},"opacity": {"value": 0.5,"random": false,"anim": {"enable": false,"speed": 1,"sync": false}},"size": {"value": 8,"random": true,"anim": {"enable": false,"sync": true}},"move": {"enable": true,"speed":2,"direction": "right","random": false,"straight": false}},"interactivity": {"detect_on": "canvas","events": {"onhover": {"enable": false,"mode": "repulse"},"onclick": {"enable": false,"mode": "push"},"resize": true}},"retina_detect": false}' class="position-absolute h-100 top-0 left-0 z-index-minus-1"></div>
+    <div class="container">
+        <div class="row justify-content-center text-center text-lg-start">
+            <div class="col-xl-4 col-lg-4 md-mb-30px xs-mb-25px">
+                <h2 class="fw-600 text-dark-gray ls-minus-2px mb-0" data-anime='{ "el": "lines", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                    Pray for our staff personally.
+                </h2>
+            </div>
+            <div class="col-lg-7 offset-xl-1">
+                <p class="w-100 sm-w-100 mx-auto mx-lg-0" data-anime='{ "el": "lines", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                    A cornerstone of the Africa Oasis Foundation's success is our dedicated team, composed of experienced believers who impart life-altering wisdom every day. These individuals guide, support, motivate, and share life experiences with the children, young adults, and families we are privileged to serve.
+                    We invite groups to join our staff in solidarity, offering encouragement and support through prayer. Could your Bible study group adopt a staff member in prayer? Could your church commit to regularly praying for our staff, perhaps with different groups (Sunday School classes, small groups, youth groups, etc.) focusing on various staff members?
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cover-background big-section" style="background-image: url({% static 'frontend/images/pfu-bg.jpg' %})">
+    <div class="opacity-extra-medium bg-dark-gray"></div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-5 md-mb-40px">
+                <h3 class="text-white fw-500 ls-minus-1px">MONTHLY PRAYER EMAIL</h3>
+                <p class="text-white opacity-7">
+                    Every month, we'll provide you with details about one of our team members to familiarize you with their contributions to the Africa Oasis Foundation and their prayer needs. By filling out the form below, you're committing to regularly pray for a designated staff member of the Africa Oasis Foundation. In the coming days, we'll send you information about this month's highlighted team member. It's truly uplifting to know we have a devoted Prayer Team supporting us, covering our efforts from all sides!
+                </p>
+            </div>                
+            <div class="col-lg-7 offset-xl-1">
+                <form  action="#" method="post" class="row row-cols-1 row-cols-md-2 justify-content-center">
+                    <div class="col mb-30px">
+                        <input class="border-color-transparent-white-very-light bg-transparent placeholder-light form-control required" type="text" name="name" placeholder="Your name*" />
+                    </div>
+                    <div class="col mb-30px">
+                        <input class="border-color-transparent-white-very-light bg-transparent placeholder-light form-control" type="number" name="phone" placeholder="Your phone" />
+                    </div>
+                    <div class="col-md-12 mb-30px">
+                        <input class="border-color-transparent-white-very-light bg-transparent placeholder-light form-control required" type="email" name="email" placeholder="Your email address*" />
+                    </div>
+                    <div class="col-md-12">
+                        <textarea class="border-color-transparent-white-very-light bg-transparent placeholder-light form-control" cols="40" rows="4" name="comment" placeholder="Your message"></textarea>
+                        <input type="hidden" name="redirect" value="">
+                        <button class="btn btn-medium btn-white mt-30px btn-round-edge submit fw-700">Send message</button>
+                        <div class="form-results mt-20px d-none"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

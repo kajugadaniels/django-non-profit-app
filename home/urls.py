@@ -37,6 +37,8 @@ urlpatterns = [
    
    path('faq/', faq, name="faq"),
 
+   path('pray-with-us/', prayWithUs, name="prayWithUs"),
+
    path('contact/', contact, name="contact"),
    
    path('terms-and-conditions', termsAndConditions, name="termsAndConditions")
