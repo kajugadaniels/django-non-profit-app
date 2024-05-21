@@ -35,6 +35,8 @@ urlpatterns = [
    path('faq/', faq, name="faq"),
 
    path('contact/', contact, name="contact"),
+   
+   path('terms-and-conditions', termsAndConditions, name="termsAndConditions")
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  

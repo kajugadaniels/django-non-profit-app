@@ -228,3 +228,6 @@ def faq(request):
 
 def contact(request):
     return render(request, 'frontend/contact.html')
+
+def termsAndConditions(request):
+    return render(request, 'frontend/term-and-condition.html')
