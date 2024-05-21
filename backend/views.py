@@ -113,7 +113,13 @@ def editTeam(request, slug):
 
 @login_required
 def getProduct(request):
-    return render(request, 'backend/store/index.html')
+    products = Product.objects.all()
+    
+    context = {
+        'products': products
+    }
+    
+    return render(request, 'backend/store/index.html', context)
 
 @login_required
 def addProduct(request):
