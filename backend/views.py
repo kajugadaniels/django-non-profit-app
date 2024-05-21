@@ -257,8 +257,25 @@ def addProject(request):
     return render(request, 'backend/projects/create.html', context)
 
 @login_required
-def editProject(request):
-    return render(request, 'backend/projects/edit.html')
+def editProject(request, slug):
+    project = get_object_or_404(Project, slug=slug)
+
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Project updated successfully!')
+            return redirect('backend:getProjects')
+        else:
+            messages.error(request, 'Error updating the project. Please check the form.')
+    else:
+        form = ProjectForm(instance=project)
+        
+    context = {
+        'form': form,
+        'project': project
+    }
+    return render(request, 'backend/projects/edit.html', context)
 
 @login_required
 def deleteProject(request):
