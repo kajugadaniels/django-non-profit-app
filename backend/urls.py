@@ -23,6 +23,7 @@ urlpatterns = [
    path('store/', getProduct, name='getProduct'),
    path('store/create', addProduct, name='addProduct'),
    path('store/<slug>', editProduct, name='editProduct'),
+   path('product/<slug>/delete/', deleteProduct, name='deleteProduct'),
 
    path('blog/', getBlog, name='getBlog'),
    path('blog/create', addBlog, name='addBlog'),

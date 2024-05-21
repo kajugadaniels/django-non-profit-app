@@ -17,19 +17,18 @@
                             <table class="table" id="project-status">
                                 <thead> 
                                     <tr> 
-                                    <th>
-                                        <div class="form-check"> 
-                                            <input class="form-check-input checkbox-primary" type="checkbox">
-                                        </div>
-                                    </th>
-                                    <th> <span class="f-light f-w-600">Product</span></th>
-                                    <th> <span class="f-light f-w-600">Price</span></th>
-                                    <th> <span class="f-light f-w-600">Description</span></th>
-                                    <th> <span class="f-light f-w-600">Action</span></th>
+                                        <th>
+                                            <div class="form-check"> 
+                                                <input class="form-check-input checkbox-primary" type="checkbox">
+                                            </div>
+                                        </th>
+                                        <th> <span class="f-light f-w-600">Product</span></th>
+                                        <th> <span class="f-light f-w-600">Price</span></th>
+                                        <th> <span class="f-light f-w-600">Description</span></th>
+                                        <th> <span class="f-light f-w-600">Action</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
                                     {% for product in products %}
                                         <tr class="product-removes">
                                             <td>
@@ -60,9 +59,14 @@
                                                             <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
                                                         </svg>
                                                     </a>
-                                                    <svg>
-                                                        <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
-                                                    </svg>
+                                                    <form method="post" action="{% url 'backend:deleteProduct' product.slug %}" style="display: inline;">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline" onclick="return confirm('Are you sure you want to delete this product?');">
+                                                            <svg>
+                                                                <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

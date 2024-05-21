@@ -163,6 +163,15 @@ def editProduct(request, slug):
     return render(request, 'backend/store/edit.html', context)
 
 @login_required
+def deleteProduct(request, slug):
+    if request.method == 'POST':
+        product = get_object_or_404(Product, slug=slug)
+        product.delete()
+        messages.success(request, 'Product deleted successfully!')
+
+    return redirect('backend:getProduct')
+
+@login_required
 def getBlog(request):
     blogs = Blog.objects.all()
 
