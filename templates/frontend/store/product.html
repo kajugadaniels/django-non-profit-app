@@ -69,25 +69,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-4 mb-30px">
+                                                    <div class="col-md-6 mb-30px">
                                                         <label class="fw-500 text-black">Unit</label>
-                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="unit" placeholder="Unit" />
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="number" name="unit" value="1" />
                                                     </div>
-                                                    <div class="col-md-4 mb-30px">
+                                                    <div class="col-md-6 mb-30px">
                                                         <label class="fw-500 text-black">Amount</label>
-                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="amount" placeholder="$5.0" />
-                                                    </div>
-                                                    <div class="col-md-4 mb-30px">
-                                                        <label class="fw-500 text-black">Payment Option</label>
-                                                        <div class="select">
-                                                            <select class="form-control border-radius-4px border-color-white box-shadow-double-large" name="method" aria-label="select-doctor">
-                                                                <option value="">Payment Option</option>
-                                                                <option value="One Time">One Time</option>
-                                                                <option value="Weekly">Weekly</option>
-                                                                <option value="Monthly">Monthly</option>
-                                                                <option value="Annually">Annually</option>
-                                                            </select>
-                                                        </div>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="amount" value="{{ product.price }}" disabled />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mb-30px">
