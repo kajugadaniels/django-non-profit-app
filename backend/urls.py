@@ -20,6 +20,7 @@ urlpatterns = [
    path('team/', getTeam, name='getTeam'),
    path('team/create', addTeam, name='addTeam'),
    path('team/<slug>', editTeam, name='editTeam'),
+   path('team/<slug>/delete/', deleteTeam, name='deleteTeam'),
 
    path('store/', getProduct, name='getProduct'),
    path('store/create', addProduct, name='addProduct'),

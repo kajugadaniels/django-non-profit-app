@@ -121,6 +121,15 @@ def editTeam(request, slug):
     return render(request, 'backend/team/edit.html', context)
 
 @login_required
+def deleteTeam(request, slug):
+    if request.method == 'POST':
+        team = get_object_or_404(Team, slug=slug)
+        team.delete()
+        messages.success(request, 'Team deleted successfully!')
+
+    return redirect('backend:getTeam')
+
+@login_required
 def getProduct(request):
     products = Product.objects.all()
     
