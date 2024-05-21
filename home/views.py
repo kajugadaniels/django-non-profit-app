@@ -205,6 +205,24 @@ def product(request, slug):
 
     return render(request, 'frontend/store/product.html', context)
 
+def projects(request):
+    projects= Project.objects.all()
+
+    context = {
+        'projects': projects
+    }
+
+    return render(request, 'frontend/project/index.html', context)
+
+def viewProject(request, slug):
+    project = Project.objects.get(slug=slug)
+    
+    context = {
+        'project': project
+    }
+
+    return render(request, 'frontend/project/show.html', context)
+
 def blog(request):
     blog = Blog.objects.all()
 

@@ -32,6 +32,9 @@ urlpatterns = [
    path('blog/', blog, name="blog"),
    path('blog/<slug>', viewBlog, name="viewBlog"),
    
+   path('projects/', projects, name="projects"),
+   path('project/<slug>', viewProject, name="viewProject"),
+   
    path('faq/', faq, name="faq"),
 
    path('contact/', contact, name="contact"),

@@ -1,6 +1,6 @@
 {% extends 'frontend/layouts/app.html' %}
 {% load static %}
-{% block title %} {{ blog.title }} {% endblock %}
+{% block title %} {{ project.title }} {% endblock %}
 {% block content %}
 
 <section class="p-0 sm-pb-40px top-space-margin page-title-center-alignment">
@@ -8,18 +8,21 @@
         <div class="row align-items-center justify-content-center small-screen sm-h-auto">
             <div class="col-lg-10 text-center">
                 <span class="fs-18 mb-30px d-inline-block sm-mb-20px">
-                    {{ blog.created_at }}
+                    {{ project.created_at }}
                 </span>
-                <h1 class="alt-font fw-600 text-dark-gray ls-minus-2px mb-0">Marketing tips and tricks for your creative website.</h1>
+                <h1 class="alt-font fw-600 text-dark-gray ls-minus-2px mb-0">
+                    {{ project.title }}
+                </h1>
             </div>
         </div>
     </div>
 </section>
+
 <section class="py-0 ps-13 pe-13 lg-ps-4 lg-pe-4 sm-px-0">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12"></div>
-            <img src="{{ blog.image.url }}" class="w-75" alt="">
+            <img src="{{ project.image.url }}" class="w-75" alt="">
         </div>
     </div>
 </section>
@@ -31,7 +34,7 @@
                 <div class="row">
                     <div class="offset-lg-1 col-md-8 last-paragraph-no-margin text-center text-md-start">
                         <p>
-                            {{ blog.description }}
+                            {{ project.description }}
                         </p>
                     </div>
                 </div>
