@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from home.forms import *
 from django.contrib import messages
@@ -141,8 +141,26 @@ def addProduct(request):
     return render(request, 'backend/store/create.html', context)
 
 @login_required
-def editProduct(request):
-    return render(request, 'backend/store/edit.html')
+def editProduct(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product updated successfully!')
+            return redirect('backend:getProduct')
+        else:
+            messages.error(request, 'Error updating the product. Please check the form.')
+    else:
+        form = ProductForm(instance=product)
+        
+    context = {
+        'form': form,
+        'product': product
+    }
+    
+    return render(request, 'backend/store/edit.html', context)
 
 @login_required
 def getBlog(request):
