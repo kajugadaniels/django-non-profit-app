@@ -229,6 +229,15 @@ def editBlog(request, slug):
     return render(request, 'backend/blog/edit.html', context)
 
 @login_required
+def deleteBlog(request, slug):
+    if request.method == 'POST':
+        blog = get_object_or_404(Blog, slug=slug)
+        blog.delete()
+        messages.success(request, 'Blog deleted successfully!')
+        
+    return redirect('backend:getBlog')
+
+@login_required
 def donate(request):
     donate = Donate.objects.all()
     

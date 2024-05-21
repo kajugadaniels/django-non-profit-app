@@ -30,6 +30,7 @@ urlpatterns = [
    path('blog/', getBlog, name='getBlog'),
    path('blog/create', addBlog, name='addBlog'),
    path('blog/<slug>', editBlog, name='editBlog'),
+   path('blog/<slug>/delete/', deleteBlog, name='deleteBlog'),
 
    path('donate/', donate, name='donate'),
    path('donate-to-student', donateToStudent, name='donateToStudent'),
