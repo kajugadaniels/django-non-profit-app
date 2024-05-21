@@ -227,7 +227,13 @@ def deleteProduct(request, slug):
 
 @login_required
 def getProjects(request):
-    return render(request, 'backend/projects/index.html')
+    projects = Project.objects.all()
+    
+    context = {
+        'projects': projects
+    }
+    
+    return render(request, 'backend/projects/index.html', context)
 
 @login_required
 def addProject(request):
@@ -239,7 +245,7 @@ def editProject(request):
 
 @login_required
 def deleteProject(request):
-    return render(request, 'backend/projects/index.html')
+    pass
 
 # Blog Section
 
