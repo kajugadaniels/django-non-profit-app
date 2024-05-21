@@ -29,7 +29,7 @@ class Student(models.Model):
     birthday = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     # description = QuillField()
 
     @property
@@ -129,18 +129,4 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-    
-class Testimonial(models.Model):
-    name = models.CharField(max_length=255)
-    position = models.CharField(max_length=255)
-    image = ProcessedImageField(
-        upload_to='testimonial/',
-        processors=[ResizeToFill(300, 300)],
-        format='JPEG',
-        options={'quality': 90},
-    )
-    message = models.TextField()
-    created_on = models.DateTimeField(default=timezone.now)
 
-    def __str__(self):
-        return self.name

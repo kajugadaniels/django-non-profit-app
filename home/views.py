@@ -57,10 +57,10 @@ def OasisAcademy(request):
     return render(request, 'frontend/what-we-do/oasis-academy.html')
 
 def gospelTeaching(request):
-    testimonial = Testimonial.objects.all()
+    # testimonial = Testimonial.objects.all()
     
     context = {
-        'testimonial': testimonial
+        # 'testimonial': testimonial
     }
     
     return render(request, 'frontend/what-we-do/gospel-teaching.html', context)
