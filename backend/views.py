@@ -278,8 +278,13 @@ def editProject(request, slug):
     return render(request, 'backend/projects/edit.html', context)
 
 @login_required
-def deleteProject(request):
-    pass
+def deleteProject(request, slug):
+    if request.method == 'POST':
+        project = get_object_or_404(Project, slug=slug)
+        project.delete()
+        messages.success(request, 'Project deleted successfully!')
+        
+    return redirect('backend:getProjects')
 
 # Blog Section
 
