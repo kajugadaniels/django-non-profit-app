@@ -73,6 +73,15 @@ def editStudent(request, slug):
     return render(request, 'backend/students/edit.html', context)
 
 @login_required
+def deleteStudent(request, slug):
+    if request.method == 'POST':
+        student = get_object_or_404(Student, slug=slug)
+        student.delete()
+        messages.success(request, 'Student deleted successfully!')
+
+    return redirect('backend:getStudents')
+
+@login_required
 def getTeam(request):
     team = Team.objects.all()
     
