@@ -94,9 +94,11 @@ def give(request):
 
 def donate(request):
     students = Student.objects.all()
+    projects = Project.objects.all()
     
     context = {
-        'students': students
+        'students': students,
+        'projects': projects
     }
     if request.method == 'POST':
         # TODO: sanitize data
@@ -189,7 +191,7 @@ def donate(request):
    
 
 
-    return render(request, 'frontend/sponsor/index.html', { 'students':students})
+    return render(request, 'frontend/sponsor/index.html', context)
 
 
 def store(request):

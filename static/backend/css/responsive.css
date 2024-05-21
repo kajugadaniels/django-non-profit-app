@@ -1042,10 +1042,10 @@
     border-top: 1px dashed rgba(0, 0, 0, 0.2);
   }
   [class=dark-only] .page-wrapper.compact-wrapper .page-header .page-title {
-    background-color: #2A3650;
+    background-color: #15548C;
   }
   [dir=rtl] [class=dark-only] .page-wrapper.compact-wrapper .page-header .page-title {
-    background-color: #2A3650;
+    background-color: #15548C;
   }
   .todo-list-wrapper #todo-list li .task-container .task-label {
     min-width: 460px;
