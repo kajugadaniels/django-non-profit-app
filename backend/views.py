@@ -123,7 +123,22 @@ def getProduct(request):
 
 @login_required
 def addProduct(request):
-    return render(request, 'backend/store/create.html')
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product created successfully!')
+            return redirect('backend:getProduct')
+        else:
+            messages.error(request, 'Error creating a product. Please check the form.')
+    else:
+        form = ProductForm()
+        
+    context = {
+        'form': form
+    }
+    
+    return render(request, 'backend/store/create.html', context)
 
 @login_required
 def editProduct(request):

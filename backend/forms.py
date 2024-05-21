@@ -30,14 +30,25 @@ class TeamForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
         }
 
-    # description = QuillFormField()
-
 class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
         fields = ['title', 'image', 'description']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Blog Title'}),
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+        }
+
+class ProductForm(forms.ModelForm):
+    # description = QuillFormField()
+
+    class Meta:
+        model = Product
+        fields = ['name', 'price', 'image', 'description']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Product Name'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Product Price'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
         }
