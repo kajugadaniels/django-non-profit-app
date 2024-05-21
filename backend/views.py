@@ -112,6 +112,18 @@ def editTeam(request, slug):
     return render(request, 'backend/team/edit.html', context)
 
 @login_required
+def getProduct(request):
+    return render(request, 'backend/store/index.html')
+
+@login_required
+def addProduct(request):
+    return render(request, 'backend/store/create.html')
+
+@login_required
+def editProduct(request):
+    return render(request, 'backend/store/edit.html')
+
+@login_required
 def getBlog(request):
     blogs = Blog.objects.all()
 
