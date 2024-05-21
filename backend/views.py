@@ -64,9 +64,21 @@ def addStudent(request):
 
 @login_required
 def editStudent(request, slug):
-    student = Student.objects.get(slug=slug)
-    
+    student = get_object_or_404(Student, slug=slug)
+
+    if request.method == 'POST':
+        form = StudentForm(request.POST, request.FILES, instance=student)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Student updated successfully!')
+            return redirect('backend:getStudents')
+        else:
+            messages.error(request, 'Error updating the student. Please check the form.')
+    else:
+        form = StudentForm(instance=student)
+        
     context = {
+        'form': form,
         'student': student
     }
 
