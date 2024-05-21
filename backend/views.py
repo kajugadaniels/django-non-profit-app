@@ -7,6 +7,8 @@ from home.models import *
 from backend.models import *
 from backend.forms import *
 
+# Authentication Section
+
 def user_login(request):
     if request.user.is_authenticated:
         return redirect('backend:dashboard')
@@ -29,9 +31,13 @@ def user_logout(request):
     logout(request)
     return redirect('backend:login')
 
+# Dashboard Section
+
 @login_required
 def dashboard(request):
     return render(request, 'backend/dashboard.html')
+
+# Student Section
 
 @login_required
 def getStudents(request):
@@ -93,6 +99,8 @@ def deleteStudent(request, slug):
 
     return redirect('backend:getStudents')
 
+# Team Section
+
 @login_required
 def getTeam(request):
     team = Team.objects.all()
@@ -152,6 +160,8 @@ def deleteTeam(request, slug):
         messages.success(request, 'Team deleted successfully!')
 
     return redirect('backend:getTeam')
+
+# Product Section
 
 @login_required
 def getProduct(request):
@@ -213,6 +223,26 @@ def deleteProduct(request, slug):
 
     return redirect('backend:getProduct')
 
+# Projects Section
+
+@login_required
+def getProjects(request):
+    return render(request, 'backend/projects/index.html')
+
+@login_required
+def addProject(request):
+    return render(request, 'backend/projects/create.html')
+
+@login_required
+def editProject(request):
+    return render(request, 'backend/projects/edit.html')
+
+@login_required
+def deleteProject(request):
+    return render(request, 'backend/projects/index.html')
+
+# Blog Section
+
 @login_required
 def getBlog(request):
     blogs = Blog.objects.all()
@@ -272,6 +302,8 @@ def deleteBlog(request, slug):
         messages.success(request, 'Blog deleted successfully!')
         
     return redirect('backend:getBlog')
+
+# Donate Section
 
 @login_required
 def donate(request):

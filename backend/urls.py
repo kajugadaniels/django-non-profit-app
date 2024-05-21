@@ -27,6 +27,11 @@ urlpatterns = [
    path('store/<slug>', editProduct, name='editProduct'),
    path('product/<slug>/delete/', deleteProduct, name='deleteProduct'),
 
+   path('projects/', getProjects, name='getProjects'),
+   path('project/create', addProject, name='addProject'),
+   path('project/<slug>', editProject, name='editProject'),
+   path('project/<slug>/delete/', deleteProject, name='deleteProject'),
+
    path('blog/', getBlog, name='getBlog'),
    path('blog/create', addBlog, name='addBlog'),
    path('blog/<slug>', editBlog, name='editBlog'),
