@@ -257,5 +257,8 @@ def prayWithUs(request):
 def contact(request):
     return render(request, 'frontend/contact.html')
 
+def checkout(request):
+    return render(request, 'frontend/checkout.html')
+
 def termsAndConditions(request):
     return render(request, 'frontend/term-and-condition.html')
