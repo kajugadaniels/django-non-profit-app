@@ -1,4 +1,4 @@
-from random import sample
+from django.http import JsonResponse
 import uuid
 from backend.models import *
 from home.models import *
@@ -288,6 +288,18 @@ def get_cart_details(request):
         'total_amount': total_amount,
         'cart_count': len(cart)
     }
+
+def remove_from_cart(request):
+    if request.method == 'POST':
+        item_id = request.POST.get('item_id')
+        if 'cart' in request.session and item_id in request.session['cart']:
+            del request.session['cart'][item_id]
+            request.session.modified = True  # Mark the session as modified
+            return JsonResponse({'message': 'Item removed successfully'})
+        else:
+            return JsonResponse({'error': 'Item not found in cart'}, status=400)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 def termsAndConditions(request):
     return render(request, 'frontend/term-and-condition.html')

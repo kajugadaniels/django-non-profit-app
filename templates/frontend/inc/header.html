@@ -26,6 +26,7 @@
                             <a href="#" class="nav-link">About</a>
                             <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="{% url 'frontend:team' %}">About Rwanda</a></li>
                                 <li><a href="{% url 'frontend:team' %}">Our Team</a></li>
                                 <li><a href="{% url 'frontend:history' %}">Our History</a></li>
                                 <li><a href="{% url 'frontend:history' %}">Mission & Vision</a></li>
@@ -52,16 +53,20 @@
                                     </a> 
                                     <ul class="cart-item-list">
                                         {% for item in cart %}
-                                        <li class="cart-item align-items-center">
-                                            <a href="javascript:void(0);" class="alt-font close">×</a>
-                                            <div class="product-image">
-                                                <a href="#"><img src="{{ item.image_url }}" class="cart-thumb" alt=""></a>
-                                            </div>
-                                            <div class="product-detail alt-font fw-600">
-                                                <a href="#">{{ item.title }}</a>
-                                                <span class="item-amount fw-500">1 x ${{ item.amount }}</span> 
-                                            </div>
-                                        </li>
+                                            <li class="cart-item align-items-center">
+                                                <a href="#" class="alt-font close" onclick="confirmDelete('{{ item.id }}')">×</a>
+                                                <div class="product-image">
+                                                    <a href="#">
+                                                        <img src="{{ item.image_url }}" class="cart-thumb" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="product-detail alt-font fw-600">
+                                                    <a href="#">
+                                                        {{ item.title }}
+                                                    </a>
+                                                    <span class="item-amount fw-500">1 x ${{ item.amount }}</span> 
+                                                </div>
+                                            </li>
                                         {% endfor %}
                                         <li class="cart-total">
                                             <div class="alt-font mb-15px">
@@ -94,3 +99,29 @@
         </div>
     </nav>
 </header>
+
+<script>
+    function confirmDelete(itemId) {
+        if (confirm('Are you sure you want to remove this item from the cart?')) {
+            var csrftoken = '{{ csrf_token }}';
+
+            $.ajax({
+                url: '{% url "frontend:remove_from_cart" %}',
+                type: 'POST',
+                headers: { 'X-CSRFToken': csrftoken },
+                data: {
+                    'item_id': itemId,
+                    csrfmiddlewaretoken: csrftoken
+                },
+                success: function(response) {
+                    console.log(response.message);
+                    // Optionally, update the cart display or perform other actions
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Handle errors if needed
+                }
+            });
+        }
+    }
+</script>
