@@ -20,36 +20,65 @@
 
 <section class="bg-gradient-very-light-gray position-relative z-index-0 border-radius-6px lg-border-radius-0px overflow-hidden"> 
     <div class="container">
-        <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 justify-content-center transition-inner-all" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-
-            {% for project in projects %}
-                <div class="col interactive-banner-style-02 hover-box dark-hover md-mb-30px mb-3">
-                    <div class="h-100 text-center position-relative border-radius-6px box-shadow-quadruple-large overflow-hidden">
-                        <figure class="m-0">
-                            <a href="{% url 'frontend:viewProject' project.slug %}" class="position-relative d-block">
-                                <img src="{{ project.image.url }}" alt="" />
-                            </a>
-                            <figcaption class="w-100 position-absolute bottom-0px bg-white">
-                                <div class="position-relative z-index-2 p-40px pt-25px pb-15px border-bottom border-dark-opacity">
-                                    <a href="{% url 'frontend:viewProject' project.slug %}" class="fw-600 d-inline-block mb-5px text-dark-gray fs-18">{{ project.title }}</a>
-                                    <p class="w-80 lg-w-100 fs-16 mx-auto mb-15px lg-mb-10px text-light-opacity">
-                                        {{ project.description|truncatewords:7 }}
-                                    </p>
-                                </div>
-                                <a href="{% url 'frontend:viewProject' project.slug %}" class="btn btn-link btn-hover-animation-switch btn-medium fw-700 text-dark-gray text-uppercase p-20px z-index-1">
-                                    <span>
-                                        <span class="btn-text">Fund this project</span>
-                                        <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
-                                        <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
-                                    </span> 
+        <div class="col-12">
+            <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 justify-content-center transition-inner-all" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                {% for project in projects %}
+                    <div class="col interactive-banner-style-02 hover-box dark-hover md-mb-30px mb-3">
+                        <div class="h-100 text-center position-relative border-radius-6px box-shadow-quadruple-large overflow-hidden">
+                            <figure class="m-0">
+                                <a href="{% url 'frontend:viewProject' project.slug %}" class="position-relative d-block">
+                                    <img src="{{ project.image.url }}" alt="" />
                                 </a>
-                                <div class="box-overlay bg-slate-blue"></div>
-                            </figcaption>
-                        </figure>
+                                <figcaption class="w-100 position-absolute bottom-0px bg-white">
+                                    <div class="position-relative z-index-2 p-40px pt-25px pb-15px border-bottom border-dark-opacity">
+                                        <a href="{% url 'frontend:viewProject' project.slug %}" class="fw-600 d-inline-block mb-5px text-dark-gray fs-18">{{ project.title }}</a>
+                                        <p class="w-80 lg-w-100 fs-16 mx-auto mb-15px lg-mb-10px text-light-opacity">
+                                            {{ project.description|truncatewords:7 }}
+                                        </p>
+                                    </div>
+                                    <a href="{% url 'frontend:viewProject' project.slug %}" class="btn btn-link btn-hover-animation-switch btn-medium fw-700 text-dark-gray text-uppercase p-20px z-index-1">
+                                        <span>
+                                            <span class="btn-text">Fund this project</span>
+                                            <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                            <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                        </span> 
+                                    </a>
+                                    <div class="box-overlay bg-slate-blue"></div>
+                                </figcaption>
+                            </figure>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-
+                {% endfor %}
+            </div>
+            <div class="col-12 mt-4 d-flex justify-content-center">
+                <ul class="pagination pagination-style-01 fs-13 fw-500 mb-0">
+                    {% if projects.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ projects.previous_page_number }}">
+                                <i class="feather icon-feather-arrow-left fs-18 d-xs-none"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for num in projects.paginator.page_range %}
+                        {% if projects.number == num %}
+                            <li class="page-item active">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if projects.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ projects.next_page_number }}">
+                                <i class="feather icon-feather-arrow-right fs-18 d-xs-none"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </div>
 </section>

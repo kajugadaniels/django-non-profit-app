@@ -194,8 +194,6 @@ def donate(request):
             return render(request, 'frontend/sponsor/index.html', { 
                     'error_message': 'Please select donation type '
                 })
-   
-
 
     return render(request, 'frontend/sponsor/index.html', context)
 
@@ -223,7 +221,11 @@ def product(request, slug):
     return render(request, 'frontend/store/product.html', context)
 
 def projects(request):
-    projects= Project.objects.all().order_by('-created_at')[:12]
+    project_list = Project.objects.all().order_by('-created_at')
+    paginator = Paginator(project_list, 12)
+
+    page_number = request.GET.get('page')
+    projects = paginator.get_page(page_number)
 
     context = {
         'projects': projects
