@@ -1,13 +1,14 @@
 from random import sample
 import uuid
 from backend.models import *
-from .models import *
+from home.models import *
 from django.shortcuts import render,redirect
 import stripe
 from dotenv import load_dotenv
 load_dotenv()
 import os
-from .forms import *
+from home.forms import *
+from django.views.decorators.csrf import csrf_protect
 
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 publickey =  os.getenv("STRIPE_PUBLIC_KEY")
@@ -257,8 +258,30 @@ def prayWithUs(request):
 def contact(request):
     return render(request, 'frontend/contact.html')
 
+@csrf_protect
 def checkout(request):
+    if request.method == 'POST':
+        amount = request.POST.get('selectedAmount')
+        project_id = request.POST.get('selectedProject')
+        project = Project.objects.get(id=project_id)
+
+        if 'cart' not in request.session:
+            request.session['cart'] = []
+        request.session['cart'].append({'project_id': project.id, 'title': project.title, 'amount': amount, 'image_url': project.image.url})
+        request.session.modified = True
+        
+        return redirect('frontend:checkout')
+
     return render(request, 'frontend/checkout.html')
+
+def get_cart_details(request):
+    cart = request.session.get('cart', [])
+    total_amount = sum(float(item['amount']) for item in cart)
+    return {
+        'cart': cart,
+        'total_amount': total_amount,
+        'cart_count': len(cart)
+    }
 
 def termsAndConditions(request):
     return render(request, 'frontend/term-and-condition.html')

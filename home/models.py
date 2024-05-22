@@ -51,7 +51,6 @@ class Donate(models.Model):
         super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.donationTitle
-    
 
 class DonateToStudents(models.Model):
     donationTitle= models.CharField(max_length=255)
@@ -73,3 +72,8 @@ class DonateToStudents(models.Model):
         super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.donationTitle
+
+class Donation(models.Model):
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
