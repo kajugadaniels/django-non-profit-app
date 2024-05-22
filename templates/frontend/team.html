@@ -17,6 +17,11 @@
                 </p>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="background-position-center-top sm-background-image-none"style="background-image: url({% static 'frontend/images/team-bg.jpg' %});">
+    <div class="container">
         <div class="row">
             <div class="col tab-style-06">
                 <ul class="nav nav-tabs alt-font justify-content-center border-0 text-center text-uppercase alt-font fw-500 mb-5">
@@ -42,7 +47,7 @@
                         </p>
                         <div class="row align-items-center justify-content-center pricing-table-style-06" data-anime='{ "el": "childs", "willchange": "transform", "scale": [0.95, 1], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                             {% for person in team %}
-                                <div class="col text-center team-style-04 md-mb-50px">
+                                <div class="col-md-4 text-center team-style-04 md-mb-50px mb-5">
                                     <figure class="mb-0 position-relative">
                                         <img src="{{ person.image.url }}" class="border-radius-10px" alt=""/>
                                         <figcaption class="w-100 ps-50px pe-50px">
@@ -59,7 +64,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="fs-14 fw-500 text-white lh-20">{{ person.name }}</div>
-                                                <span class="text-white opacity-7 d-inline-block fs-15">{{ person.title }}</span>
+                                                <span class="text-white opacity-7 d-inline-block fs-15">{{ person.position }}</span>
                                                 <br>
                                                 <a href="#">
                                                     <span class="text-white opacity-7 d-inline-block fs-15">Read more</span>
