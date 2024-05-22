@@ -3,6 +3,26 @@
 {% block title %} Feeding Outreach {% endblock %}
 {% block content %}
 
-
+<section id="home" class="p-0 cover-background full-screen bg-dark-gray ipad-top-space-margin md-h-600px sm-h-auto" style="background-image: url({% static 'frontend/images/what-we-do/feeding/feeding-bg.jpg' %})">
+    <div class="container h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-md-7 position-relative h-100 order-2 order-md-1">
+                <div class="position-absolute sm-position-relative left-0px bottom-0px md-bottom-25px p-2 z-index-2" data-anime='{ "el": "childs", "translateY": [30, 0], "perspective": [500,1200], "scale": [1.05, 1], "rotateY": [-40, 0], "opacity": [0,1], "duration": 800, "delay": 100, "staggervalue": 200, "easing": "easeOutQuad" }'>
+                    <img src="{% static 'frontend/images/what-we-do/feeding/hero.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="col-md-5 md-mb-70px sm-mb-40px sm-mt-50px position-relative text-white order-1 order-md-2" data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [100, 0], "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <h1 class="alt-font fw-400 fs-60 lg-fs-80 sm-fs-65 text-uppercase mb-35px sm-mb-25px ls-minus-2px">
+                    <span>Feeding Outreach</span>
+                </h1>
+                <div class="feature-box feature-box-left-icon-middle">
+                    <div class="feature-box-content last-paragraph-no-margin text-mountain-gray fs-17 lh-26">
+                        Africa Oasis Foundation now feeds 100 children lunch every Monday through Friday. It's a heartwarming achievement that underscores our commitment to combating hunger and nourishing young minds in our community. Through dedicated efforts and the generosity of our supporters, we've expanded our feeding program to ensure that these children receive nutritious meals every weekday.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
