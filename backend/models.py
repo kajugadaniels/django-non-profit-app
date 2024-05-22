@@ -30,7 +30,9 @@ class Student(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
     description = models.TextField(blank=True)
-    # description = QuillField()
+    # description = QuillField(blank=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
 
     @property
     def age(self):
@@ -58,6 +60,9 @@ class Product(models.Model):
     unit = models.CharField(max_length=255, default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
+    # description = QuillField()
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -79,6 +84,9 @@ class Team(models.Model):
         options={'quality': 90},
     )
     description = models.TextField()
+    # description = QuillField()
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -98,9 +106,10 @@ class Blog(models.Model):
         format='JPEG',
         options={'quality': 90},
     )
-    # description = QuillField()
     description = models.TextField()
-    created_on = models.DateTimeField(default=timezone.now)
+    # description = QuillField()
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -120,7 +129,9 @@ class Project(models.Model):
         options={'quality': 90},
     )
     description = models.TextField()
-    created_on = models.DateTimeField(default=timezone.now)
+    # description = QuillField()
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

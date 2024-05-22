@@ -15,8 +15,8 @@ stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 publickey =  os.getenv("STRIPE_PUBLIC_KEY")
 
 def index(request):
-    students = Student.objects.all()
-    blog = Blog.objects.all()
+    students = Student.objects.all().order_by('-created_at')[:6]
+    blog = Blog.objects.all().order_by('-created_at')[:4]
     
     context = {
         'students': students,
@@ -29,7 +29,7 @@ def history(request):
     return render(request, 'frontend/history.html')
 
 def team(request):
-    team = Team.objects.all()
+    team = Team.objects.all().order_by('-created_at')
 
     context = {
         'team': team
@@ -68,7 +68,7 @@ def gospelTeaching(request):
     return render(request, 'frontend/what-we-do/gospel-teaching.html', context)
 
 def students(request):
-    student_list = Student.objects.all()
+    student_list = Student.objects.all().order_by('-created_at')
     paginator = Paginator(student_list, 12)
 
     page_number = request.GET.get('page')
@@ -90,7 +90,7 @@ def getStudent(request, slug):
     return render(request, 'frontend/students/show.html', context)
 
 def give(request):
-    projects = Project.objects.all()[:6]
+    projects = Project.objects.all().order_by('-created_at')[:4]
 
     context = {
         'projects': projects
@@ -99,8 +99,8 @@ def give(request):
     return render(request, 'frontend/give.html', context)
 
 def donate(request):
-    students = Student.objects.all()
-    projects = Project.objects.all()
+    students = Student.objects.all().order_by('-created_at')[:9]
+    projects = Project.objects.all().order_by('-created_at')[:9]
     
     context = {
         'students': students,
@@ -201,7 +201,7 @@ def donate(request):
 
 
 def store(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('-created_at')[:12]
 
     context = {
         'products': products
@@ -219,7 +219,7 @@ def product(request, slug):
     return render(request, 'frontend/store/product.html', context)
 
 def projects(request):
-    projects= Project.objects.all()
+    projects= Project.objects.all().order_by('-created_at')[:12]
 
     context = {
         'projects': projects
@@ -237,7 +237,7 @@ def viewProject(request, slug):
     return render(request, 'frontend/project/show.html', context)
 
 def blog(request):
-    blog = Blog.objects.all()
+    blog = Blog.objects.all().order_by('-created_at')[:12]
 
     context = {
         'blog': blog
