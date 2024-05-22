@@ -201,7 +201,11 @@ def donate(request):
 
 
 def store(request):
-    products = Product.objects.all().order_by('-created_at')[:12]
+    product_list = Product.objects.all().order_by('-created_at')
+    paginator = Paginator(product_list, 12)
+
+    page_number = request.GET.get('page')
+    products = paginator.get_page(page_number)
 
     context = {
         'products': products
