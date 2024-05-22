@@ -241,10 +241,14 @@ def viewProject(request, slug):
     return render(request, 'frontend/project/show.html', context)
 
 def blog(request):
-    blog = Blog.objects.all().order_by('-created_at')[:12]
+    blog_list = Blog.objects.all().order_by('-created_at')
+    paginator = Paginator(blog_list, 12)
+
+    page_number = request.GET.get('page')
+    blogs = paginator.get_page(page_number)
 
     context = {
-        'blog': blog
+        'blogs': blogs
     }
 
     return render(request, 'frontend/blog/index.html', context)
