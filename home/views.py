@@ -4,6 +4,7 @@ from backend.models import *
 from home.models import *
 from django.shortcuts import render, redirect, get_object_or_404
 import stripe
+from django.core.paginator import Paginator
 from dotenv import load_dotenv
 load_dotenv()
 import os
@@ -67,8 +68,12 @@ def gospelTeaching(request):
     return render(request, 'frontend/what-we-do/gospel-teaching.html', context)
 
 def students(request):
-    students = Student.objects.all();
-    
+    student_list = Student.objects.all()
+    paginator = Paginator(student_list, 12)
+
+    page_number = request.GET.get('page')
+    students = paginator.get_page(page_number)
+
     context = {
         'students': students
     }
