@@ -2,7 +2,7 @@ from django.http import JsonResponse
 import uuid
 from backend.models import *
 from home.models import *
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 import stripe
 from dotenv import load_dotenv
 load_dotenv()
@@ -223,7 +223,7 @@ def projects(request):
     return render(request, 'frontend/project/index.html', context)
 
 def viewProject(request, slug):
-    project = Project.objects.get(slug=slug)
+    project = get_object_or_404(Project, slug=slug)
     
     context = {
         'project': project
