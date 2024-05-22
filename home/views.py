@@ -260,6 +260,8 @@ def contact(request):
 
 @csrf_protect
 def checkout(request):
+    cart = request.session.get('cart', [])
+
     if request.method == 'POST':
         amount = request.POST.get('selectedAmount')
         project_id = request.POST.get('selectedProject')
@@ -271,8 +273,12 @@ def checkout(request):
         request.session.modified = True
         
         return redirect('frontend:checkout')
+    
+    context = {
+        'cart': cart
+    }
 
-    return render(request, 'frontend/checkout.html')
+    return render(request, 'frontend/checkout.html', context)
 
 def get_cart_details(request):
     cart = request.session.get('cart', [])
