@@ -37,6 +37,9 @@ def team(request):
 
     return render(request, 'frontend/team.html', context)
 
+def aboutRwanda(request):
+    return render(request, 'frontend/about-rwanda.html')
+
 def whatWeDo(request):
     return render(request, 'frontend/what-we-do/index.html')
 

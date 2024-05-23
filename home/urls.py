@@ -9,6 +9,7 @@ app_name = 'frontend'
 urlpatterns = [
    path('', index, name="home"),
 
+   path('about-rwanda/', aboutRwanda, name="aboutRwanda"),
    path('our-history/', history, name="history"),
    path('team/', team, name="team"),
 
