@@ -335,3 +335,6 @@ def remove_from_cart(request):
 
 def termsAndConditions(request):
     return render(request, 'frontend/term-and-condition.html')
+
+def privacyPolicy(request):
+    return render(request, 'frontend/privacy-policy.html')
