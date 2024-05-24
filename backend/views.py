@@ -37,7 +37,28 @@ def user_logout(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'backend/dashboard.html')
+    getStudents = Student.objects.all().order_by('created_at')[:3]
+    getBlog = Blog.objects.all().order_by('created_at')[:1]
+    student_count = Student.objects.count()
+    project_count = Project.objects.count()
+    product_count = Product.objects.count()
+    blog_count = Blog.objects.count()
+    
+    labels = ["January", "February", "March", "April", "May", "June", "July"]
+    data = [10, 20, 15, 25, 30, 35, 40]
+    
+    context ={
+        'getStudents': getStudents,
+        'getBlog': getBlog,
+        'student_count': student_count,
+        'project_count': project_count,
+        'product_count': product_count,
+        'blog_count': blog_count,
+        'labels': labels,
+        'data': data,
+    }
+
+    return render(request, 'backend/dashboard.html', context)
 
 # Student Section
 

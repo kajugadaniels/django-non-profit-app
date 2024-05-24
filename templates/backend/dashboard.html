@@ -2,8 +2,199 @@
 {% load static %}
 {% block content %}
 
+    <style>
+        .cropped-image {
+            width: 100%;
+            height: 285px;
+            object-fit: cover; /* Ensures the image is cropped to fit the dimensions */
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <div class="container-fluid dashboard-2">
-        Dashboard
+        <div class="row">
+            <div class="col-xl-7 col-md-12 proorder-md-1">  
+                <div class="row">
+                    <div class="col-xl-6 col-sm-6"> 
+                        <div class="card">
+                            <a href="{% url 'backend:getStudents' %}">
+                                <div class="card-body student">
+                                    <div class="d-flex gap-2 align-items-end"> 
+                                        <div class="flex-grow-1">
+                                            <h2>{{ student_count }}+</h2>
+                                            <p class="mb-0 text-truncate">Students</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 256 256"><path fill="#fff" d="m225.27 60.21l-96-32a4 4 0 0 0-2.54 0l-96 32A4 4 0 0 0 28 64v80a4 4 0 0 0 8 0V69.55l43.88 14.63a60 60 0 0 0 24.54 91c-20.86 5.74-39 19.13-51.77 38.65a4 4 0 0 0 6.7 4.36C75.17 193.92 100.2 180 128 180s52.83 13.92 68.65 38.18a4 4 0 0 0 6.7-4.36c-12.72-19.52-30.91-32.91-51.77-38.65a60 60 0 0 0 24.54-91l49.15-16.39a4 4 0 0 0 0-7.58ZM180 120a52 52 0 1 1-92.07-33.14l38.8 12.93a3.95 3.95 0 0 0 2.54 0l38.8-12.93A51.85 51.85 0 0 1 180 120m-52-28.22L44.65 64L128 36.22L211.35 64Z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-sm-6"> 
+                        <div class="card">
+                            <a href="{% url 'backend:getProjects' %}">
+                                <div class="card-body student-2">
+                                    <div class="d-flex gap-2 align-items-end"> 
+                                        <div class="flex-grow-1">
+                                            <h2>{{ project_count }}+</h2>
+                                            <p class="mb-0 text-truncate">Projects</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 14 14"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M8.276 3.979a1 1 0 0 0-.943-.667H6.56a.893.893 0 0 0-.19 1.765l1.178.257a1 1 0 0 1-.214 1.978h-.666a1 1 0 0 1-.943-.667M7 3.312v-1m0 6v-1"/><path d="M11.5 5.031a4.5 4.5 0 1 0-6.5 4v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1.5a4.48 4.48 0 0 0 2.5-4M5 13.5h4"/></g></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-sm-6"> 
+                        <div class="card">
+                            <a href="{% url 'backend:getProduct' %}">
+                                <div class="card-body student-3">
+                                    <div class="d-flex gap-2 align-items-end"> 
+                                        <div class="flex-grow-1">
+                                            <h2>{{ product_count }}+</h2>
+                                            <p class="mb-0 text-truncate">Products</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 24 24"><path fill="#fff" d="M4.423 5.5v-1h15.154v1zm.077 14v-6H3.27v-1l1.153-5h15.154l1.154 5v1H19.5v6h-1v-6h-5v6zm1-1h7v-5h-7z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-sm-6"> 
+                        <div class="card">
+                            <a href="{% url 'backend:getBlog' %}">
+                                <div class="card-body student-4">
+                                    <div class="d-flex gap-2 align-items-end"> 
+                                        <div class="flex-grow-1">
+                                            <h2>{{ blog_count }}+</h2>
+                                            <p class="mb-0 text-truncate"> Blogs</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#fff" d="M16 3a2 2 0 0 1 1.995 1.85L18 5v5h1.5a1.5 1.5 0 0 1 1.493 1.356L21 11.5V19a3 3 0 0 1-2.824 2.995L18 22H5a2 2 0 0 1-1.995-1.85L3 20V5a2 2 0 0 1 1.85-1.995L5 3zm3 9h-1v8a1 1 0 0 0 1-1zm-3-7H5v15h11zm-5 8a1 1 0 0 1 .117 1.993L11 15H8a1 1 0 0 1-.117-1.993L8 13zm2-5a1 1 0 1 1 0 2H8a1 1 0 0 1 0-2z"/></g></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-5 col-md-6 proorder-md-5"> 
+                <canvas id="studentChart" width="400" height="200"></canvas>
+            </div>
+            <div class="col-xl-7 proorder-xl-5 box-col-7 proorder-md-5">
+                <div class="card"> 
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Students</h4>
+                                <a class="btn btn-primary" href="{% url 'backend:getStudents' %}"><i class="fa fa-eye"></i>View Students</a>
+                            </div>
+                        </div>
+                        <div class="list-product">
+                            <table class="table" id="project-status">
+                                <thead> 
+                                    <tr> 
+                                    <th>
+                                        <div class="form-check"> 
+                                            <input class="form-check-input checkbox-primary" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th> <span class="f-light f-w-600">Student</span></th>
+                                    <th> <span class="f-light f-w-600">Age</span></th>
+                                    <th> <span class="f-light f-w-600">Gender</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for student in getStudents %}
+                                        <tr class="product-removes">
+                                            <td>
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input checkbox-primary" type="checkbox">
+                                                </div>
+                                            </td>
+                                            <td> 
+                                                <div class="product-names">
+                                                    <div class="light-product-box">
+                                                        <img class="img-fluid" src="{{ student.image.url }}" alt="laptop">
+                                                    </div>
+                                                    <p>{{ student.name }}</p>
+                                                </div>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ student.age }}</p>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ student.gender }}</p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-5 col-md-6 proorder-md-5"> 
+                <div class="card">
+                    <div class="card-header card-no-border pb-0">
+                        <div class="header-top">
+                            <h4>Latest Blog</h4>
+                        </div>
+                    </div>
+                    {% for blog in getBlog %}
+                        <div class="card-body live-meet">
+                            <a href="{% url 'backend:editBlog' blog.slug %}">
+                                <div class="live-metting">
+                                    <img class="img-fluid cropped-image" src="{{ blog.image.url }}" alt="">
+                                </div>
+                            </a>
+                            <ul>
+                                <li> 
+                                    <h5 class="text-truncate"> <span>Title: </span>{{ blog.title }}</h5>
+                                </li>
+                                <li>
+                                    <a href="{% url 'backend:editBlog' blog.slug %}">
+                                        <h5 class="font-primary text-truncate">See more</h5>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        var ctx = document.getElementById('studentChart').getContext('2d');
+        var studentChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ labels|safe }},
+                datasets: [{
+                    label: 'Number of Students',
+                    data: {{ data|safe }},
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 
 {% endblock %}
