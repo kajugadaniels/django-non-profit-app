@@ -28,6 +28,15 @@ class StripeWebhook(APIView):
 
         # Handle the event
         print('Unhandled event type {}'.format(event['type']))
+        charge=""
+        if event['type'] == 'charge.pending':
+            charge = event['data']['object']
+        elif event['type'] == 'charge.refunded':
+            charge = event['data']['object']
+        elif event['type'] == 'charge.succeeded':
+            charge = event['data']['object']
+        elif event['type'] == 'charge.dispute.created':
+            charge = event['data']['object']
         data= request.data
         print("==>dt coming:",data)
         return Response("Success", status=status.HTTP_200_OK)
