@@ -11,7 +11,7 @@ load_dotenv()
 import os
 from home.forms import *
 from django.views.decorators.csrf import csrf_protect
-
+from .utils import *
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 publickey =  os.getenv("STRIPE_PUBLIC_KEY")
 
@@ -90,6 +90,14 @@ def getStudent(request, slug):
     context = {
         'student': student
     }
+    if request.method == 'POST':
+        # TODO: sanitize data
+        amoun = request.POST['amount']
+        email =  request.POST['email']
+        fullname= request.POST['fullname']
+        interval =  request.POST['paymentOptions']
+        donate= donateFund(request,amoun, interval,slug, fullname, email,'frontend/students/show.html')
+        return donate
     
     return render(request, 'frontend/students/show.html', context)
 
@@ -122,90 +130,9 @@ def donate(request):
         amoun = request.POST['amount']
         email =  request.POST['email']
         fullname= request.POST['fullname']
-        amount = int(float(amoun) * 100)
         interval =  request.POST['paymentOptions']
-        if interval is not None :
-            try:
-                product = stripe.Product.create(
-                        name="AOF Foundation",
-                        description="Your gift of $"+str(amount)+" is life-changing as it makes it possible for ONE hungry child to eat, be able to go to school in a safe environment, receive medical care, and learn about the life-changing love of Jesus."
-                    )
-                productId = product.id
-                if amount:
-                    # Process donation logic here, such as saving the donation amount to the database
-                    price=""
-                    if interval=='one':
-
-                        price = stripe.Price.create(
-                            product=productId,
-                            unit_amount=amount,
-                            currency='usd',
-                        )
-                        payment=stripe.PaymentLink.create(
-                        line_items=[{"price": price, "quantity": 1}],
-                        currency="USD",
-                        customer_creation="always",
-                        allow_promotion_codes=False,
-                        submit_type='donate',
-                        billing_address_collection="auto",
-                        metadata={"order_id": str(uuid.uuid4())},
-                        )
-                        donation = Donate()
-                        donation.amount= amount
-                        donation.email= email
-                        donation.paidBy = fullname
-                        donation.paymentMode = interval
-                        donation.donationId = payment.id
-                        donation.productId= productId
-                        donation.save()
-                        
-                        return redirect(payment.url)
-                    else:
-                        price=stripe.Price.create(
-                        product=productId,
-                        unit_amount=amount,
-                        currency='usd',
-                        recurring={
-                            'interval': interval,
-                        },
-                        )
-                        payment=stripe.PaymentLink.create(
-                        line_items=[{"price": price, "quantity": 1}],
-                        currency="USD",
-                        allow_promotion_codes=False,
-                        billing_address_collection="auto",
-                        metadata={"order_id": str(uuid.uuid4())},
-                        )
-                        
-                        
-                        return redirect(payment.url)
-                    
-                else:
-                   return render(request, 'frontend/sponsor/index.html', { 
-                    'error_message':'Amount should not be empty'
-                })
-            except stripe.error.CardError as e:
-                return redirect('donate')
-
-            except stripe.error.StripeError as e:
-                error_message = str(e)
-                return render(request, 'frontend/sponsor/index.html', { 
-                    'error_message': error_message
-                })
-                
-            except Exception as e:
-                error_message = 'An error occurred while processing your payment.'
-                print(e)
-                return render(request, 'frontend/sponsor/index.html', { 
-                    'error_message': error_message
-                })
-            
-
-        else:
-            return render(request, 'frontend/sponsor/index.html', { 
-                    'error_message': 'Please select donation type '
-                })
-
+        donate= donateFund(request,amoun, interval,"", fullname, email,'frontend/sponsor/index.html')
+        return donate
     return render(request, 'frontend/sponsor/index.html', context)
 
 
