@@ -1,27 +1,287 @@
 {% extends 'frontend/layouts/app.html' %}
 {% load static %}
 {% block title %} About Rwanda {% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/revolution/css/settings.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/revolution/css/layers.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/revolution/css/navigation.css' %}">
+{% endblock %}
 {% block content %}
 
-<style>
-    .cropped-image {
-        width: 100%;
-        height: 800px;
-        object-fit: cover;
-    }
-</style>
+{% include 'frontend/inc/about-rwanda-slider.html' %}
 
-<section class="overflow-hidden p-0">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 p-0 position-relative">
-                <img src="{% static 'frontend/images/about-rwanda.jpg' %}" alt class="w-100 cropped-image">
-                <div class="alt-font fw-600 fs-200 lg-fs-275 md-fs-250 xs-fs-160 ls-minus-5px xs-ls-minus-2px position-absolute right-minus-50px lg-right-0px bottom-minus-1px md-bottom-minus-60px xs-bottom-minus-40px text-white text-outline text-outline-width-3px" data-bottom-top="transform: translate3d(80px, 0px, 0px);" data-top-bottom="transform: translate3d(-280px, 0px, 0px);">
-                    about rwanda
+<section class="big-section">
+    <h1 class="text-dark-gray text-center alt-font ls-minus-1px fs-50 fw-700 mb-20px mb-5">Culture & History</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 text-center md-mb-50px" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <img src="{% static 'frontend/images/about-rwanda/img-1.jpg' %}" class="animation-float" alt="">
+            </div>
+            <div class="col-lg-2 divider-style-02 d-none d-lg-block ">
+                <div class="divider-dot d-flex align-items-center w-100 h-100"><span class="bg-base-color border border-color-extra-medium-gray rounded-circle"></span></div>
+            </div>
+            <div class="col-lg-5 text-center text-lg-start" data-anime='{ "el": "childs", "willchange": "transform", "opacity": [0, 1], "rotateY": [-90, 0], "rotateZ": [-10, 0], "translateY": [80, 0], "translateZ": [50, 0], "staggervalue": 200, "duration": 600, "delay": 100, "easing": "easeOutCirc" }'>
+                <h2 class="alt-font text-dark-gray fs-20 fw-600 ls-minus-1px mb-1">Pre-Colonial</h2>
+                <p class="w-100">
+                    Pre-colonial Rwanda was a highly centralized Kingdom presided over by Tutsi kings who hailed from one ruling clan. The king ruled through three categories of chiefs: cattle chiefs; land chiefs; and military chiefs. The chiefs were predominantly, but not exclusively, Batutsi, especially the cattle and military chiefs. While the relationship between the king and the rest of the population was unequal, the relationship between the ordinary Bahutu, Batutsi and Batwa was one of mutual benefit mainly through the exchange of their labour. The relationship was symbiotic. A clientele system called "Ubuhake" permeated the whole society.
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 text-center text-lg-start" data-anime='{ "el": "childs", "willchange": "transform", "opacity": [0, 1], "rotateY": [-90, 0], "rotateZ": [-10, 0], "translateY": [80, 0], "translateZ": [50, 0], "staggervalue": 200, "duration": 600, "delay": 100, "easing": "easeOutCirc" }'>
+                <h2 class="text-dark-gray fs-20 fw-600 ls-minus-1px mb-1">
+                    Colonial
+                </h2>
+                <p>
+                    In 1899 Rwanda became a German colony. After the defeat of the Germans during WW1, subsequently in 1919 Rwanda became a mandate territory of the League of Nations under the administration of Belgium. The Germans and the Belgians administered Rwanda through a system of indirect rule. During this colonial era, a cash crop economy was introduced in Rwanda, and this was administered through harsh methods that further alienated the King and his chiefs from the rest of the population.
+                </p>
+                <p>
+                    In 1935 the Belgian colonial administration introduced a discriminatory national identification on the basis of ethnicity. Banyarwanda who possessed ten or more cows were registered as Batutsi whereas those with less were registered as Bahutu. At first, the Belgian authorities, for political and practical reasons, favored the King and his chiefs, who were mostly a Batutsi ruling elite. When the demand for independence began, mainly by a political party - Union Nationale Rwandaise (UNAR) - formed by people from the aforementioned ruling elite, the Belgian authorities hastily nurtured another party called PARMEHUTU that was founded on a sectarian ethnic ideology. Under the Belgian supervision, the first massacres of Batutsi at the hands of the PARMEHUTU occurred in 1959. With Belgian connivance, PARMEHUTU abolished the monarchy amidst widespread violence. On 1st July 1962 Belgium granted formal political independence to Rwanda.
+                </p>
+            </div>
+            <div class="col-lg-2 divider-style-02 d-none d-lg-block ">
+                <div class="divider-dot d-flex align-items-center w-100 h-100"><span class="bg-base-color border border-color-extra-medium-gray rounded-circle"></span></div>
+            </div>
+            <div class="col-lg-5 text-center md-mb-50px" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <img src="{% static 'frontend/images/about-rwanda/img-2.jpg' %}" class="animation-float mb-20" alt="">
+                <img src="{% static 'frontend/images/about-rwanda/img-3.jpg' %}" class="animation-float" alt="">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 text-center md-mb-50px" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <img src="{% static 'frontend/images/about-rwanda/img-4.jpg' %}" class="animation-float mb-10" alt="">
+                <img src="{% static 'frontend/images/about-rwanda/img-5.jpg' %}" class="animation-float mb-10" alt="">
+                <img src="{% static 'frontend/images/about-rwanda/img-6.jpg' %}" class="animation-float mb-10" alt="">
+            </div>
+            <div class="col-lg-2 divider-style-02 d-none d-lg-block ">
+                <div class="divider-dot d-flex align-items-center w-100 h-100"><span class="bg-base-color border border-color-extra-medium-gray rounded-circle"></span></div>
+            </div>
+            <div class="col-lg-5 text-center text-lg-start" data-anime='{ "el": "childs", "willchange": "transform", "opacity": [0, 1], "rotateY": [-90, 0], "rotateZ": [-10, 0], "translateY": [80, 0], "translateZ": [50, 0], "staggervalue": 200, "duration": 600, "delay": 100, "easing": "easeOutCirc" }'>
+                <h2 class="alt-font text-dark-gray fs-20 fw-600 ls-minus-1px mb-1">Genocide</h2>
+                <p>
+                    The first massacres in Rwanda took place in 1959. Thereafter, almost in a regular manner, killings of the Batutsi became a common practice. In the 1960s, 1970s, 1980s and early 1990s massacres of Batutsi were common. Between April and July 1994, over 1 million Rwandese people, mainly Batutsi and some Bahutu opposition were killed by the genocidal regime. Many people were involved in the killings. Those who planned and organised the genocide include the late President, Major General Juvenal Habyarimana, top government officials, including members of the so-called Provisional Government, the Presidential Guard, the National Gendarmerie, the Rwanda Armed Forces (FAR), the MRND-CDR militia (Interahamwe), local officials, and many Bahutu in the general population.
+                </p>
+                <p>
+                    Preparation to carry out genocide by these groups involved the training of the militia, the arming of both the militia and some sections of the population, the establishment and widespread use of a hate radio called Radio Television Libre De Mille Collines (RTLM), and the distribution of lists of those targeted from elimination. Repeatedly, these groups prevented the establishment of the Arusha Peace Accords.
+                </p>
+                <p>
+                    When the genocide began, the United Nations had a peacekeeping force - the United Nations Assistance Mission for Rwanda (UNAMIR) - in Rwanda of about 2500 troops. The first reaction of the United Nations, and indeed of other nations that had their own nationals in Rwanda, was to withdraw their troops and their nationals respectively. Under the circumstances the RPF had to fight again in order to stop the genocide.
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 text-center text-lg-start" data-anime='{ "el": "childs", "willchange": "transform", "opacity": [0, 1], "rotateY": [-90, 0], "rotateZ": [-10, 0], "translateY": [80, 0], "translateZ": [50, 0], "staggervalue": 200, "duration": 600, "delay": 100, "easing": "easeOutCirc" }'>
+                <h2 class="text-dark-gray fs-20 fw-600 ls-minus-1px mb-1">
+                    The fall of the Genocide regime
+                </h2>
+                <p>
+                    On 4th July 1994, the capital city of Rwanda, Kigali, fell to the forces of the Rwandese Patriotic Army (RPA), the armed wing of the RPF.
+                </p>
+                <p>
+                    The members of the so-called Provisional Government, the armed groups, and many people who were involved in genocide, fled mainly to the DRC and Tanzania. Over three million refugees fled to Tanzania and the DRC.
+                </p>
+                <p>
+                    On 19th July, 1994, the RPF established the Government of National Unity with four other political parties - the Liberal Party (PL), the Social Democratic Party (PSD), the Christian Democratic Party (PDC), and the Republican Democratic Movement (MDR). Weeks later a 70-member Transitional National Assembly was formed consisting of representatives of the RPF, the four other original parties plus three other smaller parties, namely, the Islamic Party (PDI), the Socialist Party (PSR), and the Democratic Union for Rwandese People (UDPR), as well as six representatives of the Rwandese Patriotic Army (RPA).
+                </p>
+            </div>
+            <div class="col-lg-2 divider-style-02 d-none d-lg-block ">
+                <div class="divider-dot d-flex align-items-center w-100 h-100"><span class="bg-base-color border border-color-extra-medium-gray rounded-circle"></span></div>
+            </div>
+            <div class="col-lg-5 text-center md-mb-50px" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <img src="{% static 'frontend/images/about-rwanda/img-7.jpg' %}" class="animation-float mb-10" alt="">
+                <img src="{% static 'frontend/images/about-rwanda/img-8.jpg' %}" class="animation-float" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="big-section overflow-hidden ps-6 pe-6">
+    <div class="container-fluid p-0">
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-xl-8 text-center">
+                <h2 class="fs-50 alt-font fw-700 text-dark-gray ls-minus-1px w-90 mx-auto sm-w-100">Rwanda Today</h2>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-md-12">
+                <div class="outside-box-right-30 sm-outside-box-right-0">
+                    <div class="swiper" data-slider-options='{ "slidesPerView": 1, "spaceBetween": 25, "loop": true, "autoplay": { "delay": 300000, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "992": { "slidesPerView": 3 }, "768": { "slidesPerView": 2 }, "320": { "slidesPerView": 1 } }, "effect": "slide" }'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                                <div class="interactive-banner-style-09 position-relative overflow-hidden">
+                                    <img src="{% static 'frontend/images/about-rwanda/img-9.jpg' %}" alt="" />
+                                    <div class="opacity-full-dark bg-gradient-black-bottom-transparent"></div>
+                                    <div class="image-content h-100 w-100 p-10 xl-p-30px sm-pe-15px sm-ps-15px text-center d-flex justify-content-end align-items-end flex-column">
+                                        <div class="w-100">
+                                            <p class="text-white">
+                                                Rwanda's future is promising and bright. The country boasts one of the fastest-growing economies in Africa, with a real growth rate of 8.6% in 2018. Approximately 75% of the labor force is employed in agriculture, which contributes nearly 31% to the national GDP.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="swiper-slide"> 
+                                <div class="interactive-banner-style-09 position-relative overflow-hidden">
+                                    <img src="{% static 'frontend/images/about-rwanda/img-10.jpg' %}" alt="" />
+                                    <div class="opacity-full-dark bg-gradient-black-bottom-transparent"></div>
+                                    <div class="image-content h-100 w-100 p-10 xl-p-30px sm-pe-15px sm-ps-15px text-center d-flex justify-content-end align-items-end flex-column">
+                                        <div class="w-100">
+                                            <p class="text-white">
+                                                Over the past few decades, Rwanda has advanced significantly on the global economic stage and has improved its education system. The new constitution, adopted in 2003, mandates that 30% of parliamentary seats be held by women. Rwanda now has the highest percentage of women in parliament worldwide, at 61%. Joining the Commonwealth in 2009, Rwanda continues to promote national unity and combat ethnic hate crimes.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="swiper-slide"> 
+                                <div class="interactive-banner-style-09 position-relative overflow-hidden">
+                                    <img src="{% static 'frontend/images/about-rwanda/img-11.jpg' %}" alt="" />
+                                    <div class="opacity-full-dark bg-gradient-black-bottom-transparent"></div>
+                                    <div class="image-content h-100 w-100 p-10 xl-p-30px sm-pe-15px sm-ps-15px text-center d-flex justify-content-end align-items-end flex-column">
+                                        <div class="w-100">
+                                            <p class="text-white">
+                                                Rwandans are known for their compassion, creativity, and dedication to demonstrating Christ's radical love, with 91.5% of the population identifying as Christian. Africa New Life is proud to serve in a country that has learned from its past and has much to teach the world. Despite the horrific violence of the 20th century, Rwandans have shown remarkable resilience, grace, and a commitment to healing. Today, Rwanda is one of the safest countries in Africa, thanks to its restored peace and security. Genocide memorials in Rwanda honor the victims, educate the public, and aim to prevent future violence.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="swiper-slide"> 
+                                <div class="interactive-banner-style-09 position-relative overflow-hidden">
+                                    <img src="{% static 'frontend/images/about-rwanda/img-9.jpg' %}" alt="" />
+                                    <div class="opacity-full-dark bg-gradient-black-bottom-transparent"></div>
+                                    <div class="image-content h-100 w-100 p-10 xl-p-30px sm-pe-15px sm-ps-15px text-center d-flex justify-content-end align-items-end flex-column">
+                                        <div class="w-100">
+                                            <p class="text-white">
+                                                Rwanda's future is promising and bright. The country boasts one of the fastest-growing economies in Africa, with a real growth rate of 8.6% in 2018. Approximately 75% of the labor force is employed in agriculture, which contributes nearly 31% to the national GDP.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
+    <script type="text/javascript">
+        /* https://learn.jquery.com/using-jquery-core/document-ready/ */
+        jQuery(document).ready(function () {
+
+            let windowHeight = $(window).outerHeight();
+            $(window).resize(function() {
+                windowHeight = $(window).outerHeight();
+            })
+
+            /* initialize the slider based on the Slider's ID attribute from the wrapper above */
+            jQuery('#about-rwanda-slider').show().revolution({
+                sliderType: "standard",
+                /* options are 'auto', 'fullwidth' or 'fullscreen' */
+                sliderLayout: 'fullscreen',
+                /* sets the Slider's default timeline */
+                delay: 9000,
+                /* options that disable autoplay */
+                stopLoop: "off",
+                stopAfterLoops: 0,
+                stopAtSlide: 1,
+                navigation: {
+                    keyboardNavigation: "on",
+                    keyboard_direction: "horizontal",
+                    mouseScrollNavigation: "off",
+                    mouseScrollReverse: "default",
+                    onHoverStop: "off",
+                    touch: {
+                        touchenabled: "on",
+                        touchOnDesktop: "on",
+                        swipe_threshold: 75,
+                        swipe_min_touches: 1,
+                        swipe_direction: "horizontal",
+                        drag_block_vertical: true
+                    },
+                    arrows: {
+
+                        enable: true,
+                        style: 'uranus',
+                        rtl: false,
+                        hide_onleave: false,
+                        hide_onmobile: true,
+                        hide_under: 0,
+                        hide_over: 778,
+                        hide_delay: 200,
+                        hide_delay_mobile: 1200,
+                        left: {
+                            container: 'slider',
+                            h_align: 'left',
+                            v_align: 'center',
+                            h_offset: 10,
+                            v_offset: 10
+                        },
+                        right: {
+                            container: 'slider',
+                            h_align: 'right',
+                            v_align: 'center',
+                            h_offset: 10,
+                            v_offset: 10
+                        }
+
+                    }
+
+                },
+
+                responsiveLevels: [1240, 1024, 778, 480],
+                /* [DESKTOP, LAPTOP, TABLET, SMARTPHONE] */
+                gridwidth: [1190, 1024, 778, 480],
+                /* [DESKTOP, LAPTOP, TABLET, SMARTPHONE] */
+                gridheight: [900, 920, 700, 650],
+                /* Lazy Load options are "all", "smart", "single" and "none" */
+                lazyType: "smart",
+                spinner: "spinner0",
+                parallax: {
+                    type: "mouse+scroll",
+                    origo: "enterpoint",
+                    speed: 400,
+                    speedbg: 1500,
+                    speedls: 1000,
+                    levels: [5, 10, 15, 20, 25, 30, 35, 40, 60, 46, -10, -15, -20, -25, -30, 55],
+                }
+                ,
+                shadow: 0,
+                shuffle: "off",
+                autoHeight: "on",
+                fullScreenAutoWidth: "on",
+                fullScreenAlignForce: "on",
+                fullScreenOffsetContainer: "",
+                fullScreenOffset: "1px",
+                disableProgressBar: "on",
+                hideThumbsOnMobile: "on",
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                debugMode: false,
+                fallbacks: {
+                    simplifyAll: "off",
+                    nextSlideOnWindowFocus: "off",
+                    disableFocusListener: false,
+                }
+            }
+            );
+        });
+    </script>
 {% endblock %}
