@@ -3,10 +3,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 import os
+import stripe
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 endpoint_secret = os.getenv("WeBHOOK_Key")
 publickey =  os.getenv("STRIPE_PUBLIC_KEY")
-import stripe
+
 # Create your views here.
 class StripeWebhook(APIView):
     def post(self, request, format=None):
