@@ -56,6 +56,8 @@ class DonateToStudents(models.Model):
     donationTitle= models.CharField(max_length=255)
     donationId = models.TextField(max_length=255)
     productId = models.TextField(max_length=255)
+    amount = models.FloatField()
+    status =models.CharField(max_length=255, default="Pending")
     created_on =  models.DateTimeField(default=timezone.now)
     beneficiary = models.ForeignKey(Student, on_delete=models.CASCADE)
     paymentMode = models.TextField(max_length=255)
