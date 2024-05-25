@@ -18,7 +18,9 @@
     <!-- google fonts preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
+    {% block css %}{% endblock %}
+
     <!-- style sheets -->
     <link rel="stylesheet" href="{% static 'frontend/css/vendors.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'frontend/css/icon.min.css' %}"/>
@@ -35,6 +37,7 @@
 
     <script type="text/javascript" src="{% static 'frontend/js/jquery.js' %}"></script>
     <script type="text/javascript" src="{% static 'frontend/js/vendors.min.js' %}"></script>
+    {% block js %}{% endblock %}
     <script type="text/javascript" src="{% static 'frontend/js/main.js' %}"></script>
 </body>
 </html>
