@@ -10,28 +10,22 @@
 
 {% include 'frontend/inc/farming-outreach-slider.html' %}
 
-<section>
-    <div class="container">
+<section class="position-relative overflow-hidden">
+    <div class="container position-relative z-index-1">
         <div class="row">
-            <div class="col-lg-5 position-relative">
-                <div class="row align-items-center position-relative md-mb-15" data-anime='{ "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                    <div class="col-md-5 sm-mb-30px" data-bottom-top="transform: translateY(50px)" data-top-bottom="transform: translateY(-50px)">
-                        <img class="w-100" src="{% static 'frontend/images/about-thumb-2.png' %}" alt="" />
-                    </div>
-                    <div class="col-lg-7 col-md-7 sm-mb-30px text-end" data-bottom-top="transform: translateY(-30px)" data-top-bottom="transform: translateY(30px)">
-                        <img src="{% static 'frontend/images/about-thumb-3.png' %}" alt="" class="box-shadow-quadruple-large md-w-100" />
-                    </div>
-                    <div class="w-50 sm-w-100 overflow-hidden position-absolute sm-position-relative left-140px bottom-minus-200px sm-bottom-0px sm-left-0px p-0 sm-ps-15px sm-pe-15px" data-shadow-animation="true" data-animation-delay="100" data-bottom-top="transform: translateY(20px)" data-top-bottom="transform: translateY(-20px)">
-                        <img src="{% static 'frontend/images/about-thumb-1.png' %}" alt="" class="box-shadow-quadruple-large w-100" />
-                    </div>
-                </div> 
+            <div class="col-lg-6 position-relative order-2 order-lg-1">
+                <img src="{% static 'frontend/images/what-we-do/farming/1.jpg' %}" alt="">
             </div>
-            <div class="col-xl-5 col-lg-8 offset-xl-1 md-mt-20 sm-mt-0" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                <h4 class="text-dark-gray alt-font fw-600 ls-minus-2px mb-20px">
-                    Farming Outreach
-                </h4>
-                <p class="w-100 md-w-100 mb-35px sm-mb-20px">
-                    Although Rwanda  has experienced significant urbanization in recent years, the majority of Rwanda still rely on subsistence farming for their livelihoods. These farmers work diligently, often from dawn to dusk, cultivating small plots of land. Their primary goal is to produce enough food to meet their families' daily needs. Despite the growth of cities and the development of infrastructure, the rural population continues to depend heavily on agriculture. They face numerous challenges, including unpredictable weather, limited access to modern farming tools, and fluctuating market prices for their produce. Nonetheless, these farmers remain dedicated to their work, ensuring their families have enough to eat.
+            <div class="col-lg-6 mb-50px md-mt-0 order-1 order-lg-1 xs-mb-35px" data-anime='{ "el": "childs", "opacity": [0, 1], "translateY": [30, 0], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <h2 class="fs-40 alt-font fw-700 ls-minus-1px text-dark-gray mb-15px">Farming God’s way </h2>
+                <p class="fs-14 w-100 mb-30px lg-w-100">
+                    In 2024, the Africa Oasis Foundation launched the Farming Outreach program to continuously improve our initiatives and help the families we serve become more self-reliant. This program was established in response to the observed need to support parents and guardians of children in our Scholarship Program, equipping them to better care for their families. Since our Education Scholarship Outreach operates in a rural area, most of our families are subsistence farmers.
+                </p>
+                <p class="fs-14 w-100 mb-30px lg-w-100">
+                    The Farming Outreach program introduces "Farming God’s Way," a resource designed to address the challenges our families face. This approach tackles both the spiritual and practical aspects of poverty. By integrating biblical principles, it provides sustainable and profitable farming methods.
+                </p>
+                <p class="fs-14 w-100 mb-30px lg-w-100">
+                    Farming God’s Way" is not an organization, but a comprehensive teaching resource. It promotes improved and sustainable conservation agriculture techniques to local farmers. These methods help enhance crop yields, preserve soil health, and ensure long-term agricultural productivity. Through this program, we aim to empower farmers with the knowledge and skills they need to thrive, thereby fostering self-reliance and improved living conditions for their families.
                 </p>
             </div>
         </div>
@@ -41,13 +35,15 @@
 <section class="">
     <div class="container">
         <div class="row justify-content-center text-center text-lg-start mb-6 md-mb-50px sm-mb-40px">
-            <div class="col-lg-6 col-md-9 md-mb-4">
+            <div class="col-lg-4 col-md-9 md-mb-4">
                 <h3 class="alt-font fw-600 text-black w-80 xl-w-100 m-0 ls-minus-1px" data-anime='{ "el": "lines", "translateY": [30, 0], "translateX": [30, 0], "opacity": [0,1], "delay": 0, "staggervalue": 250, "easing": "easeOutQuad" }'>
                     The Problem
                 </h3>
             </div>
-            <div class="col-lg-6 col-md-9 last-paragraph-no-margin">
-                <p class="w-90 lg-w-100" data-anime='{ "el": "lines", "translateY": [30, 0], "translateX": [30, 0], "opacity": [0,1], "delay": 100, "staggervalue": 250, "easing": "easeOutQuad" }'>Lorem ipsum simply dummy printing typesetting industry consectetur adipiscing. Lorem ipsum simply dummy printing typesetting industry consectetur adipiscing dummy text.</p>
+            <div class="col-lg-8 col-md-9 last-paragraph-no-margin">
+                <p class="w-90 lg-w-100" data-anime='{ "el": "lines", "translateY": [30, 0], "translateX": [30, 0], "opacity": [0,1], "delay": 100, "staggervalue": 250, "easing": "easeOutQuad" }'>
+                    Despite ideal conditions for farming, many Rwandan families face food insecurity due to poor farming practices, soil erosion, and lack of motivation. Addressing these issues through improved agricultural techniques, education, and support is essential to help families fully utilize their environment's natural advantages.
+                </p>
             </div>
         </div>
     </div>
@@ -109,6 +105,97 @@
         </div>
     </div>
 </section>
+
+<section class="overflow-hidden big-section position-relative">
+    <div id="particles-style-01" class="position-absolute h-100 top-0 left-0 w-100" data-particle="true" data-particle-options='{"particles":{"number":{"value":5,"density":{"enable":true,"value_area":800}},"color":{"value":"#000000"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":4,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true}'></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="outside-box-right-50 lg-outside-box-right-65 sm-me-0">
+                    <div class="swiper text-slider-style-02" data-slider-options='{ "slidesPerView": 1, "spaceBetween": 30, "loop": true, "autoplay": { "delay": 4000, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "1400": { "slidesPerView": 2, "spaceBetween": 130 }, "992": { "slidesPerView": 2, "spaceBetween": 80 }, "768": { "slidesPerView": 2, "spaceBetween": 50 } }, "effect": "slide" }'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                                <div class="row">
+                                    <div class="col-12 col-lg-4 pt-8 order-lg-1 order-2">
+                                        <div class="outside-box-right-10 xl-outside-box-right-15 lg-outside-box-right-30 md-me-0 position-relative">
+                                            <h3 class="ls-minus-1px fw-700 word-break-normal mb-40px sm-mb-20px">
+                                                <a href="#" class="text-dark-gray text-dark-gray-hover">
+                                                    From Farm to Market
+                                                </a>
+                                            </h3>
+                                            <p class="text-black">
+                                                A significant challenge for subsistence farmers in Rwanda is obtaining a fair price for their products. Most farmers lack proper storage facilities for maize, forcing them to sell at harvest time when prices are at their lowest. While "Farming God’s Way" will help increase crop yields, we also want to ensure farmers receive fair compensation for their efforts.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8 order-lg-2 order-1">
+                                        <a href="#"><img src="{% static 'frontend/images/what-we-do/farming/img-1.jpg' %}" class="border-radius-6px" alt=""/></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide"> 
+                                <div class="row">
+                                    <div class="col-12 col-lg-4 pt-8 order-lg-1 order-2">
+                                        <div class="outside-box-right-10 xl-outside-box-right-15 lg-outside-box-right-30 md-me-0 position-relative">
+                                            <p class="text-black">
+                                                To address this issue, the Africa Oasis Foundation constructed a warehouse. This facility allows us to purchase maize and beans from farmers at fair prices that reflect the true value of their products. The warehouse provides much-needed storage space, enabling farmers to store their crops safely and sell them when market prices are more favorable. This reduces their vulnerability to market fluctuations and helps them avoid the financial strain of selling at low prices during harvest time.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8 order-lg-2 order-1">
+                                        <a href="#"><img src="{% static 'frontend/images/what-we-do/farming/img-2.jpg' %}" class="border-radius-6px" alt=""/></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide"> 
+                                <div class="row">
+                                    <div class="col-12 col-lg-4 pt-8 order-lg-1 order-2">
+                                        <div class="outside-box-right-10 xl-outside-box-right-15 lg-outside-box-right-30 md-me-0 position-relative">
+                                            <p class="text-black">
+                                                Furthermore, the warehouse serves as a central collection point, simplifying logistics and reducing transportation costs for farmers. By buying directly from the farmers, we eliminate middlemen who often take a significant portion of the profit. This ensures that the farmers receive a larger share of the final sale price.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8 order-lg-2 order-1">
+                                        <a href="#"><img src="{% static 'frontend/images/what-we-do/farming/img-3.jpg' %}" class="border-radius-6px" alt=""/></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide"> 
+                                <div class="row">
+                                    <div class="col-12 col-lg-4 pt-8 order-lg-1 order-2">
+                                        <div class="outside-box-right-10 xl-outside-box-right-15 lg-outside-box-right-30 md-me-0 position-relative">
+                                            <p class="text-black">
+                                                The benefits of this initiative are multifaceted. Our farmers can enjoy increased yields from the improved farming techniques taught by "Farming God’s Way." They also receive fair and timely payment for their crops, which helps to stabilize their income and improve their overall financial security. Additionally, by storing and selling their crops at optimal times, farmers can better plan for their future needs and investments.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8 order-lg-2 order-1">
+                                        <a href="#"><img src="{% static 'frontend/images/what-we-do/farming/img-4.jpg' %}" class="border-radius-6px" alt=""/></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide"> 
+                                <div class="row">
+                                    <div class="col-12 col-lg-4 pt-8 order-lg-1 order-2">
+                                        <div class="outside-box-right-10 xl-outside-box-right-15 lg-outside-box-right-30 md-me-0 position-relative">
+                                            <p class="text-black">
+                                                Overall, this initiative not only enhances the economic well-being of the farmers but also ensures a steady supply of quality maize and beans for the community. Our families feel a sense of pride and accomplishment in their work, knowing that their efforts are valued and that their crops are helping to feed their community. Through these efforts, we aim to create a more sustainable and prosperous future for subsistence farmers in Rwanda.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8 order-lg-2 order-1">
+                                        <a href="#"><img src="{% static 'frontend/images/what-we-do/farming/img-5.jpg' %}" class="border-radius-6px" alt=""/></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
 
 {% endblock %}
 
