@@ -103,13 +103,20 @@ def give(request):
     return render(request, 'frontend/give.html', context)
 
 def donate(request):
-    students = Student.objects.all().order_by('-created_at')[:9]
-    projects = Project.objects.all().order_by('-created_at')[:9]
-    
+    student_list = Student.objects.all().order_by('-created_at')
+    paginator = Paginator(student_list, 9)
+    page_number = request.GET.get('page')
+    students = paginator.get_page(page_number)
+    project_list = Project.objects.all()
+    paginator = Paginator(project_list, 9)
+    page_number = request.GET.get('page')
+    projects = paginator.get_page(page_number)
+
     context = {
         'students': students,
         'projects': projects
     }
+
     if request.method == 'POST':
         # TODO: sanitize data
         amoun = request.POST['amount']
