@@ -67,3 +67,7 @@ class SlideForm(forms.ModelForm):
     class Meta:
         model = Slide
         fields = ['image', 'status']
+        widgets = {
+            'status': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'})
+        }

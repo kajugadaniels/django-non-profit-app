@@ -40,7 +40,9 @@ urlpatterns = [
    path('donate/', donate, name='donate'),
    path('donate-to-student', donateToStudent, name='donateToStudent'),
 
-   path('settings/', setting, name='settings')
+   path('settings/', setting, name='settings'),
+   path('settings/edit-slide/<int:slide_id>/', edit_slide, name='edit_slide'),
+   path('settings/delete-slide/<int:slide_id>/', delete_slide, name='delete_slide'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  

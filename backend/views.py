@@ -404,11 +404,26 @@ def setting(request):
         form = SlideForm()
 
     slides = Slide.objects.all()
-    
-    context = {
-        'form': form,
-        'slides': slides
-    }
+    return render(request, 'backend/settings/index.html', {'form': form, 'slides': slides})
 
-    return render(request, 'backend/settings/index.html', context)
+def edit_slide(request, slide_id):
+    slide = get_object_or_404(Slide, id=slide_id)
+    if request.method == 'POST':
+        form = SlideForm(request.POST, request.FILES, instance=slide)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Slide updated successfully.')
+            return redirect('backend:settings')
+        else:
+            messages.error(request, 'Error updating slide.')
+    else:
+        form = SlideForm(instance=slide)
+    return render(request, 'backend/settings/index.html', {'form': form, 'slide': slide})
 
+def delete_slide(request, slide_id):
+    slide = get_object_or_404(Slide, id=slide_id)
+    if request.method == 'POST':
+        slide.delete()
+        messages.success(request, 'Slide deleted successfully.')
+        return redirect('backend:settings')
+    return render(request, 'backend/settings/index.html', {'slide': slide})
