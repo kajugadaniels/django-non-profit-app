@@ -18,10 +18,12 @@ publickey =  os.getenv("STRIPE_PUBLIC_KEY")
 def index(request):
     students = Student.objects.all().order_by('-created_at')[:6]
     blog = Blog.objects.all().order_by('-created_at')[:4]
+    slides = Slide.objects.all().order_by('-created_at')[:3]
     
     context = {
         'students': students,
-        'blog': blog
+        'blog': blog,
+        'slides': slides
     }
 
     return render(request, 'frontend/index.html', context)

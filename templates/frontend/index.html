@@ -21,21 +21,11 @@
                 <div class="col-12 col-md-6 position-relative order-1 order-md-2">
                     <div class="swiper h-100 banner-slider sm-h-450px swiper-light-pagination" data-slider-options='{ "slidesPerView": 1, "loop": true, "pagination": { "el": ".swiper-pagination-bullets", "clickable": true }, "navigation": { "nextEl": ".slider-one-slide-next-1", "prevEl": ".slider-one-slide-prev-1" }, "autoplay": { "delay": 4000, "stopOnLastSlide": true, "disableOnInteraction": false },"keyboard": { "enabled": true, "onlyInViewport": true }, "effect": "fade" }'>
                         <div class="swiper-wrapper">
-                            <!-- start slider item -->
-                            <div class="swiper-slide">
-                                <div class="position-absolute left-0px top-0px w-100 h-100 cover-background" style="background-image:url({% static 'frontend/images/slides/1.jpg' %});"></div>
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide">
-                                <div class="position-absolute left-0px top-0px w-100 h-100 cover-background" style="background-image:url({% static 'frontend/images/slides/2.jpg' %});"></div>
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide">
-                                <div class="position-absolute left-0px top-0px w-100 h-100 cover-background" style="background-image:url({% static 'frontend/images/slides/3.jpg' %});"></div>
-                            </div>
-                            <!-- end slider item -->
+                            {% for slide in slides %}
+                                <div class="swiper-slide">
+                                    <div class="position-absolute left-0px top-0px w-100 h-100 cover-background" style="background-image:url({{ slide.image.url }});"></div>
+                                </div>
+                            {% endfor %}
                         </div>
                         <!-- start slider navigation -->
                         <!-- <div class="slider-one-slide-prev-1 icon-very-small text-white swiper-button-prev slider-navigation-style-06 d-none d-sm-inline-block"><i class="line-icon-Arrow-OutLeft icon-extra-large"></i></div>

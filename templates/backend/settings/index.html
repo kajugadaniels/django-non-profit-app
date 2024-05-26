@@ -1,0 +1,63 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid dashboard-2">
+    <div class="row">
+        <div class="col-xxl-12"> 
+            <div class="card"> 
+                <div class="card-header">
+                    <h4>Settings</h4>
+                </div>
+                <div class="card-body"> 
+                    <ul class="nav nav-tabs border-tab border-0 mb-0 nav-danger" id="topline-tab" role="tablist">
+                        <li class="nav-item"><a class="nav-link active nav-border pt-0 txt-danger nav-danger" id="home-slider-tab" data-bs-toggle="tab" href="#home-slider" role="tab" aria-controls="home-slider" aria-selected="true"><i class="icofont icofont-man-in-glasses"></i>Slides</a></li>
+                        <li class="nav-item"><a class="nav-link nav-border txt-danger nav-danger" id="impact-tab-tab" data-bs-toggle="tab" href="#impact-tab" role="tab" aria-controls="impact-tab" aria-selected="false"><i class="icofont icofont-file-document"></i>Description</a></li>
+                    </ul>
+                    <div class="tab-content" id="topline-tabContent">
+                        <div class="tab-pane fade show active" id="home-slider" role="tabpanel" aria-labelledby="home-slider-tab">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Add Student</h4>
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addnewslider">Add New Slider</button>
+                                </div>
+                                {% include 'backend/settings/create.html' %}
+                                <div class="row">
+                                    {% for slide in slides %}
+                                        <div class="col-xl-3 xl-50 col-md-6 box-col-6">
+                                            <div class="card features-faq product-box">
+                                                <div class="faq-image product-img">
+                                                    <img class="img-fluid" src="{{ slide.image.url }}" alt="">
+                                                    <div class="product-hover">
+                                                        <ul>
+                                                            <li><i class="icon-link"></i></li>
+                                                            <li><i class="icon-import"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="f-w-600">
+                                                        Status: <span class="badge badge-primary">
+                                                            {{ slide.status }}
+                                                        </span>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="impact-tab" role="tabpanel" aria-labelledby="impact-tab-tab">
+                            <div class="card-body">
+                                Impact Number
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

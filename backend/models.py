@@ -141,3 +141,18 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+
+
+class Slide(models.Model):
+    image = ProcessedImageField(
+        upload_to='slides/',
+        processors=[ResizeToFill(1080, 719)],
+        format='JPEG',
+        options={'quality': 90},
+    )
+    status = models.BooleanField(default=False)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Slide {self.id}"

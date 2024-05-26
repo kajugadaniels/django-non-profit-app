@@ -392,4 +392,23 @@ def donateToStudent(request):
     return render(request, 'backend/donate/donate-to-student.html', context)
 
 def setting(request):
-    return render(request, 'backend/settings.html')
+    if request.method == 'POST':
+        form = SlideForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'New slide added successfully.')
+            return redirect('backend:settings')
+        else:
+            messages.error(request, 'Error adding slide.')
+    else:
+        form = SlideForm()
+
+    slides = Slide.objects.all()
+    
+    context = {
+        'form': form,
+        'slides': slides
+    }
+
+    return render(request, 'backend/settings/index.html', context)
+

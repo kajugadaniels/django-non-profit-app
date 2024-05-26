@@ -62,3 +62,8 @@ class ProjectForm(forms.ModelForm):
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
         }
+
+class SlideForm(forms.ModelForm):
+    class Meta:
+        model = Slide
+        fields = ['image', 'status']
