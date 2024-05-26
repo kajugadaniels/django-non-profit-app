@@ -390,3 +390,6 @@ def donateToStudent(request):
     }
     
     return render(request, 'backend/donate/donate-to-student.html', context)
+
+def setting(request):
+    return render(request, 'backend/settings.html')
