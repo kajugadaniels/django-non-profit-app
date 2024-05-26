@@ -63,9 +63,6 @@ def farmingOutreach(request):
 def feedingOutreach(request):
     return render(request, 'frontend/what-we-do/feeding-outreach.html')
 
-def educationSponsorship(request):
-    return render(request, 'frontend/what-we-do/educational-sponsorship.html')
-
 def OasisAcademy(request):
     return render(request, 'frontend/what-we-do/oasis-academy.html')
 
