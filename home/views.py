@@ -57,15 +57,6 @@ def medicalCare(request):
 def communityEmpowerment(request):
     return render(request, 'frontend/what-we-do/community-empowerment.html')
 
-def farmingOutreach(request):
-    return render(request, 'frontend/what-we-do/farming-outreach.html')
-
-def feedingOutreach(request):
-    return render(request, 'frontend/what-we-do/feeding-outreach.html')
-
-def OasisAcademy(request):
-    return render(request, 'frontend/what-we-do/oasis-academy.html')
-
 def gospelTeaching(request):
     # testimonial = Testimonial.objects.all()
     

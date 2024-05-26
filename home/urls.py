@@ -19,7 +19,6 @@ urlpatterns = [
    path('what-we-do/medical-care-outreach', medicalCare, name="medicalCare"),
    path('what-we-do/community-empowerment', communityEmpowerment, name="communityEmpowerment"),
    
-   path('what-we-do/farming-outreach', farmingOutreach, name="farmingOutreach"),
    path('what-we-do/gospel-teaching', gospelTeaching, name="gospelTeaching"),
 
    path('students/', students, name="students"),
