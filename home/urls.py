@@ -30,6 +30,8 @@ urlpatterns = [
    path('store/', store, name="store"),
    path('store/<slug>', product, name="product"),
    
+   path('monthly-donating/', monthlyDonating, name="monthlyDonating"),
+   
    path('blog/', blog, name="blog"),
    path('blog/<slug>', viewBlog, name="viewBlog"),
    

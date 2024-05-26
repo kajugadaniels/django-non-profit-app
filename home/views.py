@@ -158,6 +158,9 @@ def product(request, slug):
 
     return render(request, 'frontend/store/product.html', context)
 
+def monthlyDonating(request):
+    return render(request, 'frontend/monthly-donating.html')
+
 def projects(request):
     project_list = Project.objects.all().order_by('-created_at')
     paginator = Paginator(project_list, 12)
