@@ -1,6 +1,5 @@
 from django.http import JsonResponse
 from django.utils import timezone
-import uuid
 from backend.models import *
 from home.models import *
 from django.shortcuts import render, redirect, get_object_or_404
@@ -18,7 +17,7 @@ publickey =  os.getenv("STRIPE_PUBLIC_KEY")
 def index(request):
     students = Student.objects.all().order_by('-created_at')[:6]
     blog = Blog.objects.all().order_by('-created_at')[:4]
-    slides = Slide.objects.all().order_by('-created_at')[:3]
+    slides = Slide.objects.filter(status=True).order_by('-created_at')[:3]
     
     context = {
         'students': students,

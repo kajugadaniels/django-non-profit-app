@@ -44,7 +44,13 @@
                                         {% for slide in slides %}
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 <img src="{{ slide.image.url }}" alt="Slide Image" class="img-thumbnail" style="max-height: 100px;">
-                                                <span>Status: {{ slide.status }}</span>
+                                                <span>Status: 
+                                                    {% if slide.status %}
+                                                        <span class="badge badge-primary">Active</span>
+                                                    {% else %}
+                                                        <span class="badge badge-warning">Inactive</span>
+                                                    {% endif %}
+                                                </span>
                                                 <div>
                                                     <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#editSlideModal{{ slide.id }}">Edit</button>
                                                     <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteSlideModal{{ slide.id }}">Delete</button>
