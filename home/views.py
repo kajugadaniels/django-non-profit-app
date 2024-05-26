@@ -48,6 +48,15 @@ def whatWeDo(request):
 def education(request):
     return render(request, 'frontend/what-we-do/education.html')
 
+def vocationalTraining(request):
+    return render(request, 'frontend/what-we-do/vocational-training.html')
+
+def medicalCare(request):
+    return render(request, 'frontend/what-we-do/medical-care.html')
+
+def communityEmpowerment(request):
+    return render(request, 'frontend/what-we-do/community-empowerment.html')
+
 def farmingOutreach(request):
     return render(request, 'frontend/what-we-do/farming-outreach.html')
 
@@ -56,9 +65,6 @@ def feedingOutreach(request):
 
 def educationSponsorship(request):
     return render(request, 'frontend/what-we-do/educational-sponsorship.html')
-
-def medicalCare(request):
-    return render(request, 'frontend/what-we-do/medical-care.html')
 
 def OasisAcademy(request):
     return render(request, 'frontend/what-we-do/oasis-academy.html')

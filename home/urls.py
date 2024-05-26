@@ -15,10 +15,13 @@ urlpatterns = [
 
    path('what-we-do/', whatWeDo, name="whatWeDo"),
    path('what-we-do/education', education, name="education"),
+   path('what-we-do/vocational-training', vocationalTraining, name="vocationalTraining"),
+   path('what-we-do/medical-care-outreach', medicalCare, name="medicalCare"),
+   path('what-we-do/community-empowerment', communityEmpowerment, name="communityEmpowerment"),
+   
    path('what-we-do/farming-outreach', farmingOutreach, name="farmingOutreach"),
    path('what-we-do/feeding-outreach', feedingOutreach, name="feedingOutreach"),
    path('what-we-do/education-sponsorship-program', educationSponsorship, name="educationSponsorship"),
-   path('what-we-do/medical-care-outreach', medicalCare, name="medicalCare"),
    path('what-we-do/Oasis-christian-academy', OasisAcademy, name="OasisAcademy"),
    path('what-we-do/gospel-teaching', gospelTeaching, name="gospelTeaching"),
 
