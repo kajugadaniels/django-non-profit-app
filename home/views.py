@@ -160,7 +160,13 @@ def product(request, slug):
     return render(request, 'frontend/store/product.html', context)
 
 def monthlyDonating(request):
-    return render(request, 'frontend/monthly-donating.html')
+    testimonies = Testimony.objects.all().order_by('-created_at')[:6]
+
+    context = {
+        'testimonies': testimonies
+    }
+
+    return render(request, 'frontend/monthly-donating.html', context)
 
 def projects(request):
     project_list = Project.objects.all().order_by('-created_at')

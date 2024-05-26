@@ -141,8 +141,6 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
-
-
 class Slide(models.Model):
     image = ProcessedImageField(
         upload_to='slides/',
@@ -156,3 +154,20 @@ class Slide(models.Model):
 
     def __str__(self):
         return f"Slide {self.id}"
+
+class Testimony(models.Model):
+    name = models.CharField(max_length=100)
+    image = ProcessedImageField(
+        upload_to='testimonies/',
+        processors=[ResizeToFill(719, 719)],
+        format='JPEG',
+        options={'quality': 90},
+    )
+    message = models.TextField(blank=True, null=True)
+    position = models.CharField(max_length=100)
+    youtube_link = models.URLField(blank=True, null=True)
+    status = models.BooleanField(default=False)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name

@@ -146,9 +146,11 @@
             </div>
         </div>
         <div class="row row-cols-1 row-cols-lg-3 row-cols-sm-2">
-            <div class="col fit-videos text-center md-mb-50px sm-mb-30px mb-3">
-                <iframe  width="560" height="315" src="https://player.vimeo.com/video/949457345?title=0&byline=0&portrait=0&autoplay=true&muted=1"></iframe>
-            </div>
+            {% for testimony in testimonies %}
+                <div class="col fit-videos text-center md-mb-50px sm-mb-30px mb-3">
+                    <iframe  width="560" height="315" src="{{ testimony.youtube_link }}?title=0&byline=0&portrait=0&autoplay=true&muted=1"></iframe>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>
