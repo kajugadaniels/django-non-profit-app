@@ -38,37 +38,23 @@
     </section>
 
     <section>
-        <div class="">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-11 position-relative h-750px md-h-600px sm-h-350px border-radius-6px border border-color-transparent position-relative" data-parallax-background-ratio="0.5" style="background-image: url({% static 'frontend/images/video.jpg' %});">  
-                    <a href="https://player.vimeo.com/video/949457345" class="popup-youtube">
-                        <div class="absolute-middle-center z-index-9">
-                            <img src="{% static 'frontend/images/text-curve.png' %}" class="animation-rotation" alt="">
-                            <div class="absolute-middle-center w-100 z-index-minus-1">
-                                <img src="{% static 'frontend/images/play.png' %}" alt="">
-                            </div> 
-                        </div>
-                    </a>
-                </div> 
-            </div> 
-        </div>
-    </section>
-
-    <section>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 position-relative">
-                    <div class="row align-items-center position-relative md-mb-15">
-                        <div class="col-md-5 sm-mb-30px">
-                            <img class="w-100" src="{% static 'frontend/images/about-thumb-2.png' %}" alt="" />
-                        </div>
-                        <div class="col-lg-7 col-md-7 sm-mb-30px text-end">
-                            <img src="{% static 'frontend/images/about-thumb-3.png' %}" alt="" class="box-shadow-quadruple-large md-w-100" />
-                        </div>
-                        <div class="w-50 sm-w-100 overflow-hidden position-absolute sm-position-relative left-140px bottom-minus-200px sm-bottom-0px sm-left-0px p-0 sm-ps-15px sm-pe-15px">
-                            <img src="{% static 'frontend/images/about-thumb-1.png' %}" alt="" class="box-shadow-quadruple-large w-100" />
-                        </div>
-                    </div> 
+                    <div class="col-12 position-relative overflow-hidden border-radius-6px h-350px lg-h-550px md-h-400px d-flex align-items-center justify-content-center">
+                        <video muted class="video-bg html-video border-radius-6px video-play-icon" poster="{% static 'frontend/images/video.jpg' %}">
+                            <source type="video/mp4" src="https://player.vimeo.com/video/949457345" />
+                            <source type="video/webm" src="https://player.vimeo.com/video/949457345" />
+                        </video> 
+                        <a href="https://player.vimeo.com/video/949457345" class="popup-youtube">
+                            <div class="absolute-middle-center z-index-9">
+                                <img src="{% static 'frontend/images/text-curve.png' %}" class="animation-rotation" alt="">
+                                <div class="absolute-middle-center w-100 z-index-minus-1">
+                                    <img src="{% static 'frontend/images/play.png' %}" alt="">
+                                </div> 
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-xl-5 col-lg-6 offset-xl-1 md-mt-20 sm-mt-0" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                     <div class="mb-10px">
@@ -122,7 +108,7 @@
                 <div class="stack-item-wrapper">
                     <div class="container-fluid">
                         <div class="row align-items-center full-screen md-h-auto"> 
-                            <div class="col-lg-6 cover-background overflow-visible h-100 md-h-500px">
+                            <div class="col-lg-6 cover-background overflow-visible h-100 md-h-500px" style="background-image: url({% static 'frontend/images/what-we-do/thumb/esp.jpg' %})">
                                 <div class="position-absolute right-minus-130px top-60px md-top-auto md-bottom-minus-50px fs-170 lg-fs-120 lg-right-minus-80px md-right-0px md-left-0px text-center text-lg-start alt-font z-index-9 fw-600 text-dark-gray opacity-3">01</div>
                                 <div class="position-absolute right-0px bottom-minus-1px">
                                     <div class="vertical-title-center">
@@ -141,7 +127,7 @@
                                 <p class="w-100 md-w-100 mb-35px">
                                     AOF Scholarship Program provides a safe learning environment, daily meals, extensive medical care, and discipleship for every student. African Oasis Academy, a Christian school located in Africa that is committed to providing quality education and leadership development to young people across the continent.
                                 </p>
-                                <a href="{% url 'frontend:educationSponsorship' %}" class="btn btn-large btn-dark-gray btn-switch-text btn-box-shadow fw-400">
+                                <a href="{% url 'frontend:education' %}" class="btn btn-large btn-dark-gray btn-switch-text btn-box-shadow fw-400">
                                     <span> 
                                         <span class="btn-double-text" data-text="Explore Project">Explore Project</span> 
                                         <span><i class="feather icon-feather-arrow-right"></i></span>
@@ -173,11 +159,11 @@
                                         Sustainable Agricultural Empowerment
                                     </span>
                                 </div>
-                                <h1 class="text-dark-gray alt-font fw-600 ls-minus-4px mb-25px">Farming Outreach.</h1>
+                                <h1 class="text-dark-gray alt-font fw-600 ls-minus-4px mb-25px">Vocational Training.</h1>
                                 <p class="w-95 md-w-100 mb-35px">
                                     In an effort to continually improve our programs and help the families we work with become more self-reliant, the Africa Oasis Foundation Farming Outreach was started in 2024. Farming God’s Way training classes are held on a bi-annual basis and are taught by our farm staff.
                                 </p>
-                                <a href="{% url 'frontend:farmingOutreach' %}" class="btn btn-large btn-dark-gray btn-switch-text btn-box-shadow fw-400">
+                                <a href="{% url 'frontend:vocationalTraining' %}" class="btn btn-large btn-dark-gray btn-switch-text btn-box-shadow fw-400">
                                     <span> 
                                         <span class="btn-double-text" data-text="Explore project">Explore project</span> 
                                         <span><i class="feather icon-feather-arrow-right"></i></span>
@@ -192,7 +178,7 @@
                 <div class="stack-item-wrapper">
                     <div class="container-fluid">
                         <div class="row align-items-center full-screen md-h-auto"> 
-                            <div class="col-lg-6 cover-background overflow-visible h-100 md-h-500px" style="background-image: url({% static 'frontend/images/what-we-do/feeding/slider-1.jpg' %})">
+                            <div class="col-lg-6 cover-background overflow-visible h-100 md-h-500px" style="background-image: url({% static 'frontend/images/what-we-do/feeding/slider-2.jpg' %})">
                                 <div class="position-absolute right-minus-130px top-60px md-top-auto md-bottom-minus-50px fs-170 lg-fs-120 lg-right-minus-80px md-right-0px md-left-0px text-center text-lg-start alt-font z-index-9 fw-600 text-dark-gray opacity-3">03</div>
                                 <div class="position-absolute right-0px bottom-minus-1px">
                                     <div class="vertical-title-center">
@@ -209,11 +195,11 @@
                                         Nutrition for Tomorrow
                                     </span>
                                 </div>
-                                <h1 class="text-dark-gray alt-font fw-600 ls-minus-4px mb-25px">Feeding Outreach.</h1>
+                                <h1 class="text-dark-gray alt-font fw-600 ls-minus-4px mb-25px">Community Empowerment.</h1>
                                 <p class="w-95 md-w-100 mb-35px">
                                     Africa Oasis Foundation now feeds 100 children lunch every Monday through Friday. It's a heartwarming achievement that underscores our commitment to combating hunger and nourishing young minds in our community. Through dedicated efforts and the generosity of our supporters, we've expanded our feeding program to ensure that these children receive nutritious meals every weekday.
                                 </p>
-                                <a href="{% url 'frontend:feedingOutreach' %}" class="btn btn-large btn-dark-gray btn-switch-text btn-box-shadow fw-400">
+                                <a href="{% url 'frontend:communityEmpowerment' %}" class="btn btn-large btn-dark-gray btn-switch-text btn-box-shadow fw-400">
                                     <span> 
                                         <span class="btn-double-text" data-text="Explore project">Explore project</span> 
                                         <span><i class="feather icon-feather-arrow-right"></i></span>
@@ -294,6 +280,9 @@
     </section>
 
     <section class="pb-0">
+        <div class="position-absolute left-minus-200px top-25" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
+            <img src="{% static 'frontend/images/circle-full-bg.png' %}" alt="">
+        </div>
         <div class="container">
             <div class="row mb-6">
                 <div class="col-xl-5 col-md-6" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
@@ -361,6 +350,9 @@
 
     <section class="pt-0 ps-15 pe-15 xl-ps-2 xl-pe-2 lg-ps-2 lg-pe-2 sm-mx-0">
         <div class="container-fluid">
+            <div class="position-absolute right-0px bottom-minus-320px d-none d-md-block" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
+                <img src="{% static 'frontend/images/what-we-do/education/testimonials-bg.png' %}" alt="">
+            </div>
             <div class="row">
                 <div class="col-12">
                     <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
@@ -407,28 +399,28 @@
                 <div class="col last-paragraph-no-margin md-mb-30px text-center text-md-start">
                     <span class="alt-font fw-600 d-block mb-5px text-dark-gray fs-18">Student <br> Sponsor.</span>
                     <div class="separator-line-1px bg-extra-medium-gray w-90 mt-25px mb-25px sm-w-100"></div>
-                    <h3 class="vertical-counter d-inline-flex alt-font text-dark-gray fw-700 ls-minus-2px sm-ls-minus-1px sm-mb-0" data-text="+" data-to="30"></h3>
+                    <h3 class="vertical-counter d-inline-flex alt-font text-dark-gray fw-700 ls-minus-2px sm-ls-minus-1px sm-mb-0" data-text="+" data-to="{{ student_count }}"></h3>
                 </div>
                 <!-- end counter item -->
                 <!-- start counter item -->
                 <div class="col last-paragraph-no-margin md-mb-30px text-center text-md-start">
                     <span class="alt-font fw-600 d-block mb-5px text-dark-gray fs-18">Student enrolled in Oasis School.</span>
                     <div class="separator-line-1px bg-extra-medium-gray w-90 mt-25px mb-25px sm-w-100"></div>
-                    <h3 class="vertical-counter d-inline-flex alt-font text-dark-gray fw-700 ls-minus-2px sm-ls-minus-1px sm-mb-0" data-text="+" data-to="0"></h3> 
+                    <h3 class="vertical-counter d-inline-flex alt-font text-dark-gray fw-700 ls-minus-2px sm-ls-minus-1px sm-mb-0" data-text="+" data-to="{{ student_count }}"></h3> 
                 </div>
                 <!-- end counter item -->
                 <!-- start counter item -->
                 <div class="col last-paragraph-no-margin sm-mb-30px text-center text-md-start">
                     <span class="alt-font fw-600 d-block mb-5px text-dark-gray fs-18">Post secondary student support.</span>
                     <div class="separator-line-1px bg-extra-medium-gray w-90 mt-25px mb-25px sm-w-100"></div>
-                    <h3 class="vertical-counter d-inline-flex alt-font text-dark-gray fw-700 ls-minus-2px sm-ls-minus-1px sm-mb-0" data-text="+" data-to="30"></h3> 
+                    <h3 class="vertical-counter d-inline-flex alt-font text-dark-gray fw-700 ls-minus-2px sm-ls-minus-1px sm-mb-0" data-text="+" data-to="{{ testimony_count }}"></h3> 
                 </div>
                 <!-- end counter item -->
                 <!-- start counter item -->
                 <div class="col last-paragraph-no-margin text-center text-md-start">
                     <span class="alt-font fw-600 d-block mb-5px text-dark-gray fs-18">Empower <br> women.</span>
                     <div class="separator-line-1px bg-extra-medium-gray w-90 mt-25px mb-25px sm-w-100"></div>
-                    <h3 class="vertical-counter d-inline-flex alt-font text-dark-gray fw-700 ls-minus-2px sm-ls-minus-1px sm-mb-0" data-text="+" data-to="10"></h3> 
+                    <h3 class="vertical-counter d-inline-flex alt-font text-dark-gray fw-700 ls-minus-2px sm-ls-minus-1px sm-mb-0" data-text="+" data-to="{{ project_count }}"></h3> 
                 </div>
                 <!-- end counter item -->
             </div>

@@ -18,11 +18,17 @@ def index(request):
     students = Student.objects.all().order_by('-created_at')[:6]
     blog = Blog.objects.all().order_by('-created_at')[:4]
     slides = Slide.objects.filter(status=True).order_by('-created_at')[:3]
+    student_count = Student.objects.count()
+    project_count = Project.objects.count()
+    testimony_count = Testimony.objects.count()
     
     context = {
         'students': students,
         'blog': blog,
-        'slides': slides
+        'slides': slides,
+        'student_count': student_count,
+        'project_count': project_count,
+        'testimony_count': testimony_count,
     }
 
     return render(request, 'frontend/index.html', context)
@@ -46,7 +52,13 @@ def whatWeDo(request):
     return render(request, 'frontend/what-we-do/index.html')
 
 def education(request):
-    return render(request, 'frontend/what-we-do/education.html')
+    testimonies = Testimony.objects.all().order_by('-created_at')[:3]
+    
+    context = {
+        'testimonies': testimonies
+    }
+
+    return render(request, 'frontend/what-we-do/education.html', context)
 
 def vocationalTraining(request):
     return render(request, 'frontend/what-we-do/vocational-training.html')
