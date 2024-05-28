@@ -18,8 +18,7 @@ urlpatterns = [
    path('what-we-do/vocational-training', vocationalTraining, name="vocationalTraining"),
    path('what-we-do/medical-care-outreach', medicalCare, name="medicalCare"),
    path('what-we-do/community-empowerment', communityEmpowerment, name="communityEmpowerment"),
-   
-   path('what-we-do/gospel-teaching', gospelTeaching, name="gospelTeaching"),
+   path('what-we-do/teen-mother', teenMother, name="teenMother"),
 
    path('students/', students, name="students"),
    path('student/<slug>', getStudent, name='getStudent'),

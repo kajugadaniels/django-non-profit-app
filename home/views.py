@@ -69,14 +69,8 @@ def medicalCare(request):
 def communityEmpowerment(request):
     return render(request, 'frontend/what-we-do/community-empowerment.html')
 
-def gospelTeaching(request):
-    # testimonial = Testimonial.objects.all()
-    
-    context = {
-        # 'testimonial': testimonial
-    }
-    
-    return render(request, 'frontend/what-we-do/gospel-teaching.html', context)
+def teenMother(request):
+    return render(request, 'frontend/what-we-do/teen-mother.html')
 
 def students(request):
     student_list = Student.objects.all().order_by('-created_at')

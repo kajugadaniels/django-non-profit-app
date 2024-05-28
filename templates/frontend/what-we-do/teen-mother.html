@@ -1,0 +1,39 @@
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} Teen Mother {% endblock %}
+{% block content %}
+
+<section class="position-relative overflow-hidden">
+    <div class="container position-relative z-index-1">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-2 position-relative order-2 order-lg-1">
+                <img src="{% static 'frontend/images/what-we-do/feeding/img-5.jpg' %}" alt="">
+            </div>
+            <div class="col-lg-5 offset-lg-1 mb-50px md-mt-0 order-1 order-lg-1 xs-mb-35px" data-anime='{ "el": "childs", "opacity": [0, 1], "translateY": [30, 0], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <h2 class="fs-40 alt-font fw-700 ls-minus-1px text-dark-gray mb-15px">Women’s Beading</h2>
+                <p class="fs-14 w-100 mb-30px lg-w-100">
+                    Africa Oasis is dedicated to empowering mothers in the Bugesera District, particularly within the Kamabuye community, through our comprehensive beading and tailoring program. Each week, our Site Coordinator leads these remarkable women in Bible study sessions, fostering deep and meaningful relationships. Beyond spiritual growth, the program includes practical money management training, equipping the participants with essential skills for financial independence.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-dark-gray overlap-height background-position-center-top" style="background-image: url({% static 'frontend/images/what-we-do/education/vertical-line-bg-small.svg' %})">
+    <div class="container overlap-gap-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="position-relative" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                    <h4 class="text-white alt-font fw-600 mb-20px">
+                        Tailoring Circle
+                    </h4>
+                    <p class="text-white">
+                        These women are not only developing valuable crafts but are also taking immense pride in the positive impact they are making in their community. Through their dedication and hard work, they are becoming catalysts for change, contributing to the social and economic upliftment of their families and neighbors. We are honored to witness and support the incredible difference these women are making, as they embody resilience, strength, and hope.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>
+
+{% endblock %}
