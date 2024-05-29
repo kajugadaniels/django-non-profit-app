@@ -71,3 +71,14 @@ class SlideForm(forms.ModelForm):
             'status': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'})
         }
+
+class MissionVisionValuesForm(forms.ModelForm):
+    class Meta:
+        model = MissionVisionValues
+        fields = ['section', 'title', 'description', 'icon']
+        widgets = {
+            'section': forms.Select(choices=MissionVisionValues.SECTION_CHOICES, attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
+            'icon': forms.ClearableFileInput(attrs={'class': 'form-control'})
+        }

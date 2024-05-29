@@ -391,27 +391,41 @@ def donateToStudent(request):
     
     return render(request, 'backend/donate/donate-to-student.html', context)
 
+@login_required
 def setting(request):
     if request.method == 'POST':
-        form = SlideForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'New slide added successfully.')
-            return redirect('backend:settings')
-        else:
-            messages.error(request, 'Error adding slide.')
+        if 'slide_form' in request.POST:
+            form = SlideForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'New slide added successfully.')
+            else:
+                messages.error(request, 'Error adding slide.')
+        elif 'mission_vision_values_form' in request.POST:
+            item_id = request.POST.get('item_id')
+            item = get_object_or_404(MissionVisionValues, id=item_id)
+            form = MissionVisionValuesForm(request.POST, request.FILES, instance=item)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Mission, vision, or value updated successfully.')
+            else:
+                messages.error(request, 'Error updating mission, vision, or value.')
+        return redirect('backend:settings')
     else:
-        form = SlideForm()
+        slide_form = SlideForm()
+        mission_vision_values_forms = {item.id: MissionVisionValuesForm(instance=item) for item in MissionVisionValues.objects.all()}
+        slides = Slide.objects.all()
+        mission_vision_values = MissionVisionValues.objects.all()
+        context = {
+            'slide_form': slide_form,
+            'mission_vision_values_forms': mission_vision_values_forms,
+            'slides': slides,
+            'mission_vision_values': mission_vision_values,
+        }
+        return render(request, 'backend/settings/index.html', context)
 
-    slides = Slide.objects.all()
-    
-    context = {
-        'form': form,
-        'slides': slides
-    }
 
-    return render(request, 'backend/settings/index.html', context)
-
+@login_required
 def edit_slide(request, slide_id):
     slide = get_object_or_404(Slide, id=slide_id)
     if request.method == 'POST':
@@ -424,12 +438,54 @@ def edit_slide(request, slide_id):
             messages.error(request, 'Error updating slide.')
     else:
         form = SlideForm(instance=slide)
-    return render(request, 'backend/settings/index.html', {'form': form, 'slide': slide})
+    
+    context = {
+        'form': form,
+        'slide': slide
+    }
+    return render(request, 'backend/settings/index.html', context)
 
+@login_required
 def delete_slide(request, slide_id):
     slide = get_object_or_404(Slide, id=slide_id)
     if request.method == 'POST':
         slide.delete()
         messages.success(request, 'Slide deleted successfully.')
         return redirect('backend:settings')
-    return render(request, 'backend/settings/index.html', {'slide': slide})
+
+    context = {
+        'slide': slide
+    }
+
+    return render(request, 'backend/settings/index.html', context)
+
+@login_required
+def edit_mission_vision_values(request, item_id):
+    item = get_object_or_404(MissionVisionValues, id=item_id)
+    if request.method == 'POST':
+        form = MissionVisionValuesForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mission, Vision, or Value updated successfully.')
+            return redirect('backend:settings')
+        else:
+            messages.error(request, 'Error updating Mission, Vision, or Value.')
+    else:
+        form = MissionVisionValuesForm(instance=item)
+    context = {
+        'form': form,
+        'item': item,
+    }
+    return render(request, 'backend/settings/edit_mission_vision_values.html', context)
+
+@login_required
+def delete_mission_vision_values(request, item_id):
+    item = get_object_or_404(MissionVisionValues, id=item_id)
+    if request.method == 'POST':
+        item.delete()
+        messages.success(request, 'Mission, Vision, or Value deleted successfully.')
+        return redirect('backend:settings')
+    context = {
+        'item': item,
+    }
+    return render(request, 'backend/settings/delete_mission_vision_values.html', context)
