@@ -404,7 +404,13 @@ def setting(request):
         form = SlideForm()
 
     slides = Slide.objects.all()
-    return render(request, 'backend/settings/index.html', {'form': form, 'slides': slides})
+    
+    context = {
+        'form': form,
+        'slides': slides
+    }
+
+    return render(request, 'backend/settings/index.html', context)
 
 def edit_slide(request, slide_id):
     slide = get_object_or_404(Slide, id=slide_id)

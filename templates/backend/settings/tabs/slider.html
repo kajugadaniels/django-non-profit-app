@@ -1,0 +1,96 @@
+<div class="tab-pane fade show active" id="home-slider" role="tabpanel" aria-labelledby="home-slider-tab">
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <h4>Slides</h4>
+            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addnewslider">Add New Slider</button>
+        </div>
+        <div class="modal fade" id="addnewslider" tabindex="-1" role="dialog" aria-labelledby="addnewslider" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Add New Slide</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-primary w-100">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div class="row">
+                {% for slide in slides %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <img src="{{ slide.image.url }}" alt="Slide Image" class="img-thumbnail" style="max-height: 100px;">
+                        <span>Status: 
+                            {% if slide.status %}
+                                <span class="badge badge-primary">Active</span>
+                            {% else %}
+                                <span class="badge badge-warning">Inactive</span>
+                            {% endif %}
+                        </span>
+                        <div>
+                            <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#editSlideModal{{ slide.id }}">Edit</button>
+                            <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteSlideModal{{ slide.id }}">Delete</button>
+                        </div>
+                    </li>
+                    
+                    <!-- Edit Slide Modal -->
+                    <div class="modal fade" id="editSlideModal{{ slide.id }}" tabindex="-1" role="dialog" aria-labelledby="editSlideModalLabel{{ slide.id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Edit Slide</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="post" enctype="multipart/form-data" action="{% url 'backend:edit_slide' slide.id %}">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <label for="id_image">Image</label>
+                                                <input type="file" name="image" id="id_image" class="form-control">
+                                                {% if slide.image %}
+                                                    <img src="{{ slide.image.url }}" alt="Slide Image" class="img-thumbnail mt-2" style="max-height: 100px;">
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group form-check mt-3">
+                                                <input type="checkbox" name="status" id="id_status" class="form-check-input" {% if slide.status %}checked{% endif %}>
+                                                <label for="id_status" class="form-check-label">Active</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary w-100 mt-3">Save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Delete Slide Modal -->
+                    <div class="modal fade" id="deleteSlideModal{{ slide.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteSlideModalLabel{{ slide.id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Delete Slide</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Are you sure you want to delete this slide?</p>
+                                        <form method="post" action="{% url 'backend:delete_slide' slide.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger w-100">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
