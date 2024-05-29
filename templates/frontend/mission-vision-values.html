@@ -31,14 +31,14 @@
                 <div class="hover-box dark-hover feature-box p-55px lg-p-30px overflow-hidden bg-dark-slate-blue text-start box-shadow-double-large-hover">
                     <div class="feature-box-icon min-h-150px sm-min-h-100px mb-20 z-index-9"> 
                         <span>
-                            <img src="{% static 'frontend/images/icons/svg/mission.svg' %}" alt="" class="w-50">
+                            <img src="{{ mission.icon.url }}" alt="Mission" class="w-50">
                         </span>
                     </div>
                     <div class="feature-box-title fs-100 fw-600 text-black opacity-2 ls-minus-10px">Mission</div>
                     <div class="feature-box-content last-paragraph-no-margin">
-                        <span class="d-inline-block text-white mb-5px fs-18">Our Mission</span>
+                        <span class="d-inline-block text-white mb-5px fs-18">{{ mission.title }}</span>
                         <p class="w-90 xl-w-100 lh-30 text-light-opacity lh-30 text-light-opacity">
-                            Our mission is to make disciples of Jesus through authentic relationships, excellent education, and strengthened communities.
+                            {{ mission.description }}
                         </p>
                     </div>
                     <div class="feature-box-overlay bg-aluminium-grey"></div>
@@ -48,14 +48,14 @@
                 <div class="hover-box dark-hover feature-box p-55px lg-p-30px overflow-hidden bg-dark-slate-blue text-start box-shadow-double-large-hover">
                     <div class="feature-box-icon min-h-150px sm-min-h-100px mb-20 z-index-9"> 
                         <span class="icon-extra-large text-white">
-                            <img src="{% static 'frontend/images/icons/svg/vision.svg' %}" alt="" class="w-50">
+                            <img src="{{ vision.icon.url }}" alt="Vision" class="w-50">
                         </span>
                     </div>
                     <div class="feature-box-title fs-100 fw-600 text-black opacity-2 ls-minus-10px">Vision</div>
                     <div class="feature-box-content last-paragraph-no-margin">
-                        <span class="d-inline-block text-white mb-5px fs-18">Our Vision</span>
+                        <span class="d-inline-block text-white mb-5px fs-18">{{ vision.title }}</span>
                         <p class="w-100 xl-w-100 lh-30 text-light-opacity">
-                            That every person we serve would know Christ and make Him known, resulting in transformed lives, restored relationships, and changed communities.
+                            {{ vision.description }}
                         </p>
                     </div>
                     <div class="feature-box-overlay bg-aluminium-grey"></div>
@@ -72,9 +72,7 @@
                 <h2 class="text-dark-gray fw-600 ls-minus-1px" data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                     Africa Oasis Foundation 's Core Values
                 </h2>
-                <p>
-                    We have diligently defined our core values that underpin both our individual and organizational ethos. These six articulated values serve as guiding principles, continually reminding us of our identity, priorities, and aspirations. They embody what we stand for, what holds significance for us, and the future goals we aim to achieve
-                </p>
+                <p>{{ values.description }}</p>
             </div>
         </div>
         <div class="row align-items-center" data-anime='{ "el": "childs", "translateY": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 150, "staggervalue": 300, "easing": "easeOutQuad" }'>

@@ -171,3 +171,18 @@ class Testimony(models.Model):
 
     def __str__(self):
         return self.name
+
+class MissionVisionValues(models.Model):
+    SECTION_CHOICES = [
+        ('mission', 'Mission'),
+        ('vision', 'Vision'),
+        ('values', 'Values')
+    ]
+
+    section = models.CharField(max_length=10, choices=SECTION_CHOICES)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    icon = models.ImageField(upload_to='icons/')
+
+    def __str__(self):
+        return f"{self.get_section_display()}: {self.title}"

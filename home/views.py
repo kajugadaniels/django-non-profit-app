@@ -22,6 +22,12 @@ def index(request):
     project_count = Project.objects.count()
     testimony_count = Testimony.objects.count()
     
+    mission = MissionVisionValues.objects.filter(section='mission').first()
+    vision = MissionVisionValues.objects.filter(section='vision').first()
+    values = MissionVisionValues.objects.filter(section='values').first()
+
+    sections = [mission, vision, values]
+
     context = {
         'students': students,
         'blog': blog,
@@ -29,15 +35,36 @@ def index(request):
         'student_count': student_count,
         'project_count': project_count,
         'testimony_count': testimony_count,
+        'sections': sections,
     }
 
     return render(request, 'frontend/index.html', context)
 
 def history(request):
-    return render(request, 'frontend/history.html')
+    mission = MissionVisionValues.objects.filter(section='mission').first()
+    vision = MissionVisionValues.objects.filter(section='vision').first()
+    values = MissionVisionValues.objects.filter(section='values').first()
+
+    sections = [mission, vision, values]
+    
+    context = {
+        'sections': sections
+    }
+
+    return render(request, 'frontend/history.html', context)
 
 def missionVisionValues(request):
-    return render(request, 'frontend/mission-vision-values.html')
+    mission = MissionVisionValues.objects.filter(section='mission').first()
+    vision = MissionVisionValues.objects.filter(section='vision').first()
+    values = MissionVisionValues.objects.filter(section='values').first()
+    
+    context = {
+        'mission': mission,
+        'vision': vision,
+        'values': values,
+    }
+
+    return render(request, 'frontend/mission-vision-values.html', context)
 
 def team(request):
     team = Team.objects.all().order_by('-created_at')
