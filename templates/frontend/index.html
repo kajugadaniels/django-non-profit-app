@@ -348,20 +348,15 @@
         </div>
     </section>
 
-    <section class="pt-0 pb-0 md-pt-0">
-        <div class="container">
+    <section class="bg-extra-dark-slate-blue pt-0 ps-15 pe-15 xl-ps-2 xl-pe-2 lg-ps-2 lg-pe-2 sm-mx-0">
+        <div class="container-fluid">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 col-xl-6 col-lg-8 text-center position-relative page-title-double-large">
                     <div class="d-flex flex-column justify-content-center extra-very-small-screen">
-                        <h1 class="text-dark-gray alt-font ls-minus-1px fw-700">Blog</h1>
+                        <h1 class="text-white alt-font ls-minus-1px fw-700">Blog</h1>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="pt-0 ps-15 pe-15 xl-ps-2 xl-pe-2 lg-ps-2 lg-pe-2 sm-mx-0">
-        <div class="container-fluid">
             <div class="position-absolute right-0px bottom-minus-320px d-none d-md-block" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
                 <img src="{% static 'frontend/images/what-we-do/education/testimonials-bg.png' %}" alt="">
             </div>
@@ -378,13 +373,13 @@
                                         </a>
                                     </div>
                                     <div class="card-body px-0 pt-30px pb-30px">
-                                        <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">
+                                        <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
                                             {{ blog.title }}
                                         </a>
-                                        <p class="mb-10px w-95">
+                                        <p class="mb-10px w-95 text-white">
                                             {{ blog.description|safe|truncatewords:10 }}
                                         </p>
-                                        <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">
+                                        <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-link alt-font fs-12 text-uppercase text-white text-dark-gray-hover fw-700">
                                             More reading
                                             <i class="feather icon-feather-arrow-right icon-very-small"></i>
                                         </a>
@@ -395,7 +390,7 @@
                     </ul>
                 </div>
                 <div class="page-item text-center">
-                    <a class="page-link text-black" href="{% url 'frontend:blog' %}">
+                    <a class="page-link text-white" href="{% url 'frontend:blog' %}">
                         See More
                         <i class="feather icon-feather-arrow-right fs-18 d-xs-none"></i>
                     </a>
@@ -404,7 +399,7 @@
         </div>
     </section>
 
-    <section class="pt-0 pb-0">
+    <section class="pt-5 pb-0">
         <div class="container">
             <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 counter-style-04" data-anime='{ "el": "childs", "translateX": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                 <!-- start counter item -->
