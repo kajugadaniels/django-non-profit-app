@@ -1,11 +1,13 @@
+{% load static %}
+
 <section class="bg-extra-dark-slate-blue background-position-center-top big-section" style="background-image: url(images/vertical-line-bg-small.svg)">
     <div class="container">
-        <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2 justify-content-center" data-anime='{"el": "childs", "translateY": [0, 0], "perspective": [1200,1200], "scale": [1.1, 1], "rotateX": [50, 0], "opacity": [0,0.7], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center" data-anime='{"el": "childs", "translateY": [0, 0], "perspective": [1200,1200], "scale": [1.1, 1], "rotateX": [50, 0], "opacity": [0,0.7], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
             <div class="col icon-with-text-style-07 transition-inner-all mb-30px">
                 <div class="hover-box dark-hover feature-box p-55px lg-p-30px overflow-hidden bg-dark-slate-blue text-start box-shadow-double-large-hover">
                     <div class="feature-box-icon min-h-150px sm-min-h-100px mb-20 z-index-9"> 
-                        <span class="icon-extra-large text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><path fill="#fff" d="M221.87 83.16A104.1 104.1 0 1 1 195.67 49l22.67-22.68a8 8 0 0 1 11.32 11.32l-96 96a8 8 0 0 1-11.32-11.32l27.72-27.72a40 40 0 1 0 17.87 31.09a8 8 0 1 1 16-.9a56 56 0 1 1-22.38-41.65l22.75-22.75a87.88 87.88 0 1 0 23.13 29.67a8 8 0 0 1 14.44-6.9"/></svg>
+                        <span>
+                            <img src="{% static 'frontend/images/icons/svg/mission.svg' %}" alt="" class="w-50">
                         </span>
                     </div>
                     <div class="feature-box-title fs-100 fw-600 text-black opacity-2 ls-minus-10px">Mission</div>
@@ -22,7 +24,7 @@
                 <div class="hover-box dark-hover feature-box p-55px lg-p-30px overflow-hidden bg-dark-slate-blue text-start box-shadow-double-large-hover">
                     <div class="feature-box-icon min-h-150px sm-min-h-100px mb-20 z-index-9"> 
                         <span class="icon-extra-large text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 48 48"><circle cx="24" cy="24" r="1.501" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="8.392" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M24 37.934c8.9 0 19.5-8.18 19.5-13.934S32.9 10.066 24 10.066m0 27.868c-8.9 0-19.5-8.18-19.5-13.934S15.1 10.066 24 10.066"/></svg>
+                            <img src="{% static 'frontend/images/icons/svg/vision.svg' %}" alt="" class="w-50">
                         </span>
                     </div>
                     <div class="feature-box-title fs-100 fw-600 text-black opacity-2 ls-minus-10px">Vision</div>
@@ -30,6 +32,23 @@
                         <span class="d-inline-block text-white mb-5px fs-18">Our Vision</span>
                         <p class="w-100 xl-w-100 lh-30 text-light-opacity">
                             That every person we serve would know Christ and make Him known, resulting in transformed lives, restored relationships, and changed communities.
+                        </p>
+                    </div>
+                    <div class="feature-box-overlay bg-aluminium-grey"></div>
+                </div>
+            </div>
+            <div class="col icon-with-text-style-07 transition-inner-all mb-30px">
+                <div class="hover-box dark-hover feature-box p-55px lg-p-30px overflow-hidden bg-dark-slate-blue text-start box-shadow-double-large-hover">
+                    <div class="feature-box-icon min-h-150px sm-min-h-100px mb-20 z-index-9"> 
+                        <span class="icon-extra-large text-white">
+                            <img src="{% static 'frontend/images/icons/svg/values.svg' %}" alt="" class="w-50">
+                        </span>
+                    </div>
+                    <div class="feature-box-title fs-100 fw-600 text-black opacity-2 ls-minus-10px">Values</div>
+                    <div class="feature-box-content last-paragraph-no-margin">
+                        <span class="d-inline-block text-white mb-5px fs-18">Our Values</span>
+                        <p class="w-100 xl-w-100 lh-30 text-light-opacity">
+                            Our values are relationships, biblical truth, passion, stewardship, integrity, and family, guiding our mission with faith and dedication.
                         </p>
                     </div>
                     <div class="feature-box-overlay bg-aluminium-grey"></div>
