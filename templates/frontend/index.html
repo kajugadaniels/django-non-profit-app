@@ -116,111 +116,119 @@
         </div>
     </section>
 
-    <section class="big-section bg-white" style="background-image: url(images/demo-branding-agency-pattern.svg)">
+    <section>
         <div class="container">
-            <div class="row align-items-center mb-6 sm-mb-9 text-center text-lg-start">
-                <div class="col-lg-5 md-mb-20px">
-                    <h3 class="alt-font text-black fw-600 mb-0 ls-minus-1px" style="font-size: 36px;">
-                        What We Do
-                    </h3>
-                </div>
-            </div>
-            <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center" data-anime='{"el": "childs", "translateY": [0, 0], "perspective": [1000,1200], "scale": [1.1, 1], "rotateX": [50, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                <div class="col interactive-banner-style-03 transition-inner-all md-mb-30px mb-3">
-                    <div class="position-relative overflow-hidden border-radius-6px last-paragraph-no-margin">
-                        <figure class="m-0">
-                            <div class="bg-gradient-gray-light-dark-transparent position-absolute top-0px left-0px w-100 h-100 z-index-1"></div>
+            <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 justify-content-center" data-anime='{ "el": "childs", "scale":[0.9,1], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 100, "easing": "easeOutQuad" }'>
+                <!-- start interactive banner item -->
+                <div class="col lg-mb-30px mb-3">
+                    <div class="interactive-banner-style-06">
+                        <div class="interactive-banners-image">
                             <img src="{% static 'frontend/images/what-we-do/card/education.jpg' %}" alt="" />
-                            <figcaption class="d-flex flex-column w-100 h-100 p-60px lg-p-35px z-index-1">
-                                <span class="mb-auto fs-24 text-white text-white-hover w-90 lg-w-100">
-                                    <a href="{% url 'frontend:education' %}" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                        <img src="{% static 'frontend/images/icons/png/education.png' %}" alt="" class="w-25">
-                                        Learn More
-                                    </a>
-                                </span>
-                                <a href="{% url 'frontend:education' %}" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                    Education
-                                </a>
-                            </figcaption>
-                        </figure>
+                            <div class="overlay-bg bg-gradient-black-bottom-transparent opacity-light"></div>
+                            <a href="{% url 'frontend:education' %}" class="banners-icon text-white icon-hover-base-color position-absolute top-60px left-60px lg-top-30px lg-left-30px">
+                                {% comment %} <img src="{% static 'frontend/images/icons/png/education.png' %}" alt="" class="w-25"> {% endcomment %}
+                            </a>
+                        </div>
+                        <div class="interactive-banners-content p-60px lg-p-30px"> 
+                            <div class="h-100 w-100 last-paragraph-no-margin"> 
+                                <a href="{% url 'frontend:education' %}" class="fs-22 d-block text-white mb-10px fw-500">Education</a>
+                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Your partnership not only ensures the provision of essential supplies such as textbooks, notebooks, and other educational materials, but also plays a pivotal role in fostering environments that prioritize critical thinking and intellectual growth. By supporting our initiatives, you help create learning spaces where students are empowered to think independently, analyze critically, and engage deeply with the material, rather than merely memorizing facts. This holistic approach prepares them for future success and innovation.
+                                </p>
+                            </div> 
+                        </div>
+                        <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
                 </div>
-                <div class="col interactive-banner-style-03 transition-inner-all md-mb-30px mb-3">
-                    <div class="position-relative overflow-hidden border-radius-6px last-paragraph-no-margin">
-                        <figure class="m-0">
-                            <div class="bg-gradient-gray-light-dark-transparent position-absolute top-0px left-0px w-100 h-100 z-index-1"></div>
+                <!-- end interactive banner item -->
+                <!-- start interactive banner item -->
+                <div class="col lg-mb-30px mb-3">
+                    <div class="interactive-banner-style-06">
+                        <div class="interactive-banners-image">
                             <img src="{% static 'frontend/images/what-we-do/card/vocational.jpg' %}" alt="" />
-                            <figcaption class="d-flex flex-column w-100 h-100 p-60px lg-p-35px z-index-1">
-                                <span class="mb-auto fs-24 text-white text-white-hover w-90 lg-w-100">
-                                    <a href="{% url 'frontend:vocationalTraining' %}" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                        <img src="{% static 'frontend/images/icons/png/vocational.png' %}" alt="" class="w-25">
-                                        Learn More
-                                    </a>
-                                </span>
-                                <a href="{% url 'frontend:vocationalTraining' %}" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                    Vocational Training
-                                </a>
-                            </figcaption>
-                        </figure>
+                            <div class="overlay-bg bg-gradient-black-bottom-transparent opacity-light"></div>
+                            <a href="{% url 'frontend:vocationalTraining' %}" class="banners-icon text-white icon-hover-base-color position-absolute top-60px left-60px lg-top-30px lg-left-30px">
+                                {% comment %} <img src="{% static 'frontend/images/icons/png/vocational.png' %}" alt="" class="w-25"> {% endcomment %}
+                            </a>
+                        </div>
+                        <div class="interactive-banners-content p-60px lg-p-30px"> 
+                            <div class="h-100 w-100 last-paragraph-no-margin"> 
+                                <a href="{% url 'frontend:vocationalTraining' %}" class="fs-22 d-block text-white mb-10px fw-500">Vocational Training</a>
+                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Your partnership supports comprehensive training programs for local farmers, equipping them with advanced techniques and knowledge to improve their crop yields significantly. These programs also emphasize sustainable agricultural practices, ensuring that farmers can maintain and enhance their productivity while preserving the environment for future generations. This holistic approach not only boosts their economic stability but also contributes to the overall sustainability of the community.
+                                </p>
+                            </div> 
+                        </div>
+                        <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
                 </div>
-                <div class="col interactive-banner-style-03 transition-inner-all md-mb-30px mb-3">
-                    <div class="position-relative overflow-hidden border-radius-6px last-paragraph-no-margin">
-                        <figure class="m-0">
-                            <div class="bg-gradient-gray-light-dark-transparent position-absolute top-0px left-0px w-100 h-100 z-index-1"></div>
+                <!-- end interactive banner item -->
+                <!-- start interactive banner item -->
+                <div class="col lg-mb-30px mb-3">
+                    <div class="interactive-banner-style-06">
+                        <div class="interactive-banners-image">
                             <img src="{% static 'frontend/images/what-we-do/card/medical.jpg' %}" alt="" />
-                            <figcaption class="d-flex flex-column w-100 h-100 p-60px lg-p-35px z-index-1">
-                                <span class="mb-auto fs-24 text-white text-white-hover w-90 lg-w-100">
-                                    <a href="{% url 'frontend:medicalCare' %}" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                        <img src="{% static 'frontend/images/icons/png/medical.png' %}" alt="" class="w-25">
-                                        Learn More
-                                    </a>
-                                </span>
-                                <a href="{% url 'frontend:medicalCare' %}" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                    Medical Care
-                                </a>
-                            </figcaption>
-                        </figure>
+                            <div class="overlay-bg bg-gradient-black-bottom-transparent opacity-light"></div>
+                            <a href="{% url 'frontend:medicalCare' %}" class="banners-icon text-white icon-hover-base-color position-absolute top-60px left-60px lg-top-30px lg-left-30px">
+                                {% comment %} <img src="{% static 'frontend/images/icons/png/medical.png' %}" alt="" class="w-25"> {% endcomment %}
+                            </a>
+                        </div>
+                        <div class="interactive-banners-content p-60px lg-p-30px"> 
+                            <div class="h-100 w-100 last-paragraph-no-margin"> 
+                                <a href="{% url 'frontend:medicalCare' %}" class="fs-22 d-block text-white mb-10px fw-500">Medical Care</a>
+                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Your partnership facilitates comprehensive medical care for students on campus, ensuring their health and well-being are prioritized. Additionally, it supports extensive medical outreach programs and services in nearby villages, addressing the healthcare needs of underserved communities and promoting overall public health.
+                                </p>
+                            </div> 
+                        </div>
+                        <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
                 </div>
-                <div class="col interactive-banner-style-03 transition-inner-all md-mb-30px mb-3">
-                    <div class="position-relative overflow-hidden border-radius-6px last-paragraph-no-margin">
-                        <figure class="m-0">
-                            <div class="bg-gradient-gray-light-dark-transparent position-absolute top-0px left-0px w-100 h-100 z-index-1"></div>
+                <!-- end interactive banner item -->
+                <!-- start interactive banner item -->
+                <div class="col lg-mb-30px mb-3">
+                    <div class="interactive-banner-style-06">
+                        <div class="interactive-banners-image">
                             <img src="{% static 'frontend/images/what-we-do/card/community.jpg' %}" alt="" />
-                            <figcaption class="d-flex flex-column w-100 h-100 p-60px lg-p-35px z-index-1">
-                                <span class="mb-auto fs-24 text-white text-white-hover w-90 lg-w-100">
-                                    <a href="{% url 'frontend:communityEmpowerment' %}" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                        <img src="{% static 'frontend/images/icons/png/community.png' %}" alt="" class="w-25">
-                                        Learn More
-                                    </a>
-                                </span>
-                                <a href="{% url 'frontend:communityEmpowerment' %}" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                    Community Support
-                                </a>
-                            </figcaption>
-                        </figure>
+                            <div class="overlay-bg bg-gradient-black-bottom-transparent opacity-light"></div>
+                            <a href="{% url 'frontend:communityEmpowerment' %}" class="banners-icon text-white icon-hover-base-color position-absolute top-60px left-60px lg-top-30px lg-left-30px">
+                                {% comment %} <img src="{% static 'frontend/images/icons/png/community.png' %}" alt="" class="w-25"> {% endcomment %}
+                            </a>
+                        </div>
+                        <div class="interactive-banners-content p-60px lg-p-30px"> 
+                            <div class="h-100 w-100 last-paragraph-no-margin"> 
+                                <a href="{% url 'frontend:communityEmpowerment' %}" class="fs-22 d-block text-white mb-10px fw-500">Community Support</a>
+                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Your partnership empowers our team of trained social workers and staff to provide a comprehensive range of resources designed to promote financial independence, enhance emotional and physical health, and support spiritual growth. These resources include financial literacy programs, mental health counseling, wellness activities, and spiritual guidance, all aimed at fostering a holistic approach to individual and community well-being.
+                                </p>
+                            </div> 
+                        </div>
+                        <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
                 </div>
-                <div class="col interactive-banner-style-03 transition-inner-all md-mb-30px mb-3">
-                    <div class="position-relative overflow-hidden border-radius-6px last-paragraph-no-margin">
-                        <figure class="m-0">
-                            <div class="bg-gradient-gray-light-dark-transparent position-absolute top-0px left-0px w-100 h-100 z-index-1"></div>
+                <!-- end interactive banner item -->
+                <!-- start interactive banner item -->
+                <div class="col lg-mb-30px mb-3">
+                    <div class="interactive-banner-style-06">
+                        <div class="interactive-banners-image">
                             <img src="{% static 'frontend/images/what-we-do/card/tunga.jpg' %}" alt="" />
-                            <figcaption class="d-flex flex-column w-100 h-100 p-60px lg-p-35px z-index-1">
-                                <span class="mb-auto fs-24 text-white text-white-hover w-90 lg-w-100">
-                                    <a href="#" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                        <img src="{% static 'frontend/images/icons/png/education.png' %}" alt="" class="w-25">
-                                        Learn More
-                                    </a>
-                                </span>
-                                <a href="#" class="align-self-start fs-15 fw-500 ls-1px text-uppercase text-white">
-                                    Tunga Women Initiative 
-                                </a>
-                            </figcaption>
-                        </figure>
+                            <div class="overlay-bg bg-gradient-black-bottom-transparent opacity-light"></div>
+                            <a href="#" class="banners-icon text-white icon-hover-base-color position-absolute top-60px left-60px lg-top-30px lg-left-30px">
+                                {% comment %} <img src="{% static 'frontend/images/icons/png/tunga.png' %}" alt="" class="w-25"> {% endcomment %}
+                            </a>
+                        </div>
+                        <div class="interactive-banners-content p-60px lg-p-30px"> 
+                            <div class="h-100 w-100 last-paragraph-no-margin"> 
+                                <a href="{% url 'frontend:communityEmpowerment' %}" class="fs-22 d-block text-white mb-10px fw-500">Tunga Women Initiative</a>
+                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
+
+                                </p>
+                            </div> 
+                        </div>
+                        <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
                 </div>
+                <!-- end interactive banner item -->
             </div>
         </div>
     </section>
