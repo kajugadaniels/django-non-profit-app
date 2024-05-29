@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <section class="bg-extra-dark-slate-blue background-position-center-top big-section" style="background-image: url(images/vertical-line-bg-small.svg)">
+    <section class="pt-0">
         <div class="container">
             <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center" data-anime='{"el": "childs", "translateY": [0, 0], "perspective": [1200,1200], "scale": [1.1, 1], "rotateX": [50, 0], "opacity": [0,0.7], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
                 {% for section in sections %}
@@ -116,8 +116,23 @@
         </div>
     </section>
 
-    <section>
+    <section class="bg-extra-dark-slate-blue background-position-center-top big-section" style="background-image: url({% static 'frontend/images/shapes/vertical-line-bg-small.svg' %})">
         <div class="container">
+            <div class="row align-items-center mb-6 sm-mb-9 text-center text-lg-start">
+                <div class="col-lg-5 md-mb-20px">
+                    <h3 class="alt-font text-white fw-600 mb-0 ls-minus-1px" style="font-size: 36px;">
+                        What We Do
+                    </h3>
+                </div>
+                <div class="col-lg-7 last-paragraph-no-margin md-mb-20px">
+                    <p class="w-100 md-w-100">
+                        The Community Impact Programs of Africa Oasis Foundation: Rooted in Biblical Principles for Lasting Change.
+                    </p>
+                </div>
+            </div>
+            <div class="position-absolute left-minus-100px" data-bottom-top="transform: translateY(-180px)" data-top-bottom="transform: translateY(180px)">
+                <img src="{% static 'frontend/images/shapes/bg-05.png' %}" alt="" >
+            </div>
             <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 justify-content-center" data-anime='{ "el": "childs", "scale":[0.9,1], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 100, "easing": "easeOutQuad" }'>
                 <!-- start interactive banner item -->
                 <div class="col lg-mb-30px mb-3">
@@ -131,11 +146,16 @@
                         </div>
                         <div class="interactive-banners-content p-60px lg-p-30px"> 
                             <div class="h-100 w-100 last-paragraph-no-margin"> 
-                                <a href="{% url 'frontend:education' %}" class="fs-22 d-block text-white mb-10px fw-500">Education</a>
-                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
-                                    Your partnership not only ensures the provision of essential supplies such as textbooks, notebooks, and other educational materials, but also plays a pivotal role in fostering environments that prioritize critical thinking and intellectual growth. By supporting our initiatives, you help create learning spaces where students are empowered to think independently, analyze critically, and engage deeply with the material, rather than merely memorizing facts. This holistic approach prepares them for future success and innovation.
+                                <a href="{% url 'frontend:education' %}" class="fs-26 d-block text-white mb-10px fw-500">Education</a>
+                                <p class="fs-14 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Your partnership provides essential educational supplies and fosters critical thinking environments, empowering students to engage deeply and think independently, preparing them for future success and innovation.
                                 </p>
-                            </div> 
+                                <a href="{% url 'frontend:education' %}" class="btn btn-white btn-small btn-switch-text btn-rounded text-transform-none btn-box-shadow purchase-envato">
+                                    <span>
+                                        <span class="btn-double-text" data-text="Read More">Read More</span>
+                                    </span> 
+                                </a>
+                            </div>
                         </div>
                         <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
@@ -153,11 +173,16 @@
                         </div>
                         <div class="interactive-banners-content p-60px lg-p-30px"> 
                             <div class="h-100 w-100 last-paragraph-no-margin"> 
-                                <a href="{% url 'frontend:vocationalTraining' %}" class="fs-22 d-block text-white mb-10px fw-500">Vocational Training</a>
-                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
-                                    Your partnership supports comprehensive training programs for local farmers, equipping them with advanced techniques and knowledge to improve their crop yields significantly. These programs also emphasize sustainable agricultural practices, ensuring that farmers can maintain and enhance their productivity while preserving the environment for future generations. This holistic approach not only boosts their economic stability but also contributes to the overall sustainability of the community.
+                                <a href="{% url 'frontend:vocationalTraining' %}" class="fs-26 d-block text-white mb-10px fw-500">Vocational Training</a>
+                                <p class="fs-14 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Your partnership supports training programs that equip local farmers with advanced techniques for improved crop yields and sustainable practices, boosting economic stability and community sustainability.
                                 </p>
-                            </div> 
+                                <a href="{% url 'frontend:vocationalTraining' %}" class="btn btn-white btn-small btn-switch-text btn-rounded text-transform-none btn-box-shadow purchase-envato">
+                                    <span>
+                                        <span class="btn-double-text" data-text="Read More">Read More</span>
+                                    </span> 
+                                </a>
+                            </div>
                         </div>
                         <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
@@ -175,11 +200,16 @@
                         </div>
                         <div class="interactive-banners-content p-60px lg-p-30px"> 
                             <div class="h-100 w-100 last-paragraph-no-margin"> 
-                                <a href="{% url 'frontend:medicalCare' %}" class="fs-22 d-block text-white mb-10px fw-500">Medical Care</a>
-                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
-                                    Your partnership facilitates comprehensive medical care for students on campus, ensuring their health and well-being are prioritized. Additionally, it supports extensive medical outreach programs and services in nearby villages, addressing the healthcare needs of underserved communities and promoting overall public health.
+                                <a href="{% url 'frontend:medicalCare' %}" class="fs-26 d-block text-white mb-10px fw-500">Medical Care</a>
+                                <p class="fs-14 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Your partnership provides comprehensive medical care for students and supports outreach programs in nearby villages, addressing healthcare needs and promoting public health.
                                 </p>
-                            </div> 
+                                <a href="{% url 'frontend:medicalCare' %}" class="btn btn-white btn-small btn-switch-text btn-rounded text-transform-none btn-box-shadow purchase-envato">
+                                    <span>
+                                        <span class="btn-double-text" data-text="Read More">Read More</span>
+                                    </span> 
+                                </a>
+                            </div>
                         </div>
                         <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
@@ -197,11 +227,16 @@
                         </div>
                         <div class="interactive-banners-content p-60px lg-p-30px"> 
                             <div class="h-100 w-100 last-paragraph-no-margin"> 
-                                <a href="{% url 'frontend:communityEmpowerment' %}" class="fs-22 d-block text-white mb-10px fw-500">Community Support</a>
-                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
-                                    Your partnership empowers our team of trained social workers and staff to provide a comprehensive range of resources designed to promote financial independence, enhance emotional and physical health, and support spiritual growth. These resources include financial literacy programs, mental health counseling, wellness activities, and spiritual guidance, all aimed at fostering a holistic approach to individual and community well-being.
+                                <a href="{% url 'frontend:communityEmpowerment' %}" class="fs-26 d-block text-white mb-10px fw-500">Community Support</a>
+                                <p class="fs-14 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Your partnership enables our team to offer resources for financial independence, emotional and physical health, and spiritual growth, including financial literacy programs, mental health counseling, wellness activities, and spiritual guidance, promoting holistic well-being.
                                 </p>
-                            </div> 
+                                <a href="{% url 'frontend:communityEmpowerment' %}" class="btn btn-white btn-small btn-switch-text btn-rounded text-transform-none btn-box-shadow purchase-envato">
+                                    <span>
+                                        <span class="btn-double-text" data-text="Read More">Read More</span>
+                                    </span> 
+                                </a>
+                            </div>
                         </div>
                         <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
@@ -219,16 +254,52 @@
                         </div>
                         <div class="interactive-banners-content p-60px lg-p-30px"> 
                             <div class="h-100 w-100 last-paragraph-no-margin"> 
-                                <a href="{% url 'frontend:communityEmpowerment' %}" class="fs-22 d-block text-white mb-10px fw-500">Tunga Women Initiative</a>
-                                <p class="fs-12 text-white interactive-banners-content-text w-100 lg-w-100">
-
+                                <a href="{% url 'frontend:communityEmpowerment' %}" class="fs-26 d-block text-white mb-10px fw-500">Tunga Women Initiative</a>
+                                <p class="fs-14 text-white interactive-banners-content-text w-100 lg-w-100">
+                                    Africa Oasis empowers mothers in Bugesera District through a beading and tailoring program, weekly Bible study, and money management training, fostering spiritual and financial growth. Their crafts drive social and economic upliftment, and we are honored to support their resilience.
                                 </p>
-                            </div> 
+                                <a href="{% url 'frontend:communityEmpowerment' %}" class="btn btn-white btn-small btn-switch-text btn-rounded text-transform-none btn-box-shadow purchase-envato">
+                                    <span>
+                                        <span class="btn-double-text" data-text="Read More">Read More</span>
+                                    </span> 
+                                </a>
+                            </div>
                         </div>
                         <div class="box-overlay bg-gradient-dark-transparent"></div>
                     </div>
                 </div>
                 <!-- end interactive banner item -->
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 justify-content-center" data-anime='{ "el": "childs", "scale":[0.9,1], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 100, "easing": "easeOutQuad" }'>
+                {% for project in projects %}
+                    <div class="col lg-mb-30px">
+                        <div class="interactive-banner-style-04 transition-inner-all">
+                            <figure class="m-0 hover-box position-relative overflow-hidden border-radius-6px">
+                                <img class="lg-w-100" src="{{ project.image.url }}" alt="" />
+                                <div class="overlay-bg bg-gradient-gray-light-dark-transparent opacity-full-dark"></div>
+                                <figcaption class="d-flex flex-column justify-content-end h-100 w-100 p-25px">
+                                    <div class="d-flex flex-column justify-content-center align-items-center last-paragraph-no-margin text-center features-content p-40px lg-p-50px md-p-25px">
+                                        <div class="position-relative z-index-1">
+                                            <a href="{% url 'frontend:viewProject' project.slug %}" class="d-block fw-600 text-white text-white-hover box-title fs-22 mb-5px">
+                                                {{ project.title }}
+                                            </a>
+                                            <a href="{% url 'frontend:viewProject' project.slug %}" class="d-flex justify-content-center align-items-center w-60px h-60px rounded-circle bg-dark-gray mx-auto mt-20px">
+                                                <i class="fa-solid fa-arrow-right text-white icon-small"></i>
+                                            </a>
+                                        </div>
+                                        <div class="box-overlay bg-slate-blue border-radius-6px"></div>
+                                    </div>
+                                    <div class="fs-26 fw-500 text-center text-white box-button p-15px border-radius-2px d-inline-block">{{ project.title }}</div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -299,114 +370,6 @@
         </div>
     </section>
 
-    <section class="pb-0">
-        <div class="position-absolute left-minus-200px top-25" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
-            <img src="{% static 'frontend/images/circle-full-bg.png' %}" alt="">
-        </div>
-        <div class="container">
-            <div class="row mb-6">
-                <div class="col-xl-5 col-md-6" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                    <div class="mb-10px">
-                        <span class="w-25px h-1px d-inline-block bg-base-color me-5px align-middle"></span>
-                        <span class="text-dark fs-15 alt-font fw-700 ls-05px text-uppercase d-inline-block align-middle">SPECIAL PROJECTS</span>
-                    </div>
-                    <h4 class="text-dark-gray alt-font fw-600 w-90 ls-minus-2px">We help AOF Academy in Bugesera-Rwanda</h4>
-                </div>
-                <div class="offset-xl-1 col-xl-5 col-md-6">
-                    <div class="accordion accordion-style-02" id="accordion-style-02" data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <div class="accordion-item active-accordion">
-                            <div class="accordion-header border-bottom border-color-dark-gray">
-                                <a href="#" data-bs-toggle="collapse" data-bs-target="#accordion-style-02-01" aria-expanded="true" data-bs-parent="#accordion-style-02">
-                                    <div class="accordion-title mb-0 position-relative text-dark-gray">
-                                        <i class="feather icon-feather-minus"></i><span class="fw-600 alt-font fs-18">Holiday youth camp</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div id="accordion-style-02-01" class="accordion-collapse collapse show" data-bs-parent="#accordion-style-02">
-                                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-dark-gray">
-                                    <p>This 3-day camp in January will bring students 100 and older together to encourage them,..</p>
-                                    <a href="#">
-                                        See more
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header border-bottom border-color-dark-gray">
-                                <a href="#" data-bs-toggle="collapse" data-bs-target="#accordion-style-02-02" aria-expanded="false" data-bs-parent="#accordion-style-02">
-                                    <div class="accordion-title mb-0 position-relative text-dark-gray">
-                                        <i class="feather icon-feather-plus"></i><span class="fw-600 alt-font fs-18">Renovating the house for one family</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div id="accordion-style-02-02" class="accordion-collapse collapse" data-bs-parent="#accordion-style-02">
-                                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-dark-gray">
-                                    <p>
-                                        This family of BAZUBAGIRA Rosalie a mother of 7 children lives in KAMPEKA Cell, MBUNGANZIRA village. During our meeting with the KAMPEKA Cell leaders,..
-                                    </p>
-                                    <a href="#">
-                                        See more
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-extra-dark-slate-blue pt-0 ps-15 pe-15 xl-ps-2 xl-pe-2 lg-ps-2 lg-pe-2 sm-mx-0">
-        <div class="container-fluid">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 col-xl-6 col-lg-8 text-center position-relative page-title-double-large">
-                    <div class="d-flex flex-column justify-content-center extra-very-small-screen">
-                        <h1 class="text-white alt-font ls-minus-1px fw-700">Blog</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="position-absolute right-0px bottom-minus-320px d-none d-md-block" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
-                <img src="{% static 'frontend/images/what-we-do/education/testimonials-bg.png' %}" alt="">
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
-                        <li class="grid-sizer"></li>
-                        {% for blog in blog %}
-                            <li class="grid-item">
-                                <div class="card bg-transparent border-0 h-100">
-                                    <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="{% url 'frontend:viewBlog' blog.slug %}">
-                                            <img src="{% static 'frontend/images/blog/1.png' %}" alt />
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-0 pt-30px pb-30px">
-                                        <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
-                                            {{ blog.title }}
-                                        </a>
-                                        <p class="mb-10px w-95 text-white">
-                                            {{ blog.description|safe|truncatewords:10 }}
-                                        </p>
-                                        <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-link alt-font fs-12 text-uppercase text-white text-dark-gray-hover fw-700">
-                                            More reading
-                                            <i class="feather icon-feather-arrow-right icon-very-small"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="page-item text-center">
-                    <a class="page-link text-white" href="{% url 'frontend:blog' %}">
-                        See More
-                        <i class="feather icon-feather-arrow-right fs-18 d-xs-none"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="pt-5 pb-0">
         <div class="container">
             <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 counter-style-04" data-anime='{ "el": "childs", "translateX": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
@@ -442,12 +405,15 @@
         </div>
     </section>
 
-    <section class="big-section position-relative"> 
-        <div class="background-position-center-top background-no-repeat position-absolute h-100 w-100 left-0px top-0px" style="background-image: url({% static 'frontend/images/bg-1.png' %})"></div>
+    <section class="bg-extra-dark-slate-blue big-section position-relative"> 
+        <div class="background-position-center-top background-no-repeat position-absolute h-100 w-100 left-0px top-0px" style="background-image: url({% static 'frontend/images/shapes/vertical-line-bg-small.svg' %})"></div>
+        <div class="position-absolute left-minus-100px" data-bottom-top="transform: translateY(-180px)" data-top-bottom="transform: translateY(180px)">
+            <img src="{% static 'frontend/images/shapes/bg-05.png' %}" alt="" >
+        </div>
         <div class="container position-relative">
             <div class="row justify-content-center mb-8 lg-mb-8px" data-anime='{ "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                 <div class="col-xl-4 col-md-5">
-                    <h2 class="alt-font text-dark-gray mb-30px fw-600 ls-minus-3px fs-34">
+                    <h2 class="alt-font text-white mb-30px fw-600 ls-minus-3px fs-34">
                         AOF believes that Christ welcomes all
                         <i class="bi bi-heart-fill d-inline-block align-top ms-10px animation-zoom icon-very-medium text-red"></i>
                     </h2>
@@ -456,7 +422,7 @@
                     <div class="swiper" data-slider-options='{ "slidesPerView": 1, "spaceBetween": 40, "loop": true, "autoplay": { "delay": 8000, "disableOnInteraction": false }, "navigation": { "nextEl": ".slider-one-slide-next-1", "prevEl": ".slider-one-slide-prev-1" }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "992": { "slidesPerView": 1 }, "768": { "slidesPerView":1 }, "320": { "slidesPerView": 1 } }, "effect": "slide" }'>
                         <div class="swiper-wrapper"> 
                             <div class="swiper-slide">
-                                <h5 class="text-dark-gray mb-15px w-95 xl-w-100 lh-40 ls-minus-1px alt-font fs-24">
+                                <h5 class="text-white mb-15px w-95 xl-w-100 lh-40 ls-minus-1px alt-font fs-24">
                                     Our policy supports providing hope and promoting change irrespective of race or religion. We embrace supporters and volunteers from all backgrounds. At Africa Oasis Foundation , our motivation stems from <span class="text-decoration-line-bottom-medium fw-700">Jeremiah 29:11</span> that says “For I know the plans I have for you, ‘declares the Lord’ plans to prosper you and not to harm you, plans to give you hope and a future.”
                                 </h5>
                             </div>
