@@ -1,0 +1,219 @@
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} Mission & Vision {% endblock %}
+{% block content %}
+
+<section class="page-title-big-typography bg-dark-gray ipad-top-space-margin xs-py-0 cover-background background-position-center-top" style="background-image: url({% static 'frontend/images/our-story-bg.png' %})">
+    <div class="opacity-medium bg-dark-slate-blue"></div>
+    <div class="container">
+        <div class="row align-items-center justify-content-center small-screen">
+            <div class="col-xl-6 col-lg-7 col-sm-8 position-relative text-center page-title-extra-small" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 400, "delay": 0, "staggervalue": 100, "easing": "easeOutQuad" }'>
+                <h2 class="m-auto text-white alt-font text-shadow-double-large fw-700 w-100 xl-w-100" data-fancy-text='{ "opacity": [0, 1], "translateY": [50, 0], "filter": ["blur(20px)", "blur(0px)"], "string": ["Mission • Vision • Values"], "duration": 400, "delay": 0, "speed": 50, "easing": "easeOutQuad" }'></h2>
+                <p class="fs-16 mt-4 text-white">
+                    The Africa Oasis Foundation is a diverse and inclusive organization comprised of individuals from various backgrounds and expertise. Our team collaborates synergistically to achieve a unified mission: fostering sustainable development and improving the quality of life across communities in Africa.
+                </p>
+            </div>
+            <div class="down-section text-center" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <a href="#down-section" class="section-link">
+                    <div class="text-white">
+                        <i class="line-icon-Down icon-medium"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-extra-dark-slate-blue background-position-center-top big-section" style="background-image: url(images/vertical-line-bg-small.svg)">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2 justify-content-center" data-anime='{"el": "childs", "translateY": [0, 0], "perspective": [1200,1200], "scale": [1.1, 1], "rotateX": [50, 0], "opacity": [0,0.7], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
+            <div class="col icon-with-text-style-07 transition-inner-all mb-30px">
+                <div class="hover-box dark-hover feature-box p-55px lg-p-30px overflow-hidden bg-dark-slate-blue text-start box-shadow-double-large-hover">
+                    <div class="feature-box-icon min-h-150px sm-min-h-100px mb-20 z-index-9"> 
+                        <span class="icon-extra-large text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><path fill="#fff" d="M221.87 83.16A104.1 104.1 0 1 1 195.67 49l22.67-22.68a8 8 0 0 1 11.32 11.32l-96 96a8 8 0 0 1-11.32-11.32l27.72-27.72a40 40 0 1 0 17.87 31.09a8 8 0 1 1 16-.9a56 56 0 1 1-22.38-41.65l22.75-22.75a87.88 87.88 0 1 0 23.13 29.67a8 8 0 0 1 14.44-6.9"/></svg>
+                        </span>
+                    </div>
+                    <div class="feature-box-title fs-100 fw-600 text-black opacity-2 ls-minus-10px">Mission</div>
+                    <div class="feature-box-content last-paragraph-no-margin">
+                        <span class="d-inline-block text-white mb-5px fs-18">Our Mission</span>
+                        <p class="w-90 xl-w-100 lh-30 text-light-opacity lh-30 text-light-opacity">
+                            Our mission is to make disciples of Jesus through authentic relationships, excellent education, and strengthened communities.
+                        </p>
+                    </div>
+                    <div class="feature-box-overlay bg-aluminium-grey"></div>
+                </div>
+            </div>
+            <div class="col icon-with-text-style-07 transition-inner-all mb-30px">
+                <div class="hover-box dark-hover feature-box p-55px lg-p-30px overflow-hidden bg-dark-slate-blue text-start box-shadow-double-large-hover">
+                    <div class="feature-box-icon min-h-150px sm-min-h-100px mb-20 z-index-9"> 
+                        <span class="icon-extra-large text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 48 48"><circle cx="24" cy="24" r="1.501" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="8.392" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M24 37.934c8.9 0 19.5-8.18 19.5-13.934S32.9 10.066 24 10.066m0 27.868c-8.9 0-19.5-8.18-19.5-13.934S15.1 10.066 24 10.066"/></svg>
+                        </span>
+                    </div>
+                    <div class="feature-box-title fs-100 fw-600 text-black opacity-2 ls-minus-10px">Vision</div>
+                    <div class="feature-box-content last-paragraph-no-margin">
+                        <span class="d-inline-block text-white mb-5px fs-18">Our Vision</span>
+                        <p class="w-100 xl-w-100 lh-30 text-light-opacity">
+                            That every person we serve would know Christ and make Him known, resulting in transformed lives, restored relationships, and changed communities.
+                        </p>
+                    </div>
+                    <div class="feature-box-overlay bg-aluminium-grey"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-solitude-blue">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-xl-8 col-lg-10 text-center">
+                <h2 class="text-dark-gray fw-600 ls-minus-1px" data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                    Africa Oasis Foundation 's Core Values
+                </h2>
+                <p>
+                    We have diligently defined our core values that underpin both our individual and organizational ethos. These six articulated values serve as guiding principles, continually reminding us of our identity, priorities, and aspirations. They embody what we stand for, what holds significance for us, and the future goals we aim to achieve
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center" data-anime='{ "el": "childs", "translateY": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 150, "staggervalue": 300, "easing": "easeOutQuad" }'>
+            <div class="col-xl-3 col-lg-4 col-md-12 tab-style-05 md-mb-30px sm-mb-20px">
+                <!-- start tab navigation -->
+                <ul class="nav nav-tabs justify-content-center border-0 text-left fw-500 fs-18 alt-font">
+                    <li class="nav-item">
+                        <a data-bs-toggle="tab" href="#tab_four1" class="nav-link d-flex align-items-center active">
+                            <span class="icon-extra-medium text-dark-gray" style="margin-right: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="m250.73 109.69l-25.53-51a12 12 0 0 0-16.1-5.37l-26.22 13.06L129 52.14a3.9 3.9 0 0 0-2 0L73.12 66.38L46.9 53.27a12 12 0 0 0-16.1 5.37L5.27 109.69a12 12 0 0 0 5.37 16.1l27.29 13.65l55.75 39.82a3.9 3.9 0 0 0 1.35.62l64 16a4 4 0 0 0 3.8-1l55.54-55.54l27-13.5a12 12 0 0 0 5.37-16.1Zm-51 36.95l-37.2-29.8a4 4 0 0 0-5.34.3c-19.49 19.64-41.34 17.11-55.29 8.2a4.07 4.07 0 0 1-1.85-3a3.91 3.91 0 0 1 1.11-3.21L145.62 76h35.91l29.6 59.21ZM12.21 116.32a4 4 0 0 1 .22-3L38 62.22A4 4 0 0 1 41.54 60a4 4 0 0 1 1.78.43l24 12l-29.11 58.21l-24-12a4 4 0 0 1-2-2.32m146.56 71.25L97.71 172.3l-52.6-37.57L75.45 74L128 60.14L157.72 68H144a4 4 0 0 0-2.79 1.13l-45.7 44.33a12 12 0 0 0 2.06 18.62c19.88 12.71 44.13 10 62.66-6.81L194 152.33Zm85-71.25a4 4 0 0 1-2 2.32l-24 12l-29.09-58.21l24-12a4 4 0 0 1 5.32 1.79l25.53 51.05a4 4 0 0 1 .26 3.05ZM127.94 217a4 4 0 0 1-3.88 3a4 4 0 0 1-1-.12l-41.68-10.43a4 4 0 0 1-1.36-.62L53.68 190a4 4 0 0 1 4.65-6.51l25.72 18.37l41 10.25a4 4 0 0 1 2.89 4.89"/></svg>
+                            </span>
+                            <span>Relationships</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab_four2">
+                            <span class="icon-extra-medium text-dark-gray" style="margin-right: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M5.81 2H7v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v16c0 1.05-.95 2-2 2H6c-1.05 0-2-.95-2-2V4c0-1 .83-1.91 1.81-2M13 10v3h-3v2h3v5h2v-5h3v-2h-3v-3z"/></svg>
+                            </span>
+                            <span>Biblical Truth</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab_four3">
+                            <span class="icon-extra-medium text-dark-gray" style="margin-right: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" d="M16.036 2.684C16.29 5.254 17.89 6.59 19 6.97c.5.17.99-.474 1-.996V5c0-.542.63-1.16 1.139-.96C25.814 5.857 30 9.75 30 15c0 7.64-11.48 14.775-13.649 15.91a.729.729 0 0 1-.702 0C13.489 29.775 2 22.64 2 15c0-4.457 1.74-8.434 5-9.9c.755-.339.95.349 1.139 1.02c.097.344.192.683.361.88c.336.392.829.111 1.063-.36c.784-1.567 2.724-4.719 5.698-4.638c.398.01.734.3.775.682m-.038 9.776s1.71-2.68 3.938-3.08c5.51-.994 7.788 3.943 6.865 7.617C25.16 23.53 15.997 29.25 15.997 29.25S6.836 23.53 5.196 16.997c-.913-3.674 1.356-8.611 6.865-7.618c2.229.402 3.937 3.081 3.937 3.081" clip-rule="evenodd"/></svg>
+                            </span>
+                            <span>Passion</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab_four4">
+                            <span class="icon-extra-medium text-dark-gray" style="margin-right: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="currentColor"><path fill-rule="evenodd" d="m41.94 7.457l-.987-.157l-.259-.966l1.489-.4zm-13.22 13.83l-.851.524l-.002-.002l-.003-.005l-.01-.016l-.034-.057l-.12-.207a21 21 0 0 1-.405-.743a20 20 0 0 1-1.074-2.435c-.338-.944-.628-2.025-.673-3.071c-.044-1.042.15-2.173.926-3.06c.697-.796 2.011-1.529 3.392-2.163c1.431-.659 3.115-1.291 4.71-1.838A104 104 0 0 1 40.56 6.37l.1-.028l.035-.01l.26.967l.987.157l-.006.037l-.017.106a118 118 0 0 1-.314 1.838a142 142 0 0 1-.872 4.5c-.356 1.681-.77 3.443-1.209 4.918a21 21 0 0 1-.687 1.99c-.228.55-.498 1.084-.826 1.46c-.702.802-1.795 1.053-2.75 1.117c-.996.067-2.1-.054-3.093-.23a27 27 0 0 1-2.628-.61a28 28 0 0 1-1.056-.32l-.063-.022l-.017-.006l-.005-.001h-.002zm0 0l-.851.524l.188.305l.34.117zm.672-.833a27 27 0 0 0 3.121.77c.924.163 1.848.255 2.614.203c.809-.054 1.215-.252 1.378-.438c.104-.12.274-.404.484-.91a19 19 0 0 0 .617-1.793c.417-1.4.818-3.103 1.17-4.762a139 139 0 0 0 .928-4.832l-.309.09c-1.109.327-2.607.788-4.17 1.324c-1.566.537-3.179 1.144-4.524 1.763c-1.396.642-2.338 1.225-2.722 1.664c-.307.35-.465.889-.432 1.656c.032.763.251 1.63.557 2.481a18 18 0 0 0 1.288 2.784M10.263 9.974l-.259.966l-.988.157l-.242-1.522zm9.682 12.333l.851.523l.002-.002l.002-.004l.008-.013l.029-.048l.1-.17a17 17 0 0 0 1.215-2.613c.278-.776.52-1.675.557-2.551c.038-.873-.124-1.847-.798-2.617c-.596-.682-1.699-1.29-2.819-1.806c-1.171-.539-2.546-1.055-3.845-1.5a85 85 0 0 0-4.873-1.501l-.082-.023l-.029-.008l-.259.966l-.988.157l.005.03l.014.087l.054.326A117 117 0 0 0 10 16.374c.29 1.368.628 2.805.986 4.01c.18.602.368 1.163.565 1.636c.187.45.416.909.704 1.237c.62.71 1.573.92 2.362.972c.832.056 1.745-.045 2.56-.188a22 22 0 0 0 3.02-.764l.051-.017l.015-.005l.005-.002zm0 0l.851.523l-.188.306l-.34.117zm-.673-.834q.095-.17.222-.413c.238-.458.534-1.082.775-1.756c.245-.682.417-1.367.442-1.96c.026-.599-.1-.98-.305-1.216c-.283-.322-1.013-.782-2.15-1.305c-1.084-.499-2.388-.99-3.658-1.425a82 82 0 0 0-3.342-1.062l.004.025c.17.96.412 2.256.697 3.599c.285 1.346.61 2.723.946 3.854c.169.566.335 1.055.495 1.439c.17.407.298.614.362.688c.082.093.347.25.991.293c.601.04 1.335-.032 2.079-.163a20 20 0 0 0 2.442-.599m-2.19 9.534c-.254.014-.378.05-.41.064c-.453.205-1.829.685-3.017 1.09c-.61.209-1.195.405-1.627.55l-.028.01v5.403c.176-.008.365-.015.558-.022c.828-.03 1.813-.06 2.24-.042c1.792.071 3.138.495 4.384.888l.027.009c1.168.368 2.25.706 3.667.813c.4.03.789.069 1.152.105h.005c1.394.14 2.312.21 3.023-.048c.553-.201 2.578-1.14 4.62-2.167c1.01-.508 2-1.025 2.787-1.468c.395-.222.73-.42.987-.586q.191-.124.308-.21l.09-.07l.028-.024c.1-.101.206-.453.034-.784a.73.73 0 0 0-.377-.34c-.2-.087-.54-.154-1.08-.065c-1.218.2-2.673.786-4.126 1.377l-.02.009c-.714.29-1.43.581-2.065.793c-.61.203-1.287.385-1.877.35c-.81-.05-2.231-.26-3.403-.45a135 135 0 0 1-2.018-.342l-.13-.023l-.046-.009l.19-1.984l4.57.055h.01a1 1 0 0 0 .158-.03c.158-.04.429-.139.77-.38c.105-.075.243-.213.372-.398q.08-.116.136-.226a11 11 0 0 1-1.656-.234a13 13 0 0 1-.883-.225l-.034-.01l-5.597-1.246l-.053-.009l-.21-.032a10 10 0 0 0-.689-.077a6 6 0 0 0-.77-.015M19 30.16l.181-.983l.018.003l5.718 1.272l.042.013l.008.003l.038.011l.158.045c.139.038.339.09.577.142c.486.105 1.094.202 1.656.202c.563 0 1.175.21 1.505.808c.282.512.212 1.066.113 1.432a3.6 3.6 0 0 1-.407.918q.457-.18.966-.388l.062-.026c1.378-.56 3.03-1.232 4.493-1.473c1.7-.278 2.975.332 3.558 1.46c.514.995.4 2.307-.385 3.105c-.197.2-.49.403-.77.584a23 23 0 0 1-1.088.647c-.825.464-1.846.997-2.87 1.512c-2.022 1.017-4.152 2.012-4.836 2.26c-1.186.43-2.558.293-3.777.171l-.127-.013a46 46 0 0 0-1.108-.1c-1.66-.126-2.932-.527-4.094-.893l-.025-.008c-1.25-.394-2.376-.745-3.888-.806c-.332-.013-1.226.011-2.088.043a172 172 0 0 0-1.456.059l-.129.006l-1.046.048v-8.936l.877-.291a281 281 0 0 0 2.132-.718c1.244-.425 2.498-.866 2.84-1.02c.367-.166.784-.22 1.118-.24c.355-.02.72-.005 1.039.019a13 13 0 0 1 1.146.143l.021.004h.006l.002.001h.002z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M35.15 13.24a1 1 0 0 1 .11 1.41c-2.981 3.478-6.692 8.575-8.33 12.718a1 1 0 1 1-1.86-.736c1.763-4.459 5.651-9.76 8.67-13.283a1 1 0 0 1 1.41-.108m-19.77 3.207a1 1 0 0 0-.165 1.405c2.242 2.845 4.69 6.486 5.852 9.506a1 1 0 0 0 1.866-.718c-1.271-3.304-3.868-7.135-6.148-10.026a1 1 0 0 0-1.404-.167" clip-rule="evenodd"/><path d="M6 29h6v13H6z"/></g></svg>
+                            </span>
+                            <span>Stewardship</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab_four5">
+                            <span class="icon-extra-medium text-dark-gray" style="margin-right: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2 20v-1a7 7 0 0 1 7-7v0"/><path d="M15.804 12.314a1.62 1.62 0 0 1 2.392 0c.325.356.79.549 1.272.526a1.62 1.62 0 0 1 1.692 1.692c-.023.481.17.947.526 1.272c.705.642.705 1.75 0 2.392c-.356.325-.549.79-.526 1.272a1.62 1.62 0 0 1-1.692 1.692a1.62 1.62 0 0 0-1.272.526a1.62 1.62 0 0 1-2.392 0a1.62 1.62 0 0 0-1.272-.526a1.62 1.62 0 0 1-1.692-1.692a1.62 1.62 0 0 0-.527-1.272a1.62 1.62 0 0 1 0-2.392c.357-.325.55-.79.527-1.272a1.62 1.62 0 0 1 1.692-1.692c.481.023.947-.17 1.272-.527Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m15.364 17l1.09 1.09l2.182-2.18M9 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8"/></g></svg>
+                            </span>
+                            <span>Integrity</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab_four6">
+                            <span class="icon-extra-medium text-dark-gray" style="margin-right: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 64 64"><path fill="currentColor" d="M54.509 30.996c2.29-1.776 4.217-4.207 4.7-7.056C60.562 23.721 62 22.826 62 20.02c0-2.482-.894-3.223-1.646-3.404c-.079-10.17-2.48-14.507-13.239-14.612c-10.853-.107-13.71 4.417-13.813 14.734c-.656.321-1.302 1.17-1.302 3.282c0 2.807 1.437 3.701 2.789 3.921c.478 2.816 2.366 5.222 4.621 6.993c-4.482.607-7.41 1.439-7.41 3.841V16.672c0-12.398-8.121-12.166-8.121-12.166S23.269 2 17.002 2C7.296 2 2 8.332 2 16.672V62h60V34.775c0-1.861-3.183-3.12-7.491-3.779M5.492 17.213c5.443-.061 13.566-6.017 15.604-7.578c.96 1.661 4.126 6.744 7.351 7.57c.013.002 1.326.27 1.326 2.569c0 2.839-1.859 3.363-1.934 3.384l-.379.093l-.002.39c-.028 4.799-6.637 9.487-10.457 9.487c-3.779 0-10.543-4.78-10.543-9.484l-.005-.382l-.367-.102c-.075-.021-1.858-.546-1.858-3.386c0-1.953 1.029-2.469 1.264-2.561m4.161 34.272c-.886 0-1.123-.791-1.123-1.259c0-.467.237-1.259 1.123-1.259h.455l.451-4.976c0-.622.195-.938 1.266-.938c.715 0 1.651.156 2.736.337c1.482.246 3.163.525 4.939.525s3.457-.279 4.94-.525c1.085-.181 2.022-.337 2.739-.337c1.07 0 1.267.316 1.268.983l.445 4.931h.456c.886 0 1.123.792 1.123 1.259c0 .468-.237 1.259-1.123 1.259h-.5v.5c0 3.974-5.537 6.509-9.349 6.509s-9.349-2.535-9.349-6.509v-.5zm9.848 8.009c2.102 0 4.605-.677 6.623-1.905c2.359.72 4.169 1.858 4.709 3.411H8.167c.54-1.554 2.344-2.694 4.705-3.416c2.021 1.231 4.525 1.91 6.629 1.91m7.631-2.608c1.479-1.155 2.543-2.656 2.696-4.449c1.08-.229 1.643-1.225 1.643-2.21c0-.808-.386-1.616-1.116-2.009c.017-.185.025-.38.025-.589v-3.154C30.38 39.78 26.013 36 19.501 36c-6.73 0-10.875 3.78-10.875 8.475v3.154c0 .208.012.401.029.585c-.736.391-1.123 1.202-1.123 2.013c0 .985.562 1.981 1.642 2.21c.153 1.794 1.218 3.296 2.7 4.451c-2.441.883-4.252 2.252-4.735 4.112H3.017V34.774c0-1.154 2.97-2.362 7.8-2.952c2.073 1.419 4.376 2.306 6.185 2.306c1.81 0 4.127-.907 6.204-2.36c5.111.566 8.278 1.815 8.278 3.007V60.07c-.766-1.391-2.339-2.456-4.352-3.184m8.56-33.46l-.049-.405l-.396-.031c-1.556-.119-2.28-1.063-2.28-2.97c0-1.633.38-2.459 1.129-2.459c.045 0 .09.002.137.006c.098.594.215 1.024.357 1.311c.348.698 1.007 1.08 1.082 1.122l.837.467l-.128-.975a18.63 18.63 0 0 1-.097-2.739c.318-5.023.624-5.694 1.668-5.694c.478 0 1.134.139 1.966.313c1.627.341 3.854.809 7.081.809s5.454-.468 7.08-.809c.832-.175 1.489-.313 1.967-.313c1.044 0 1.349.672 1.667 5.692c.055 1.58-.096 2.729-.098 2.74l-.131.979l.841-.471c.074-.041.73-.423 1.081-1.122c.141-.283.258-.714.357-1.31c.851-.092 1.268.724 1.268 2.453c0 1.906-.725 2.851-2.282 2.97l-.396.031l-.049.405c-.722 5.938-8.3 9.703-11.306 9.703c-3.005 0-10.584-3.766-11.306-9.703m-1.039 28.059c-.886 0-1.123-.791-1.123-1.259c0-.467.237-1.259 1.123-1.259h.455l.451-4.976c0-.622.195-.938 1.266-.938c.715 0 1.651.156 2.736.337c1.482.246 3.163.525 4.939.525s3.457-.279 4.94-.525c1.085-.181 2.022-.337 2.739-.337c1.07 0 1.267.316 1.268.983l.445 4.931h.456c.886 0 1.123.792 1.123 1.259c0 .468-.237 1.259-1.123 1.259h-.5v.5c0 3.974-5.537 6.509-9.349 6.509s-9.349-2.535-9.349-6.509v-.5zm9.848 8.009c2.102 0 4.605-.677 6.623-1.905c2.359.72 4.169 1.858 4.709 3.411H33.167c.54-1.554 2.344-2.694 4.705-3.416c2.021 1.231 4.525 1.91 6.629 1.91M60.983 61h-4.122c-.481-1.86-2.289-3.231-4.729-4.114c1.479-1.155 2.543-2.656 2.696-4.449c1.08-.229 1.643-1.225 1.643-2.21c0-.808-.386-1.616-1.116-2.009c.017-.185.025-.38.025-.589v-3.154C55.38 39.78 51.013 36 44.501 36c-6.73 0-10.875 3.78-10.875 8.475v3.154c0 .208.012.401.029.585c-.736.391-1.123 1.202-1.123 2.013c0 .985.562 1.981 1.642 2.21c.153 1.794 1.218 3.296 2.7 4.451c-2.016.729-3.591 1.793-4.357 3.186V35.002c0-1.479 3.084-2.644 8.078-3.213c2.263 1.484 4.703 2.34 6.405 2.34c1.685 0 4.091-.836 6.333-2.291c4.745.596 7.65 1.795 7.65 2.938z"/><circle cx="41.5" cy="20.309" r="2.25" fill="currentColor"/><circle cx="52.5" cy="20.309" r="2.25" fill="currentColor"/><path fill="currentColor" d="M50.934 27.656c.188-.346-.063-.719-.34-.504c-2.316 1.801-4.887 1.789-7.189 0c-.277-.215-.527.158-.34.504c.703 1.285 2.121 2.434 3.934 2.434c1.814 0 3.231-1.149 3.935-2.434"/><circle cx="11.633" cy="20.308" r="2.25" fill="currentColor"/><circle cx="22.369" cy="20.308" r="2.25" fill="currentColor"/><path fill="currentColor" d="M13.066 27.655c.703 1.285 2.121 2.434 3.934 2.434c1.814 0 3.232-1.148 3.936-2.434c.188-.346-.063-.719-.34-.504c-2.316 1.801-4.887 1.789-7.189 0c-.28-.214-.53.159-.341.504"/><circle cx="14.728" cy="49.796" r="1.75" fill="currentColor"/><circle cx="24.274" cy="49.796" r="1.75" fill="currentColor"/><path fill="currentColor" d="M16.066 54.784c.614 1.069 1.851 2.026 3.435 2.026s2.82-.957 3.436-2.026c.163-.289-.055-.6-.297-.42c-2.011 1.489-4.255 1.499-6.275 0c-.245-.179-.462.131-.299.42"/><circle cx="39.728" cy="49.796" r="1.75" fill="currentColor"/><circle cx="49.274" cy="49.796" r="1.75" fill="currentColor"/><path fill="currentColor" d="M41.066 54.784c.614 1.069 1.851 2.026 3.435 2.026s2.82-.957 3.436-2.026c.163-.289-.055-.6-.297-.42c-2.011 1.489-4.255 1.499-6.275 0c-.245-.179-.462.131-.299.42"/></svg>
+                            </span>
+                            <span>Family</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- end tab navigation -->
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-12">
+                <div class="tab-content">
+                    <!-- start tab content -->
+                    <div class="tab-pane fade in active show" id="tab_four1">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 offset-xl-1 sm-mb-30px">
+                                <img src="{% static 'frontend/images/what-we-do/mvv/relationship.jpg' %}" alt="" class="border-radius-6px w-100" />
+                            </div>
+                            <div class="col-xl-4 col-md-6 offset-xl-1 text-center text-md-start">
+                                <p>
+                                    We hold the belief that every individual is created in God's image, emphasizing the intrinsic worth of each person. We prioritize people over tasks, recognizing that genuine transformation occurs through meaningful relationships. By fostering deep and authentic connections, we aim to facilitate life-changing experiences and promote a compassionate, supportive community.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end tab content -->
+                    <!-- start tab content -->
+                    <div class="tab-pane fade in" id="tab_four2">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 offset-xl-1 sm-mb-30px">
+                                <img src="{% static 'frontend/images/what-we-do/mvv/biblical.jpg' %}" alt="" class="border-radius-6px w-100" />
+                            </div>
+                            <div class="col-xl-4 col-md-6 offset-xl-1 text-center text-md-start">
+                                <p>
+                                    We are committed to embodying servant leadership, guided by the principle of loving our neighbors as ourselves. Our lives and service are anchored in the truths revealed in Scripture. By adhering to these biblical principles, we seek to foster a community characterized by integrity, compassion, and unwavering faith.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end tab content -->
+                    <!-- start tab content -->
+                    <div class="tab-pane fade in" id="tab_four3">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 offset-xl-1 sm-mb-30px">
+                                <img src="{% static 'frontend/images/what-we-do/mvv/passion.jpg' %}" alt="" class="border-radius-6px w-100" />
+                            </div>
+                            <div class="col-xl-4 col-md-6 offset-xl-1 text-center text-md-start">
+                                In everything we undertake, we pledge to do it wholeheartedly. We are dedicated to being individuals driven by passion and enthusiasm. Our fervor will guide us in all our endeavors, ensuring that we approach each task with unwavering dedication and an earnest desire to make a meaningful impact.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end tab content -->
+                    <!-- start tab content -->
+                    <div class="tab-pane fade in" id="tab_four4">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 offset-xl-1 sm-mb-30px">
+                                <img src="{% static 'frontend/images/what-we-do/mvv/stewardship.jpg' %}" alt="" class="border-radius-6px w-100" />
+                            </div>
+                            <div class="col-xl-4 col-md-6 offset-xl-1 text-center text-md-start">
+                                We acknowledge our profound responsibility for every dollar, resource, and individual entrusted to us by God. We are committed to managing these gifts with the utmost integrity, accountability, and care. By doing so, we aim to honor our trust and ensure that our actions reflect the values and mission we uphold.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end tab content -->
+                    <!-- start tab content -->
+                    <div class="tab-pane fade in" id="tab_four5">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 offset-xl-1 sm-mb-30px">
+                                <img src="{% static 'frontend/images/what-we-do/mvv/integrity.jpg' %}" alt="" class="border-radius-6px w-100" />
+                            </div>
+                            <div class="col-xl-4 col-md-6 offset-xl-1 text-center text-md-start">
+                                We are committed to transparency and accountability, ensuring that our actions align with our words. We pledge to follow through on our commitments and communicate our intentions clearly. By maintaining this standard of honesty and consistency, we build trust and uphold the integrity of our mission.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end tab content -->
+                    <!-- start tab content -->
+                    <div class="tab-pane fade in" id="tab_four6">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 offset-xl-1 sm-mb-30px">
+                                <img src="{% static 'frontend/images/what-we-do/mvv/family.jpg' %}" alt="" class="border-radius-6px w-100" />
+                            </div>
+                            <div class="col-xl-4 col-md-6 offset-xl-1 text-center text-md-start">
+                                We believe that children are a precious heritage from God and a blessing bestowed by His hand. We are dedicated to instilling godly values in the children under our care, nurturing their spiritual growth and moral development. Additionally, we encourage parents to love and cherish their children, ensuring that God's love and teachings are passed down through generations, fostering a legacy of faith and devotion.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end tab content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

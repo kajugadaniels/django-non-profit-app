@@ -36,6 +36,9 @@ def index(request):
 def history(request):
     return render(request, 'frontend/history.html')
 
+def missionVisionValues(request):
+    return render(request, 'frontend/mission-vision-values.html')
+
 def team(request):
     team = Team.objects.all().order_by('-created_at')
 
