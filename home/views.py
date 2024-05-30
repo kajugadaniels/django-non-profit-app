@@ -101,8 +101,8 @@ def medicalCare(request):
 def communityEmpowerment(request):
     return render(request, 'frontend/what-we-do/community-empowerment.html')
 
-def teenMother(request):
-    return render(request, 'frontend/what-we-do/teen-mother.html')
+def tungaWomen(request):
+    return render(request, 'frontend/what-we-do/tunga-women-initiative.html')
 
 def students(request):
     student_list = Student.objects.all().order_by('-created_at')
