@@ -47,7 +47,8 @@ urlpatterns = [
    path('remove_from_cart/', remove_from_cart, name='remove_from_cart'),
    
    path('terms-and-conditions', termsAndConditions, name="termsAndConditions"),
-   path('privacy-policy', privacyPolicy, name="privacyPolicy")
+   path('privacy-policy', privacyPolicy, name="privacyPolicy"),
+   path('resources', resources, name="resources"),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  

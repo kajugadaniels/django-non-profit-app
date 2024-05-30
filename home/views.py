@@ -314,3 +314,6 @@ def termsAndConditions(request):
 
 def privacyPolicy(request):
     return render(request, 'frontend/privacy-policy.html')
+
+def resources(request):
+    return render(request, 'frontend/resources.html')
