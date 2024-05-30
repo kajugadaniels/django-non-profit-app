@@ -1,34 +1,27 @@
-{% load static %}
-
-<div class="pt-0 position-relative z-index-0 border-radius-6px lg-border-radius-0px overflow-hidden"> 
+<div class="background-repeat position-relative overflow-hidden">
     <div class="container">
-        <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 justify-content-center transition-inner-all">
+        <div class="row justify-content-center mb-2">
+            <div class="col-lg-6 text-center" data-anime='{ "el": "childs", "translateY": [15, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <h2 class="fw-300 title-font text-dark-gray ls-minus-2px">Projects</h2> 
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2" data-anime='{ "el": "childs", "translateY": [30, 0], "translateX": [-30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
             {% for project in projects %}
-                <div class="col interactive-banner-style-02 hover-box dark-hover md-mb-30px mb-3">
-                    <div class="h-100 text-center position-relative border-radius-6px box-shadow-quadruple-large overflow-hidden">
-                        <figure class="m-0">
-                            <a href="{% url 'frontend:viewProject' project.slug %}" class="position-relative d-block">
-                                <img src="{{ project.image.url }}" alt="" />
-                            </a>
-                            <figcaption class="w-100 position-absolute bottom-0px bg-white">
-                                <div class="position-relative z-index-2 p-40px pt-25px pb-15px border-bottom border-dark-opacity">
-                                    <a href="{% url 'frontend:viewProject' project.slug %}" class="fw-600 d-inline-block mb-5px text-dark-gray fs-18">{{ project.title }}</a>
-                                    <p class="w-80 lg-w-100 fs-16 mx-auto mb-15px lg-mb-10px text-light-opacity">
-                                        {{ project.description|truncatewords:7 }}
-                                    </p>
-                                </div>
-                                <a href="{% url 'frontend:viewProject' project.slug %}" class="btn btn-link btn-hover-animation-switch btn-medium fw-700 text-dark-gray text-uppercase p-20px z-index-1">
-                                    <span>
-                                        <span class="btn-text">Fund this project</span>
-                                        <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
-                                        <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
-                                    </span> 
-                                </a>
-                                <div class="box-overlay bg-slate-blue"></div>
-                            </figcaption>
-                        </figure>
+                <div class="col-lg-4 text-center team-style-05 md-mb-20px">
+                    <div class="interactive-banner-style-09 border-radius-6px overflow-hidden position-relative mb-10">
+                        <img src="{{ project.image.url }}" alt="" />
+                        <div class="opacity-very-light bg-slate-blue"></div>
+                        <div class="image-content h-100 w-100 bg-gradient-gray-light-dark-transparent ps-15 pe-15 pt-13 pb-13 md-p-10 d-flex justify-content-bottom align-items-start flex-column">
+                            <div class="mt-auto d-flex align-items-start w-100 z-index-1 position-relative overflow-hidden flex-column">
+                                <span class="text-white fw-600 fs-14">{{ project.title }}</span>
+                                <span class="fs-13 lh-24 fw-500 ls-05px text-uppercase text-white opacity-6 text-decoration-line-bottom">See more</span>
+                            </div>
+                            <div class="position-absolute left-0px top-0px w-100 h-100 bg-gradient-regal-blue-transparent opacity-9"></div>
+                            <div class="box-overlay bg-gradient-dark-transparent"></div>
+                            <a href="{% url 'frontend:viewProject' project.slug %}" class="position-absolute z-index-1 top-0px left-0px h-100 w-100"></a>
+                        </div>
                     </div>
-                </div>
+                </div> 
             {% endfor %}
         </div>
     </div>
