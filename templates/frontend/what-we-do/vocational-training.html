@@ -153,25 +153,21 @@
             <div class="col-12">
                 <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
                     <li class="grid-sizer"></li>
-                    {% for blog in blogs %}
+                    {% for blog in news %}
                         <li class="grid-item">
                             <div class="card bg-transparent border-0 h-100">
                                 <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                    <a href="{% url 'frontend:viewBlog' blog.slug %}">
+                                    <span>
                                         <img src="{{ blog.image.url }}" alt />
-                                    </a>
+                                    </span>
                                 </div>
                                 <div class="card-body px-0 pt-30px pb-30px">
-                                    <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
+                                    <span class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
                                         {{ blog.title }}
-                                    </a>
+                                    </span>
                                     <p class="mb-10px w-100 text-white">
                                         {{ blog.description|truncatewords:10 }}
                                     </p>
-                                    <a href="{% url 'frontend:viewBlog' blog.slug %}" class="card-link alt-font fs-12 text-uppercase text-white text-dark-gray-hover fw-700">
-                                        More reading
-                                        <i class="feather icon-feather-arrow-right icon-very-small"></i>
-                                    </a>
                                 </div>
                             </div>
                         </li>

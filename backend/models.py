@@ -186,3 +186,27 @@ class MissionVisionValues(models.Model):
 
     def __str__(self):
         return f"{self.get_section_display()}: {self.title}"
+
+class News(models.Model):
+    CATEGORY_CHOICES = [
+        ('vocational-training', 'Vocational Training'),
+        ('education', 'Education'),
+        ('tunga-mothers', 'Tunga Mothers'),
+        ('community-empowerment', 'Community Empowerment'),
+        ('medical-care', 'Medical Care'),
+    ]
+    
+    category = models.CharField(max_length=255, choices=CATEGORY_CHOICES)
+    title = models.CharField(max_length=200)
+    image = ProcessedImageField(
+        upload_to='news/',
+        processors=[ResizeToFill(3600, 2026)],
+        format='JPEG',
+        options={'quality': 90},
+    )
+    description = models.TextField()
+    status = models.BooleanField(default=False)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title
