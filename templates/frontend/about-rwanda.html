@@ -10,7 +10,7 @@
 
 {% include 'frontend/inc/about-rwanda-slider.html' %}
 
-<section class="big-section">
+<section class="big-section" style="background-image: url({% static 'frontend/images/about-rwanda/imigongo-bg.jpg' %})">
     <h1 class="text-dark-gray text-center alt-font ls-minus-1px fs-50 fw-700 mb-20px mb-5">Culture & History</h1>
     <div class="container">
         <div class="row justify-content-center">
@@ -22,7 +22,7 @@
             </div>
             <div class="col-lg-5 text-center text-lg-start" data-anime='{ "el": "childs", "willchange": "transform", "opacity": [0, 1], "rotateY": [-90, 0], "rotateZ": [-10, 0], "translateY": [80, 0], "translateZ": [50, 0], "staggervalue": 200, "duration": 600, "delay": 100, "easing": "easeOutCirc" }'>
                 <h2 class="alt-font text-dark-gray fs-20 fw-600 ls-minus-1px mb-1">Pre-Colonial</h2>
-                <p class="w-100">
+                <p class="w-100 text-dark-gray">
                     Pre-colonial Rwanda was a highly centralized Kingdom presided over by Tutsi kings who hailed from one ruling clan. The king ruled through three categories of chiefs: cattle chiefs; land chiefs; and military chiefs. The chiefs were predominantly, but not exclusively, Batutsi, especially the cattle and military chiefs. While the relationship between the king and the rest of the population was unequal, the relationship between the ordinary Bahutu, Batutsi and Batwa was one of mutual benefit mainly through the exchange of their labour. The relationship was symbiotic. A clientele system called "Ubuhake" permeated the whole society.
                 </p>
             </div>
@@ -32,10 +32,10 @@
                 <h2 class="text-dark-gray fs-20 fw-600 ls-minus-1px mb-1">
                     Colonial
                 </h2>
-                <p>
+                <p class="text-dark-gray">
                     In 1899 Rwanda became a German colony. After the defeat of the Germans during WW1, subsequently in 1919 Rwanda became a mandate territory of the League of Nations under the administration of Belgium. The Germans and the Belgians administered Rwanda through a system of indirect rule. During this colonial era, a cash crop economy was introduced in Rwanda, and this was administered through harsh methods that further alienated the King and his chiefs from the rest of the population.
                 </p>
-                <p>
+                <p class="text-dark-gray">
                     In 1935 the Belgian colonial administration introduced a discriminatory national identification on the basis of ethnicity. Banyarwanda who possessed ten or more cows were registered as Batutsi whereas those with less were registered as Bahutu. At first, the Belgian authorities, for political and practical reasons, favored the King and his chiefs, who were mostly a Batutsi ruling elite. When the demand for independence began, mainly by a political party - Union Nationale Rwandaise (UNAR) - formed by people from the aforementioned ruling elite, the Belgian authorities hastily nurtured another party called PARMEHUTU that was founded on a sectarian ethnic ideology. Under the Belgian supervision, the first massacres of Batutsi at the hands of the PARMEHUTU occurred in 1959. With Belgian connivance, PARMEHUTU abolished the monarchy amidst widespread violence. On 1st July 1962 Belgium granted formal political independence to Rwanda.
                 </p>
             </div>
@@ -58,13 +58,13 @@
             </div>
             <div class="col-lg-5 text-center text-lg-start" data-anime='{ "el": "childs", "willchange": "transform", "opacity": [0, 1], "rotateY": [-90, 0], "rotateZ": [-10, 0], "translateY": [80, 0], "translateZ": [50, 0], "staggervalue": 200, "duration": 600, "delay": 100, "easing": "easeOutCirc" }'>
                 <h2 class="alt-font text-dark-gray fs-20 fw-600 ls-minus-1px mb-1">Genocide</h2>
-                <p>
+                <p class="text-dark-gray">
                     The first massacres in Rwanda took place in 1959. Thereafter, almost in a regular manner, killings of the Batutsi became a common practice. In the 1960s, 1970s, 1980s and early 1990s massacres of Batutsi were common. Between April and July 1994, over 1 million Rwandese people, mainly Batutsi and some Bahutu opposition were killed by the genocidal regime. Many people were involved in the killings. Those who planned and organised the genocide include the late President, Major General Juvenal Habyarimana, top government officials, including members of the so-called Provisional Government, the Presidential Guard, the National Gendarmerie, the Rwanda Armed Forces (FAR), the MRND-CDR militia (Interahamwe), local officials, and many Bahutu in the general population.
                 </p>
-                <p>
+                <p class="text-dark-gray">
                     Preparation to carry out genocide by these groups involved the training of the militia, the arming of both the militia and some sections of the population, the establishment and widespread use of a hate radio called Radio Television Libre De Mille Collines (RTLM), and the distribution of lists of those targeted from elimination. Repeatedly, these groups prevented the establishment of the Arusha Peace Accords.
                 </p>
-                <p>
+                <p class="text-dark-gray">
                     When the genocide began, the United Nations had a peacekeeping force - the United Nations Assistance Mission for Rwanda (UNAMIR) - in Rwanda of about 2500 troops. The first reaction of the United Nations, and indeed of other nations that had their own nationals in Rwanda, was to withdraw their troops and their nationals respectively. Under the circumstances the RPF had to fight again in order to stop the genocide.
                 </p>
             </div>
@@ -74,13 +74,13 @@
                 <h2 class="text-dark-gray fs-20 fw-600 ls-minus-1px mb-1">
                     The fall of the Genocide regime
                 </h2>
-                <p>
+                <p class="text-dark-gray">
                     On 4th July 1994, the capital city of Rwanda, Kigali, fell to the forces of the Rwandese Patriotic Army (RPA), the armed wing of the RPF.
                 </p>
-                <p>
+                <p class="text-dark-gray">
                     The members of the so-called Provisional Government, the armed groups, and many people who were involved in genocide, fled mainly to the DRC and Tanzania. Over three million refugees fled to Tanzania and the DRC.
                 </p>
-                <p>
+                <p class="text-dark-gray">
                     On 19th July, 1994, the RPF established the Government of National Unity with four other political parties - the Liberal Party (PL), the Social Democratic Party (PSD), the Christian Democratic Party (PDC), and the Republican Democratic Movement (MDR). Weeks later a 70-member Transitional National Assembly was formed consisting of representatives of the RPF, the four other original parties plus three other smaller parties, namely, the Islamic Party (PDI), the Socialist Party (PSR), and the Democratic Union for Rwandese People (UDPR), as well as six representatives of the Rwandese Patriotic Army (RPA).
                 </p>
             </div>
@@ -95,75 +95,92 @@
     </div>
 </section>
 
-<section class="big-section overflow-hidden ps-6 pe-6">
-    <div class="container-fluid p-0">
-        <div class="row justify-content-center mb-3">
-            <div class="col-12 col-xl-8 text-center">
-                <h2 class="fs-50 alt-font fw-700 text-dark-gray ls-minus-1px w-90 mx-auto sm-w-100">Rwanda Today</h2>
+<section class="bg-dark-gray background-position-center-top overflow-hidden" style="background-image: url('images/demo-architecture-dotted-pattern.svg')">
+    <div class="container">
+        <div class="row align-items-center mb-6 sm-mb-9 text-center text-lg-start">
+            <div class="col-lg-5 md-mb-20px">
+                <h3 class="alt-font text-white fw-600 mb-0 ls-minus-1px" style="font-size: 36px;">
+                    From Farm to Market
+                </h3>
+            </div>
+            <div class="col-lg-5 last-paragraph-no-margin md-mb-20px">
+                
+            </div>
+            <div class="col-lg-2 d-flex justify-content-center justify-content-lg-end">
+                <!-- start slider navigation -->
+                <div class="slider-prev icon-extra-medium text-white swiper-button-prev slider-navigation-style-04 border border-1 border-color-transparent-white-light">
+                    <i class="feather icon-feather-chevron-left"></i>
+                </div>
+                <div class="slider-next icon-extra-medium text-white swiper-button-next slider-navigation-style-04 border border-1 border-color-transparent-white-light">
+                    <i class="feather icon-feather-chevron-right"></i>
+                </div>
+                <!-- end slider navigation -->
             </div>
         </div>
         <div class="row align-items-center">
-            <div class="col-12 col-md-12">
+            <div class="col-md-12 position-relative" data-anime='{ "translateX": [150, 0], "opacity": [0,1], "duration": 1200, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'>
                 <div class="outside-box-right-30 sm-outside-box-right-0">
-                    <div class="swiper" data-slider-options='{ "slidesPerView": 1, "spaceBetween": 25, "loop": true, "autoplay": { "delay": 300000, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "992": { "slidesPerView": 3 }, "768": { "slidesPerView": 2 }, "320": { "slidesPerView": 1 } }, "effect": "slide" }'>
+                    <div class="swiper slider-three-slide" data-slider-options='{ "slidesPerView": 1, "spaceBetween": 35, "loop": true, "autoplay": { "delay": 4000, "disableOnInteraction": false }, "navigation": { "nextEl": ".slider-next", "prevEl": ".slider-prev" }, "pagination": { "el": ".slider-four-slide-pagination-1", "clickable": true, "dynamicBullets": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "1200": { "slidesPerView": 4 }, "992": { "slidesPerView": 3 }, "768": { "slidesPerView": 3 }, "320": { "slidesPerView": 1 } }, "effect": "slide" }'>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"> 
-                                <div class="interactive-banner-style-09 position-relative overflow-hidden">
-                                    <img src="{% static 'frontend/images/about-rwanda/img-9.jpg' %}" alt="" />
-                                    <div class="opacity-full-dark bg-gradient-black-bottom-transparent"></div>
-                                    <div class="image-content h-100 w-100 p-10 xl-p-30px sm-pe-15px sm-ps-15px text-center d-flex justify-content-end align-items-end flex-column">
-                                        <div class="w-100">
-                                            <p class="text-white">
+                                <div class="interactive-banner-style-06">                                    
+                                    <div class="interactive-banners-image">
+                                        <img src="{% static 'frontend/images/about-rwanda/img-9.jpg' %}" alt="" />
+                                        <div class="overlay-bg bg-gradient-dark-transparent opacity-light"></div>
+                                    </div>
+                                    <div class="interactive-banners-content p-60px lg-p-30px"> 
+                                        <div class="h-100 w-100 last-paragraph-no-margin"> 
+                                            <a href="javascript:void(0);" class="fs-22 d-block text-white mb-10px fw-500">
+                                                Rwanda Rising
+                                            </a>
+                                            <p class="fs-14 text-white interactive-banners-content-text w-100 lg-w-100">
                                                 Rwanda's future is promising and bright. The country boasts one of the fastest-growing economies in Africa, with a real growth rate of 8.6% in 2018. Approximately 75% of the labor force is employed in agriculture, which contributes nearly 31% to the national GDP.
                                             </p>
-                                        </div>
+                                        </div> 
                                     </div>
-                                </div> 
+                                    <div class="box-overlay bg-gradient-dark-transparent"></div>
+                                </div>
                             </div>
-                            <div class="swiper-slide"> 
-                                <div class="interactive-banner-style-09 position-relative overflow-hidden">
-                                    <img src="{% static 'frontend/images/about-rwanda/img-10.jpg' %}" alt="" />
-                                    <div class="opacity-full-dark bg-gradient-black-bottom-transparent"></div>
-                                    <div class="image-content h-100 w-100 p-10 xl-p-30px sm-pe-15px sm-ps-15px text-center d-flex justify-content-end align-items-end flex-column">
-                                        <div class="w-100">
-                                            <p class="text-white">
+                            <div class="swiper-slide">
+                                <div class="interactive-banner-style-06">                                    
+                                    <div class="interactive-banners-image">
+                                        <img src="{% static 'frontend/images/about-rwanda/img-10.jpg' %}" alt="" />
+                                        <div class="overlay-bg bg-gradient-dark-transparent opacity-light"></div>
+                                    </div>
+                                    <div class="interactive-banners-content p-60px lg-p-30px"> 
+                                        <div class="h-100 w-100 last-paragraph-no-margin"> 
+                                            <a href="javascript:void(0)" class="fs-22 d-block text-white mb-10px fw-500">Rwanda's Progress</a>
+                                            <p class="fs-14 text-white interactive-banners-content-text w-100 lg-w-100">
                                                 Over the past few decades, Rwanda has advanced significantly on the global economic stage and has improved its education system. The new constitution, adopted in 2003, mandates that 30% of parliamentary seats be held by women. Rwanda now has the highest percentage of women in parliament worldwide, at 61%. Joining the Commonwealth in 2009, Rwanda continues to promote national unity and combat ethnic hate crimes.
                                             </p>
-                                        </div>
+                                        </div> 
                                     </div>
-                                </div> 
+                                    <div class="box-overlay bg-gradient-dark-transparent"></div>
+                                </div>
                             </div>
-                            <div class="swiper-slide"> 
-                                <div class="interactive-banner-style-09 position-relative overflow-hidden">
-                                    <img src="{% static 'frontend/images/about-rwanda/img-11.jpg' %}" alt="" />
-                                    <div class="opacity-full-dark bg-gradient-black-bottom-transparent"></div>
-                                    <div class="image-content h-100 w-100 p-10 xl-p-30px sm-pe-15px sm-ps-15px text-center d-flex justify-content-end align-items-end flex-column">
-                                        <div class="w-100">
-                                            <p class="text-white">
-                                                Rwandans are known for their compassion, creativity, and dedication to demonstrating Christ's radical love, with 91.5% of the population identifying as Christian. Africa New Life is proud to serve in a country that has learned from its past and has much to teach the world. Despite the horrific violence of the 20th century, Rwandans have shown remarkable resilience, grace, and a commitment to healing. Today, Rwanda is one of the safest countries in Africa, thanks to its restored peace and security. Genocide memorials in Rwanda honor the victims, educate the public, and aim to prevent future violence.
-                                            </p>
-                                        </div>
+                            <div class="swiper-slide">
+                                <div class="interactive-banner-style-06">                                    
+                                    <div class="interactive-banners-image">
+                                        <img src="{% static 'frontend/images/about-rwanda/img-11.jpg' %}" alt="" />
+                                        <div class="overlay-bg bg-gradient-dark-transparent opacity-light"></div>
                                     </div>
-                                </div> 
-                            </div>
-                            <div class="swiper-slide"> 
-                                <div class="interactive-banner-style-09 position-relative overflow-hidden">
-                                    <img src="{% static 'frontend/images/about-rwanda/img-10.jpg' %}" alt="" />
-                                    <div class="opacity-full-dark bg-gradient-black-bottom-transparent"></div>
-                                    <div class="image-content h-100 w-100 p-10 xl-p-30px sm-pe-15px sm-ps-15px text-center d-flex justify-content-end align-items-end flex-column">
-                                        <div class="w-100">
-                                            <p class="text-white">
-                                                Over the past few decades, Rwanda has advanced significantly on the global economic stage and has improved its education system. The new constitution, adopted in 2003, mandates that 30% of parliamentary seats be held by women. Rwanda now has the highest percentage of women in parliament worldwide, at 61%. Joining the Commonwealth in 2009, Rwanda continues to promote national unity and combat ethnic hate crimes.
+                                    <div class="interactive-banners-content p-60px lg-p-30px"> 
+                                        <div class="h-100 w-100 last-paragraph-no-margin"> 
+                                            <a href="javascript:void(0)" class="fs-22 d-block text-white mb-10px fw-500">Rwandan Resilience</a>
+                                            <p class="fs-14 text-white interactive-banners-content-text w-100 lg-w-100">
+                                                Rwandans are known for their compassion, creativity, and dedication to Christ's love, with 91.5% identifying as Christian. Africa New Life serves a country that has learned from its past and teaches the world about resilience and grace. Despite 20th-century violence, Rwanda has shown remarkable healing and is now one of Africa's safest countries. Genocide memorials honor victims, educate the public, and prevent future violence.
                                             </p>
-                                        </div>
+                                        </div> 
                                     </div>
-                                </div> 
+                                    <div class="box-overlay bg-gradient-dark-transparent"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </section>
 
