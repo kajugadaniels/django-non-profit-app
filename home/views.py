@@ -99,7 +99,13 @@ def medicalCare(request):
     return render(request, 'frontend/what-we-do/medical-care.html')
 
 def communityEmpowerment(request):
-    return render(request, 'frontend/what-we-do/community-empowerment.html')
+    testimonies = Testimony.objects.all().order_by('-created_at')[:6]
+
+    context = {
+        'testimonies': testimonies
+    }
+
+    return render(request, 'frontend/what-we-do/community-empowerment.html', context)
 
 def tungaWomen(request):
     return render(request, 'frontend/what-we-do/tunga-women-initiative.html')
