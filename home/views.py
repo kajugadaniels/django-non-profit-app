@@ -93,7 +93,7 @@ def education(request):
     return render(request, 'frontend/what-we-do/education.html', context)
 
 def vocationalTraining(request):
-    news = News.objects.all().order_by('-created_at')
+    news = News.objects.filter(category='vocational-training').order_by('-created_at')
 
     context = {
         'news': news
@@ -115,6 +115,15 @@ def communityEmpowerment(request):
 
 def tungaWomen(request):
     return render(request, 'frontend/what-we-do/tunga-women-initiative.html')
+
+def story(request, slug):
+    story = News.objects.get(slug=slug)
+
+    context = {
+        'story': story
+    }
+
+    return render(request, 'frontend/what-we-do/story.html', context)
 
 def students(request):
     student_list = Student.objects.all().order_by('-created_at')

@@ -20,6 +20,7 @@ urlpatterns = [
    path('what-we-do/medical-care-outreach', medicalCare, name="medicalCare"),
    path('what-we-do/community-empowerment', communityEmpowerment, name="communityEmpowerment"),
    path('what-we-do/tunga-women-initiative', tungaWomen, name="tungaWomen"),
+   path('what-we-do/story/<slug>', story, name="story"),
 
    path('students/', students, name="students"),
    path('student/<slug>', getStudent, name='getStudent'),

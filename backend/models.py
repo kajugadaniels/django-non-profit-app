@@ -198,6 +198,7 @@ class News(models.Model):
     
     category = models.CharField(max_length=255, choices=CATEGORY_CHOICES)
     title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, blank=True)
     image = ProcessedImageField(
         upload_to='news/',
         processors=[ResizeToFill(3600, 2026)],
@@ -207,6 +208,12 @@ class News(models.Model):
     description = models.TextField()
     status = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(News, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
