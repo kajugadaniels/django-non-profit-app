@@ -3,31 +3,22 @@
 {% block title %} Give {% endblock %}
 {% block content %}
 
-<section class="cover-background one-third-screen sm-h-500px" style="background-image:url({% static 'frontend/images/our-story-bg.png' %});">
-    <div class="opacity-medium bg-dark-slate-blue"></div> 
-    <div class="container h-100"> 
-        <div class="row align-items-center justify-content-center h-100">
-            <div class="col-xxl-8 col-lg-10 mb-9 md-mb-15 sm-mb-0 position-relative z-index-1 text-center d-flex flex-wrap align-items-center justify-content-center" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>   
-                <h1 class="text-white fw-600 ls-minus-2px mb-45px">
-                    Give 
-                </h1> 
-            </div>  
-        </div> 
+<section class="top-space-margin page-title-big-typography border-radius-6px lg-border-radius-0px p-0" data-parallax-background-ratio="0.5" style="background-image: url({% static 'frontend/images/our-story-bg.png' %})">
+    <div class="opacity-extra-medium bg-blue-whale"></div>
+    <div class="container">
+        <div class="row align-items-center justify-content-center small-screen">
+            <div class="col-lg-8 position-relative text-center page-title-extra-large" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <h1 class="m-auto text-white text-shadow-double-large fw-600 ls-minus-2px">Give</h1>
+            </div>
+            <div class="down-section text-center" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <a href="#down-section" class="section-link">
+                    <div class="text-white">
+                        <i class="feather icon-feather-chevron-down icon-very-medium"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="shape-image-animation bottom-0 p-0 w-100 d-none d-md-block"> 
-        <svg xmlns="http://www.w3.org/2000/svg" widht="3000" height="400" viewBox="0 180 2500 200" fill="#ffffff"> 
-        <path class="st1" d="M 0 250 C 1200 400 1200 50 3000 250 L 3000 550 L 0 550 L 0 250">
-        <animate
-            attributeName="d"
-            dur="5s"
-            values="M 0 250 C 1200 400 1200 50 3000 250 L 3000 550 L 0 550 L 0 250;
-                    M 0 250 C 400 50 400 400 3000 250 L 3000 550 L 0 550 L 0 250;
-                    M 0 250 C 1200 400 1200 50 3000 250 L 3000 550 L 0 550 L 0 250"
-            repeatCount="indefinite"
-            />
-        </path>
-        </svg>
-    </div> 
 </section>
 
 <section class="p-0 md-pt-0">
@@ -199,7 +190,7 @@
     </div>
 </section>
 
-<section class="big-section"> 
+<section class="big-section" id="down-section">
     <div class="container"> 
         <div class="row mb-6 md-mb-70px sm-mb-40px">
             <div class="row align-items-center mb-6 sm-mb-9 text-center text-lg-start">
@@ -220,7 +211,7 @@
             <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center" data-anime='{"el": "childs", "translateX": [-30, 0], "opacity": [0,1], "delay": 500, "staggervalue": 100, "easing": "easeOutQuad" }'>
             {% csrf_token %}
             {% for project in projects %}
-                <div class="col-lg-6 pricing-table-style-10 md-mb-30px mb-3">
+                <div class="col-lg-4 pricing-table-style-10 md-mb-30px mb-3">
                     <div class="bg-very-light-gray p-50px lg-p-25px sm-mb-50px border-radius-6px overflow-hidden position-relative">
                         <a href="{% url 'frontend:viewProject' project.slug %}">
                             <span class="fs-10 lh-normal fw-600 text-dark-gray text-uppercase bg-white box-shadow-small border-radius-26px d-inline-block pt-10px pb-10px ps-20px pe-20px mb-10px">
