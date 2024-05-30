@@ -93,7 +93,13 @@ def education(request):
     return render(request, 'frontend/what-we-do/education.html', context)
 
 def vocationalTraining(request):
-    return render(request, 'frontend/what-we-do/vocational-training.html')
+    blogs = Blog.objects.all().order_by('-created_at')
+
+    context = {
+        'blogs': blogs
+    }
+
+    return render(request, 'frontend/what-we-do/vocational-training.html', context)
 
 def medicalCare(request):
     return render(request, 'frontend/what-we-do/medical-care.html')
