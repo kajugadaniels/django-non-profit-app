@@ -114,7 +114,13 @@ def communityEmpowerment(request):
     return render(request, 'frontend/what-we-do/community-empowerment.html', context)
 
 def tungaWomen(request):
-    return render(request, 'frontend/what-we-do/tunga-women-initiative.html')
+    news = News.objects.filter(category='tunga-mothers').order_by('-created_at')
+
+    context = {
+        'news': news
+    }
+
+    return render(request, 'frontend/what-we-do/tunga-women-initiative.html', context)
 
 def story(request, slug):
     story = News.objects.get(slug=slug)
