@@ -278,7 +278,30 @@ def checkout(request):
             request.session['cart'] = []
         request.session['cart'].append({'project_id': project.id, 'title': project.title, 'amount': amount, 'image_url': project.image.url})
         request.session.modified = True
-        
+        return redirect('frontend:checkout')
+    
+    context = {
+        'cart': cart
+    }
+
+    return render(request, 'frontend/checkout.html', context)
+
+def checkoutpay(request):
+    cart = request.session.get('cart', [])
+
+    if request.method == 'POST':
+        email = request.POST['email']
+        firstname = request.POST['firstname']
+        city = request.POST['city']
+        phonenumber = request.POST['phonenumber']
+        state = request.POST['state']
+        street = request.POST['street']
+        street1 = request.POST['street1']
+        zip = request.POST['zip']
+        amount = request.POST['amount']
+        amoun = int(float(amount) * 100)
+        donate= donateFund(request,amoun, 'one',"", firstname, email,'frontend/checkout.html')
+
         return redirect('frontend:checkout')
     
     context = {

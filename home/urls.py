@@ -44,6 +44,7 @@ urlpatterns = [
    path('contact/', contact, name="contact"),
 
    path('checkout/', checkout, name="checkout"),
+   path('give-gift/', checkoutpay, name="givegift"),
    path('remove_from_cart/', remove_from_cart, name='remove_from_cart'),
    
    path('terms-and-conditions', termsAndConditions, name="termsAndConditions"),
