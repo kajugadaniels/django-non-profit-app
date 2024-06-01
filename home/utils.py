@@ -1,8 +1,9 @@
 import uuid
 from django.shortcuts import redirect,render
 import stripe
+import requests
 from .models import * 
-def donateFund(request, amount,interval,slug, fullname,email,template):
+def donateFund(request, amount,interval,slug, fullname,email,template,gift):
     print(amount)
     amoun = int(float(amount) * 100)
     if interval is not None :
@@ -14,10 +15,17 @@ def donateFund(request, amount,interval,slug, fullname,email,template):
                         description="Your gift of $"+str(amount)+" to "+str(student.name)+" is a life-changing."
                     ) 
                 else:
-                    product = stripe.Product.create(
-                        name="AOF Foundation",
+                    if gift is not None and gift:
+                        product = stripe.Product.create(
+                        name="AOF Foundation- Giving a gift",
                         description="Your gift of $"+str(amount)+" is life-changing as it makes it possible for ONE hungry child to eat, be able to go to school in a safe environment, receive medical care, and learn about the life-changing love of Jesus."
-                    )
+                        )   
+                    else:
+
+                        product = stripe.Product.create(
+                            name="AOF Foundation",
+                            description="Your gift of $"+str(amount)+" is life-changing as it makes it possible for ONE hungry child to eat, be able to go to school in a safe environment, receive medical care, and learn about the life-changing love of Jesus."
+                        )
                 productId = product.id
                 if amoun:
                     # Process donation logic here, such as saving the donation amount to the database
@@ -48,15 +56,16 @@ def donateFund(request, amount,interval,slug, fullname,email,template):
                             donation.productId= productId,
                             donation.beneficiary= student
                             donation.save()
-                        else:
-                            donation = Donate()
-                            donation.amount= amoun
-                            donation.email= email
-                            donation.paidBy = fullname
-                            donation.paymentMode = interval
-                            donation.donationId = payment.id
-                            donation.productId= productId
-                            donation.save()
+                        else: 
+                            if gift is None:
+                                donation = Donate()
+                                donation.amount= amoun
+                                donation.email= email
+                                donation.paidBy = fullname
+                                donation.paymentMode = interval
+                                donation.donationId = payment.id
+                                donation.productId= productId
+                                donation.save()
                         
                         return redirect(payment.url)
                     else:
@@ -104,3 +113,4 @@ def donateFund(request, amount,interval,slug, fullname,email,template):
             return render(request,template, { 
                     'error_message': 'Please select donation type '
                 })
+

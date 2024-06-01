@@ -93,7 +93,7 @@ def education(request):
     return render(request, 'frontend/what-we-do/education.html', context)
 
 def vocationalTraining(request):
-    news = News.objects.all().order_by('-created_at')
+    news = News.objects.filter(category='vocational-training').order_by('-created_at')
 
     context = {
         'news': news
@@ -114,7 +114,22 @@ def communityEmpowerment(request):
     return render(request, 'frontend/what-we-do/community-empowerment.html', context)
 
 def tungaWomen(request):
-    return render(request, 'frontend/what-we-do/tunga-women-initiative.html')
+    news = News.objects.filter(category='tunga-mothers').order_by('-created_at')
+
+    context = {
+        'news': news
+    }
+
+    return render(request, 'frontend/what-we-do/tunga-women-initiative.html', context)
+
+def story(request, slug):
+    story = News.objects.get(slug=slug)
+
+    context = {
+        'story': story
+    }
+
+    return render(request, 'frontend/what-we-do/story.html', context)
 
 def students(request):
     student_list = Student.objects.all().order_by('-created_at')
@@ -176,7 +191,7 @@ def donate(request):
         email =  request.POST['email']
         fullname= request.POST['fullname']
         interval =  request.POST['paymentOptions']
-        donate= donateFund(request,amoun, interval,"", fullname, email,'frontend/sponsor/index.html')
+        donate= donateFund(request,amoun, interval,"", fullname, email,'frontend/sponsor/index.html',"")
         return donate
     return render(request, 'frontend/sponsor/index.html', context)
 
@@ -288,10 +303,13 @@ def checkout(request):
 
 def checkoutpay(request):
     cart = request.session.get('cart', [])
-
+    context = {
+            'cart': cart
+        }
     if request.method == 'POST':
         email = request.POST['email']
         firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
         city = request.POST['city']
         phonenumber = request.POST['phonenumber']
         state = request.POST['state']
@@ -299,14 +317,21 @@ def checkoutpay(request):
         street1 = request.POST['street1']
         zip = request.POST['zip']
         amount = request.POST['amount']
-        amoun = int(float(amount) * 100)
-        donate= donateFund(request,amoun, 'one',"", firstname, email,'frontend/checkout.html')
-
-        return redirect('frontend:checkout')
+        donate= donateFund(request,amount, 'one',"", firstname, email,'frontend/checkout.html',"")
+        gift = DonateGifts()
+        gift.email = email
+        gift.firstname = firstname
+        gift.phoneNumber = phonenumber
+        gift.lastname= lastname
+        gift.streetAddress = street
+        gift.city = city
+        gift.zip = zip
+        gift.state= state
+        gift.streetAddressCity =street1
+        gift.save()
+        return donate
     
-    context = {
-        'cart': cart
-    }
+   
 
     return render(request, 'frontend/checkout.html', context)
 

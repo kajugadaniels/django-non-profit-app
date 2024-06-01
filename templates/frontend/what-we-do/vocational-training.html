@@ -157,14 +157,14 @@
                         <li class="grid-item">
                             <div class="card bg-transparent border-0 h-100">
                                 <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                    <span>
+                                    <a href="{% url 'frontend:story' blog.slug %}">
                                         <img src="{{ blog.image.url }}" alt />
-                                    </span>
+                                    </a>
                                 </div>
                                 <div class="card-body px-0 pt-30px pb-30px">
-                                    <span class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
+                                    <a href="{% url 'frontend:story' blog.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
                                         {{ blog.title }}
-                                    </span>
+                                    </a>
                                     <p class="mb-10px w-100 text-white">
                                         {{ blog.description|truncatewords:10 }}
                                     </p>

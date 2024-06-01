@@ -32,29 +32,41 @@
     </div>
 </section>
 
-<section class="overflow-hidden">
-    <div class="container">
-        <div class="row justify-content-center">
+<section class="pt-0 ps-4 pe-4 xl-ps-2 xl-pe-2 lg-px-0">
+    <div class="container-fluid">
+        <div class="row align-items-center mb-6 sm-mb-9 text-center text-lg-start">
+            <div class="col-lg-12 md-mb-20px text-center">
+                <h3 class="title-font text-black fs-50 fw-300 mb-3 ls-minus-1px">
+                    Empower Teen Monthers Through Craft
+                </h3>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12">
-                <div class="border-radius-6px h-500px md-h-450px sm-h-350px d-flex align-items-end justify-content-center overflow-hidden cover-background skrollr-zoom pb-9 xs-pb-12" style="background-image: url({% static 'frontend/images/what-we-do/farming/slider-2.jpg' %})" data-bottom-top="transform:scale(1.2, 1.2) translateY(30px);" data-top-bottom="transform:scale(1, 1) translateY(-30px);">
-                    <div class="opacity-medium bg-gradient-dark-transparent"></div>
-                    <div class="row justify-content-center">
-                        <div class="col-11 col-md-7 position-relative z-index-1 text-center text-lg-start md-mb-35px sm-mb-25px">
-                            <h4 class="alt-font text-white mb-0 fw-300 fancy-text-style-4">Empowering teen mothers through
-                                <span class="fw-600" data-fancy-text='{ "effect": "rotate", "string": ["craft,", "study,", "and financial independence."] }'></span>
-                            </h4> 
-                        </div>
-                        <div class="col-xl-5 col-lg-3 position-relative z-index-1 text-center animation-zoom">
-                            <a href="#" class="position-relative d-inline-block text-center border border-2 border-color-transparent-white-very-light rounded-circle video-icon-box video-icon-large popup-youtube">
-                                {% comment %} <span>
-                                    <span class="video-icon">
-                                        <i class="bi bi-play-fill text-white"></i>
-                                    </span>
-                                </span> {% endcomment %}
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <ul class="blog-side-image blog-wrapper grid-loading grid grid-3col xxl-grid-2col xl-grid-2col lg-grid-2col md-grid-1col sm-grid-1col xs-grid-1col gutter-extra-large">
+                    <li class="grid-sizer"></li>
+                    {% for story in news %}
+                        <li class="grid-item">
+                            <div class="blog-box d-md-flex d-block flex-row h-100 border-radius-6px overflow-hidden box-shadow-extra-large">
+                                <div class="blog-content w-50 sm-w-100 pt-50px pb-40px ps-40px pe-40px xl-p-30px bg-white d-flex flex-column justify-content-center align-items-start last-paragraph-no-margin">
+                                    <a href="{% url 'frontend:story' story.slug %}" class="card-title text-dark-gray text-dark-gray-hover mb-5px fw-600 fs-18 lh-28">
+                                        {{ story.title }}
+                                    </a>
+                                    <p>
+                                        {{ story.description|truncatewords:10 }}
+                                    </p>
+                                    <div class="mt-15px">
+                                        <span class="separator bg-dark-gray"></span>
+                                        <a href="{% url 'frontend:story' story.slug %}" class="text-dark-gray text-dark-gray-hover d-inline-block fs-15 fw-500 fw-500">More Details</a>
+                                    </div>
+                                </div>
+                                <div class="blog-image w-50 sm-w-100 cover-background" style="background-image: url({{ story.image.url }})">
+                                    <a href="{% url 'frontend:story' story.slug %}" class="blog-post-image-overlay"></a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>

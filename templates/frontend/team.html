@@ -3,18 +3,22 @@
 {% block title %} Our Team {% endblock %}
 {% block content %}
 
-<section class="big-section">
+<section class="page-title-big-typography bg-dark-gray ipad-top-space-margin xs-py-0 cover-background background-position-center-top" style="background-image: url({% static 'frontend/images/our-story-bg.png' %})">
+    <div class="opacity-medium bg-dark-slate-blue"></div>
     <div class="container">
-        <div class="row justify-content-center align-items-center mb-6 text-center text-lg-start">
-            <div class="col-xxl-6 col-lg-6 md-mb-20px" data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                <h2 class="title-font text-dark-gray fw-300 ls-minus-2px mb-0">
-                    Team
-                </h2>
-            </div>
-            <div class="col-xxl-6 col-lg-6 col-md-8 col-sm-10 last-paragraph-no-margin" data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                <p>
+        <div class="row align-items-center justify-content-center small-screen">
+            <div class="col-xl-6 col-lg-7 col-sm-8 position-relative text-center page-title-extra-small" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 400, "delay": 0, "staggervalue": 100, "easing": "easeOutQuad" }'>
+                <h2 class="m-auto text-white title-font text-shadow-double-large fw-300 w-100 xl-w-100" data-fancy-text='{ "opacity": [0, 1], "translateY": [50, 0], "filter": ["blur(20px)", "blur(0px)"], "string": ["Team"], "duration": 400, "delay": 0, "speed": 50, "easing": "easeOutQuad" }'></h2>
+                <p class="fs-16 mt-4 text-white">
                     An organization is only as strong as the people who are working toward the same purpose. Thankfully, we have some of the best people in the world at the Africa Oasis Foundation, and we are extremely blessed to have an incredible staff. Our clear mission unifies us, and their dedication and passion are what make our organization thrive.
                 </p>
+            </div>
+            <div class="down-section text-center" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <a href="#down-section" class="section-link">
+                    <div class="text-white">
+                        <i class="line-icon-Down icon-medium"></i>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
