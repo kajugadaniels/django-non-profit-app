@@ -410,19 +410,48 @@ def setting(request):
                 messages.success(request, 'Mission, vision, or value updated successfully.')
             else:
                 messages.error(request, 'Error updating mission, vision, or value.')
+        elif 'logo_form' in request.POST:
+            form = LogoForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Logo added successfully.')
+            else:
+                messages.error(request, 'Error adding logo.')
+        elif 'edit_logo_form' in request.POST:
+            logo_id = request.POST.get('logo_id')
+            logo = get_object_or_404(Logo, id=logo_id)
+            form = EditLogoForm(request.POST, request.FILES, instance=logo)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Logo updated successfully.')
+            else:
+                messages.error(request, 'Error updating logo.')
+        elif 'delete_logo_form' in request.POST:
+            logo_id = request.POST.get('logo_id')
+            logo = get_object_or_404(Logo, id=logo_id)
+            logo.delete()
+            messages.success(request, 'Logo deleted successfully.')
         return redirect('backend:settings')
     else:
         slide_form = SlideForm()
         mission_vision_values_forms = {item.id: MissionVisionValuesForm(instance=item) for item in MissionVisionValues.objects.all()}
+        logo_form = LogoForm()
+        edit_logo_form = EditLogoForm()
         slides = Slide.objects.all()
         mission_vision_values = MissionVisionValues.objects.all()
+        logos = Logo.objects.all()
+
         context = {
             'slide_form': slide_form,
             'mission_vision_values_forms': mission_vision_values_forms,
+            'logo_form': logo_form,
+            'edit_logo_form': edit_logo_form,
             'slides': slides,
             'mission_vision_values': mission_vision_values,
+            'logos': logos,
         }
-        return render(request, 'backend/settings/index.html', context)
+
+    return render(request, 'backend/settings/index.html', context)
 
 
 @login_required
