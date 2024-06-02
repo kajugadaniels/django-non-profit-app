@@ -14,6 +14,15 @@ from .utils import *
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 publickey =  os.getenv("STRIPE_PUBLIC_KEY")
 
+def get_logos():
+    logos = {
+        'color_logo': Logo.objects.filter(section='color_logo').first(),
+        'black_logo': Logo.objects.filter(section='black_logo').first(),
+        'white_logo': Logo.objects.filter(section='white_logo').first(),
+        'favicon': Logo.objects.filter(section='favicon').first(),
+    }
+    return logos
+
 def index(request):
     students = Student.objects.all().order_by('-created_at')[:6]
     blog = Blog.objects.all().order_by('-created_at')[:4]
@@ -28,6 +37,8 @@ def index(request):
     values = MissionVisionValues.objects.filter(section='values').first()
 
     sections = [mission, vision, values]
+    
+    logos = get_logos()
 
     context = {
         'students': students,
@@ -37,7 +48,8 @@ def index(request):
         'project_count': project_count,
         'testimony_count': testimony_count,
         'sections': sections,
-        'projects': projects
+        'projects': projects,
+        **logos
     }
 
     return render(request, 'frontend/index.html', context)
@@ -49,8 +61,11 @@ def history(request):
 
     sections = [mission, vision, values]
     
+    logos = get_logos()
+    
     context = {
-        'sections': sections
+        'sections': sections,
+        **logos
     }
 
     return render(request, 'frontend/history.html', context)
@@ -60,73 +75,106 @@ def missionVisionValues(request):
     vision = MissionVisionValues.objects.filter(section='vision').first()
     values = MissionVisionValues.objects.filter(section='values').first()
     
+    logos = get_logos()
+    
     context = {
         'mission': mission,
         'vision': vision,
         'values': values,
+        **logos
     }
 
     return render(request, 'frontend/mission-vision-values.html', context)
 
 def team(request):
     team = Team.objects.all().order_by('-created_at')
+    
+    logos = get_logos()
 
     context = {
-        'team': team
+        'team': team,
+        **logos
     }
 
     return render(request, 'frontend/team.html', context)
 
 def aboutRwanda(request):
-    return render(request, 'frontend/about-rwanda.html')
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/about-rwanda.html', context)
 
 def whatWeDo(request):
-    return render(request, 'frontend/what-we-do/index.html')
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+    return render(request, 'frontend/what-we-do/index.html', context)
 
 def education(request):
     testimonies = Testimony.objects.all().order_by('-created_at')[:3]
+    logos = get_logos()
     
     context = {
-        'testimonies': testimonies
+        'testimonies': testimonies,
+        **logos
     }
 
     return render(request, 'frontend/what-we-do/education.html', context)
 
 def vocationalTraining(request):
     news = News.objects.filter(category='vocational-training').order_by('-created_at')
+    logos = get_logos()
 
     context = {
-        'news': news
+        'news': news,
+        **logos
     }
 
     return render(request, 'frontend/what-we-do/vocational-training.html', context)
 
 def medicalCare(request):
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
     return render(request, 'frontend/what-we-do/medical-care.html')
 
 def communityEmpowerment(request):
     testimonies = Testimony.objects.all().order_by('-created_at')[:6]
+    logos = get_logos()
 
     context = {
-        'testimonies': testimonies
+        'testimonies': testimonies,
+        **logos
     }
 
     return render(request, 'frontend/what-we-do/community-empowerment.html', context)
 
 def tungaWomen(request):
     news = News.objects.filter(category='tunga-mothers').order_by('-created_at')
+    logos = get_logos()
 
     context = {
-        'news': news
+        'news': news,
+        **logos
     }
 
     return render(request, 'frontend/what-we-do/tunga-women-initiative.html', context)
 
 def story(request, slug):
     story = News.objects.get(slug=slug)
+    logos = get_logos()
 
     context = {
-        'story': story
+        'story': story,
+        **logos
     }
 
     return render(request, 'frontend/what-we-do/story.html', context)
@@ -137,18 +185,22 @@ def students(request):
 
     page_number = request.GET.get('page')
     students = paginator.get_page(page_number)
+    logos = get_logos()
 
     context = {
-        'students': students
+        'students': students,
+        **logos
     }
 
     return render(request, 'frontend/students/index.html', context)
 
 def getStudent(request, slug):
     student = Student.objects.get(slug=slug)
+    logos = get_logos()
     
     context = {
-        'student': student
+        'student': student,
+        **logos
     }
     if request.method == 'POST':
         # TODO: sanitize data
@@ -163,9 +215,11 @@ def getStudent(request, slug):
 
 def give(request):
     projects = Project.objects.all().order_by('-created_at')[:4]
+    logos = get_logos()
 
     context = {
-        'projects': projects
+        'projects': projects,
+        **logos
     }
 
     return render(request, 'frontend/give.html', context)
@@ -179,10 +233,12 @@ def donate(request):
     paginator = Paginator(project_list, 9)
     page_number = request.GET.get('page')
     projects = paginator.get_page(page_number)
+    logos = get_logos()
 
     context = {
         'students': students,
-        'projects': projects
+        'projects': projects,
+        **logos
     }
 
     if request.method == 'POST':
@@ -202,27 +258,34 @@ def store(request):
 
     page_number = request.GET.get('page')
     products = paginator.get_page(page_number)
+    
+    logos = get_logos()
 
     context = {
-        'products': products
+        'products': products,
+        **logos
     }
 
     return render(request, 'frontend/store/index.html', context)
 
 def product(request, slug):
     product = Product.objects.get(slug=slug)
+    logos = get_logos()
     
     context = {
-        'product': product
+        'product': product,
+        **logos
     }
 
     return render(request, 'frontend/store/product.html', context)
 
 def monthlyDonating(request):
     testimonies = Testimony.objects.all().order_by('-created_at')[:6]
+    logos = get_logos()
 
     context = {
-        'testimonies': testimonies
+        'testimonies': testimonies,
+        **logos
     }
 
     return render(request, 'frontend/monthly-donating.html', context)
@@ -233,18 +296,23 @@ def projects(request):
 
     page_number = request.GET.get('page')
     projects = paginator.get_page(page_number)
+    
+    logos = get_logos()
 
     context = {
-        'projects': projects
+        'projects': projects,
+        **logos
     }
 
     return render(request, 'frontend/project/index.html', context)
 
 def viewProject(request, slug):
     project = get_object_or_404(Project, slug=slug)
+    logos = get_logos()
     
     context = {
-        'project': project
+        'project': project,
+        **logos
     }
 
     return render(request, 'frontend/project/show.html', context)
@@ -255,34 +323,52 @@ def blog(request):
 
     page_number = request.GET.get('page')
     blogs = paginator.get_page(page_number)
+    
+    logos = get_logos()
 
     context = {
-        'blogs': blogs
+        'blogs': blogs,
+        **logos
     }
 
     return render(request, 'frontend/blog/index.html', context)
 
 def viewBlog(request, slug):
     blog = Blog.objects.get(slug=slug)
+    logos = get_logos()
     
     context = {
-        'blog': blog
+        'blog': blog,
+        **logos
     }
 
     return render(request, 'frontend/blog/show.html', context)
 
 def faq(request):
-    return render(request, 'frontend/faq.html')
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/faq.html', context)
 
 def prayWithUs(request):
     return render(request, 'frontend/pray-with-us.html')
 
 def contact(request):
-    return render(request, 'frontend/contact.html')
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/contact.html', context)
 
 @csrf_protect
 def checkout(request):
     cart = request.session.get('cart', [])
+    logos = get_logos()
 
     if request.method == 'POST':
         amount = request.POST.get('selectedAmount')
@@ -296,15 +382,18 @@ def checkout(request):
         return redirect('frontend:checkout')
     
     context = {
-        'cart': cart
+        'cart': cart,
+        **logos
     }
 
     return render(request, 'frontend/checkout.html', context)
 
 def checkoutpay(request):
     cart = request.session.get('cart', [])
+    logos = get_logos()
     context = {
-            'cart': cart
+            'cart': cart,
+            **logos
         }
     if request.method == 'POST':
         email = request.POST['email']
@@ -330,8 +419,6 @@ def checkoutpay(request):
         gift.streetAddressCity =street1
         gift.save()
         return donate
-    
-   
 
     return render(request, 'frontend/checkout.html', context)
 
@@ -370,10 +457,28 @@ def remove_from_cart(request):
         return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 def termsAndConditions(request):
-    return render(request, 'frontend/term-and-condition.html')
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/term-and-condition.html', context)
 
 def privacyPolicy(request):
-    return render(request, 'frontend/privacy-policy.html')
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/privacy-policy.html', context)
 
 def resources(request):
-    return render(request, 'frontend/resources.html')
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/resources.html', context)
