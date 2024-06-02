@@ -57,7 +57,7 @@ jobs:
           kubectl create secret generic aof-k8s-web-prod-env --from-env-file=web/.env
       - name: Update Deployment image
         run: |
-          kubectl set image deployment/aof-k8s-web-deployment aof-k8s-web=registry.digitalocean.com/aof-k8s/aof-k8s:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
+          kubectl set image deployment/aof-k8s-web-deployment aof-k8s=registry.digitalocean.com/aof-k8s/aof-k8s:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
       - name: Wait for rollout to finish
         run: |
           kubectl rollout status deployment/aof-k8s-web-deployment
