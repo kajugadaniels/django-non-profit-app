@@ -30,8 +30,8 @@ def index(request):
     student_count = Student.objects.count()
     projects = Project.objects.all().order_by('-created_at')
     project_count = Project.objects.count()
-    testimony_count = Testimony.objects.count()
-    
+    testimony_count = News.objects.count()
+
     mission = MissionVisionValues.objects.filter(section='mission').first()
     vision = MissionVisionValues.objects.filter(section='vision').first()
     values = MissionVisionValues.objects.filter(section='values').first()
@@ -116,10 +116,12 @@ def whatWeDo(request):
     return render(request, 'frontend/what-we-do/index.html', context)
 
 def education(request):
+    news = News.objects.filter(category='education', status=True).order_by('-created_at')
     testimonies = Testimony.objects.all().order_by('-created_at')[:3]
     logos = get_logos()
     
     context = {
+        'news': news,
         'testimonies': testimonies,
         **logos
     }
@@ -127,7 +129,7 @@ def education(request):
     return render(request, 'frontend/what-we-do/education.html', context)
 
 def vocationalTraining(request):
-    news = News.objects.filter(category='vocational-training').order_by('-created_at')
+    news = News.objects.filter(category='vocational-training', status=True).order_by('-created_at')
     logos = get_logos()
 
     context = {
@@ -138,19 +140,23 @@ def vocationalTraining(request):
     return render(request, 'frontend/what-we-do/vocational-training.html', context)
 
 def medicalCare(request):
+    news = News.objects.filter(category='medical-care', status=True).order_by('-created_at')
     logos = get_logos()
-    
+
     context = {
+        'news': news,
         **logos
     }
 
-    return render(request, 'frontend/what-we-do/medical-care.html')
+    return render(request, 'frontend/what-we-do/medical-care.html', context)
 
 def communityEmpowerment(request):
+    news = News.objects.filter(category='community-empowerment', status=True).order_by('-created_at')
     testimonies = Testimony.objects.all().order_by('-created_at')[:6]
     logos = get_logos()
 
     context = {
+        'news': news,
         'testimonies': testimonies,
         **logos
     }
@@ -158,7 +164,7 @@ def communityEmpowerment(request):
     return render(request, 'frontend/what-we-do/community-empowerment.html', context)
 
 def tungaWomen(request):
-    news = News.objects.filter(category='tunga-mothers').order_by('-created_at')
+    news = News.objects.filter(category='tunga-mothers', status=True).order_by('-created_at')
     logos = get_logos()
 
     context = {

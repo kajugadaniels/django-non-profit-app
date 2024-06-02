@@ -149,6 +149,13 @@
 
 <section class="pt-5 ps-15 pe-15 xl-ps-2 xl-pe-2 lg-ps-2 lg-pe-2 sm-mx-0 bg-extra-dark-slate-blue">
     <div class="container-fluid">
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-12 text-center">
+                <h2 class="title-font text-white fw-300">
+                    Stories
+                </h2>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
@@ -171,6 +178,12 @@
                                 </div>
                             </div>
                         </li>
+                    {% empty %}
+                        <div class="text-center">
+                            <span class="text-white">
+                                No stories available!!!
+                            </span>
+                        </div>
                     {% endfor %}
                 </ul>
                 <div class="position-absolute right-0px bottom-minus-320px d-none d-md-block" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
