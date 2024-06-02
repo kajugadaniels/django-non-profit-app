@@ -82,3 +82,13 @@ class MissionVisionValuesForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control'}),
             'icon': forms.ClearableFileInput(attrs={'class': 'form-control'})
         }
+
+class LogoForm(forms.ModelForm):
+    class Meta:
+        model = Logo
+        fields = ['section', 'image']
+
+class EditLogoForm(forms.ModelForm):
+    class Meta:
+        model = Logo
+        fields = ['image']
