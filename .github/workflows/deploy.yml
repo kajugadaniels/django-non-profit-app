@@ -56,6 +56,9 @@ jobs:
           EOF
           kubectl delete secret aof-k8s-web-prod-env --ignore-not-found
           kubectl create secret generic aof-k8s-web-prod-env --from-env-file=web/.env
+          kubectl apply -f pv.yaml
+          kubectl apply -f pvc.yaml
+
       - name: Update Deployment image
         run: |
           kubectl set image deployment/aof-k8s-web-deployment aof-k8s=registry.digitalocean.com/aof-k8s/aof-k8s:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}

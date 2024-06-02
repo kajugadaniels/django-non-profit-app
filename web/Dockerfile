@@ -4,7 +4,7 @@ COPY . /app
 WORKDIR /app
 
 RUN python3 -m venv /opt/venv
-
+RUN python manage.py collectstatic --noinput
 RUN /opt/venv/bin/pip install pip --upgrade && \
     /opt/venv/bin/pip install -r requirements.txt && \
     chmod +x entrypoint.sh
