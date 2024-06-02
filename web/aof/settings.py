@@ -163,7 +163,7 @@ WHITENOISE_AUTOREFRESH = True
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = ['https://aof-production-00fd.up.railway.app','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://africanoasis.org','https://www.africanoasis.org','https://*.127.0.0.1','http://157.245.21.39']
 AUTH_USER_MODEL = "home.UserAccount"
 
 QUILL_CONFIGS = {
