@@ -26,10 +26,15 @@ spec:
             value: "8001"
         ports:
         - containerPort: 8001
+        volumeMounts:
+        - name: media-storage
+          mountPath: /app/media  # Mount the PVC at this path
       imagePullSecrets:
         - name: aof-k8s  
-
-
+      volumes:
+      - name: media-storage
+        persistentVolumeClaim:
+          claimName: media-pvc
 ---
 apiVersion: v1
 kind: Service

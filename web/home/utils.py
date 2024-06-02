@@ -111,6 +111,6 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
     else:
             
             return render(request,template, { 
-                    'error_message': 'Please select donation type '
+                    'error_message': 'Please select a donation type '
                 })
 
