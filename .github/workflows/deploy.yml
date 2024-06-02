@@ -48,6 +48,8 @@ jobs:
           POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_USER=${{ secrets.POSTGRES_USER }}
           PGHOST=${{ secrets.PGHOST }}
+          PGHOST=${{ secrets.PGHOST }}
+          PGPORT=${{secrets.PGPORT}}
           SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
           STRIPE_PUBLIC_KEY=${{ secrets.STRIPE_PUBLIC_KEY }}
           STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}
