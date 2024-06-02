@@ -10,7 +10,7 @@
                     <tr>
                         <th>#</th>
                         <th>Section</th>
-                        <th>Title</th>
+                        <th>Icon</th>
                         <th>Description</th>
                         <th>Actions</th>
                     </tr>
@@ -20,7 +20,9 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>{{ item.section }}</td>
-                        <td>{{ item.title }}</td>
+                        <td>
+                            <img src="{{ item.icon.url }}" style="height: 100px;">
+                        </td>
                         <td>{{ item.description }}</td>
                         <td>
                             <!-- Edit button -->
