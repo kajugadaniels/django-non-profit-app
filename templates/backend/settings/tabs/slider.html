@@ -1,8 +1,8 @@
-<div class="tab-pane fade show active" id="home-slider" role="tabpanel" aria-labelledby="home-slider-tab">
+<div class="tab-pane fade" id="home-slider" role="tabpanel" aria-labelledby="home-slider-tab">
     <div class="card-body">
         <div class="d-flex justify-content-between">
             <h4>Slides</h4>
-            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addnewslider">Add New Slider</button>
+            {% comment %} <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addnewslider">Add New Slider</button> {% endcomment %}
         </div>
         <div class="modal fade" id="addnewslider" tabindex="-1" role="dialog" aria-labelledby="addnewslider" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -36,7 +36,7 @@
                         </span>
                         <div>
                             <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#editSlideModal{{ slide.id }}">Edit</button>
-                            <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteSlideModal{{ slide.id }}">Delete</button>
+                            {% comment %} <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteSlideModal{{ slide.id }}">Delete</button> {% endcomment %}
                         </div>
                     </li>
                     

@@ -217,3 +217,21 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+class Logo(models.Model):
+    SECTION_CHOICES = [
+        ('favicon', 'Favicon'),
+        ('black_logo', 'Black Logo'),
+        ('white_logo', 'White Logo'),
+        ('color_logo', 'Color Logo'),
+    ]
+
+    section = models.CharField(max_length=20, choices=SECTION_CHOICES, default='favicon', unique=True)
+    image = models.ImageField(
+        upload_to='logos/',
+        blank=True,
+        null=True
+    )
+
+    def __str__(self):
+        return self.section
