@@ -220,7 +220,7 @@ class News(models.Model):
 
 class Logo(models.Model):
     SECTION_CHOICES = [
-        ('colored_logo', 'Colored Logo'),
+        ('color_logo', 'Colored Logo'),
         ('black_logo', 'Black Logo'),
         ('white_logo', 'White Logo'),
         ('favicon', 'Favicon'),
