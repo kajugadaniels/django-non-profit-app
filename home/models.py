@@ -79,3 +79,18 @@ class Donation(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+class DonateGifts(models.Model):
+    firstname = models.CharField(max_length=255)
+    lastname = models.CharField(max_length=255)
+    phoneNumber = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255, blank=True, null=True)
+    streetAddress = models.CharField(max_length=255, blank=True, null=True)
+    streetAddressCity = models.CharField(max_length=255, blank=True, null=True)
+    zip = models.CharField(max_length=255, blank=True, null=True)
+    amount = models.FloatField(null=True, blank=True)
+    productid = models.CharField(max_length=255, blank=True, null=True)
+    status =models.CharField(max_length=255, default="Pending")
+    def __str__(self) -> str:
+        return self.firstname + self.lastname + self.phoneNumber 

@@ -191,7 +191,7 @@ def donate(request):
         email =  request.POST['email']
         fullname= request.POST['fullname']
         interval =  request.POST['paymentOptions']
-        donate= donateFund(request,amoun, interval,"", fullname, email,'frontend/sponsor/index.html')
+        donate= donateFund(request,amoun, interval,"", fullname, email,'frontend/sponsor/index.html',"")
         return donate
     return render(request, 'frontend/sponsor/index.html', context)
 
@@ -293,12 +293,45 @@ def checkout(request):
             request.session['cart'] = []
         request.session['cart'].append({'project_id': project.id, 'title': project.title, 'amount': amount, 'image_url': project.image.url})
         request.session.modified = True
-        
         return redirect('frontend:checkout')
     
     context = {
         'cart': cart
     }
+
+    return render(request, 'frontend/checkout.html', context)
+
+def checkoutpay(request):
+    cart = request.session.get('cart', [])
+    context = {
+            'cart': cart
+        }
+    if request.method == 'POST':
+        email = request.POST['email']
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        city = request.POST['city']
+        phonenumber = request.POST['phonenumber']
+        state = request.POST['state']
+        street = request.POST['street']
+        street1 = request.POST['street1']
+        zip = request.POST['zip']
+        amount = request.POST['amount']
+        donate= donateFund(request,amount, 'one',"", firstname, email,'frontend/checkout.html',"")
+        gift = DonateGifts()
+        gift.email = email
+        gift.firstname = firstname
+        gift.phoneNumber = phonenumber
+        gift.lastname= lastname
+        gift.streetAddress = street
+        gift.city = city
+        gift.zip = zip
+        gift.state= state
+        gift.streetAddressCity =street1
+        gift.save()
+        return donate
+    
+   
 
     return render(request, 'frontend/checkout.html', context)
 

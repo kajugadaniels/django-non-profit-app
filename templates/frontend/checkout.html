@@ -18,43 +18,48 @@
         <div class="row align-items-start">
             <div class="col-lg-7 pe-50px md-pe-15px md-mb-50px xs-mb-35px">
                 <span class="fs-26 alt-font fw-600 text-dark-gray mb-20px d-block">Billing details</span>
-                <form class="">
+                <form method="POST" action="{% url 'frontend:givegift' %}" class="">
+                    {% csrf_token %}
+                    {% if error_message %}
+                    <p class="text-red py-2 rounded px-4 my-2">{{error_message}}</p>
+                   {% endif %}
                     <div class="row">
                         <div class="col-md-6 mb-20px">
+                            
                             <label class="mb-10px">First name</label>
-                            <input class="border-radius-4px input-small" type="text" aria-label="text" required>
+                            <input name="firstname" class="border-radius-4px input-small" type="text" aria-label="text" required>
                         </div>
                         <div class="col-md-6 mb-20px">
                             <label class="mb-10px">Last name</label>
-                            <input class="border-radius-4px input-small" type="text" aria-label="text" required>
+                            <input name="lastname" class="border-radius-4px input-small" type="text" aria-label="text" required>
                         </div>
                         <div class="col-md-6 mb-20px">
                             <label class="mb-10px">Email</label>
-                            <input class="border-radius-4px input-small" type="email" aria-label="text">
+                            <input name="email" class="border-radius-4px input-small" type="email" aria-label="text">
                         </div>
                         <div class="col-md-6 mb-20px">
                             <label class="mb-10px">Phone Number</label>
-                            <input class="border-radius-4px input-small" type="number" aria-label="text">
+                            <input name="phonenumber" class="border-radius-4px input-small" type="number" aria-label="text">
                         </div>
                         <div class="col-md-6 mb-20px">
                             <label class="mb-10px">Town / City</label>
-                            <input class="border-radius-4px input-small" type="text" required>
+                            <input  name="city" class="border-radius-4px input-small" type="text" required>
                         </div>
                         <div class="col-md-6 mb-20px">
                             <label class="mb-10px" for="state1">State</label>
-                            <input class="border-radius-4px input-small" type="text" required>
+                            <input name="state" class="border-radius-4px input-small" type="text" required>
                         </div>
                         <div class="col-12 mb-20px">
                             <label class="mb-10px">Street address</label>
-                            <input class="border-radius-4px input-small mb-20px" type="text" placeholder="Street Address 1">
-                            <input class="border-radius-4px input-small" type="text" placeholder="Street Address 2">
+                            <input name="street" class="border-radius-4px input-small mb-20px" type="text" placeholder="Street Address 1">
+                            <input name="street1" class="border-radius-4px input-small" type="text" placeholder="Street Address 2">
                         </div>
                         <div class="col-12 mb-20px">
                             <label class="mb-10px">ZIP</label>
-                            <input class="border-radius-4px input-small" type="text" required>
+                            <input name="zip" class="border-radius-4px input-small" type="text" required>
                         </div>
                     </div>
-                </form>
+               
             </div>
             <div class="col-lg-5">
                 <div class="bg-very-light-gray border-radius-6px p-50px lg-p-25px your-order-box">
@@ -73,6 +78,8 @@
                                     <td class="product-price" data-title="Price">${{ item.amount }}</td>
                                 </tr>
                             {% endfor %}
+                            <input type="hidden" name="amount" value="{{total_amount}}" class="form-control" placeholder=""/>
+                            <input type="hidden" name="productid" value="{{project_id}}" />
                             <tr class="total-amount">
                                 <th class="fw-600 text-dark-gray alt-font">Total</th>
                                 <td data-title="Total">
@@ -86,7 +93,7 @@
                             <!-- start tab content -->
                             <div class="heading active-accordion">
                                 <label class="mb-5px">
-                                    <input class="d-inline w-auto me-5px mb-0 p-0" type="radio" name="payment-option">
+                                    <input class="d-inline w-auto me-5px mb-0 p-0" type="radio" value="stripe" name="payment-option">
                                     <span class="d-inline-block text-dark-gray fw-500">Stripe</span>
                                     <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#accordion-style-05" href="#style-5-collapse-2"></a>
                                 </label>
@@ -100,7 +107,7 @@
                             <!-- start tab content -->
                             <div class="heading active-accordion">
                                 <label class="mb-5px">
-                                    <input class="d-inline w-auto me-5px mb-0 p-0" type="radio" name="payment-option">
+                                    <input class="d-inline w-auto me-5px mb-0 p-0" type="radio" value="paypal" name="payment-option">
                                     <span class="d-inline-block text-dark-gray fw-500">PayPal <img src="images/paypal-logo.jpg" class="w-120px ms-10px" alt=""/></span> 
                                     <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#accordion-style-05" href="#style-5-collapse-4"></a>
                                 </label>
@@ -113,12 +120,13 @@
                             <!-- end tab content -->
                         </div> 
                     </div>
-                    <a href="#" class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
+                    <button class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
                         <span>
                             <span class="btn-double-text" data-text="Process Gift">Process Gift</span>
                         </span>
-                    </a>
+                    </button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
