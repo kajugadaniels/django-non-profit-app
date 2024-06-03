@@ -11,12 +11,12 @@ class Student(models.Model):
         ('F', 'Female'),
     )
 
-    SPONSORSHIP_COVER_CHOICES = (
-        ('School Fees', 'School Fees'),
-        ('Clothes', 'Clothes'),
-        ('Medicines', 'Medicines'),
-        ('Food', 'Food'),
-    )
+    # SPONSORSHIP_COVER_CHOICES = (
+    #     ('School Fees', 'School Fees'),
+    #     ('Clothes', 'Clothes'),
+    #     ('Medicines', 'Medicines'),
+    #     ('Food', 'Food'),
+    # )
 
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
@@ -28,7 +28,7 @@ class Student(models.Model):
     )
     birthday = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
+    # spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
     description = models.TextField(blank=True)
     # description = QuillField(blank=True)
     created_at = models.DateTimeField(default=timezone.now)
