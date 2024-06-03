@@ -1,0 +1,116 @@
+{% load static %}
+
+<footer class="footer-dark bg-seashell-white pb-0 cover-background" style="background-image: url({% static 'frontend/images/footer-bg.jpg' %});">
+    <div class="container">
+        <div class="row justify-content-center mb-4 sm-mb-35px">
+            <!-- start footer column -->
+            <div class="col-12 col-lg-3 last-paragraph-no-margin order-sm-1 md-mb-50px xs-mb-30px">
+                <a href="{% url 'frontend:home' %}" class="footer-logo d-inline-block mb-20px">
+                    <img src="{{ white_logo.image.url }}" data-at2x="{{ white_logo.image.url }}">
+                </a>
+                <span class="lh-22 alt-font fw-500 text-white d-block w-80 lg-w-100 mb-15px">Get in touch with us.</span>
+                <div class="fs-16 text-brown">
+                    <a href="tel:6028855988" class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke="#fff" d="M25 14.583A10.417 10.417 0 0 1 35.417 25m-12.5-18.625A17 17 0 0 1 25 6.25A18.75 18.75 0 0 1 43.75 25q0 1.045-.125 2.083"/><path stroke="#fff" d="M31.25 43.75a27.5 27.5 0 0 1-9.042-3.98L26 34.334a4.167 4.167 0 0 1 5.583-1.062c.688.437 1.396.833 2.084 1.229a4.167 4.167 0 0 1 1.75 5.875l-1.292 1.98a2.44 2.44 0 0 1-2.875 1.395M7.646 15.98l2.083-1.293a4.167 4.167 0 0 1 5.938 1.521c.396.75.791 1.459 1.229 2.084a4.167 4.167 0 0 1-1.063 5.583l-5.541 3.854A27.5 27.5 0 0 1 6.25 18.75a2.44 2.44 0 0 1 1.396-2.77"/><path stroke="#fff" d="M10.292 27.73a37 37 0 0 0 5.375 6.603a37 37 0 0 0 6.604 5.375"/></g></svg>
+                        (602) 885-5988
+                    </a>
+                </div>
+                <div class="fs-16">
+                    <a href="mailto:info@africanoasis.org" class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"><path fill="#fff" d="M19.435 4.065H4.565a2.5 2.5 0 0 0-2.5 2.5v10.87a2.5 2.5 0 0 0 2.5 2.5h14.87a2.5 2.5 0 0 0 2.5-2.5V6.565a2.5 2.5 0 0 0-2.5-2.5m-14.87 1h14.87a1.49 1.49 0 0 1 1.49 1.39c-2.47 1.32-4.95 2.63-7.43 3.95a6 6 0 0 1-1.06.53a2.08 2.08 0 0 1-1.67-.39c-1.42-.75-2.84-1.51-4.25-2.26c-1.14-.6-2.3-1.21-3.44-1.82a1.49 1.49 0 0 1 1.49-1.4m16.37 12.37a1.5 1.5 0 0 1-1.5 1.5H4.565a1.5 1.5 0 0 1-1.5-1.5V7.6c2.36 1.24 4.71 2.5 7.07 3.75a5.6 5.6 0 0 0 1.35.6a2.87 2.87 0 0 0 2-.41c1.45-.76 2.89-1.53 4.34-2.29c1.04-.56 2.07-1.1 3.11-1.65Z"/></svg>
+                        info@africanoasis.org
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-4 xs-mb-30px order-sm-3 order-lg-2">
+                <span class="alt-font fw-500 text-white d-block mb-5px">GET TO KNOW US</span>
+                <ul class="fs-16">
+                    <li><a href="{% url 'frontend:history' %}" class="text-white">Our Mission & Vision</a></li>
+                    <li><a href="{% url 'frontend:history' %}" class="text-white">Our story</a></li>
+                    <li><a href="{% url 'frontend:team' %}" class="text-white">Our team</a></li>
+                    <!-- <li><a href="{% url 'frontend:termsAndConditions' %}" class="text-white">Terms & Conditions</a></li> -->
+                    <li><a href="{% url 'frontend:privacyPolicy' %}" class="text-white">Privacy & Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-4 xs-mb-30px order-sm-3 order-lg-2">
+                <span class="alt-font fw-500 text-white d-block mb-5px">GET INVOLVED</span>
+                <ul class="fs-16">
+                    <li><a href="{% url 'frontend:donate' %}" class="text-white">Donate</a></li>
+                    <li><a href="{% url 'frontend:projects' %}" class="text-white">Projects</a></li>
+                    <li><a href="{% url 'frontend:prayWithUs' %}" class="text-white">Pray with us</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-4 xs-mb-30px order-sm-3 order-lg-2">
+                <span class="alt-font fw-500 text-white d-block mb-5px">WHAT WE DO</span>
+                <ul class="fs-16">
+                    <li><a href="{% url 'frontend:education' %}" class="text-white">Education</a></li>
+                    <li><a href="{% url 'frontend:vocationalTraining' %}" class="text-white">Vocational Training</a></li>
+                    <li><a href="{% url 'frontend:medicalCare' %}" class="text-white">Medical Care</a></li>
+                    <li><a href="{% url 'frontend:communityEmpowerment' %}" class="text-white">Communities support</a></li>
+                    <li><a href="{% url 'frontend:tungaWomen' %}" class="text-white">Tunga Women Initiative</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-4 xs-mb-30px order-sm-3 order-lg-2">
+                <span class="alt-font fw-500 text-white d-block mb-5px">ASSETS</span>
+                <ul class="fs-16">
+                    <li><a href="{% url 'frontend:resources' %}" class="text-white">Resources</a></li>
+                    <li><a href="{% url 'frontend:faq' %}" class="text-white">FAQs</a></li>
+                    <li><a href="{% url 'frontend:blog' %}" class="text-white">Blog</a></li>
+                    <li><a href="{% url 'frontend:contact' %}" class="text-white">Contact Us</a></li>
+                    <li><a href="{% url 'frontend:store' %}" class="text-white">Shop</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <!-- start divider -->
+            <div class="col-12">
+                <div class="divider-style-03 divider-style-03-01 border-color-transparent-dark-very-light"></div>
+            </div>
+            <!-- end divider -->
+            <!-- start copyright -->
+            <div class="col-md-1"></div>
+            <div class="col-md-8 pt-20px pb-20px sm-pt-0 fs-16 order-2 order-md-1 text-center text-md-start last-paragraph-no-margin">
+                <p class="text-white text-center">&copy; 2024 <b>African Oasis Foundation</b> is a 501 (c)(3) Non Profit Organization. All Right Reserved.</p>
+            </div>
+            <!-- end copyright -->
+            <!-- start footer menu -->
+            <div class="col-md-3 pt-20px pb-20px sm-pb-10px fs-16 order-1 order-md-2 text-center text-md-end">
+                <div class="elements-social social-icon-style-09">
+                    <ul class="small-icon white mb-20px">
+                        <li>
+                            <a class="text-white facebook" href="https://www.facebook.com/people/Africa-Oasis-Foundation/" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A127 127 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
+                                <span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-white instagram" href="https://www.instagram.com/africaoasisfdn/" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#fd5"/><stop offset=".1" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771c8"/><stop offset=".128" stop-color="#3771c8"/><stop offset="1" stop-color="#60f" stop-opacity="0"/></radialGradient></defs></g></svg>
+                                <span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-white twitter" href="https://twitter.com/AFRICAOASISFDN" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07l-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg>
+                                <span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-white twitter" href="https://vimeo.com/949457345" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.15em" height="1em" viewBox="0 0 256 223"><path fill="#32b8e8" d="M255.876 51.662c-1.139 24.968-18.545 59.157-52.209 102.55c-34.806 45.327-64.254 67.989-88.343 67.989c-14.918 0-27.551-13.799-37.863-41.406c-6.892-25.306-13.775-50.61-20.664-75.915c-7.663-27.592-15.878-41.406-24.661-41.406c-1.915 0-8.617 4.038-20.091 12.081L0 60.008a3257.325 3257.325 0 0 0 37.36-33.38C54.21 12.038 66.86 4.366 75.29 3.59c19.925-1.917 32.187 11.728 36.79 40.938c4.974 31.514 8.415 51.116 10.35 58.788c5.742 26.145 12.06 39.201 18.965 39.201c5.358 0 13.407-8.478 24.138-25.436c10.722-16.963 16.464-29.868 17.24-38.733c1.525-14.638-4.22-21.975-17.24-21.975c-6.128 0-12.447 1.413-18.946 4.206c12.58-41.29 36.618-61.343 72.1-60.199c26.304.773 38.705 17.867 37.19 51.282"/></svg>
+                                <span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-white twitter" href="https://www.youtube.com/channel/UCirMYwuuEXsiZlj9AwJ9-Bw" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.43em" height="1em" viewBox="0 0 256 180"><path fill="#f00" d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134"/><path fill="#fff" d="m102.421 128.06l66.328-38.418l-66.328-38.418z"/></svg>
+                                <span></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end footer menu -->
+        </div>
+    </div> 
+</footer>

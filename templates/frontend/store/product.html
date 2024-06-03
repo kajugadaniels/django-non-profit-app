@@ -1,0 +1,163 @@
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} {{ product.name }} {% endblock %}
+{% block content %}
+
+<section class="pt-60px"></section>
+
+<section class="pt-60px pb-0 md-pt-30px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 pe-50px md-pe-15px md-mb-40px">
+                <div class="row overflow-hidden position-relative">
+                    <div class="col-12 col-lg-10 position-relative order-lg-2 product-image ps-30px md-ps-15px">
+                        <div class="swiper product-image-slider" data-slider-options='{ "spaceBetween": 10, "loop": true, "autoplay": { "delay": 2000, "disableOnInteraction": false }, "watchOverflow": true, "navigation": { "nextEl": ".slider-product-next", "prevEl": ".slider-product-prev" }, "thumbs": { "swiper": { "el": ".product-image-thumb", "slidesPerView": "auto", "spaceBetween": 15, "direction": "vertical", "navigation": { "nextEl": ".swiper-thumb-next", "prevEl": ".swiper-thumb-prev" } } } }' data-thumb-slider-md-direction="horizontal">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide gallery-box">
+                                    <a href="{{product.image.url }}" data-group="lightbox-gallery" title="Relaxed corduroy shirt">
+                                        <img class="w-100" src="{{ product.image.url }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-7 product-info">
+                <h4 class="alt-font text-dark-gray fw-500 mb-5px">
+                    {{ product.name }}
+                </h4>
+                <p>
+                    {{ product.description }}
+                </p>
+                <div class="d-block d-sm-flex align-items-center mb-15px">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="row mb-6 xs-mb-8">
+                            <div class="col tab-style-02 fs-600">
+                                <ul class="nav nav-tabs fs-18 fw-500 justify-content-center text-center mb-4 sm-mb-0" data-anime='{ "el": "childs", "rotateX": [30, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="#tab_first1">
+                                            <span class="">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="1em" viewBox="0 0 256 302"><path fill="#27346a" d="M217.168 23.507C203.234 7.625 178.046.816 145.823.816h-93.52A13.393 13.393 0 0 0 39.076 12.11L.136 259.077c-.774 4.87 2.997 9.28 7.933 9.28h57.736l14.5-91.971l-.45 2.88c1.033-6.501 6.593-11.296 13.177-11.296h27.436c53.898 0 96.101-21.892 108.429-85.221c.366-1.873.683-3.696.957-5.477c-1.556-.824-1.556-.824 0 0c3.671-23.407-.025-39.34-12.686-53.765"/><path fill="#27346a" d="M102.397 68.84a11.737 11.737 0 0 1 5.053-1.14h73.318c8.682 0 16.78.565 24.18 1.756a101.6 101.6 0 0 1 6.177 1.182a89.928 89.928 0 0 1 8.59 2.347c3.638 1.215 7.026 2.63 10.14 4.287c3.67-23.416-.026-39.34-12.687-53.765C203.226 7.625 178.046.816 145.823.816H52.295C45.71.816 40.108 5.61 39.076 12.11L.136 259.068c-.774 4.878 2.997 9.282 7.925 9.282h57.744L95.888 77.58a11.717 11.717 0 0 1 6.509-8.74"/><path fill="#2790c3" d="M228.897 82.749c-12.328 63.32-54.53 85.221-108.429 85.221H93.024c-6.584 0-12.145 4.795-13.168 11.296L61.817 293.621c-.674 4.262 2.622 8.124 6.934 8.124h48.67a11.71 11.71 0 0 0 11.563-9.88l.474-2.48l9.173-58.136l.591-3.213a11.71 11.71 0 0 1 11.562-9.88h7.284c47.147 0 84.064-19.154 94.852-74.55c4.503-23.15 2.173-42.478-9.739-56.054c-3.613-4.112-8.1-7.508-13.327-10.28c-.283 1.79-.59 3.604-.957 5.477"/><path fill="#1f264f" d="M216.952 72.128a89.928 89.928 0 0 0-5.818-1.49a109.904 109.904 0 0 0-6.177-1.174c-7.408-1.199-15.5-1.765-24.19-1.765h-73.309a11.57 11.57 0 0 0-5.053 1.149a11.683 11.683 0 0 0-6.51 8.74l-15.582 98.798l-.45 2.88c1.025-6.501 6.585-11.296 13.17-11.296h27.444c53.898 0 96.1-21.892 108.428-85.221c.367-1.873.675-3.688.958-5.477c-3.122-1.648-6.501-3.072-10.14-4.279a83.26 83.26 0 0 0-2.77-.865"/></svg>
+                                            </span>
+                                            PayPal
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#tab_first2">
+                                            <span class="">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M27.355 14.044c-.494 0-1.039.372-1.039 1.261h2.039c0-.889-.516-1.261-1-1.261m-6.522.145c-.456 0-.739.161-.944.389l.011 2.933c.194.206.472.372.933.372c.728 0 1.217-.794 1.217-1.855c0-1.033-.5-1.844-1.217-1.839m8.5-10.633H2.666A2.668 2.668 0 0 0-.001 6.223v19.556a2.668 2.668 0 0 0 2.667 2.667h26.667A2.668 2.668 0 0 0 32 25.779V6.223a2.668 2.668 0 0 0-2.667-2.667M6.789 17.395c0 1.422-1.128 2.228-2.772 2.239a5.457 5.457 0 0 1-2.156-.45V17.3c.667.356 1.506.628 2.161.628c.439 0 .756-.116.756-.483c0-.944-3-.589-3-2.772c0-1.4 1.067-2.234 2.667-2.234c.656 0 1.306.1 1.961.361v1.856a4.44 4.44 0 0 0-1.961-.506c-.417 0-.672.122-.672.428c0 .889 3.017.467 3.017 2.817zm3.822-3.145h-1.5v2.806c0 1.161 1.25.8 1.5.7v1.605c-.261.145-.739.261-1.383.261c-1.172 0-2.05-.861-2.05-2.028l.011-6.328l1.928-.411v1.711h1.494zm4.111.133c-.25-.083-1.039-.2-1.506.411v4.689h-1.972v-6.917h1.706l.122.583c.461-.85 1.383-.678 1.644-.583h.006zm2.45 5.1h-1.984v-6.917h1.984zm0-7.939l-1.984.422v-1.605l1.984-.422zm4.117 8.084c-.689 0-1.111-.294-1.394-.5l-.006 2.233l-1.972.417v-9.211h1.739l.1.489c.272-.25.772-.617 1.544-.617c1.384 0 2.689 1.25 2.689 3.545c0 2.506-1.289 3.639-2.7 3.645zm8.911-2.861h-3.861c.089.922.766 1.194 1.533 1.194c.783 0 1.4-.167 1.939-.439v1.589c-.539.294-1.245.511-2.189.511c-1.922 0-3.267-1.206-3.267-3.583c0-2.011 1.139-3.605 3.017-3.605c1.872 0 2.85 1.594 2.85 3.616c0 .194-.017.606-.022.717"/></svg>
+                                            </span>
+                                            Stripe
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <h5 class="text-black fs-22">Your Sponsorship</h5>
+                                    <div class="tab-pane fade in active show" id="tab_first1">
+                                        <div class="row justify-content-center">
+                                            <form method="post" class="row contact-form-style-02">    
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-30px">
+                                                        <label class="fw-500 text-black">Fullname</label>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Fullname" />
+                                                    </div>
+                                                    <div class="col-md-6 mb-30px">
+                                                        <label class="fw-500 text-black">Email</label>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="email" name="email" placeholder="Email" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-30px">
+                                                        <label class="fw-500 text-black">Unit</label>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="number" name="unit" value="1" />
+                                                    </div>
+                                                    <div class="col-md-6 mb-30px">
+                                                        <label class="fw-500 text-black">Amount</label>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="amount" value="{{ product.price }}" disabled />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-30px">
+                                                    <label class="fw-500 text-black">Card Number</label>
+                                                    <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Card Number" />
+                                                </div>
+                                                <div class="col-xl-6 col-md-7">
+                                                    <button class="btn btn-extra-large btn-gradient-fuel-yellow-blue fw-400" type="submit">
+                                                        <span>
+                                                            <span><i class="bi bi-calendar-check"></i></span>
+                                                            <span class="btn-double-text" data-text="Send your donation">Send your donation</span> 
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-results mt-20px d-none"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade in" id="tab_first2">
+                                        <div class="row justify-content-center">
+                                            <form method="post" class="row contact-form-style-02">    
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-30px">
+                                                        <label class="fw-500 text-black">Fullname</label>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Fullname" />
+                                                    </div>
+                                                    <div class="col-md-6 mb-30px">
+                                                        <label class="fw-500 text-black">Email</label>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Email" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 mb-30px">
+                                                        <label class="fw-500 text-black">Unit</label>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Unit" />
+                                                    </div>
+                                                    <div class="col-md-4 mb-30px">
+                                                        <label class="fw-500 text-black">Amount</label>
+                                                        <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="$5.0" />
+                                                    </div>
+                                                    <div class="col-md-4 mb-30px">
+                                                        <label class="fw-500 text-black">Payment Option</label>
+                                                        <div class="select">
+                                                            <select class="form-control border-radius-4px border-color-white box-shadow-double-large" name="select" aria-label="select-doctor">
+                                                                <option value="">Payment Option</option>
+                                                                <option value="One Time">One Time</option>
+                                                                <option value="Weekly">Weekly</option>
+                                                                <option value="Monthly">Monthly</option>
+                                                                <option value="Annually">Annually</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-30px">
+                                                    <label class="fw-500 text-black">Card Number</label>
+                                                    <input class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" name="name" placeholder="Card Number" />
+                                                </div>
+                                                <div class="col-xl-6 col-md-7">
+                                                    <button class="btn btn-extra-large btn-gradient-fuel-yellow-blue fw-400" type="submit">
+                                                        <span>
+                                                            <span><i class="bi bi-calendar-check"></i></span>
+                                                            <span class="btn-double-text" data-text="Send your donation">Send your donation</span> 
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-results mt-20px d-none"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
