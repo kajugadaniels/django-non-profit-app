@@ -5,6 +5,7 @@ from django_quill.fields import QuillField
 from django.utils import timezone
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
+
 class Student(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
@@ -29,8 +30,7 @@ class Student(models.Model):
     birthday = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES)
-    description = models.TextField(blank=True)
-    # description = QuillField(blank=True)
+    description = models.TextField(blank=True)  # Use TextField to store HTML
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -59,8 +59,8 @@ class Product(models.Model):
     )
     unit = models.CharField(max_length=255, default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    description = models.TextField()
-    # description = QuillField()
+    # description = models.TextField()
+    description = QuillField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -83,8 +83,8 @@ class Team(models.Model):
         format='JPEG',
         options={'quality': 90},
     )
-    description = models.TextField()
-    # description = QuillField()
+    # description = models.TextField()
+    description = QuillField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -106,8 +106,8 @@ class Blog(models.Model):
         format='JPEG',
         options={'quality': 90},
     )
-    description = models.TextField()
-    # description = QuillField()
+    # description = models.TextField()
+    description = QuillField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -128,8 +128,8 @@ class Project(models.Model):
         format='JPEG',
         options={'quality': 90},
     )
-    description = models.TextField()
-    # description = QuillField()
+    # description = models.TextField()
+    description = QuillField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -163,7 +163,8 @@ class Testimony(models.Model):
         format='JPEG',
         options={'quality': 90},
     )
-    message = models.TextField(blank=True, null=True)
+    # message = models.TextField(blank=True, null=True)
+    description = QuillField(blank=True)
     position = models.CharField(max_length=100)
     youtube_link = models.URLField(blank=True, null=True)
     status = models.BooleanField(default=False)
@@ -181,7 +182,8 @@ class MissionVisionValues(models.Model):
 
     section = models.CharField(max_length=10, choices=SECTION_CHOICES)
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = QuillField(blank=True)
+    # description = models.TextField()
     icon = models.ImageField(upload_to='icons/')
 
     def __str__(self):
@@ -205,7 +207,8 @@ class News(models.Model):
         format='JPEG',
         options={'quality': 90},
     )
-    description = models.TextField()
+    # description = models.TextField()
+    description = QuillField(blank=True)
     status = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)

@@ -81,10 +81,15 @@ def addStudent(request):
             messages.success(request, 'Student created successfully!')
             return redirect('backend:getStudents')
         else:
+            # Log and display form errors
+            for field, errors in form.errors.items():
+                print(f"Error in {field}: {errors}")
+            # Log the received POST data for debugging
+            print(request.POST)
             messages.error(request, 'Error creating student. Please check the form.')
     else:
         form = StudentForm()
-    
+
     context = {
         'form': form
     }

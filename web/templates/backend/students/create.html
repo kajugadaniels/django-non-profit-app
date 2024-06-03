@@ -4,6 +4,17 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <style>
+        #description-container {
+            height: 300px; /* Adjust the height as needed */
+        }
+        .ql-editor {
+            min-height: 300px; /* Ensure the editor area has the same height */
+        }
+    </style>
 
     <div class="container-fluid">
         <div class="row">
@@ -24,6 +35,9 @@
                                     <div class="col-sm-6"> 
                                         <label class="form-label">Student Name</label>
                                         {{ form.name }}
+                                        {% if form.name.errors %}
+                                            <div class="text-danger">{{ form.name.errors }}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="row">
@@ -31,6 +45,9 @@
                                                 <label class="form-label">Image</label>
                                                 <div class="input-group flatpicker-calender product-date">
                                                     {{ form.image }}
+                                                    {% if form.image.errors %}
+                                                        <div class="text-danger">{{ form.image.errors }}</div>
+                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
@@ -43,6 +60,9 @@
                                                 <label class="form-label">Birthday</label>
                                                 <div class="input-group">
                                                     {{ form.birthday }}
+                                                    {% if form.birthday.errors %}
+                                                        <div class="text-danger">{{ form.birthday.errors }}</div>
+                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
@@ -52,6 +72,9 @@
                                             <div class="col-12">
                                                 <label class="form-label">Gender</label>
                                                 {{ form.gender }}
+                                                {% if form.gender.errors %}
+                                                    <div class="text-danger">{{ form.gender.errors }}</div>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -60,6 +83,9 @@
                                             <div class="col-12">
                                                 <label class="form-label">Sponsorship Covers</label>
                                                 {{ form.spo_cover }}
+                                                {% if form.spo_cover.errors %}
+                                                    <div class="text-danger">{{ form.spo_cover.errors }}</div>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -68,14 +94,18 @@
                                     <div class="col-sm-12">
                                         <div class="col-12">
                                             <label class="form-label">Additional Information</label>
-                                            {{ form.description }}
+                                            <div id="description-container"></div>
+                                            <textarea id="id_description" name="description" style="display:none;"></textarea>
+                                            {% if form.description.errors %}
+                                                <div class="text-danger">{{ form.description.errors }}</div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col">
                                         <div class="text-end">
-                                            <button class="btn btn-primary me-3">Add Student</button>
+                                            <button class="btn btn-primary me-3" type="submit">Add Student</button>
                                         </div>
                                     </div>
                                 </div>
@@ -86,4 +116,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var quill = new Quill('#description-container', {
+                theme: 'snow'
+            });
+    
+            var form = document.querySelector('.price-wrapper');
+            form.onsubmit = function() {
+                var descriptionInput = document.querySelector('#id_description');
+                var html = quill.root.innerHTML;  // Get the HTML content
+                descriptionInput.value = html;
+            };
+        });
+    </script>
+
 {% endblock %}
