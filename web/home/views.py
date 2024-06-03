@@ -28,7 +28,7 @@ def index(request):
     blog = Blog.objects.all().order_by('-created_at')[:4]
     slides = Slide.objects.filter(status=True).order_by('-created_at')[:3]
     student_count = Student.objects.count()
-    projects = Project.objects.all().order_by('-created_at')
+    projects = Project.objects.all().order_by('-created_at')[:3]
     project_count = Project.objects.count()
     testimony_count = News.objects.count()
 

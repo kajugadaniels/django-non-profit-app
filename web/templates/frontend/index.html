@@ -246,7 +246,7 @@
             </div>
             <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 justify-content-center" data-anime='{ "el": "childs", "scale":[0.9,1], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 100, "easing": "easeOutQuad" }'>
                 {% for project in projects %}
-                    <div class="col lg-mb-30px">
+                    <div class="col lg-mb-30px mb-3">
                         <div class="interactive-banner-style-04 transition-inner-all">
                             <figure class="m-0 hover-box position-relative overflow-hidden border-radius-6px">
                                 <img class="lg-w-100" src="{{ project.image.url }}" alt="" />
@@ -275,6 +275,16 @@
                         </span>
                     </div>
                 {% endfor %}
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <a href="{% url 'frontend:projects' %}" class="btn btn-extra-large fw-600 btn-rounded with-rounded btn-black btn-box-shadow d-table d-lg-inline-block lg-mb-15px md-mx-auto text-white">
+                        See more
+                        <span class="bg-white text-black">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
