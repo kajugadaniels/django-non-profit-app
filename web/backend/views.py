@@ -107,10 +107,15 @@ def editStudent(request, slug):
             messages.success(request, 'Student updated successfully!')
             return redirect('backend:getStudents')
         else:
+            # Log and display form errors
+            for field, errors in form.errors.items():
+                print(f"Error in {field}: {errors}")
+            # Log the received POST data for debugging
+            print(request.POST)
             messages.error(request, 'Error updating the student. Please check the form.')
     else:
         form = StudentForm(instance=student)
-        
+
     context = {
         'form': form,
         'student': student
