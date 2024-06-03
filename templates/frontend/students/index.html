@@ -70,9 +70,6 @@
                                     <span>
                                         Age: <strong>{{ student.age }}</strong>
                                     </span>
-                                    <p>
-                                        {{ student.description|truncatewords:10 }}
-                                    </p>
                                     <div class="mt-15px">
                                         <span class="separator bg-dark-gray"></span>
                                         <a href="{% url 'frontend:getStudent' student.slug %}" class="text-dark-gray text-dark-gray-hover d-inline-block fs-15 fw-500 fw-500">More Details</a>
