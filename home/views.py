@@ -462,6 +462,15 @@ def remove_from_cart(request):
     else:
         return JsonResponse({'error': 'Invalid request method'}, status=400)
 
+def getInvolved(request):
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/get-involved.html', context)
+
 def termsAndConditions(request):
     logos = get_logos()
     

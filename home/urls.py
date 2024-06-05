@@ -47,7 +47,8 @@ urlpatterns = [
    path('checkout/', checkout, name="checkout"),
    path('give-gift/', checkoutpay, name="givegift"),
    path('remove_from_cart/', remove_from_cart, name='remove_from_cart'),
-   
+
+   path('get-involved', getInvolved, name="getInvolved"),
    path('terms-and-conditions', termsAndConditions, name="termsAndConditions"),
    path('privacy-policy', privacyPolicy, name="privacyPolicy"),
    path('resources', resources, name="resources"),
