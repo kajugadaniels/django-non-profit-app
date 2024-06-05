@@ -233,3 +233,25 @@ class Logo(models.Model):
 
     def __str__(self):
         return self.section
+
+
+
+class VisitingRequest(models.Model):
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True, blank=True)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    org_name = models.CharField(max_length=255)
+    n_visitors = models.PositiveIntegerField()
+    req_visit = models.DateField()
+    purpose = models.TextField(blank=True, null=True)
+    status = models.BooleanField(default=False)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(VisitingRequest, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name

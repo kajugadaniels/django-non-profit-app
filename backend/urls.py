@@ -40,7 +40,7 @@ urlpatterns = [
    path('donate/', donate, name='donate'),
    path('donate-to-student', donateToStudent, name='donateToStudent'),
 
-   path('request-visits/', visitingRequest, name='visitingRequests'),
+   path('visiting-request/', visitingRequest, name='visitingRequest'),
 
    path('settings/', setting, name='settings'),
 

@@ -94,4 +94,3 @@ class DonateGifts(models.Model):
     status =models.CharField(max_length=255, default="Pending")
     def __str__(self) -> str:
         return self.firstname + self.lastname + self.phoneNumber 
-

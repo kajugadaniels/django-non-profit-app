@@ -393,7 +393,13 @@ def donateToStudent(request):
 
 @login_required
 def visitingRequest(request):
-    return render(request, 'backend/request-visit/index.html')
+    requests = VisitingRequest.objects.all().order_by('-created_at')
+
+    context = {
+        'requests': requests
+    }
+
+    return render(request, 'backend/request-visit/index.html', context)
 
 @login_required
 def setting(request):
