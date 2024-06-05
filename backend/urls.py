@@ -40,6 +40,8 @@ urlpatterns = [
    path('donate/', donate, name='donate'),
    path('donate-to-student', donateToStudent, name='donateToStudent'),
 
+   path('request-visits/', requestVisit, name='requestVisits'),
+
    path('settings/', setting, name='settings'),
 
    path('settings/edit-slide/<int:slide_id>/', edit_slide, name='edit_slide'),
