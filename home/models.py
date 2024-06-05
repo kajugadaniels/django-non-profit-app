@@ -50,7 +50,7 @@ class Donate(models.Model):
             self.slug = f"{base_slug}-{random_string}"
         super().save(*args, **kwargs)
     def __str__(self) -> str:
-        return self.donationTitle
+        return self.email
 
 class DonateToStudents(models.Model):
     donationTitle= models.CharField(max_length=255)
@@ -73,7 +73,7 @@ class DonateToStudents(models.Model):
             self.slug = f"{base_slug}-{random_string}"
         super().save(*args, **kwargs)
     def __str__(self) -> str:
-        return self.donationTitle
+        return self.email
 
 class Donation(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
@@ -94,3 +94,4 @@ class DonateGifts(models.Model):
     status =models.CharField(max_length=255, default="Pending")
     def __str__(self) -> str:
         return self.firstname + self.lastname + self.phoneNumber 
+

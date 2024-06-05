@@ -392,7 +392,7 @@ def donateToStudent(request):
     return render(request, 'backend/donate/donate-to-student.html', context)
 
 @login_required
-def requestVisit(request):
+def visitingRequest(request):
     return render(request, 'backend/request-visit/index.html')
 
 @login_required

@@ -214,7 +214,7 @@ def getStudent(request, slug):
         email =  request.POST['email']
         fullname= request.POST['fullname']
         interval =  request.POST['paymentOptions']
-        donate= donateFund(request,amoun, interval,slug, fullname, email,'frontend/students/show.html')
+        donate= donateFund(request,amoun, interval,slug, fullname, email,'frontend/students/show.html','')
         return donate
     
     return render(request, 'frontend/students/show.html', context)
