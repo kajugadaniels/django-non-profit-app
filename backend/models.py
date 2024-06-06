@@ -294,3 +294,18 @@ class Resource(models.Model):
 
     def __str__(self):
         return self.title
+
+class Campaign(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, blank=True)
+    image = models.ImageField(upload_to='campaigns/')
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Campaign, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title

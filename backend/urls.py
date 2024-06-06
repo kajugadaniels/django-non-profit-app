@@ -44,6 +44,11 @@ urlpatterns = [
    path('visit-details/<slug>', visitDetails, name='visitDetails'),
    path('visiting-request/update-status/<slug>', updateStatus, name='updateStatus'),
 
+   path('campaign/', campaign, name='campaign'),
+   path('campaign/create', addCampaign, name='addCampaign'),
+   path('campaign/<slug>', editCampaign, name='editCampaign'),
+   path('campaign/<slug>/delete', deleteCampaign, name='deleteCampaign'),
+
    path('volunteers/', volunteers, name='volunteers'),
    path('volunteer/<slug>', volunteerDetails, name='volunteerDetails'),
    path('volunteer/update-status/<slug>', volunteersUpdateStatus, name='volunteersUpdateStatus'),

@@ -418,6 +418,28 @@ def updateStatus(request, slug):
     return redirect('backend:visitingRequest')
 
 @login_required
+def campaign(request):
+    campaigns = Campaign.objects.all()
+
+    context = {
+        'campaigns': campaigns
+    }
+
+    return render(request, 'backend/campaign/index.html', context)
+
+@login_required
+def addCampaign(request):
+    pass
+
+@login_required
+def editCampaign(request, slug):
+    pass
+
+@login_required
+def deleteCampaign(request, slug):
+    pass
+
+@login_required
 def volunteers(request):
     volunteers = Volunteer.objects.all().order_by('-created_at')
 
