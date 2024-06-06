@@ -538,7 +538,7 @@ def viewCampaign(request, slug):
             fundraising.campaign = campaign
             fundraising.save()
             messages.success(request, 'Your fundraising request has been submitted successfully.')
-            return redirect(f'/campaigns/{slug}')
+            return redirect(f'/campaigns/{slug}?success=true')
     else:
         form = FundraisingForm()
 

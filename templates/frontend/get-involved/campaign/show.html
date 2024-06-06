@@ -73,17 +73,21 @@
     </div>
 </section>
 
-<!-- SweetAlert success message -->
-{% if messages %}
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Thank you!',
-            text: 'Your fundraising request has been submitted successfully.',
-            showConfirmButton: false,
-            timer: 3000
-        });
-    </script>
+{% if request.GET.success %}
+<script>
+    Swal.fire({
+        title: 'Success!',
+        text: 'Your fundraising request has been submitted successfully.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const url = new URL(window.location.href);
+            url.searchParams.delete('success');
+            window.history.replaceState(null, '', url);
+        }
+    });
+</script>
 {% endif %}
 
 {% endblock %}
