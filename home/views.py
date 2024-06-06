@@ -532,8 +532,17 @@ def privacyPolicy(request):
 def resources(request):
     logos = get_logos()
     
+    guidelines = Resource.objects.filter(category='guidelines')
+    brochures = Resource.objects.filter(category='brochures')
+    social_media = Resource.objects.filter(category='social_media')
+    photos = Resource.objects.filter(category='photos')
+    
     context = {
-        **logos
+        **logos,
+        'guidelines': guidelines,
+        'brochures': brochures,
+        'social_media': social_media,
+        'photos': photos,
     }
 
     return render(request, 'frontend/resources.html', context)

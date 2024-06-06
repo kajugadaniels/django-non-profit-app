@@ -35,58 +35,67 @@
                 <!-- end tab navigation -->
                 <div class="tab-content">
                     <!-- start tab content -->
+                    <!-- Guidelines Tab -->
                     <div class="tab-pane fade in active show" id="tab_five1">
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-lg-3 col-md-3 sm-mb-30px mb-3" data-anime='{ "opacity": [0, 1], "staggervalue": 200, "duration": 600, "delay": 0, "easing": "easeOutCirc" }'>
-                                <img src="{% static 'frontend/images/about-rwanda/img-9.jpg' %}" alt=""/> <br>
-                                <a href="#" class="btn btn-medium btn-switch-text btn-round-edge btn-dark-gray mt-4" style="will-change: transform;">
-                                    <span>
-                                        <span class="btn-double-text" data-text="Download">Download</span> 
-                                    </span>
-                                </a>
-                            </div>
+                            {% for guideline in guidelines %}
+                                <div class="col-lg-3 col-md-3 sm-mb-30px mb-3" data-anime='{ "opacity": [0, 1], "staggervalue": 200, "duration": 600, "delay": 0, "easing": "easeOutCirc" }'>
+                                    <img src="{{ guideline.image.url }}" alt="{{ guideline.title }}"/> <br>
+                                    <a href="{{ guideline.image.url }}" download class="btn btn-medium btn-switch-text btn-round-edge btn-dark-gray mt-4" style="will-change: transform;">
+                                        <span>
+                                            <span class="btn-double-text" data-text="Download">Download</span> 
+                                        </span>
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    <!-- end tab content -->
-                    <!-- start tab content -->
+
+                    <!-- Brochures Tab -->
                     <div class="tab-pane fade in" id="tab_five2">
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-lg-3 col-md-3 sm-mb-30px mb-3">
-                                <img src="{% static 'frontend/images/about-rwanda/img-9.jpg' %}" alt=""/> <br>
-                                <a href="#" class="btn btn-medium btn-switch-text btn-round-edge btn-dark-gray mt-4" style="will-change: transform;">
-                                    <span>
-                                        <span class="btn-double-text" data-text="Download">Download</span> 
-                                    </span>
-                                </a>
-                            </div>
+                            {% for brochure in brochures %}
+                                <div class="col-lg-3 col-md-3 sm-mb-30px mb-3">
+                                    <img src="{{ brochure.image.url }}" alt="{{ brochure.title }}"/> <br>
+                                    <a href="{{ brochure.image.url }}" download class="btn btn-medium btn-switch-text btn-round-edge btn-dark-gray mt-4" style="will-change: transform;">
+                                        <span>
+                                            <span class="btn-double-text" data-text="Download">Download</span> 
+                                        </span>
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    <!-- end tab content -->
-                    <!-- start tab content -->
+
+                    <!-- Social Media Tab -->
                     <div class="tab-pane fade in" id="tab_five3">
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-lg-3 col-md-3 sm-mb-30px mb-3">
-                                <img src="{% static 'frontend/images/about-rwanda/img-9.jpg' %}" alt=""/> <br>
-                                <a href="#" class="btn btn-medium btn-switch-text btn-round-edge btn-dark-gray mt-4" style="will-change: transform;">
-                                    <span>
-                                        <span class="btn-double-text" data-text="Download">Download</span> 
-                                    </span>
-                                </a>
-                            </div>
+                            {% for social in social_media %}
+                                <div class="col-lg-3 col-md-3 sm-mb-30px mb-3">
+                                    <img src="{{ social.image.url }}" alt="{{ social.title }}"/> <br>
+                                    <a href="{{ social.image.url }}" download class="btn btn-medium btn-switch-text btn-round-edge btn-dark-gray mt-4" style="will-change: transform;">
+                                        <span>
+                                            <span class="btn-double-text" data-text="Download">Download</span> 
+                                        </span>
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    <!-- end tab content -->
-                    <!-- start tab content -->
+
+                    <!-- Photos Tab -->
                     <div class="tab-pane fade in" id="tab_five4">
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-lg-3 col-md-3 sm-mb-30px mb-3">
-                                <img src="{% static 'frontend/images/about-rwanda/img-9.jpg' %}" alt=""/> <br>
-                                <a href="#" class="btn btn-medium btn-switch-text btn-round-edge btn-dark-gray mt-4" style="will-change: transform;">
-                                    <span>
-                                        <span class="btn-double-text" data-text="Download">Download</span> 
-                                    </span>
-                                </a>
-                            </div>
+                            {% for photo in photos %}
+                                <div class="col-lg-3 col-md-3 sm-mb-30px mb-3">
+                                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}"/> <br>
+                                    <a href="{{ photo.image.url }}" download class="btn btn-medium btn-switch-text btn-round-edge btn-dark-gray mt-4" style="will-change: transform;">
+                                        <span>
+                                            <span class="btn-double-text" data-text="Download">Download</span> 
+                                        </span>
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                     <!-- end tab content -->
