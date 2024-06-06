@@ -184,3 +184,23 @@ class CampaignForm(forms.ModelForm):
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
         }
+
+class FundraisingForm(forms.ModelForm):
+    class Meta:
+        model = Fundraising
+        fields = ['name', 'email', 'date']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'input-name border-radius-4px form-control required',
+                'placeholder': 'Enter your name*'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'border-radius-4px form-control required',
+                'placeholder': 'Enter your email address*'
+            }),
+            'date': forms.DateInput(attrs={
+                'class': 'border-radius-4px form-control required',
+                'placeholder': 'When will you want to start your fundraiser?',
+                'type': 'date'
+            }),
+        }

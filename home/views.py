@@ -527,8 +527,28 @@ def campaigns(request):
 
     return render(request, 'frontend/get-involved/campaign/index.html', context)
 
-def viewCampaign(request):
-    pass
+def viewCampaign(request, slug):
+    campaign = get_object_or_404(Campaign, slug=slug)
+    logos = get_logos()
+
+    if request.method == 'POST':
+        form = FundraisingForm(request.POST)
+        if form.is_valid():
+            fundraising = form.save(commit=False)
+            fundraising.campaign = campaign
+            fundraising.save()
+            messages.success(request, 'Your fundraising request has been submitted successfully.')
+            return redirect(f'/campaigns/{slug}?success=true')
+    else:
+        form = FundraisingForm()
+
+    context = {
+        'campaign': campaign,
+        'form': form,
+        **logos
+    }
+
+    return render(request, 'frontend/get-involved/campaign/show.html', context)
 
 def termsAndConditions(request):
     logos = get_logos()

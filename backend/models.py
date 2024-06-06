@@ -315,3 +315,13 @@ class Campaign(models.Model):
 
     def __str__(self):
         return self.title
+
+class Fundraising(models.Model):
+    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE, related_name='fundraising')
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

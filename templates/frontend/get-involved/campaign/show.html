@@ -1,0 +1,83 @@
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} {{ campaign.title }} {% endblock %}
+{% block content %}
+
+<section class="ipad-top-space-margin bg-dark-gray cover-background one-fifth-screen d-flex align-items-center" style="background-image: url({{ campaign.image.url }})">
+    <div class="background-position-center-top h-100 w-100 position-absolute left-0px top-0" style="background-image: url({% static 'frontend/images/shapes/vertical-line-bg-small.svg' %})"></div>
+    <div class="opacity-light bg-dark-gray"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 position-relative" data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [50, 0], "staggervalue": 100, "easing": "easeOutQuad" }'>
+                <h1 class="text-white w-60 lg-w-80 md-w-70 sm-w-100 fw-500 ls-minus-2px text-white alt-font mb-30px overflow-hidden mb-0">
+                    {{ campaign.title }}
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="offset-lg-1 col-md-8 last-paragraph-no-margin text-center text-md-start">
+                        <p>
+                            {{ campaign.description|safe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="comments" class="pt-0 overflow-hidden position-relative overlap-height">
+    <div class="container overlap-gap-section">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 mb-3">
+                <h6 class="alt-font text-dark-gray fw-600 ls-minus-05p mb-5px">Fundraise this campaign</h6>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <form method="post" class="row contact-form-style-02">
+                    {% csrf_token %}
+                    <div class="col-md-12 mb-30px">
+                        <label>Name</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="col-md-12 mb-30px">
+                        <label>Email Address</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="col-md-12 mb-30px">
+                        <label>When will you want to start your fundraiser?</label>
+                        {{ form.date }}
+                    </div>
+                    <div class="col-md-12 text-start text-md-end">
+                        <button class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
+                            <span>
+                                <span class="btn-double-text" data-text="Get Started">Get Started</span>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if request.GET.success %}
+<script>
+    Swal.fire({
+        title: 'Success!',
+        text: 'Your fundraising request has been submitted successfully.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+</script>
+{% endif %}
+
+{% endblock %}
