@@ -447,7 +447,7 @@ def volunteersUpdateStatus(request, slug):
 
 @login_required
 def resources(request):
-    resources = Resource.objects.all()
+    resources = Resource.objects.all().order_by('-created_at')
 
     context = {
         'resources': resources
@@ -457,7 +457,22 @@ def resources(request):
 
 @login_required
 def addResource(request):
-    pass
+    if request.method == 'POST':
+        form = ResourceForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Resource created successfully!')
+            return redirect('backend:resources')
+        else:
+            messages.error(request, 'Error creating a resource. Please check the form.')
+    else:
+        form = ResourceForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/resources/create.html', context)
 
 @login_required
 def editResource(request, slug):
