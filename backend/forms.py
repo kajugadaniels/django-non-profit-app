@@ -128,3 +128,39 @@ class VisitingRequestForm(forms.ModelForm):
                 'rows': 4
             }),
         }
+
+class VolunteerForm(forms.ModelForm):
+    class Meta:
+        model = Volunteer
+        fields = ['name', 'email', 'phone', 'dob', 'city', 'country', 'about']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required',
+                'placeholder': 'Enter your name'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required',
+                'placeholder': 'Enter your email address'
+            }),
+            'phone': forms.TextInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required',
+                'placeholder': 'Enter your phone number'
+            }),
+            'dob': forms.DateInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control',
+                'type': 'date'
+            }),
+            'city': forms.TextInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control',
+                'placeholder': 'Enter city you live in'
+            }),
+            'country': forms.TextInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control',
+                'placeholder': 'Enter country you live in'
+            }),
+            'about': forms.Textarea(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control',
+                'placeholder': 'What specific talents or skills would you hope to utilize at African Oasis Foundation?',
+                'rows': 4
+            })
+        }

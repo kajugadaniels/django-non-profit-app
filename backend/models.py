@@ -234,8 +234,6 @@ class Logo(models.Model):
     def __str__(self):
         return self.section
 
-
-
 class VisitingRequest(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
@@ -252,6 +250,26 @@ class VisitingRequest(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super(VisitingRequest, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+class Volunteer(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    dob = models.DateField()
+    city = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    about = models.TextField()
+    status = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name

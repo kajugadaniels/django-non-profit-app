@@ -493,7 +493,23 @@ def visitUs(request):
     return render(request, 'frontend/get-involved/visit-us.html', context)
 
 def volunteers(request):
-    return render(request, 'frontend/get-involved/volunteers.html')
+    if request.method == 'POST':
+        form = VolunteerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You application have sent successfully')
+            return redirect('frontend:volunteers')
+    else:
+        form = VolunteerForm()
+
+    logos = get_logos()
+    
+    context = {
+        **logos,
+        'form': form,
+    }
+
+    return render(request, 'frontend/get-involved/volunteers.html', context)
 
 def termsAndConditions(request):
     logos = get_logos()

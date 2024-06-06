@@ -50,59 +50,65 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-xxl-6 col-xl-7 col-lg-11">
-                <form action="email-templates/contact-form.php" method="post" class="contact-form-style-03">
+                <form method="post" class="contact-form-style-03">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
                     <div class="row justify-content-center" data-anime='{ "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                         <div class="col-md-4">
                             <label class="form-label fw-600 text-dark-gray mb-0">Enter your name*</label>
                             <div class="position-relative form-group mb-25px">
                                 <span class="form-icon"><i class="bi bi-emoji-smile"></i></span>
-                                <input class="ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required" id="" type="text" name="name" placeholder="Enter your names?" />
+                                {{ form.name }}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label fw-600 text-dark-gray mb-0">Email address*</label>
                             <div class="position-relative form-group mb-25px">
                                 <span class="form-icon"><i class="bi bi-envelope"></i></span>
-                                <input class="ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required" type="email" name="email" placeholder="Enter your email address" />
+                                {{ form.email }}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label fw-600 text-dark-gray mb-0">Phone number*</label>
                             <div class="position-relative form-group mb-25px">
                                 <span class="form-icon"><i class="bi bi-phone"></i></span>
-                                <input class="ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required" type="tel" name="phone" placeholder="Enter your phone number" />
+                                {{ form.phone }}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label fw-600 text-dark-gray mb-0">DOB*</label>
                             <div class="position-relative form-group mb-25px">
                                 <span class="form-icon"><i class="bi bi-cake"></i></span>
-                                <input class="ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control" type="date" name="dob" placeholder="Enter your birthdate" />
+                                {{ form.dob }}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label fw-600 text-dark-gray mb-0">City</label>
                             <div class="position-relative form-group mb-25px">
                                 <span class="form-icon"><i class="bi bi-building"></i></span>
-                                <input class="ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control" type="text" name="City" placeholder="Enter city you live in" />
+                                {{ form.city }}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label fw-600 text-dark-gray mb-0">Country</label>
                             <div class="position-relative form-group mb-25px">
                                 <span class="form-icon"><i class="bi bi-flag-fill"></i></span>
-                                <input class="ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control" type="text" name="City" placeholder="Enter country you live in" />
+                                {{ form.country }}
                             </div>
                         </div>
                         <div class="col-12 mb-4">
                             <label class="form-label fw-600 text-dark-gray mb-0">About You</label>
                             <div class="position-relative form-group form-textarea mb-0"> 
-                                <textarea class="ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control" name="about" placeholder="What specific talents or skills would you hope to utilize at African Oasis Foundation?" rows="4"></textarea>
+                                {{ form.about }}
                                 <span class="form-icon"><i class="bi bi-person"></i></span>
                             </div>
                         </div>
-                        <div class="col-xxl-12 col-lg-12 col-md-12 text-center text-md-end sm-mt-25px">
-                            <button class="btn btn-medium btn-dark-gray btn-box-shadow btn-round-edge text-transform-none primary-font submit" type="submit">Send message</button>
+                        <div class="col-md-12 text-start text-md-end">
+                            <button class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
+                                <span>
+                                    <span class="btn-double-text" data-text="Submit Application">Submit Application</span>
+                                </span>
+                            </button>
                         </div>
                         <div class="col-12">
                             <div class="form-results mt-20px d-none"></div>
@@ -113,6 +119,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- SweetAlert success message -->
 {% if messages %}
