@@ -479,6 +479,16 @@ def deleteCampaign(request, slug):
     return redirect('backend:campaign')
 
 @login_required
+def fundraising(request):
+    fundraising = Fundraising.objects.all()
+
+    context = {
+        'fundraising': fundraising
+    }
+
+    return render(request, 'backend/campaign/fundraising.html', context)
+
+@login_required
 def volunteers(request):
     volunteers = Volunteer.objects.all().order_by('-created_at')
 

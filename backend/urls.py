@@ -49,6 +49,8 @@ urlpatterns = [
    path('campaign/<slug>', editCampaign, name='editCampaign'),
    path('campaign/<slug>/delete', deleteCampaign, name='deleteCampaign'),
 
+   path('fundraising/', fundraising, name='fundraising'),
+
    path('volunteers/', volunteers, name='volunteers'),
    path('volunteer/<slug>', volunteerDetails, name='volunteerDetails'),
    path('volunteer/update-status/<slug>', volunteersUpdateStatus, name='volunteersUpdateStatus'),
