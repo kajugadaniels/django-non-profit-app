@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="list-product-header">
                             <div class="d-flex justify-content-between">
-                                <h4>Add Resource</h4>
+                                <h4>Edit Resource ({{ resource.title }})</h4>
                                 <a class="btn btn-primary" href="{% url 'backend:resources' %}"><i class="fa fa-eye"></i>View Resources</a>
                             </div>
                         </div>
@@ -18,11 +18,11 @@
                             <form class="price-wrapper" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="row g-3 custom-input">
-                                    <div class="col-sm-4"> 
+                                    <div class="col-sm-6"> 
                                         <label class="form-label">Title</label>
                                         {{ form.title }}
                                     </div>
-                                    <div class="col-sm-4"> 
+                                    <div class="col-sm-6"> 
                                         <label class="form-label">Category</label>
                                         {{ form.category }}
                                     </div>
@@ -30,8 +30,19 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <label class="form-label">Image</label>
+                                                <img src="{{ resource.image.url }}" alt="" style="height: 100px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label">Image</label>
                                                 <div class="input-group flatpicker-calender product-date">
                                                     {{ form.image }}
+                                                    {% if form.image.errors %}
+                                                        <div class="text-danger">{{ form.image.errors }}</div>
+                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
@@ -40,7 +51,7 @@
                                 <div class="row mt-2">
                                     <div class="col">
                                         <div class="text-end">
-                                            <button class="btn btn-primary me-3">Add Resource</button>
+                                            <button class="btn btn-primary me-3">Update Resource</button>
                                         </div>
                                     </div>
                                 </div>

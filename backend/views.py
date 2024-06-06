@@ -476,7 +476,25 @@ def addResource(request):
 
 @login_required
 def editResource(request, slug):
-    pass
+    resource = get_object_or_404(Resource, slug=slug)
+
+    if request.method == 'POST':
+        form = ResourceForm(request.POST, request.FILES, instance=resource)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Resource updated successfully!')
+            return redirect('backend:resources')
+        else:
+            messages.error(request, 'Error updating the resource. Please check the form.')
+    else:
+        form = ResourceForm(instance=resource)
+        
+    context = {
+        'form': form,
+        'resource': resource
+    }
+    
+    return render(request, 'backend/resources/edit.html', context)
 
 @login_required
 def deleteResource(request, slug):
