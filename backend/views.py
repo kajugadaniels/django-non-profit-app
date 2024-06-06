@@ -416,6 +416,21 @@ def updateStatus(request, slug):
 
     return redirect('backend:visitingRequest')
 
+def volunteers(request):
+    volunteers = Volunteer.objects.all().order_by('-created_at')
+
+    context = {
+        'volunteers': volunteers
+    }
+
+    return render(request, 'backend/volunteers/index.html', context)
+
+def volunteerDetails(request):
+    pass
+
+def volunteersUpdateStatus(request):
+    pass
+
 @login_required
 def setting(request):
     if request.method == 'POST':

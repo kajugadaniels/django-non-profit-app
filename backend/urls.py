@@ -44,6 +44,10 @@ urlpatterns = [
    path('visit-details/<slug>', visitDetails, name='visitDetails'),
    path('visiting-request/update-status/<slug>', updateStatus, name='updateStatus'),
 
+   path('volunteers/', volunteers, name='volunteers'),
+   path('volunteer/<slug>', volunteerDetails, name='volunteerDetails'),
+   path('volunteer/update-status/<slug>', volunteersUpdateStatus, name='volunteersUpdateStatus'),
+
    path('settings/', setting, name='settings'),
 
    path('settings/edit-slide/<int:slide_id>/', edit_slide, name='edit_slide'),
