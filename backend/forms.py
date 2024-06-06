@@ -174,3 +174,13 @@ class ResourceForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
+
+class CampaignForm(forms.ModelForm):
+    class Meta:
+        model = Campaign
+        fields = ['title', 'image', 'description']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campaign Title'}),
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+        }

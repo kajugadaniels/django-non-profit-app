@@ -429,7 +429,23 @@ def campaign(request):
 
 @login_required
 def addCampaign(request):
-    pass
+    if request.method == 'POST':
+        form = CampaignForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Campaign created successfully!')
+            return redirect('backend:campaign')
+        else:
+            messages.error(request, 'Error creating campaign. Please check the form.')
+    else:
+        form = CampaignForm()
+    
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/campaign/create.html', context)
+
 
 @login_required
 def editCampaign(request, slug):
