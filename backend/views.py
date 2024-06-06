@@ -449,7 +449,25 @@ def addCampaign(request):
 
 @login_required
 def editCampaign(request, slug):
-    pass
+    campaign = get_object_or_404(Campaign, slug=slug)
+
+    if request.method == 'POST':
+        form = CampaignForm(request.POST, request.FILES, instance=campaign)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Campaign updated successfully!')
+            return redirect('backend:campaign')
+        else:
+            messages.error(request, 'Error updating the campaign. Please check the form.')
+    else:
+        form = CampaignForm(instance=campaign)
+        
+    context = {
+        'form': form,
+        'campaign': campaign
+    }
+
+    return render(request, 'backend/campaign/edit.html', context)
 
 @login_required
 def deleteCampaign(request, slug):
