@@ -91,7 +91,8 @@
             <div class="col-12 tab-style-04" data-anime='{ "translate": [0, 0], "opacity": [0,1], "duration": 600, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'>
                 <ul class="nav nav-tabs border-0 justify-content-center alt-font fs-17 fw-500">
                     <li class="nav-item"><a data-bs-toggle="tab" href="#tab_five1" class="nav-link active">Description<span class="tab-border bg-dark-gray"></span></a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab_five2">Sponsorship Cover<span class="tab-border bg-dark-gray"></span></a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab_five2">Benefits Of Sponsorship<span class="tab-border bg-dark-gray"></span></a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab_five3">Sponsorship Cover<span class="tab-border bg-dark-gray"></span></a></li>
                 </ul>
                 <div class="mb-6 h-1px w-100 bg-extra-medium-gray sm-mt-10px"></div>
                 <div class="tab-content">
@@ -103,6 +104,11 @@
                         </div>
                     </div>
                     <div class="tab-pane fade in" id="tab_five2">
+                        <div class="row m-0">
+                            {{ student.benefits|safe }}
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tab_five3">
                         <div class="row m-0">
                             <div class="col-12">
                                 <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2 mb-5 sm-mb-10 border border-1 border-color-extra-medium-gray g-0">

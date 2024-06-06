@@ -29,8 +29,8 @@ class Student(models.Model):
     birthday = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     spo_cover = models.CharField(max_length=30, choices=SPONSORSHIP_COVER_CHOICES, default='Food', blank=True, null=True)
+    benefits = models.TextField(blank=True)
     description = models.TextField(blank=True)
-    # description = QuillField(blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
