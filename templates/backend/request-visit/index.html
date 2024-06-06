@@ -42,7 +42,11 @@
                                             <p class="f-light">{{ request.req_visit }}</p>
                                         </td>
                                         <td>
-                                            <p class="f-light">{{ request.status }}</p>
+                                            {% if request.status %}
+                                                <p class="badge badge-success">Approved</p>
+                                            {% else %}
+                                                <p class="badge badge-danger">Not Approved</p>
+                                            {% endif %}
                                         </td>
                                         <td> 
                                             <div class="product-action">
