@@ -299,6 +299,12 @@ class Campaign(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
     image = models.ImageField(upload_to='campaigns/')
+    image = ProcessedImageField(
+        upload_to='campaigns/',
+        processors=[ResizeToFill(600, 413)],
+        format='JPEG',
+        options={'quality': 90},
+    )
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 

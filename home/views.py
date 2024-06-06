@@ -511,6 +511,25 @@ def volunteers(request):
 
     return render(request, 'frontend/get-involved/volunteers.html', context)
 
+def campaigns(request):
+    campaign_list = Campaign.objects.all().order_by('-created_at')
+    paginator = Paginator(campaign_list, 6)
+
+    page_number = request.GET.get('page')
+    campaigns = paginator.get_page(page_number)
+    logos = get_logos()
+
+    
+    context = {
+        'campaigns': campaigns,
+        **logos
+    }
+
+    return render(request, 'frontend/get-involved/campaign/index.html', context)
+
+def viewCampaign(request):
+    pass
+
 def termsAndConditions(request):
     logos = get_logos()
     
