@@ -498,7 +498,12 @@ def editResource(request, slug):
 
 @login_required
 def deleteResource(request, slug):
-    pass
+    if request.method == 'POST':
+        resource = get_object_or_404(Resource, slug=slug)
+        resource.delete()
+        messages.success(request, 'Resource deleted successfully!')
+        
+    return redirect('backend:resources')
 
 @login_required
 def setting(request):
