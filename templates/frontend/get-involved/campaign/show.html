@@ -3,6 +3,10 @@
 {% block title %} {{ campaign.title }} {% endblock %}
 {% block content %}
 
+<!-- Include SweetAlert CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
 <section class="ipad-top-space-margin bg-dark-gray cover-background one-fifth-screen d-flex align-items-center" style="background-image: url({{ campaign.image.url }})">
     <div class="background-position-center-top h-100 w-100 position-absolute left-0px top-0" style="background-image: url({% static 'frontend/images/shapes/vertical-line-bg-small.svg' %})"></div>
     <div class="opacity-light bg-dark-gray"></div>
@@ -69,15 +73,17 @@
     </div>
 </section>
 
-{% if request.GET.success %}
-<script>
-    Swal.fire({
-        title: 'Success!',
-        text: 'Your fundraising request has been submitted successfully.',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    });
-</script>
+<!-- SweetAlert success message -->
+{% if messages %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Thank you!',
+            text: 'Your fundraising request has been submitted successfully.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    </script>
 {% endif %}
 
 {% endblock %}
