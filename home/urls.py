@@ -49,6 +49,9 @@ urlpatterns = [
    path('remove_from_cart/', remove_from_cart, name='remove_from_cart'),
 
    path('get-involved', getInvolved, name="getInvolved"),
+   path('visit-us', visitUs, name="visitUs"),
+   path('volunteers', volunteers, name="volunteers"),
+
    path('terms-and-conditions', termsAndConditions, name="termsAndConditions"),
    path('privacy-policy', privacyPolicy, name="privacyPolicy"),
    path('resources', resources, name="resources"),

@@ -7,13 +7,13 @@ class StudentForm(forms.ModelForm):
 
     class Meta:
         model = Student
-        fields = ['name', 'image', 'birthday', 'gender', 'spo_cover', 'description']
+        fields = ['name', 'image', 'birthday', 'gender', 'benefits', 'description']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Student Name'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'birthday': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'gender': forms.Select(attrs={'class': 'form-select'}, choices=Student.GENDER_CHOICES),
-            'spo_cover': forms.Select(attrs={'class': 'form-select'}, choices=Student.SPONSORSHIP_COVER_CHOICES),
+            'benefits': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Benefits Of Sponsorship'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Additional Information'}),
         }
 
@@ -92,3 +92,75 @@ class EditLogoForm(forms.ModelForm):
     class Meta:
         model = Logo
         fields = ['image']
+
+class VisitingRequestForm(forms.ModelForm):
+    class Meta:
+        model = VisitingRequest
+        fields = ['name', 'email', 'phone', 'org_name', 'n_visitors', 'req_visit', 'purpose']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required',
+                'placeholder': 'Enter your full name'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required',
+                'placeholder': 'Enter your email address'
+            }),
+            'phone': forms.TextInput(attrs={
+                'class': 'fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required',
+                'placeholder': 'Enter your phone number'
+            }),
+            'org_name': forms.TextInput(attrs={
+                'class': 'fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required',
+                'placeholder': 'Enter organization name'
+            }),
+            'n_visitors': forms.NumberInput(attrs={
+                'class': 'fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required',
+                'placeholder': 'Enter number of visitors'
+            }),
+            'req_visit': forms.DateInput(attrs={
+                'class': 'fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required',
+                'type': 'date'
+            }),
+            'purpose': forms.Textarea(attrs={
+                'class': 'fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control',
+                'placeholder': 'Purpose of your visit',
+                'rows': 4
+            }),
+        }
+
+class VolunteerForm(forms.ModelForm):
+    class Meta:
+        model = Volunteer
+        fields = ['name', 'email', 'phone', 'dob', 'city', 'country', 'about']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required',
+                'placeholder': 'Enter your name'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required',
+                'placeholder': 'Enter your email address'
+            }),
+            'phone': forms.TextInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required',
+                'placeholder': 'Enter your phone number'
+            }),
+            'dob': forms.DateInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control',
+                'type': 'date'
+            }),
+            'city': forms.TextInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control',
+                'placeholder': 'Enter city you live in'
+            }),
+            'country': forms.TextInput(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control',
+                'placeholder': 'Enter country you live in'
+            }),
+            'about': forms.Textarea(attrs={
+                'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control',
+                'placeholder': 'What specific talents or skills would you hope to utilize at African Oasis Foundation?',
+                'rows': 4
+            })
+        }

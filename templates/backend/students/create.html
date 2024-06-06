@@ -78,17 +78,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {% comment %} <div class="col-sm-4">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <label class="form-label">Sponsorship Covers</label>
-                                                {{ form.spo_cover }}
-                                                {% if form.spo_cover.errors %}
-                                                    <div class="text-danger">{{ form.spo_cover.errors }}</div>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    </div> {% endcomment %}
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-12">
+                                        <label class="form-label">Benefits of Sponsorship</label>
+                                        <div id="benefits-container"></div>
+                                        <textarea id="id_benefits" name="benefits" style="display:none;"></textarea>
+                                        {% if form.benefits.errors %}
+                                            <div class="text-danger">{{ form.benefits.errors }}</div>
+                                        {% endif %}
+                                    </div>
                                 </div>
                                 <div class="row g-3 custom-input">
                                     <div class="col-sm-12">
@@ -119,15 +118,27 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var quill = new Quill('#description-container', {
+            // Initialize Quill for benefits
+            var quillBenefits = new Quill('#benefits-container', {
+                theme: 'snow'
+            });
+    
+            // Initialize Quill for description
+            var quillDescription = new Quill('#description-container', {
                 theme: 'snow'
             });
     
             var form = document.querySelector('.price-wrapper');
             form.onsubmit = function() {
+                // Set the HTML content of benefits to the hidden textarea
+                var benefitsInput = document.querySelector('#id_benefits');
+                var benefitsHtml = quillBenefits.root.innerHTML;
+                benefitsInput.value = benefitsHtml;
+    
+                // Set the HTML content of description to the hidden textarea
                 var descriptionInput = document.querySelector('#id_description');
-                var html = quill.root.innerHTML;  // Get the HTML content
-                descriptionInput.value = html;
+                var descriptionHtml = quillDescription.root.innerHTML;
+                descriptionInput.value = descriptionHtml;
             };
         });
     </script>

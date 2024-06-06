@@ -1,8 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from imagekit.processors import SmartResize
-from imagekit.models import ProcessedImageField
 from home.forms import *
 from django.contrib import messages
 from home.models import *
@@ -390,6 +388,58 @@ def donateToStudent(request):
     }
     
     return render(request, 'backend/donate/donate-to-student.html', context)
+
+@login_required
+def visitingRequest(request):
+    requests = VisitingRequest.objects.all().order_by('-created_at')
+
+    context = {
+        'requests': requests
+    }
+
+    return render(request, 'backend/request-visit/index.html', context)
+
+@login_required
+def visitDetails(request, slug):
+    visit_request = get_object_or_404(VisitingRequest, slug=slug)
+
+    context = {
+        'visit_request': visit_request
+    }
+
+    return render(request, 'backend/request-visit/show.html', context)
+
+def updateStatus(request, slug):
+    visit_request = VisitingRequest.objects.get(slug=slug)
+    visit_request.status = not visit_request.status
+    visit_request.save()
+
+    return redirect('backend:visitingRequest')
+
+def volunteers(request):
+    volunteers = Volunteer.objects.all().order_by('-created_at')
+
+    context = {
+        'volunteers': volunteers
+    }
+
+    return render(request, 'backend/volunteers/index.html', context)
+
+def volunteerDetails(request, slug):
+    volunteer = get_object_or_404(Volunteer, slug=slug)
+
+    context = {
+        'volunteer': volunteer
+    }
+
+    return render(request, 'backend/volunteers/show.html', context)
+
+def volunteersUpdateStatus(request, slug):
+    volunteer = Volunteer.objects.get(slug=slug)
+    volunteer.status = not volunteer.status
+    volunteer.save()
+
+    return redirect('backend:volunteers')
 
 @login_required
 def setting(request):

@@ -26,7 +26,6 @@
                                     <th> <span class="f-light f-w-600">Age</span></th>
                                     <th> <span class="f-light f-w-600">Birthday</span></th>
                                     <th> <span class="f-light f-w-600">Gender</span></th>
-                                    {% comment %} <th> <span class="f-light f-w-600">Sponsor Cover</span></th> {% endcomment %}
                                     <th> <span class="f-light f-w-600">Action</span></th>
                                     </tr>
                                 </thead>
@@ -56,11 +55,6 @@
                                             <td> 
                                                 <p class="f-light">{{ student.gender }}</p>
                                             </td>
-                                            {% comment %} <td> 
-                                                <p class="f-light">
-                                                    {{ student.spo_cover }}
-                                                </p>
-                                            </td> {% endcomment %}
                                             <td> 
                                                 <div class="product-action">
                                                     <a href="{% url 'backend:editStudent' student.slug %}"> 
