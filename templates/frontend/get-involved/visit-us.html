@@ -3,6 +3,10 @@
 {% block title %} Visit Us {% endblock %}
 {% block content %}
 
+<!-- Include SweetAlert CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
 <section class="pt-3 pb-0 md-pt-0">
     <div class="container">
         <div class="row align-items-center justify-content-center">
@@ -44,61 +48,75 @@
                 <span class="fs-70 xl-fs-65 lg-fs-60 fw-700 text-black ls-minus-3px">Visit Request Form</span>
             </div>
             <div class="col-xxl-6 col-lg-8 offset-xxl-1">
-                <form action="#" method="post" class="contact-form-style-03">
+                <form method="post" class="contact-form-style-03" id="visitRequestForm">
+                    {% csrf_token %}
                     <div class="row" data-anime='{ "el": "childs", "translateX": [30, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
                         <div class="col-md-6 mb-35px sm-mb-20px"> 
                             <div class="position-relative form-group"> 
                                 <span class="form-icon"><i class="bi bi-person icon-extra-medium text-dark-gray"></i></span>
-                                <input class="fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required" type="text" name="name" placeholder="Enter your full name" />
+                                {{ form.name }}
                             </div>  
                         </div>
                         <div class="col-md-6 mb-35px sm-mb-20px">
                             <div class="position-relative form-group"> 
                                 <span class="form-icon"><i class="bi bi-envelope icon-extra-medium text-dark-gray"></i></span>
-                                <input class="fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required" type="email" name="email" placeholder="Enter your email address*" />
+                                {{ form.email }}
                             </div>
                         </div>
                         <div class="col-md-6 mb-35px sm-mb-20px"> 
                             <div class="position-relative form-group"> 
                                 <span class="form-icon"><i class="bi bi-phone icon-extra-medium text-dark-gray"></i></span>
-                                <input class="fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required" type="number" name="phone" placeholder="Enter your phone number" />
+                                {{ form.phone }}
                             </div>  
                         </div>
                         <div class="col-md-6 mb-35px sm-mb-20px">
                             <div class="position-relative form-group"> 
                                 <span class="form-icon"><i class="bi bi-building-fill-up icon-extra-medium text-dark-gray"></i></span>
-                                <input class="fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required" type="text" name="org_name" placeholder="Enter organization name*" />
+                                {{ form.org_name }}
                             </div>
                         </div>
                         <div class="col-md-6 mb-35px sm-mb-20px">
                             <div class="position-relative form-group"> 
                                 <span class="form-icon"><i class="bi bi-bar-chart-steps icon-extra-medium text-dark-gray"></i></span>
-                                <input class="fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required" type="number" name="n_visitors" placeholder="Enter number of visitors*" />
+                                {{ form.n_visitors }}
                             </div>
                         </div>
                         <div class="col-md-6 mb-35px sm-mb-20px">
                             <div class="position-relative form-group"> 
                                 <span class="form-icon"></span>
-                                <input class="fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control required" type="date" name="req_visit" placeholder="Enter date of request visit*" />
+                                {{ form.req_visit }}
                             </div>
                         </div>
                         <div class="col-12 mb-50px"> 
                             <div class="position-relative form-group form-textarea mb-0"> 
                                 <span class="form-icon"><i class="bi bi-chat-square-dots icon-extra-medium text-dark-gray"></i></span>
-                                <textarea class="fw-500 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control" name="purpose" placeholder="Purpose of your visit" rows="4"></textarea>
+                                {{ form.purpose }}
                             </div>
                         </div>
                         <div class="col-md-12 text-start text-md-end">
-                            <button class="btn btn-small btn-round-edge btn-dark-gray btn-box-shadow mt-20px m-auto submit" type="submit">Submit</button>
+                            <button class="btn btn-primary me-3">Add Product</button>
                         </div>
                         <div class="col-12 text-center">
                             <div class="form-results mt-20px d-none"></div>
                         </div>
                     </div>
-                </form>
+                </form>                
             </div>
         </div>
     </div>
 </section>
+
+<!-- SweetAlert success message -->
+{% if messages %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Thank you!',
+            text: 'Your visit request has been submitted successfully.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    </script>
+{% endif %}
 
 {% endblock %}
