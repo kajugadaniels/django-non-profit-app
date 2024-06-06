@@ -166,14 +166,36 @@ class VolunteerForm(forms.ModelForm):
         }
 
 class ResourceForm(forms.ModelForm):
+    UPLOAD_TYPE_CHOICES = [
+        ('image', 'Image'),
+        ('file', 'File'),
+    ]
+
+    upload_type = forms.ChoiceField(choices=UPLOAD_TYPE_CHOICES, widget=forms.RadioSelect)
+
     class Meta:
         model = Resource
-        fields = ['category', 'title', 'image']
+        fields = ['category', 'title', 'upload_type', 'image', 'file']
         widgets = {
             'category': forms.Select(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': 'image/jpeg,image/png,image/jpg'}),
+            'file': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'}),
         }
+
+    def clean_image(self):
+        image = self.cleaned_data.get('image')
+        if image:
+            if not image.name.lower().endswith(('.jpg', '.jpeg', '.png')):
+                raise forms.ValidationError("Only JPG, JPEG, and PNG files are allowed.")
+        return image
+
+    def clean_file(self):
+        file = self.cleaned_data.get('file')
+        if file:
+            if not file.name.lower().endswith(('.pdf', '.docx')):
+                raise forms.ValidationError("Only PDF and DOCX files are allowed.")
+        return file
 
 class CampaignForm(forms.ModelForm):
     class Meta:

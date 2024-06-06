@@ -1,5 +1,6 @@
 {% extends 'backend/layouts/app.html' %}
 {% load static %}
+{% load custom_filters %}
 {% block content %}
 
 <div class="container-fluid">
@@ -17,14 +18,14 @@
                         <table class="table" id="project-status">
                             <thead> 
                                 <tr> 
-                                <th>
-                                    <div class="form-check"> 
-                                        <input class="form-check-input checkbox-primary" type="checkbox">
-                                    </div>
-                                </th>
-                                <th> <span class="f-light f-w-600">Name</span></th>
-                                <th> <span class="f-light f-w-600">Category</span></th>
-                                <th> <span class="f-light f-w-600">Action</span></th>
+                                    <th>
+                                        <div class="form-check"> 
+                                            <input class="form-check-input checkbox-primary" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th> <span class="f-light f-w-600">Name</span></th>
+                                    <th> <span class="f-light f-w-600">Category</span></th>
+                                    <th> <span class="f-light f-w-600">Action</span></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,7 +40,15 @@
                                         <td> 
                                             <div class="product-names">
                                                 <div class="light-product-box">
-                                                    <img class="img-fluid" src="{{ resource.image.url }}" alt="{{ resource.title }}">
+                                                    {% if resource.image and resource.image.url %}
+                                                        {% if resource.image.url|endswith:".jpg" or resource.image.url|endswith:".jpeg" or resource.image.url|endswith:".png" %}
+                                                            <img class="img-fluid" src="{{ resource.image.url }}" alt="{{ resource.title }}">
+                                                        {% else %}
+                                                            <a href="{{ resource.image.url }}" target="_blank">{{ resource.title }}</a>
+                                                        {% endif %}
+                                                    {% elif resource.file and resource.file.url %}
+                                                        <a href="{{ resource.file.url }}" target="_blank">{{ resource.title }}</a>
+                                                    {% endif %}
                                                 </div>
                                                 <p>{{ resource.title }}</p>
                                             </div>

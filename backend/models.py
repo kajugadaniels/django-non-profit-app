@@ -284,7 +284,8 @@ class Resource(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
-    image = models.ImageField(upload_to='resources/')
+    image = models.ImageField(upload_to='resources/', blank=True, null=True)
+    file = models.FileField(upload_to='resources/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
