@@ -428,8 +428,12 @@ def volunteers(request):
 def volunteerDetails(request):
     pass
 
-def volunteersUpdateStatus(request):
-    pass
+def volunteersUpdateStatus(request, slug):
+    volunteer = Volunteer.objects.get(slug=slug)
+    volunteer.status = not volunteer.status
+    volunteer.save()
+
+    return redirect('backend:volunteers')
 
 @login_required
 def setting(request):
