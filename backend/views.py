@@ -409,6 +409,7 @@ def visitDetails(request, slug):
 
     return render(request, 'backend/request-visit/show.html', context)
 
+@login_required
 def updateStatus(request, slug):
     visit_request = VisitingRequest.objects.get(slug=slug)
     visit_request.status = not visit_request.status
@@ -416,6 +417,7 @@ def updateStatus(request, slug):
 
     return redirect('backend:visitingRequest')
 
+@login_required
 def volunteers(request):
     volunteers = Volunteer.objects.all().order_by('-created_at')
 
@@ -425,6 +427,7 @@ def volunteers(request):
 
     return render(request, 'backend/volunteers/index.html', context)
 
+@login_required
 def volunteerDetails(request, slug):
     volunteer = get_object_or_404(Volunteer, slug=slug)
 
@@ -434,12 +437,35 @@ def volunteerDetails(request, slug):
 
     return render(request, 'backend/volunteers/show.html', context)
 
+@login_required
 def volunteersUpdateStatus(request, slug):
     volunteer = Volunteer.objects.get(slug=slug)
     volunteer.status = not volunteer.status
     volunteer.save()
 
     return redirect('backend:volunteers')
+
+@login_required
+def resources(request):
+    resources = Resource.objects.all()
+
+    context = {
+        'resources': resources
+    }
+
+    return render(request, 'backend/resources/index.html', context)
+
+@login_required
+def addResource(request):
+    pass
+
+@login_required
+def editResource(request, slug):
+    pass
+
+@login_required
+def deleteResource(request, slug):
+    pass
 
 @login_required
 def setting(request):

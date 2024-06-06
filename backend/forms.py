@@ -164,3 +164,13 @@ class VolunteerForm(forms.ModelForm):
                 'rows': 4
             })
         }
+
+class ResourceForm(forms.ModelForm):
+    class Meta:
+        model = Resource
+        fields = ['category', 'title', 'image']
+        widgets = {
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }

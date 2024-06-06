@@ -48,6 +48,11 @@ urlpatterns = [
    path('volunteer/<slug>', volunteerDetails, name='volunteerDetails'),
    path('volunteer/update-status/<slug>', volunteersUpdateStatus, name='volunteersUpdateStatus'),
 
+   path('resources/', resources, name='resources'),
+   path('resources/create', addResource, name='addResource'),
+   path('resources/<slug>', editResource, name='editResource'),
+   path('resources/<slug>/delete', deleteResource, name='deleteResource'),
+
    path('settings/', setting, name='settings'),
 
    path('settings/edit-slide/<int:slide_id>/', edit_slide, name='edit_slide'),
