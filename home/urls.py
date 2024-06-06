@@ -50,6 +50,7 @@ urlpatterns = [
 
    path('get-involved', getInvolved, name="getInvolved"),
    path('visit-us', visitUs, name="visitUs"),
+   path('volunteers', volunteers, name="volunteers"),
 
    path('terms-and-conditions', termsAndConditions, name="termsAndConditions"),
    path('privacy-policy', privacyPolicy, name="privacyPolicy"),

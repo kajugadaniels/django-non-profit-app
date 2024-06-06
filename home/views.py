@@ -492,6 +492,9 @@ def visitUs(request):
 
     return render(request, 'frontend/get-involved/visit-us.html', context)
 
+def volunteers(request):
+    return render(request, 'frontend/get-involved/volunteers.html')
+
 def termsAndConditions(request):
     logos = get_logos()
     

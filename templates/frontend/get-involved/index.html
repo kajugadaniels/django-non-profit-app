@@ -67,10 +67,10 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2 md-mb-50px" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                <div class="cover-background p-7 border-radius-6px mb-60px md-mb-40px d-flex justify-content-end align-items-end sm-h-500px" style="background-image: url({% static 'frontend/images/our-story-bg.png' %})">
-                    <div class="opacity-light bg-gradient-regal-blue-transparent"></div>
-                    <div class="bg-white box-shadow-quadruple-large border-radius-4px w-75 lg-w-75 sm-w-100 overflow-hidden z-index-1">
+            <div class="col-lg-6 mb-4">
+                <div class="d-flex flex-column h-100 cover-background p-7 border-radius-6px sm-h-500px" style="background-image: url({% static 'frontend/images/our-story-bg.png' %})">
+                    <div class="opacity-light bg-gradient-regal-blue-transparent flex-grow-1"></div>
+                    <div class="bg-white box-shadow-quadruple-large border-radius-4px w-100 overflow-hidden z-index-1 mt-auto">
                         <div class="p-40px lg-p-30px last-paragraph-no-margin">
                             <span class="fs-24 ls-minus-05px alt-font text-dark-gray fw-700 mb-10px d-block">Share the Story</span>
                             <p class="w-100 lg-w-100">
@@ -83,10 +83,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 order-1 order-lg-2 md-mb-50px" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                <div class="cover-background p-7 border-radius-6px mb-60px md-mb-40px d-flex justify-content-end align-items-end sm-h-500px" style="background-image: url({% static 'frontend/images/faq-bg.jpg' %})">
-                    <div class="opacity-light bg-gradient-regal-blue-transparent"></div>
-                    <div class="bg-white box-shadow-quadruple-large border-radius-4px w-75 lg-w-75 sm-w-100 overflow-hidden z-index-1">
+            <div class="col-lg-6 mb-4">
+                <div class="d-flex flex-column h-100 cover-background p-7 border-radius-6px sm-h-500px" style="background-image: url({% static 'frontend/images/faq-bg.jpg' %})">
+                    <div class="opacity-light bg-gradient-regal-blue-transparent flex-grow-1"></div>
+                    <div class="bg-white box-shadow-quadruple-large border-radius-4px w-100 overflow-hidden z-index-1 mt-auto">
                         <div class="p-40px lg-p-30px last-paragraph-no-margin">
                             <span class="fs-24 ls-minus-05px alt-font text-dark-gray fw-700 mb-10px d-block">FAQs</span>
                             <p class="w-100 lg-w-100">
@@ -99,10 +99,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 order-1 order-lg-2 md-mb-50px" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                <div class="cover-background p-7 border-radius-6px mb-60px md-mb-40px d-flex justify-content-end align-items-end sm-h-500px" style="background-image: url({% static 'frontend/images/about-rwanda/img-1.jpg' %})">
-                    <div class="opacity-light bg-gradient-regal-blue-transparent"></div>
-                    <div class="bg-white box-shadow-quadruple-large border-radius-4px w-75 lg-w-75 sm-w-100 overflow-hidden z-index-1">
+            <div class="col-lg-6 mb-4">
+                <div class="d-flex flex-column h-100 cover-background p-7 border-radius-6px sm-h-500px" style="background-image: url({% static 'frontend/images/about-rwanda/img-1.jpg' %})">
+                    <div class="opacity-light bg-gradient-regal-blue-transparent flex-grow-1"></div>
+                    <div class="bg-white box-shadow-quadruple-large border-radius-4px w-100 overflow-hidden z-index-1 mt-auto">
                         <div class="p-40px lg-p-30px last-paragraph-no-margin">
                             <span class="fs-24 ls-minus-05px alt-font text-dark-gray fw-700 mb-10px d-block">Visit Us</span>
                             <p class="w-100 lg-w-100">
@@ -115,8 +115,25 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-6 mb-4">
+                <div class="d-flex flex-column h-100 cover-background p-7 border-radius-6px sm-h-500px" style="background-image: url({% static 'frontend/images/heart.jpg' %})">
+                    <div class="opacity-light bg-gradient-regal-blue-transparent flex-grow-1"></div>
+                    <div class="bg-white box-shadow-quadruple-large border-radius-4px w-100 overflow-hidden z-index-1 mt-auto">
+                        <div class="p-40px lg-p-30px last-paragraph-no-margin">
+                            <span class="fs-24 ls-minus-05px alt-font text-dark-gray fw-700 mb-10px d-block">Volunteer Opportunities</span>
+                            <p class="w-100 lg-w-100">
+                                Volunteers are crucial to AOF. When you volunteer with us, you help make transformation possible and bring hope to families and communities throughout Rwanda.
+                            </p>
+                        </div>
+                        <div class="bg-dark-gray p-15px text-center">
+                            <a href="{% url 'frontend:volunteers' %}" class="text-white text-white-hover fw-500"><i class="fa-solid fa-arrow-right me-10px"></i>Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 
 {% endblock %}
