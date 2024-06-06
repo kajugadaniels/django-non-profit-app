@@ -471,7 +471,12 @@ def editCampaign(request, slug):
 
 @login_required
 def deleteCampaign(request, slug):
-    pass
+    if request.method == 'POST':
+        campaign = get_object_or_404(Campaign, slug=slug)
+        campaign.delete()
+        messages.success(request, 'Campaign deleted successfully!')
+
+    return redirect('backend:campaign')
 
 @login_required
 def volunteers(request):
