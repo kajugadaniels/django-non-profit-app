@@ -1,0 +1,34 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div div class="col-sm-12">
+            <div class="card">  
+                <div class="card-body"> 
+                    <div class="blog-single">
+                        <div class="blog-box blog-details">
+                            <div class="blog-details">
+                                <ul class="blog-social d-flex justify-content-between">
+                                    <li><strong>Status:</strong> {% if request.status %}<span class="badge badge-success">Approved</span>{% else %}<span class="badge badge-danger">Not Approved</span>{% endif %}</li>
+                                    <li><strong>Name:</strong> {{ visit_request.name }}</li>
+                                    <li><strong>Email:</strong> {{ visit_request.email }}</li>
+                                    <li><strong>Contact Number:</strong> {{ visit_request.phone }}</li>
+                                    <li><strong>Organization name:</strong> {{ visit_request.org_name }}</li>
+                                    <li><strong>Number of visitors:</strong> {{ visit_request.n_visitors }}</li>
+                                    <li><strong>Requested Visit Date:</strong> {{ visit_request.req_visit }}</li>
+                                </ul>
+                                <div class="single-blog-content-top">
+                                    {{ visit_request.purpose }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

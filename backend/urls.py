@@ -41,6 +41,8 @@ urlpatterns = [
    path('donate-to-student', donateToStudent, name='donateToStudent'),
 
    path('visiting-request/', visitingRequest, name='visitingRequest'),
+   path('visit-details/<slug>', visitDetails, name='visitDetails'),
+   path('visiting-request/update-status/<slug>', updateStatus, name='updateStatus'),
 
    path('settings/', setting, name='settings'),
 
