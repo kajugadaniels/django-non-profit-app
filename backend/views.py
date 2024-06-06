@@ -425,8 +425,14 @@ def volunteers(request):
 
     return render(request, 'backend/volunteers/index.html', context)
 
-def volunteerDetails(request):
-    pass
+def volunteerDetails(request, slug):
+    volunteer = get_object_or_404(Volunteer, slug=slug)
+
+    context = {
+        'volunteer': volunteer
+    }
+
+    return render(request, 'backend/volunteers/show.html', context)
 
 def volunteersUpdateStatus(request, slug):
     volunteer = Volunteer.objects.get(slug=slug)

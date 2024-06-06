@@ -1,0 +1,33 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div div class="col-sm-12">
+            <div class="card">  
+                <div class="card-body"> 
+                    <div class="blog-single">
+                        <div class="blog-box blog-details">
+                            <div class="blog-details">
+                                <ul class="blog-social d-flex justify-content-between">
+                                    <li><strong>Status:</strong> {% if volunteer.status %}<span class="badge badge-success">Approved</span>{% else %}<span class="badge badge-danger">Not Approved</span>{% endif %}</li>
+                                    <li><strong>Name:</strong> {{ volunteer.name }}</li>
+                                    <li><strong>Email:</strong> {{ volunteer.email }}</li>
+                                    <li><strong>Contact Number:</strong> {{ volunteer.phone }}</li>
+                                    <li><strong>DOB:</strong> {{ volunteer.dob }}</li>
+                                    <li><strong>Address:</strong> {{ volunteer.city }}, {{ volunteer.country }}</li>
+                                </ul>
+                                <div class="single-blog-content-top">
+                                    {{ volunteer.about }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
