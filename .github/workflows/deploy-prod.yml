@@ -33,6 +33,7 @@ jobs:
 
             python manage.py migrate --fake
             python manage.py makemigrations  --noinput
+             python manage.py makemigrations --merge --noinput
             python manage.py migrate --noinput
             python manage.py collectstatic --noinput
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart gunicorn
