@@ -32,9 +32,9 @@
                                 <figcaption class="w-100 position-absolute bottom-0px bg-white">
                                     <div class="position-relative z-index-2 p-40px pt-25px pb-15px border-bottom border-dark-opacity">
                                         <a href="{% url 'frontend:viewProject' project.slug %}" class="fw-600 d-inline-block mb-5px text-dark-gray fs-18">{{ project.title }}</a>
-                                        <p class="w-80 lg-w-100 fs-16 mx-auto mb-15px lg-mb-10px text-light-opacity">
-                                            {{ project.description|truncatewords:7 }}
-                                        </p>
+                                        <div class="w-100 lg-w-100 fs-16 mx-auto mb-15px lg-mb-10px text-light-opacity">
+                                            {{ project.description|safe|truncatewords:7 }}
+                                        </div>
                                     </div>
                                     <a href="{% url 'frontend:viewProject' project.slug %}" class="btn btn-link btn-hover-animation-switch btn-medium fw-700 text-dark-gray text-uppercase p-20px z-index-1">
                                         <span>

@@ -46,7 +46,7 @@
                                             </td>
                                             <td>
                                                 <p>
-                                                    {{ project.description|truncatewords:14 }}
+                                                    {{ project.description|safe|truncatewords:14 }}
                                                 </p>
                                             </td>
                                             <td> 
