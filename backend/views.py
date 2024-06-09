@@ -1,8 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from home.forms import *
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.core.files.storage import default_storage
+from django.conf import settings
 from django.contrib import messages
+from home.forms import *
 from home.models import *
 from backend.models import *
 from backend.forms import *
@@ -357,6 +361,14 @@ def editBlog(request, slug):
     }
 
     return render(request, 'backend/blog/edit.html', context)
+
+@csrf_exempt
+def upload_image(request):
+    if request.method == 'POST' and request.FILES['image']:
+        image = request.FILES['image']
+        path = default_storage.save(f'blog/quill_images/{image.name}', image)
+        return JsonResponse({'location': f'{settings.MEDIA_URL}{path}'})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
 
 @login_required
 def deleteBlog(request, slug):

@@ -35,6 +35,7 @@ urlpatterns = [
    path('blog/', getBlog, name='getBlog'),
    path('blog/create', addBlog, name='addBlog'),
    path('blog/<slug>', editBlog, name='editBlog'),
+   path('upload_image/', upload_image, name='upload_image'),
    path('blog/<slug>/delete/', deleteBlog, name='deleteBlog'),
 
    path('donate/', donate, name='donate'),
