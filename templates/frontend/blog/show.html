@@ -10,13 +10,14 @@
                 <span class="fs-18 mb-30px d-inline-block sm-mb-20px">
                     {{ blog.created_at }}
                 </span>
-                <h1 class="title-font fw-3 text-dark-gray ls-minus-2px mb-0">Marketing tips and tricks for your creative website.</h1>
+                <h1 class="title-font fw-300 text-dark-gray ls-minus-2px mb-0">Marketing tips and tricks for your creative website.</h1>
             </div>
         </div>
     </div>
 </section>
-<section class="py-0 ps-13 pe-13 lg-ps-4 lg-pe-4 sm-px-0">
-    <div class="container-fluid">
+
+<section class="">
+    <div class="">
         <div class="row justify-content-center">
             <div class="col-12"></div>
             <img src="{{ blog.image.url }}" class="w-75" alt="">
@@ -29,10 +30,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="row">
-                    <div class="offset-lg-1 col-md-8 last-paragraph-no-margin text-center text-md-start">
-                        <p>
-                            {{ blog.description }}
-                        </p>
+                    <div class="col-md-12 last-paragraph-no-margin text-center text-md-start text-black">
+                        {{ blog.description|safe }}
                     </div>
                 </div>
             </div>

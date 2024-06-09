@@ -45,9 +45,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <p>
-                                                    {{ blog.description|truncatewords:14 }}
-                                                </p>
+                                                {{ blog.description|safe|truncatewords:14 }}
                                             </td>
                                             <td> 
                                                 <div class="product-action">

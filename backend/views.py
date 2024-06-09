@@ -355,7 +355,7 @@ def editBlog(request, slug):
         'form': form,
         'blog': blog
     }
-    
+
     return render(request, 'backend/blog/edit.html', context)
 
 @login_required
