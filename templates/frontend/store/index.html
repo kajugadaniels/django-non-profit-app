@@ -1,6 +1,6 @@
 {% extends 'frontend/layouts/app.html' %}
 {% load static %}
-{% block title %} AOF Store {% endblock %}
+{% block title %} Store {% endblock %}
 {% block content %}
 
 <section class="pb-0 ipad-top-space-margin md-pt-0">
@@ -45,7 +45,7 @@
                                 <div class="shop-footer text-center">
                                     <a href="{% url 'frontend:product' product.slug %}" class="alt-font text-dark-gray fs-19 fw-500">{{ product.name }}</a>
                                     <div class="price lh-22 fs-16">
-                                        {{ product.price }}
+                                        ${{ product.price }}
                                     </div>
                                 </div>
                             </div>
