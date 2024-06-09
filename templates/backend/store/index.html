@@ -49,7 +49,7 @@
                                             </td>
                                             <td>
                                                 <p>
-                                                    {{ product.description|truncatewords:14 }}
+                                                    {{ product.description|safe|truncatewords:14 }}
                                                 </p>
                                             </td>
                                             <td> 

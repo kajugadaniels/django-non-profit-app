@@ -27,9 +27,9 @@
                 <h4 class="alt-font text-dark-gray fw-500 mb-5px">
                     {{ product.name }}
                 </h4>
-                <p>
-                    {{ product.description }}
-                </p>
+                <div class="text-black">
+                    {{ product.description|safe }}
+                </div>
                 <div class="d-block d-sm-flex align-items-center mb-15px">
                     <div class="col-xl-12 col-lg-12">
                         <div class="row mb-6 xs-mb-8">
