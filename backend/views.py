@@ -745,8 +745,26 @@ def addPolicy(request):
     return render(request, 'backend/policy/create.html', context)
 
 @login_required
-def editPolicy(request):
-    pass
+def editPolicy(request, slug):
+    policy = get_object_or_404(Policy, slug=slug)
+
+    if request.method == 'POST':
+        form = PolicyForm(request.POST, request.FILES, instance=policy)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Policy updated successfully!')
+            return redirect('backend:policies')
+        else:
+            messages.error(request, 'Error updating the policy. Please check the form.')
+    else:
+        form = PolicyForm(instance=policy)
+        
+    context = {
+        'form': form,
+        'policy': policy
+    }
+
+    return render(request, 'backend/policy/edit.html', context)
 
 @login_required
 def deletePolicy(request):
