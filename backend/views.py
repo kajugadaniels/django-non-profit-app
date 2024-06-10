@@ -767,5 +767,10 @@ def editPolicy(request, slug):
     return render(request, 'backend/policy/edit.html', context)
 
 @login_required
-def deletePolicy(request):
-    pass
+def deletePolicy(request, slug):
+    if request.method == 'POST':
+        policy = get_object_or_404(Policy, slug=slug)
+        policy.delete()
+        messages.success(request, 'Policy deleted successfully!')
+
+    return redirect('backend:policies')
