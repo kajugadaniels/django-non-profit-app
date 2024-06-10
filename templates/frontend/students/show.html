@@ -36,7 +36,7 @@
                     <h5 class="alt-font text-dark-gray fw-700 mb-10px fs-20">
                         Your Sponsorship
                     </h5>
-                    <form action="{% url 'frontend:getStudent' slug=student.slug %}" method="post" class="row contact-form-style-02">    
+                    <form method="post" class="row contact-form-style-02">    
                         {% csrf_token %}
                         {% if error_message %}
                         <p class="text-red py-2 rounded px-4 my-2">{{error_message}}</p>
