@@ -89,12 +89,13 @@ def missionVisionValues(request):
     return render(request, 'frontend/mission-vision-values.html', context)
 
 def team(request):
-    team = Team.objects.all().order_by('created_at')
-    
+    localStaff = Team.objects.filter(category='Rwanda Staff').order_by('created_at')
+    statesideStaff = Team.objects.filter(category='Stateside Staff').order_by('created_at')
     logos = get_logos()
 
     context = {
-        'team': team,
+        'localStaff': localStaff,
+        'statesideStaff': statesideStaff,
         **logos
     }
 

@@ -50,7 +50,7 @@
                             The Rwanda-based team serves as the representative of Africa Oasis Foundation to the local community, students, and families who benefit from our programs.
                         </p>
                         <div class="row align-items-center justify-content-center pricing-table-style-06" data-anime='{ "el": "childs", "willchange": "transform", "scale": [0.95, 1], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                            {% for person in team %}
+                            {% for person in localStaff %}
                                 <div class="col-md-4 text-center team-style-04 md-mb-50px mb-5">
                                     <figure class="mb-0 position-relative">
                                         <img src="{{ person.image.url }}" class="border-radius-10px" alt=""/>
@@ -79,14 +79,48 @@
                                 </div>
                             {% empty %}
                                 <h5 class="alt-font fs-20 text-black text-center">
-                                    No Team Member yet!!!
+                                    No Rwanda Staff Member yet!!!
                                 </h5>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="tab-pane fade in" id="tab_six2">
-                        <div class="row align-items-center justify-content-center pricing-table-style-06">
+                        <p class="row align-items-center justify-content-center pricing-table-style-06">
                             The team based in the United States plays a crucial role in facilitating the operations of Africa Oasis Foundation's initiatives and outreach efforts. They are essential in bridging the gap between our benefactors and the programs they generously fund. This group is responsible for managing scholarships, financial matters, processing donations, handling communications, cultivating donor relationships, and coordinating prayer support.
+                        </p>
+                        <div class="row align-items-center justify-content-center pricing-table-style-06" data-anime='{ "el": "childs", "willchange": "transform", "scale": [0.95, 1], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                            {% for person in statesideStaff %}
+                                <div class="col-md-4 text-center team-style-04 md-mb-50px mb-5">
+                                    <figure class="mb-0 position-relative">
+                                        <img src="{{ person.image.url }}" class="border-radius-10px" alt=""/>
+                                        <figcaption class="w-100 ps-50px pe-50px">
+                                            <div class="position-relative p-35px lg-p-25px pb-0 border-radius-10px" style="background-color: #15548C;">
+                                                <div class="social-icon mb-20px">
+                                                    <a href="https://www.facebook.com/" target="_blank" class="text-white">
+                                                        <i class="fa-brands fa-facebook-f icon-small"></i>
+                                                    </a>
+                                                    <a href="https://www.instagram.com/" target="_blank" class="text-white">
+                                                        <i class="fa-brands fa-instagram icon-small"></i>
+                                                    </a>
+                                                    <a href="https://www.twitter.com/" target="_blank" class="text-white">
+                                                        <i class="fa-brands fa-twitter icon-small"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="fs-14 fw-500 text-white lh-20">{{ person.name }}</div>
+                                                <span class="text-white opacity-7 d-inline-block fs-15">{{ person.position }}</span>
+                                                <br>
+                                                <a href="#">
+                                                    <span class="text-white opacity-7 d-inline-block fs-15">Read more</span>
+                                                </a>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            {% empty %}
+                                <h5 class="alt-font fs-20 text-black text-center">
+                                    No Stateside Staff Member yet!!!
+                                </h5>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
