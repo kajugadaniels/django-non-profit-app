@@ -247,7 +247,7 @@ def give(request):
 
 def donate(request):
     student_list = Student.objects.all().order_by('-created_at')
-    paginator = Paginator(student_list, 9)
+    paginator = Paginator(student_list, 12)
     page_number = request.GET.get('page')
     students = paginator.get_page(page_number)
     project_list = Project.objects.all()
@@ -264,11 +264,11 @@ def donate(request):
 
     if request.method == 'POST':
         # TODO: sanitize data
-        amoun = request.POST['amount']
+        amount = request.POST['amount']
         email =  request.POST['email']
         fullname= request.POST['fullname']
         interval =  request.POST['paymentOptions']
-        donate= donateFund(request,amoun, interval,"", fullname, email,'frontend/sponsor/index.html',"")
+        donate= donateFund(request,amount, interval,"", fullname, email,'frontend/sponsor/index.html',"")
         return donate
     return render(request, 'frontend/sponsor/index.html', context)
 
