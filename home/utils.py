@@ -9,11 +9,19 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
     if interval is not None :
             try:
                 if slug is not None and slug:
-                    student = Student.objects.get(slug=slug)
-                    product = stripe.Product.create(
-                        name="Donate to "+str(student.name)+"",
-                        description="Your gift of $"+str(amount)+" to "+str(student.name)+" is a life-changing."
-                    ) 
+                    if gift is not None and gift:
+
+                        product= Product.objects.get(slug=slug)
+                        product = stripe.Product.create(
+                            name="Buy a gift of  "+str(product.name)+"",
+                            description="Your gift of $"+str(amount)+"  is a life-changing."
+                        ) 
+                    else:
+                        student = Student.objects.get(slug=slug)
+                        product = stripe.Product.create(
+                                name="Donate to "+str(student.name)+"",
+                                description="Your gift of $"+str(amount)+" to "+str(student.name)+" is a life-changing."
+                            ) 
                 else:
                     if gift is not None and gift:
                         product = stripe.Product.create(
@@ -47,15 +55,25 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                         metadata={"order_id": str(uuid.uuid4())},
                         )
                         if slug is not None and slug:
-                            donation = DonateToStudent()
-                            donation.amount = amount
-                            donation.email = email
-                            donation.donatedBy = fullname
-                            donation.paymentMode = interval
-                            donation.donationId = payment.id
-                            donation.productId = productId,
-                            donation.beneficiary= student
-                            donation.save()
+                            if gift is not None and gift:
+
+                                donateGift = DonateGifts()
+                                donateGift.firstname = fullname
+                                donateGift.lastname=fullname
+                                donateGift.email = email
+                                donateGift.amount=amount
+                                donateGift.productid= product.id
+                                donateGift.save()
+                            else:
+                                donation = DonateToStudent()
+                                donation.amount = amount
+                                donation.email = email
+                                donation.donatedBy = fullname
+                                donation.paymentMode = interval
+                                donation.donationId = payment.id
+                                donation.productId = productId,
+                                donation.beneficiary= student
+                                donation.save()
                         else: 
                             if gift is None:
                                 donation = Donate()

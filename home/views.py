@@ -284,7 +284,7 @@ def store(request):
     products = paginator.get_page(page_number)
     
     logos = get_logos()
-
+    
     context = {
         'products': products,
         **logos
@@ -298,8 +298,17 @@ def product(request, slug):
     
     context = {
         'product': product,
+        'slug': slug,
         **logos
     }
+    if request.method == 'POST':
+        amount = request.POST['amount']
+        email =  request.POST['email']
+        fullname= request.POST['fullname']
+        interval =  request.POST['paymentOptions']
+        donate= donateFund(request,amount, interval,slug, fullname, email,'frontend/store/product.html',slug)
+        return donate
+
 
     return render(request, 'frontend/store/product.html', context)
 
