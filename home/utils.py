@@ -47,13 +47,13 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                         metadata={"order_id": str(uuid.uuid4())},
                         )
                         if slug is not None and slug:
-                            donation = DonateToStudents()
-                            donation.amount= amoun
-                            donation.email= email
-                            donation.paidBy = fullname
+                            donation = DonateToStudent()
+                            donation.amount = amount
+                            donation.email = email
+                            donation.donatedBy = fullname
                             donation.paymentMode = interval
                             donation.donationId = payment.id
-                            donation.productId= productId,
+                            donation.productId = productId,
                             donation.beneficiary= student
                             donation.save()
                         else: 

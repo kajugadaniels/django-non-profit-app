@@ -16,35 +16,31 @@
                             <table class="table" id="project-status">
                                 <thead> 
                                     <tr> 
-                                        <th> <span class="f-light f-w-600">Title</span></th>
+                                        <th> <span class="f-light f-w-600">Donated By</span></th>
                                         <th> <span class="f-light f-w-600">Amount</span></th>
                                         <th> <span class="f-light f-w-600">Student</span></th>
                                         <th> <span class="f-light f-w-600">Payment Mode</span></th>
-                                        <th> <span class="f-light f-w-600">Donated By</span></th>
                                         <th> <span class="f-light f-w-600">Email</span></th>
                                         <th> <span class="f-light f-w-600">Status</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
-                                    {% for donate in team %}
+                                    {% for donate in donations %}
                                         <tr class="product-removes">
                                             <td> 
                                                 <div class="product-names">
-                                                    <p>{{ donate.donationTitle }}</p>
+                                                    <p>{{ donate.donatedBy }}</p>
                                                 </div>
                                             </td>
                                             <td> 
-                                                <p class="f-light">{{ donate.amount }}</p>
+                                                <p class="f-light">${{ donate.amount }}</p>
                                             </td>
                                             <td> 
                                                 <p class="f-light">{{ donate.beneficiary }}</p>
                                             </td>
                                             <td> 
                                                 <p class="f-light">{{ donate.paymentMode }}</p>
-                                            </td>
-                                            <td> 
-                                                <p class="f-light">{{ donate.donatedby }}</p>
                                             </td>
                                             <td> 
                                                 <p class="f-light">{{ donate.email }}</p>

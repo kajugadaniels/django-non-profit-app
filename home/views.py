@@ -223,12 +223,11 @@ def getStudent(request, slug):
         **logos
     }
     if request.method == 'POST':
-        # TODO: sanitize data
-        amoun = request.POST['amount']
+        amount = request.POST['amount']
         email =  request.POST['email']
         fullname= request.POST['fullname']
         interval =  request.POST['paymentOptions']
-        donate= donateFund(request,amoun, interval,slug, fullname, email,'frontend/students/show.html','')
+        donate= donateFund(request,amount, interval,slug, fullname, email,'frontend/students/show.html','')
         return donate
     
     return render(request, 'frontend/students/show.html', context)

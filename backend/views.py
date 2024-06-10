@@ -393,10 +393,10 @@ def donate(request):
 
 @login_required
 def donateToStudent(request):
-    donate = DonateToStudents.objects.all()
+    donations = DonateToStudent.objects.all()
     
     context = {
-        'donate': donate
+        'donations': donations
     }
     
     return render(request, 'backend/donate/donate-to-student.html', context)
