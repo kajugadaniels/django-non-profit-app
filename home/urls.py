@@ -12,7 +12,9 @@ urlpatterns = [
    path('about-rwanda/', aboutRwanda, name="aboutRwanda"),
    path('our-history/', history, name="history"),
    path('mission-vision-values/', missionVisionValues, name="missionVisionValues"),
+
    path('team/', team, name="team"),
+   path('team/<slug>', teamMember, name="teamMember"),
 
    path('what-we-do/', whatWeDo, name="whatWeDo"),
    path('what-we-do/education', education, name="education"),

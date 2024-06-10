@@ -70,7 +70,7 @@
                                                 <div class="fs-14 fw-500 text-white lh-20">{{ person.name }}</div>
                                                 <span class="text-white opacity-7 d-inline-block fs-15">{{ person.position }}</span>
                                                 <br>
-                                                <a href="#">
+                                                <a href="{% url 'frontend:teamMember' person.slug %}">
                                                     <span class="text-white opacity-7 d-inline-block fs-15">Read more</span>
                                                 </a>
                                             </div>
@@ -109,7 +109,7 @@
                                                 <div class="fs-14 fw-500 text-white lh-20">{{ person.name }}</div>
                                                 <span class="text-white opacity-7 d-inline-block fs-15">{{ person.position }}</span>
                                                 <br>
-                                                <a href="#">
+                                                <a href="{% url 'frontend:teamMember' person.slug %}">
                                                     <span class="text-white opacity-7 d-inline-block fs-15">Read more</span>
                                                 </a>
                                             </div>

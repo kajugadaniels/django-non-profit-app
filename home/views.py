@@ -99,7 +99,18 @@ def team(request):
         **logos
     }
 
-    return render(request, 'frontend/team.html', context)
+    return render(request, 'frontend/team/index.html', context)
+
+def teamMember(request, slug):
+    member = get_object_or_404(Team, slug=slug)
+    logos = get_logos()
+    
+    context = {
+        'member': member,
+        **logos
+    }
+    
+    return render(request, 'frontend/team/show.html', context)
 
 def aboutRwanda(request):
     logos = get_logos()
