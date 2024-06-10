@@ -552,27 +552,27 @@ def viewCampaign(request, slug):
 
 def termsAndConditions(request):
     logos = get_logos()
+    policies = Policy.objects.filter(category='Terms & Conditions')
     
     context = {
-        **logos
+        **logos,
+        'policies': policies
     }
 
     return render(request, 'frontend/term-and-condition.html', context)
 
 def privacyPolicy(request):
-    logos = get_logos()
-    
-    context = {
-        **logos
-    }
-
+    policies = Policy.objects.filter(category='Privacy Policy')
+    context = {'policies': policies}
     return render(request, 'frontend/privacy-policy.html', context)
 
 def childProtectionPolicy(request):
     logos = get_logos()
+    policies = Policy.objects.filter(category='Child Protection Policy')
     
     context = {
-        **logos
+        **logos,
+        'policies': policies
     }
 
     return render(request, 'frontend/child-protection-policy.html', context)

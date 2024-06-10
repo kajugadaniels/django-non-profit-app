@@ -58,6 +58,7 @@ urlpatterns = [
    path('terms-and-conditions', termsAndConditions, name="termsAndConditions"),
    path('privacy-policy', privacyPolicy, name="privacyPolicy"),
    path('child-protection-policy', childProtectionPolicy, name="childProtectionPolicy"),
+
    path('resources', resources, name="resources"),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
