@@ -36,7 +36,7 @@
                     <h5 class="alt-font text-dark-gray fw-700 mb-10px fs-20">
                         Your Sponsorship
                     </h5>
-                    <form action="{% url 'frontend:getStudent' slug=student.slug %}" method="post" class="row contact-form-style-02">    
+                    <form action="{% url 'frontend:getStudent' slug=student.slug %}" method="post" class="row contact-form-style-02">
                         {% csrf_token %}
                         {% if error_message %}
                         <p class="text-red py-2 rounded px-4 my-2">{{error_message}}</p>
@@ -46,7 +46,6 @@
                             <input name="fullname" class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" placeholder="Fullname" />
                         </div>
                         <div class="row">
-                            
                             <div class="col-md-6 mb-30px">
                                 <label class="fw-500 text-black">Amount</label>
                                 <input name="amount" class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" placeholder="$5.0" />
@@ -54,7 +53,7 @@
                             <div class="col-md-6 mb-30px">
                                 <label class="fw-500 text-black">Payment Option</label>
                                 <div class="select">
-                                    <select name="paymentOptions" class="form-control border-radius-4px border-color-white box-shadow-double-large"  aria-label="select-doctor">
+                                    <select name="paymentOptions" class="form-control border-radius-4px border-color-white box-shadow-double-large" aria-label="select-doctor">
                                         <option value="">---------</option>
                                         <option value="one">One Time</option>
                                         <option value="weekly">Weekly</option>

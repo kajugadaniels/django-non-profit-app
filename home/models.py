@@ -64,10 +64,11 @@ class DonateToStudent(models.Model):
     donatedBy = models.TextField(max_length=255)
     email = models.TextField(max_length=255)
     slug = models.SlugField(unique=True, max_length=150, blank=True)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            base_slug = slugify(self.donationTitle)
+            base_slug = slugify(self.donatedBy)
             random_string = ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
             self.slug = f"{base_slug}-{random_string}"
         super().save(*args, **kwargs)

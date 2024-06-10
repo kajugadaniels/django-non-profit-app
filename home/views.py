@@ -215,7 +215,9 @@ def students(request):
     return render(request, 'frontend/students/index.html', context)
 
 def getStudent(request, slug):
-    student = Student.objects.get(slug=slug)
+    student = get_object_or_404(Student, slug=slug)
+    print(f"Student: {student}")
+    print(f"Slug: {student.slug}")
     logos = get_logos()
     
     context = {

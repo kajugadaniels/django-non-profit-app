@@ -25,7 +25,7 @@ urlpatterns = [
    path('what-we-do/story/<slug>', story, name="story"),
 
    path('students/', students, name="students"),
-   path('student/<slug>', getStudent, name='getStudent'),
+   path('student/<slug:slug>/', getStudent, name='getStudent'),
 
    path('give/', give, name="give"),
    path('donate/', donate, name="donate"),
