@@ -727,7 +727,22 @@ def policies(request):
 
 @login_required
 def addPolicy(request):
-    pass
+    if request.method == 'POST':
+        form = PolicyForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Policy created successfully!')
+            return redirect('backend:policies')
+        else:
+            messages.error(request, 'Error creating a policy. Please check the form.')
+    else:
+        form = PolicyForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/policy/create.html', context)
 
 @login_required
 def editPolicy(request):

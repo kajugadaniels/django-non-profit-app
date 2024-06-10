@@ -1,0 +1,80 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <style>
+        #description-container {
+            height: 300px; /* Adjust the height as needed */
+        }
+        .ql-editor {
+            min-height: 300px; /* Ensure the editor area has the same height */
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Add Policy</h4>
+                                <a class="btn btn-primary" href="{% url 'backend:policies' %}"><i class="fa fa-eye"></i>View Policies</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form theme-form">
+                            <form class="price-wrapper" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-12"> 
+                                        <label class="form-label">Category</label>
+                                        {{ form.category }}
+                                    </div>
+                                </div>
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-12">
+                                        <div class="col-12">
+                                            <label class="form-label">Description</label>
+                                            <div id="description-container"></div>
+                                            <textarea id="id_description" name="description" style="display:none;"></textarea>
+                                            {% if form.description.errors %}
+                                                <div class="text-danger">{{ form.description.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <div class="text-end">
+                                            <button class="btn btn-primary me-3">Add a Member</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize Quill for description
+            var quillDescription = new Quill('#description-container', {
+                theme: 'snow'
+            });
+
+            var form = document.querySelector('.price-wrapper');
+            form.onsubmit = function() {
+                // Set the HTML content of description to the hidden textarea
+                var descriptionHtml = quillDescription.root.innerHTML;
+                document.querySelector('#id_description').value = descriptionHtml;
+            };
+        });
+    </script>
+
+{% endblock %}
