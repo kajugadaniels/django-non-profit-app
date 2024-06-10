@@ -59,7 +59,6 @@ class Product(models.Model):
     unit = models.CharField(max_length=255, default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
-    # description = QuillField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -326,3 +325,22 @@ class Fundraising(models.Model):
 
     def __str__(self):
         return self.name
+
+class Policy(models.Model):
+    CATEGORY_CHOICES = [
+        ('Privacy Policy', 'Privacy Policy'),
+        ('Child Protection Policy', 'Child Protection Policy'),
+        ('Terms & Conditions', 'Terms & Conditions'),
+    ]
+
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
+    description = models.TextField()
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.category)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.category

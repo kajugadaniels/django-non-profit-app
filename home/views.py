@@ -568,6 +568,15 @@ def privacyPolicy(request):
 
     return render(request, 'frontend/privacy-policy.html', context)
 
+def childProtectionPolicy(request):
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/child-protection-policy.html', context)
+
 def resources(request):
     logos = get_logos()
     

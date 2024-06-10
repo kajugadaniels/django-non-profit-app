@@ -56,7 +56,8 @@ urlpatterns = [
    path('campaigns/<slug>', viewCampaign, name="viewCampaign"),
 
    path('terms-and-conditions', termsAndConditions, name="termsAndConditions"),
-   path('child-protection-policy', privacyPolicy, name="privacyPolicy"),
+   path('privacy-policy', privacyPolicy, name="privacyPolicy"),
+   path('child-protection-policy', childProtectionPolicy, name="childProtectionPolicy"),
    path('resources', resources, name="resources"),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

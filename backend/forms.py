@@ -226,3 +226,14 @@ class FundraisingForm(forms.ModelForm):
                 'type': 'date'
             }),
         }
+
+class PolicyForm(forms.ModelForm):
+    description = QuillFormField()
+
+    class Meta:
+        model = Policy
+        fields = ['category', 'description']
+        widgets = {
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'id': 'description-container'}),
+        }

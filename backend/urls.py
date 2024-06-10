@@ -61,6 +61,11 @@ urlpatterns = [
    path('resources/<slug>', editResource, name='editResource'),
    path('resources/<slug>/delete', deleteResource, name='deleteResource'),
 
+   path('policies/', policies, name='policies'),
+   path('policy/create', addPolicy, name='addPolicy'),
+   path('policy/<slug>', editPolicy, name='editPolicy'),
+   path('policy/<slug>/delete/', deletePolicy, name='deletePolicy'),
+
    path('settings/', setting, name='settings'),
 
    path('settings/edit-slide/<int:slide_id>/', edit_slide, name='edit_slide'),

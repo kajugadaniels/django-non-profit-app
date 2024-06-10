@@ -1,0 +1,29 @@
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} Child Protection Policy {% endblock %}
+{% block content %}
+
+<section class="page-title-separate-breadcrumbs cover-background border-top border-4 border-color-base-color top-space-margin" style="background-image: url({% static 'frontend/images/privacy-policy-bg.jpg' %})">
+    <div class="opacity-full-dark bg-gradient-dark-transparent"></div>
+    <div class="container position-relative">
+        <div class="row align-items-start align-items-lg-end justify-content-end flex-column flex-lg-row extra-small-screen" data-anime='{ "el": "childs", "translateY": [15, 0], "opacity": [0,1], "duration": 400, "delay": 0, "staggervalue": 200, "easing": "easeOutQuad" }'>
+            <div class="col-xxl-7 col-lg-6 col-md-10 position-relative page-title-large md-mb-15px xs-mb-5px">
+                <h1 class="text-white alt-font fw-500 ls-minus-2px mb-0">Child Protection Policy</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-5">
+    <div class="container"> 
+        <div class="row">
+            <div class="col-lg-12">
+                <h5>
+                    Donor Privacy.
+                </h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

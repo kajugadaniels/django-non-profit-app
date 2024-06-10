@@ -650,7 +650,6 @@ def setting(request):
 
     return render(request, 'backend/settings/index.html', context)
 
-
 @login_required
 def edit_slide(request, slide_id):
     slide = get_object_or_404(Slide, id=slide_id)
@@ -715,3 +714,25 @@ def delete_mission_vision_values(request, item_id):
         'item': item,
     }
     return render(request, 'backend/settings/delete_mission_vision_values.html', context)
+
+@login_required
+def policies(request):
+    policies = Policy.objects.all()
+    
+    context = {
+        'policies': policies,
+    }
+    
+    return render(request, 'backend/policy/index.html', context)
+
+@login_required
+def addPolicy(request):
+    pass
+
+@login_required
+def editPolicy(request):
+    pass
+
+@login_required
+def deletePolicy(request):
+    pass
