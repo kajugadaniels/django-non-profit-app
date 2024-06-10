@@ -18,14 +18,13 @@ class StudentForm(forms.ModelForm):
         }
 
 class TeamForm(forms.ModelForm):
-    # description = QuillFormField()
-
     class Meta:
         model = Team
-        fields = ['name', 'position', 'image', 'description']
+        fields = ['name', 'position', 'category', 'image', 'description']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Member Name'}),
             'position': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Member Position'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
         }

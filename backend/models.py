@@ -71,10 +71,14 @@ class Product(models.Model):
         return self.name
 
 class Team(models.Model):
+    CATEGORY_CHOICES = [
+        ('Rwanda Staff', 'Rwanda Staff'),
+        ('Stateside Staff', 'Stateside Staff'),
+    ]
+
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
     position = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='team/')
     image = ProcessedImageField(
         upload_to='team/',
         processors=[ResizeToFill(1200, 1500)],
@@ -82,7 +86,7 @@ class Team(models.Model):
         options={'quality': 90},
     )
     description = models.TextField()
-    # description = QuillField()
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
