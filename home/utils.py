@@ -90,7 +90,8 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                     
                 else:
                    return render(request, template, { 
-                    'error_message':'Amount should not be empty'
+                    'error_message':'Amount should not be empty',
+                     'slug':slug
                 })
             except stripe.error.CardError as e:
                 return redirect('donate')
@@ -98,7 +99,8 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
             except stripe.error.StripeError as e:
                 error_message = str(e)
                 return render(request, template, { 
-                    'error_message': error_message
+                    'error_message': error_message,
+                    'slug':slug
                 })
                 
             except Exception as e:
@@ -106,11 +108,13 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                 error_message = 'An error occurred while processing your payment.'
                
                 return render(request, template, { 
-                    'error_message': error_message
+                    'error_message': error_message,
+                    'slug':slug
                 })
     else:
             
             return render(request,template, { 
-                    'error_message': 'Please select a donation type '
+                    'error_message': 'Please select a donation type ',
+                     'slug':slug
                 })
 

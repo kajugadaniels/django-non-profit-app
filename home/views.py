@@ -218,10 +218,13 @@ def getStudent(request, slug):
     student = get_object_or_404(Student, slug=slug)
     print(f"Student: {student}")
     print(f"Slug: {student.slug}")
+    if not slug:
+        return redirect('students')  
     logos = get_logos()
     
     context = {
         'student': student,
+        'slug': slug,
         **logos
     }
     if request.method == 'POST':
