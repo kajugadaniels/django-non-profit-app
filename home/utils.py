@@ -65,7 +65,7 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                                 donateGift.productid= product.id
                                 donateGift.save()
                             else:
-                                donation = DonateToBeneficiary()
+                                donation = DonateToStudent()
                                 donation.amount = amount
                                 donation.email = email
                                 donation.donatedBy = fullname
@@ -122,6 +122,7 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                 })
                 
             except Exception as e:
+                print(e)
                 error_message = 'An error occurred while processing your payment.'
                
                 return render(request, template, { 
