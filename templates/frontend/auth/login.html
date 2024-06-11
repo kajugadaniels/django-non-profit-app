@@ -1,33 +1,81 @@
-<div class="col-xl-5 col-lg-6 p-6 box-shadow-extra-large border-radius-6px" data-anime='{ "translateY": [0, 0], "opacity": [0,1], "duration": 600, "delay":100, "staggervalue": 150, "easing": "easeOutQuad" }'>
-    <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Member login</span>
-    <form method="post" action="{% url 'sponsor:login' %}">
-        {% csrf_token %}
-        <div>
-            <label class="text-dark-gray mb-10px fw-500">Email address<span class="text-red">*</span></label>
-            {{ form.email }}
-            {% if form.email.errors %}
-                <div class="text-danger">{{ form.email.errors }}</div>
-            {% endif %}
+{% extends 'frontend/layouts/app.html' %}
+{% load static %}
+{% block title %} Sponsor Account {% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<section class="page-title-center-alignment cover-background top-space-padding" style="background-image: url({% static 'frontend/images/bg.jpg' %})">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center position-relative page-title-extra-large">
+                <h1 class="alt-font d-inline-block fw-700 ls-minus-05px text-white mb-10px mt-3 md-mt-50px">Donor account</h1>
+            </div>
+            <div class="col-12 breadcrumb breadcrumb-style-01 d-flex justify-content-center">
+                <ul>
+                    <li><a href="{% url 'frontend:home' %}" class="text-white">Home</a></li> 
+                    <li>Login</li>
+                </ul>
+            </div>
         </div>
-        <div>
-            <label class="text-dark-gray mb-10px fw-500">Password<span class="text-red">*</span></label>
-            <input class="mb-20px bg-very-light-gray form-control required" type="password" name="password" placeholder="Enter your password" />
-            {% if form.password.errors %}
-                <div class="text-danger">{{ form.password.errors }}</div>
-            {% endif %}
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row g-0 justify-content-center">
+            <div class="col-xl-8 col-lg-6 p-6 box-shadow-extra-large border-radius-6px" data-anime='{ "translateY": [0, 0], "opacity": [0,1], "duration": 600, "delay":100, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Member login</span>
+                <form method="post" action="{% url 'sponsor:login' %}">
+                    {% csrf_token %}
+                    <div>
+                        <label class="text-dark-gray mb-10px fw-500">Email address<span class="text-red">*</span></label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="text-danger">{{ form.email.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <label class="text-dark-gray mb-10px fw-500">Password<span class="text-red">*</span></label>
+                        <input class="mb-20px bg-very-light-gray form-control required" type="password" name="password" placeholder="Enter your password" />
+                        {% if form.password.errors %}
+                            <div class="text-danger">{{ form.password.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="position-relative terms-condition-box text-start d-flex align-items-center mb-20px">
+                        <label>
+                            <input type="checkbox" name="remember_me" id="remember_me" value="1" class="terms-condition check-box align-middle required">
+                            <span class="box fs-14">Remember me</span>
+                        </label>
+                        <a href="#" class="fs-14 text-dark-gray fw-500 text-decoration-line-bottom ms-auto">Forget your password?</a>
+                    </div>
+                    <button class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
+                        <span>
+                            <span class="btn-double-text" data-text="Login">Login</span>
+                        </span>
+                    </button>
+                    <span class="fs-13 lh-22 w-90 lg-w-100 md-w-90 sm-w-100 d-block mb-30px pt-3">Don't have an account! <a href="{% url 'sponsor:register' %}" class="text-dark-gray text-decoration-line-bottom fw-500">Sign Up.</a></span>
+                    <div class="form-results mt-20px d-none"></div>
+                </form>
+            </div>
         </div>
-        <div class="position-relative terms-condition-box text-start d-flex align-items-center mb-20px">
-            <label>
-                <input type="checkbox" name="remember_me" id="remember_me" value="1" class="terms-condition check-box align-middle required">
-                <span class="box fs-14">Remember me</span>
-            </label>
-            <a href="#" class="fs-14 text-dark-gray fw-500 text-decoration-line-bottom ms-auto">Forget your password?</a>
-        </div>
-        <button class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
-            <span>
-                <span class="btn-double-text" data-text="Login">Login</span>
-            </span>
-        </button>
-        <div class="form-results mt-20px d-none"></div>
-    </form>
-</div>
+    </div>
+</section>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        {% if messages %}
+            {% for message in messages %}
+                Swal.fire({
+                    icon: '{% if message.tags == "error" %}error{% else %}success{% endif %}',
+                    title: '{{ message|escapejs }}'
+                });
+            {% endfor %}
+        {% endif %}
+    });
+</script>
+
+{% endblock %}

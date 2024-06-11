@@ -29,7 +29,7 @@ def user_login(request):
         'form': form
     }
 
-    return render(request, 'frontend/auth/account.html', context)
+    return render(request, 'frontend/auth/login.html', context)
 
 def user_register(request):
     if request.method == 'POST':
@@ -47,12 +47,12 @@ def user_register(request):
             messages.error(request, 'User registration failed. Please check your input.')
     else:
         form = UserRegistrationForm()
-    
+
     context = {
         'form': form
     }
     
-    return render(request, 'frontend/auth/account.html', context)
+    return render(request, 'frontend/auth/register.html', context)
 
 def logout_user(request):
     logout(request)
