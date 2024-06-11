@@ -83,3 +83,15 @@ class DonateGifts(models.Model):
     status =models.CharField(max_length=255, default="Pending")
     def __str__(self) -> str:
         return self.firstname + self.lastname + self.phoneNumber 
+
+class StudentDonations(models.Model):
+    beneficiaryName = models.CharField(max_length=255)
+    beneficiaryId = models.CharField(max_length=100, unique=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    donatedBy = models.CharField(max_length=255)
+    email = models.EmailField()
+    paymentMode = models.CharField(max_length=100)
+    paymentId = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.beneficiaryName
