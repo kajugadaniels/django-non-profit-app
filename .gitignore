@@ -2,3 +2,7 @@ venv
 /venv
 .env
 aof-k8s-kubeconfig.yaml
+home/migrations
+/home/migrations
+backend/migrations
+api/migrations
