@@ -64,7 +64,6 @@ class DonateToStudent(models.Model):
     donatedBy = models.TextField(max_length=255)
     email = models.TextField(max_length=255)
     slug = models.SlugField(unique=True, max_length=150, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
