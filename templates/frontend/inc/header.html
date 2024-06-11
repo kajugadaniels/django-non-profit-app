@@ -97,15 +97,27 @@
             <div class="col-auto text-end d-none d-sm-flex">
                 <div class="header-icon"> 
                     <div class="header-button">
-                        <a href="{% url 'frontend:auth' %}" class="btn border-1 btn-transparent-light-gray btn-medium left-icon btn-switch-text">
-                            <span>
-                                <span style="margin-right: 10px;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 8 8"><path fill="currentColor" d="M3 0v1h4v5H3v1h5V0zm1 2v1H0v1h4v1l2-1.5z"/></svg>
+                        {% if user.is_authenticated %}
+                            <a href="#" class="btn border-1 btn-transparent-light-gray btn-medium left-icon btn-switch-text">
+                                <span>
+                                    <span style="margin-right: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 8 8"><path fill="currentColor" d="M3 0v1h4v5H3v1h5V0zm1 2v1H0v1h4v1l2-1.5z"/></svg>
+                                    </span>
+                                    <span class="btn-double-text" data-text="Logout">Logout</span>
                                 </span>
-                                <span class="btn-double-text" data-text="Account">Account</span>
-                            </span>
-                        </a>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'frontend:login' %}" class="btn border-1 btn-transparent-light-gray btn-medium left-icon btn-switch-text">
+                                <span>
+                                    <span style="margin-right: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 8 8"><path fill="currentColor" d="M3 0v1h4v5H3v1h5V0zm1 2v1H0v1h4v1l2-1.5z"/></svg>
+                                    </span>
+                                    <span class="btn-double-text" data-text="Account">Account</span>
+                                </span>
+                            </a>
+                        {% endif %}
                     </div>
+                    
                 </div>  
             </div>
         </div>

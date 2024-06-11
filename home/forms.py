@@ -30,7 +30,7 @@ class UserRegistrationForm(UserCreationForm):
     user_type = forms.ChoiceField(
         choices=user_type_choices,
         initial='user',
-        widget=forms.HiddenInput(attrs={'class': 'form-select'})
+        widget=forms.Select(attrs={'class': 'form-select'})
     )
 
     class Meta:
@@ -48,3 +48,11 @@ class UserRegistrationForm(UserCreationForm):
         if UserAccount.objects.filter(email=email).exists():
             raise forms.ValidationError("A user with that email already exists.")
         return email
+
+class MemberLoginForm(forms.Form):
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={'class': 'mb-20px bg-very-light-gray form-control required', 'placeholder': 'Enter your email'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'mb-20px bg-very-light-gray form-control required', 'placeholder': 'Enter your password'})
+    )

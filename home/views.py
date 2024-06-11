@@ -26,28 +26,57 @@ def get_logos():
     }
     return logos
 
-def auth(request):
+def user_register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            messages.success(request, 'User registered successfully.')
-            return redirect('frontend:auth')
+            authenticated_user = authenticate(request, username=user.email, password=form.cleaned_data['password1'])
+            if authenticated_user is not None:
+                login(request, authenticated_user)
+                messages.success(request, 'User registered and logged in successfully.')
+                return redirect('frontend:login')
+            else:
+                messages.error(request, 'User registration failed. Please try again.')
         else:
-            error_message = 'User registration failed. '
-            for field, errors in form.errors.items():
-                error_message += f"{field}: {', '.join(errors)}. "
-            messages.error(request, error_message.strip())
-            return redirect('frontend:auth')
+            messages.error(request, 'User registration failed. Please check your input.')
     else:
         form = UserRegistrationForm()
+    
+    context = {
+        'form': form
+    }
+    
+    return render(request, 'frontend/auth/account.html', context)
+
+def user_login(request):
+    if request.method == 'POST':
+        form = MemberLoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, email=email, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Login successful.')
+                return redirect('frontend:dashboard')
+            else:
+                messages.error(request, 'Invalid email or password.')
+                return redirect('frontend:auth')
+        else:
+            messages.error(request, 'Login failed. Please check your input.')
+            return redirect('frontend:auth')
+    else:
+        form = MemberLoginForm()
 
     context = {
         'form': form
     }
 
     return render(request, 'frontend/auth/account.html', context)
+
+def dashboard(request):
+    pass
 
 def index(request):
     students = Student.objects.all().order_by('-created_at')[:6]
