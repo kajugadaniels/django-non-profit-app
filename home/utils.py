@@ -122,7 +122,6 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                 })
                 
             except Exception as e:
-                print(e)
                 error_message = 'An error occurred while processing your payment.'
                
                 return render(request, template, { 
