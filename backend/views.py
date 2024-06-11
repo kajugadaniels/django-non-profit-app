@@ -39,6 +39,10 @@ def user_logout(request):
 
 @login_required
 def dashboard(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('frontend:home')
+
     getStudents = Student.objects.all().order_by('created_at')[:3]
     getBlog = Blog.objects.all().order_by('created_at')[:1]
     student_count = Student.objects.count()

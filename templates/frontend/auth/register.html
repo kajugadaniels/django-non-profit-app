@@ -1,6 +1,6 @@
 <div class="col-lg-5 col-md-10 offset-xl-1 offset-lg-1 col-md-10 contact-form-style-04 md-mb-50px" data-anime='{ "translateY": [0, 0], "opacity": [0,1], "duration": 600, "delay":150, "staggervalue": 150, "easing": "easeOutQuad" }'>
     <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Create an account</span>
-    <form method="post" action="{% url 'frontend:register' %}">
+    <form method="post" action="{% url 'sponsor:register' %}">
         {% csrf_token %}
         <div class="row g-3">
             <div class="col-lg-6">

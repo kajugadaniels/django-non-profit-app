@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'home',
     'backend',
     "api",
+    'sponsor',
+
     # Third party packages
     "whitenoise.runserver_nostatic",
     'django_quill',

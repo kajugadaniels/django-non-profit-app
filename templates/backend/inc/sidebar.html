@@ -34,100 +34,113 @@
                     </li>
                     <br>
                     <br>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:dashboard' %}">
-                            <svg class="stroke-icon">
-                                <use href="{% static 'backend/svg/icon-sprite.svg#stroke-home' %}"></use>
-                            </svg>
-                            <svg class="fill-icon">
-                                <use href="{% static 'backend/svg/icon-sprite.svg#fill-home' %}"></use>
-                            </svg><span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getStudents' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 256 256"><path fill="#fff" d="m225.9 58.31l-96-32a6 6 0 0 0-3.8 0l-96 32A6 6 0 0 0 26 64v80a6 6 0 0 0 12 0V72.32l38.68 12.9A62 62 0 0 0 99 174.75c-19.25 6.53-36 19.59-48 38a6 6 0 0 0 10 6.53C76.47 195.59 100.88 182 128 182s51.53 13.59 67 37.28a6 6 0 0 0 10-6.56c-12-18.38-28.73-31.44-48-38a62 62 0 0 0 22.27-89.53l46.63-15.5a6 6 0 0 0 0-11.38M178 120a50 50 0 1 1-89.37-30.8l37.47 12.49a6 6 0 0 0 3.8 0l37.47-12.49A49.78 49.78 0 0 1 178 120m-50-30.32L51 64l77-25.68L205 64Z"/></svg>
-                            <span>Students</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getTeam' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="#fff" d="M6.002 4a1.998 1.998 0 1 1 3.996 0a1.998 1.998 0 0 1-3.996 0M8 3.002a.998.998 0 1 0 0 1.996a.998.998 0 0 0 0-1.996M11 4.5a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0m1.5-.5a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m-9-1a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3M3 4.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0M4.268 7A2 2 0 0 0 4 8H2v2.5a1.5 1.5 0 0 0 2.096 1.377c.074.331.19.647.34.942A2.5 2.5 0 0 1 1 10.5V8a1 1 0 0 1 1-1zm7.296 5.819A2.5 2.5 0 0 0 15 10.5V8a1 1 0 0 0-1-1h-2.268c.17.294.268.635.268 1h2v2.5a1.5 1.5 0 0 1-2.096 1.377q-.114.498-.34.942M6 6.999a1 1 0 0 0-1 1V11a3 3 0 0 0 6 0V8a1 1 0 0 0-1-1zm0 1h4V11a2 2 0 0 1-4 0z"/></svg>
-                            <span>Team</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getProduct' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#fff" d="M4.423 5.5v-1h15.154v1zm.077 14v-6H3.27v-1l1.153-5h15.154l1.154 5v1H19.5v6h-1v-6h-5v6zm1-1h7v-5h-7z"/></svg>
-                            <span>Store</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getProjects' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 14 14"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M8.276 3.979a1 1 0 0 0-.943-.667H6.56a.893.893 0 0 0-.19 1.765l1.178.257a1 1 0 0 1-.214 1.978h-.666a1 1 0 0 1-.943-.667M7 3.312v-1m0 6v-1"/><path d="M11.5 5.031a4.5 4.5 0 1 0-6.5 4v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1.5a4.48 4.48 0 0 0 2.5-4M5 13.5h4"/></g></svg>
-                            <span>Projects</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getBlog' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#fff" d="M16 3a2 2 0 0 1 1.995 1.85L18 5v5h1.5a1.5 1.5 0 0 1 1.493 1.356L21 11.5V19a3 3 0 0 1-2.824 2.995L18 22H5a2 2 0 0 1-1.995-1.85L3 20V5a2 2 0 0 1 1.85-1.995L5 3zm3 9h-1v8a1 1 0 0 0 1-1zm-3-7H5v15h11zm-5 8a1 1 0 0 1 .117 1.993L11 15H8a1 1 0 0 1-.117-1.993L8 13zm2-5a1 1 0 1 1 0 2H8a1 1 0 0 1 0-2z"/></g></svg>
-                            <span>Blog</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <i class="fa fa-thumb-tack"></i>
-                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 32 32"><path fill="#fff" d="M16 3C10.486 3 6 7.486 6 13s4.486 10 10 10s10-4.486 10-10S21.514 3 16 3m0 2c4.411 0 8 3.589 8 8s-3.589 8-8 8s-8-3.589-8-8s3.589-8 8-8m-1 2v1.19a3.076 3.076 0 0 0-1.674 1.464a2.918 2.918 0 0 0-.264 1.945a3.061 3.061 0 0 0 .822 1.516c.273.273.598.494.956.647c.358.153.75.238 1.16.238c.142 0 .276.027.396.076a.961.961 0 0 1 .528.528c.049.12.076.254.076.396a.976.976 0 0 1-.604.924c-.12.049-.254.076-.396.076c-.143 0-.276-.027-.396-.076a.961.961 0 0 1-.317-.211A.996.996 0 0 1 15 15h-2a2.944 2.944 0 0 0 .857 2.076a3.062 3.062 0 0 0 1.143.735V19h2v-1.19a3.024 3.024 0 0 0 1.96-2.335a2.944 2.944 0 0 0-.478-2.145a3.061 3.061 0 0 0-.812-.812a3.027 3.027 0 0 0-1.07-.456A2.94 2.94 0 0 0 16 12c-.143 0-.276-.027-.396-.076a.961.961 0 0 1-.528-.528A1.044 1.044 0 0 1 15 11c0-.143.027-.276.076-.396a.961.961 0 0 1 .528-.528c.12-.049.254-.076.396-.076c.57 0 1 .43 1 1h2a2.944 2.944 0 0 0-.148-.924A3.046 3.046 0 0 0 17 8.19V7zM2 21v8h2v-6h5.38a12.093 12.093 0 0 1-2.3-2zm22.92 0a12.093 12.093 0 0 1-2.3 2H28v6h2v-8zM6 25v2h20v-2z"/></svg>
-                            <span>Donations</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{% url 'backend:gifts' %}">Gifts</a></li>
-                            <li><a href="{% url 'backend:donate' %}">Donate</a></li>
-                            <li><a href="{% url 'backend:donateToStudent' %}">Donate To Student</a></li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:visitingRequest' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="#fff" d="M16 9h5.5L16 3.5zM7 2h10l6 6v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2M3 6v16h18v2H3a2 2 0 0 1-2-2V6z"/></svg>
-                            <span>Visiting Requests</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="#fff" d="M10.871 1.015a.5.5 0 0 1 .364.606l-.25 1a.5.5 0 1 1-.97-.242l.25-1a.5.5 0 0 1 .606-.364m2.983 1.132a.5.5 0 0 1 0 .707l-1 1a.5.5 0 1 1-.707-.707l1-1a.5.5 0 0 1 .707 0m-7.57 10.886a2 2 0 0 0 3.63-1.605zm-.92.406l-.998.442a1.4 1.4 0 0 1-1.555-.29l-.4-.399a1.39 1.39 0 0 1-.293-1.548l3.871-8.808a1.4 1.4 0 0 1 2.269-.427l5.332 5.316a1.395 1.395 0 0 1-.422 2.264l-2.335 1.032a3 3 0 0 1-5.469 2.418M14.5 5h-1a.5.5 0 0 0 0 1h1a.5.5 0 1 0 0-1M6.905 3.238l-3.872 8.808a.39.39 0 0 0 .083.438l.401.4a.4.4 0 0 0 .444.082l8.802-3.892a.395.395 0 0 0 .12-.64l-5.33-5.318a.4.4 0 0 0-.647.12"/></svg>
-                            <span>Campaign</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="{% url 'backend:campaign' %}">Campaign</a>
-                                <li><a href="{% url 'backend:fundraising' %}">Fundraising</a></li>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:volunteers' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="#fff" d="m15.692 12.385l-3.765-3.608q-.66-.635-1.101-1.42t-.441-1.71q0-1.103.772-1.875Q11.928 3 13.03 3q.819 0 1.49.443t1.171 1.076q.5-.633 1.172-1.076q.67-.443 1.49-.443q1.103 0 1.874.772T21 5.646q0 .926-.438 1.711q-.439.785-1.099 1.42zm0-1.377l2.995-2.867q.532-.514.923-1.138q.39-.624.39-1.357q0-.684-.48-1.165T18.353 4q-.6 0-1.076.359q-.476.358-.855.845l-.73.915l-.731-.915q-.38-.487-.855-.845Q13.63 4 13.03 4q-.685 0-1.165.48q-.481.482-.481 1.166q0 .733.39 1.357t.923 1.138zm-9.288 7.646l7.565 2.207l5.989-1.85q-.03-.455-.273-.656t-.55-.201H14.39q-.634 0-1.15-.05t-1.055-.238l-2.19-.718l.338-.988l2.025.732q.482.183 1.096.22q.613.036 1.68.042q0-.468-.172-.756t-.493-.402l-5.754-2.112q-.057-.019-.106-.028t-.105-.01h-2.1zm-4 2.346v-8.154H8.48q.14 0 .288.032t.275.074l5.779 2.117q.537.204.924.733q.388.529.388 1.352h3q.904 0 1.384.565q.481.566.481 1.435v.615l-6.98 2.154l-7.616-2.22V21zm1-1h2v-6.154h-2zM15.692 6.12"/></svg>
-                            <span>Volunteers</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:resources' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 20 20"><path fill="#fff" d="M17.18 2.927a2.975 2.975 0 0 0-4.26-.054l-9.375 9.375a2.44 2.44 0 0 0-.655 1.194l-.878 3.95a.5.5 0 0 0 .597.597l3.926-.873a2.5 2.5 0 0 0 1.234-.678L8.207 16a5.5 5.5 0 0 1-.2-1.214l-.945.945a1.5 1.5 0 0 1-.744.409l-3.16.702l.708-3.183c.059-.267.193-.511.387-.704l7.996-7.996l2.793 2.792l-1.256 1.256q.629.034 1.214.2l2.127-2.127a2.975 2.975 0 0 0 .052-4.153m-3.553.653a1.975 1.975 0 0 1 2.793 2.793l-.671.671l-2.793-2.792zm-2.56 7.863a2 2 0 0 1-1.431 2.478l-.461.118a4.7 4.7 0 0 0 .01 1.016l.35.083a2 2 0 0 1 1.456 2.519l-.127.422q.387.307.835.518l.325-.344a2 2 0 0 1 2.91.002l.337.358q.44-.203.822-.498l-.156-.556a2 2 0 0 1 1.43-2.479l.46-.117a4.7 4.7 0 0 0-.01-1.017l-.348-.082a2 2 0 0 1-1.456-2.52l.126-.421a4.3 4.3 0 0 0-.835-.519l-.325.344a2 2 0 0 1-2.91-.001l-.337-.358a4.3 4.3 0 0 0-.821.497zM13.5 15.5a1 1 0 1 1 0-2a1 1 0 0 1 0 2"/></svg>
-                            <span>Resources</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:policies' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M20 12V5.749a.6.6 0 0 0-.176-.425l-3.148-3.148A.6.6 0 0 0 16.252 2H4.6a.6.6 0 0 0-.6.6v18.8a.6.6 0 0 0 .6.6H13M8 10h8M8 6h4m-4 8h3"/><path d="M16 2v3.4a.6.6 0 0 0 .6.6H20m-.008 9.125l2.556.649c.266.068.453.31.445.584C22.821 22.116 19.5 23 19.5 23s-3.321-.884-3.493-6.642a.59.59 0 0 1 .445-.584l2.556-.649c.323-.082.661-.082.984 0"/></g></svg>
-                            <span>Policies</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:settings' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" d="M3.661 10.64c.473.296.777.802.777 1.36s-.304 1.064-.777 1.36c-.321.203-.529.364-.676.556a2 2 0 0 0-.396 1.479c.052.394.285.798.75 1.605c.467.807.7 1.21 1.015 1.453a2 2 0 0 0 1.479.396c.24-.032.483-.13.819-.308a1.617 1.617 0 0 1 1.567.008c.483.28.77.795.79 1.353c.014.38.05.64.143.863a2 2 0 0 0 1.083 1.083C10.602 22 11.068 22 12 22c.932 0 1.398 0 1.765-.152a2 2 0 0 0 1.083-1.083c.092-.223.129-.483.143-.863c.02-.558.307-1.074.79-1.353a1.617 1.617 0 0 1 1.567-.008c.336.178.58.276.82.308a2 2 0 0 0 1.478-.396c.315-.242.548-.646 1.014-1.453c.208-.36.369-.639.489-.873m-.81-2.766a1.617 1.617 0 0 1-.777-1.36c0-.559.304-1.065.777-1.362c.321-.202.528-.363.676-.555a2 2 0 0 0 .396-1.479c-.052-.394-.285-.798-.75-1.605c-.467-.807-.7-1.21-1.015-1.453a2 2 0 0 0-1.479-.396c-.24.032-.483.13-.82.308a1.617 1.617 0 0 1-1.566-.008a1.617 1.617 0 0 1-.79-1.353c-.014-.38-.05-.64-.143-.863a2 2 0 0 0-1.083-1.083C13.398 2 12.932 2 12 2c-.932 0-1.398 0-1.765.152a2 2 0 0 0-1.083 1.083c-.092.223-.129.483-.143.863a1.617 1.617 0 0 1-.79 1.353a1.617 1.617 0 0 1-1.567.008c-.336-.178-.58-.276-.82-.308a2 2 0 0 0-1.478.396C4.04 5.79 3.806 6.193 3.34 7c-.208.36-.369.639-.489.873"/></g></svg>
-                            <span>Settings</span>
-                        </a>
-                    </li>
+                    {% if user.is_authenticated and user.is_staff %}
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:dashboard' %}">
+                                <svg class="stroke-icon">
+                                    <use href="{% static 'backend/svg/icon-sprite.svg#stroke-home' %}"></use>
+                                </svg>
+                                <svg class="fill-icon">
+                                    <use href="{% static 'backend/svg/icon-sprite.svg#fill-home' %}"></use>
+                                </svg><span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getStudents' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 256 256"><path fill="#fff" d="m225.9 58.31l-96-32a6 6 0 0 0-3.8 0l-96 32A6 6 0 0 0 26 64v80a6 6 0 0 0 12 0V72.32l38.68 12.9A62 62 0 0 0 99 174.75c-19.25 6.53-36 19.59-48 38a6 6 0 0 0 10 6.53C76.47 195.59 100.88 182 128 182s51.53 13.59 67 37.28a6 6 0 0 0 10-6.56c-12-18.38-28.73-31.44-48-38a62 62 0 0 0 22.27-89.53l46.63-15.5a6 6 0 0 0 0-11.38M178 120a50 50 0 1 1-89.37-30.8l37.47 12.49a6 6 0 0 0 3.8 0l37.47-12.49A49.78 49.78 0 0 1 178 120m-50-30.32L51 64l77-25.68L205 64Z"/></svg>
+                                <span>Students</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getTeam' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="#fff" d="M6.002 4a1.998 1.998 0 1 1 3.996 0a1.998 1.998 0 0 1-3.996 0M8 3.002a.998.998 0 1 0 0 1.996a.998.998 0 0 0 0-1.996M11 4.5a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0m1.5-.5a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m-9-1a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3M3 4.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0M4.268 7A2 2 0 0 0 4 8H2v2.5a1.5 1.5 0 0 0 2.096 1.377c.074.331.19.647.34.942A2.5 2.5 0 0 1 1 10.5V8a1 1 0 0 1 1-1zm7.296 5.819A2.5 2.5 0 0 0 15 10.5V8a1 1 0 0 0-1-1h-2.268c.17.294.268.635.268 1h2v2.5a1.5 1.5 0 0 1-2.096 1.377q-.114.498-.34.942M6 6.999a1 1 0 0 0-1 1V11a3 3 0 0 0 6 0V8a1 1 0 0 0-1-1zm0 1h4V11a2 2 0 0 1-4 0z"/></svg>
+                                <span>Team</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getProduct' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#fff" d="M4.423 5.5v-1h15.154v1zm.077 14v-6H3.27v-1l1.153-5h15.154l1.154 5v1H19.5v6h-1v-6h-5v6zm1-1h7v-5h-7z"/></svg>
+                                <span>Store</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getProjects' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 14 14"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M8.276 3.979a1 1 0 0 0-.943-.667H6.56a.893.893 0 0 0-.19 1.765l1.178.257a1 1 0 0 1-.214 1.978h-.666a1 1 0 0 1-.943-.667M7 3.312v-1m0 6v-1"/><path d="M11.5 5.031a4.5 4.5 0 1 0-6.5 4v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1.5a4.48 4.48 0 0 0 2.5-4M5 13.5h4"/></g></svg>
+                                <span>Projects</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:getBlog' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#fff" d="M16 3a2 2 0 0 1 1.995 1.85L18 5v5h1.5a1.5 1.5 0 0 1 1.493 1.356L21 11.5V19a3 3 0 0 1-2.824 2.995L18 22H5a2 2 0 0 1-1.995-1.85L3 20V5a2 2 0 0 1 1.85-1.995L5 3zm3 9h-1v8a1 1 0 0 0 1-1zm-3-7H5v15h11zm-5 8a1 1 0 0 1 .117 1.993L11 15H8a1 1 0 0 1-.117-1.993L8 13zm2-5a1 1 0 1 1 0 2H8a1 1 0 0 1 0-2z"/></g></svg>
+                                <span>Blog</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <i class="fa fa-thumb-tack"></i>
+                            <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 32 32"><path fill="#fff" d="M16 3C10.486 3 6 7.486 6 13s4.486 10 10 10s10-4.486 10-10S21.514 3 16 3m0 2c4.411 0 8 3.589 8 8s-3.589 8-8 8s-8-3.589-8-8s3.589-8 8-8m-1 2v1.19a3.076 3.076 0 0 0-1.674 1.464a2.918 2.918 0 0 0-.264 1.945a3.061 3.061 0 0 0 .822 1.516c.273.273.598.494.956.647c.358.153.75.238 1.16.238c.142 0 .276.027.396.076a.961.961 0 0 1 .528.528c.049.12.076.254.076.396a.976.976 0 0 1-.604.924c-.12.049-.254.076-.396.076c-.143 0-.276-.027-.396-.076a.961.961 0 0 1-.317-.211A.996.996 0 0 1 15 15h-2a2.944 2.944 0 0 0 .857 2.076a3.062 3.062 0 0 0 1.143.735V19h2v-1.19a3.024 3.024 0 0 0 1.96-2.335a2.944 2.944 0 0 0-.478-2.145a3.061 3.061 0 0 0-.812-.812a3.027 3.027 0 0 0-1.07-.456A2.94 2.94 0 0 0 16 12c-.143 0-.276-.027-.396-.076a.961.961 0 0 1-.528-.528A1.044 1.044 0 0 1 15 11c0-.143.027-.276.076-.396a.961.961 0 0 1 .528-.528c.12-.049.254-.076.396-.076c.57 0 1 .43 1 1h2a2.944 2.944 0 0 0-.148-.924A3.046 3.046 0 0 0 17 8.19V7zM2 21v8h2v-6h5.38a12.093 12.093 0 0 1-2.3-2zm22.92 0a12.093 12.093 0 0 1-2.3 2H28v6h2v-8zM6 25v2h20v-2z"/></svg>
+                                <span>Donations</span>
+                            </a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="{% url 'backend:gifts' %}">Gifts</a></li>
+                                <li><a href="{% url 'backend:donate' %}">Donate</a></li>
+                                <li><a href="{% url 'backend:donateToStudent' %}">Donate To Student</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:visitingRequest' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="#fff" d="M16 9h5.5L16 3.5zM7 2h10l6 6v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2M3 6v16h18v2H3a2 2 0 0 1-2-2V6z"/></svg>
+                                <span>Visiting Requests</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="#fff" d="M10.871 1.015a.5.5 0 0 1 .364.606l-.25 1a.5.5 0 1 1-.97-.242l.25-1a.5.5 0 0 1 .606-.364m2.983 1.132a.5.5 0 0 1 0 .707l-1 1a.5.5 0 1 1-.707-.707l1-1a.5.5 0 0 1 .707 0m-7.57 10.886a2 2 0 0 0 3.63-1.605zm-.92.406l-.998.442a1.4 1.4 0 0 1-1.555-.29l-.4-.399a1.39 1.39 0 0 1-.293-1.548l3.871-8.808a1.4 1.4 0 0 1 2.269-.427l5.332 5.316a1.395 1.395 0 0 1-.422 2.264l-2.335 1.032a3 3 0 0 1-5.469 2.418M14.5 5h-1a.5.5 0 0 0 0 1h1a.5.5 0 1 0 0-1M6.905 3.238l-3.872 8.808a.39.39 0 0 0 .083.438l.401.4a.4.4 0 0 0 .444.082l8.802-3.892a.395.395 0 0 0 .12-.64l-5.33-5.318a.4.4 0 0 0-.647.12"/></svg>
+                                <span>Campaign</span>
+                            </a>
+                            <ul class="sidebar-submenu">
+                                <li>
+                                    <a href="{% url 'backend:campaign' %}">Campaign</a>
+                                    <li><a href="{% url 'backend:fundraising' %}">Fundraising</a></li>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:volunteers' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="#fff" d="m15.692 12.385l-3.765-3.608q-.66-.635-1.101-1.42t-.441-1.71q0-1.103.772-1.875Q11.928 3 13.03 3q.819 0 1.49.443t1.171 1.076q.5-.633 1.172-1.076q.67-.443 1.49-.443q1.103 0 1.874.772T21 5.646q0 .926-.438 1.711q-.439.785-1.099 1.42zm0-1.377l2.995-2.867q.532-.514.923-1.138q.39-.624.39-1.357q0-.684-.48-1.165T18.353 4q-.6 0-1.076.359q-.476.358-.855.845l-.73.915l-.731-.915q-.38-.487-.855-.845Q13.63 4 13.03 4q-.685 0-1.165.48q-.481.482-.481 1.166q0 .733.39 1.357t.923 1.138zm-9.288 7.646l7.565 2.207l5.989-1.85q-.03-.455-.273-.656t-.55-.201H14.39q-.634 0-1.15-.05t-1.055-.238l-2.19-.718l.338-.988l2.025.732q.482.183 1.096.22q.613.036 1.68.042q0-.468-.172-.756t-.493-.402l-5.754-2.112q-.057-.019-.106-.028t-.105-.01h-2.1zm-4 2.346v-8.154H8.48q.14 0 .288.032t.275.074l5.779 2.117q.537.204.924.733q.388.529.388 1.352h3q.904 0 1.384.565q.481.566.481 1.435v.615l-6.98 2.154l-7.616-2.22V21zm1-1h2v-6.154h-2zM15.692 6.12"/></svg>
+                                <span>Volunteers</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:resources' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 20 20"><path fill="#fff" d="M17.18 2.927a2.975 2.975 0 0 0-4.26-.054l-9.375 9.375a2.44 2.44 0 0 0-.655 1.194l-.878 3.95a.5.5 0 0 0 .597.597l3.926-.873a2.5 2.5 0 0 0 1.234-.678L8.207 16a5.5 5.5 0 0 1-.2-1.214l-.945.945a1.5 1.5 0 0 1-.744.409l-3.16.702l.708-3.183c.059-.267.193-.511.387-.704l7.996-7.996l2.793 2.792l-1.256 1.256q.629.034 1.214.2l2.127-2.127a2.975 2.975 0 0 0 .052-4.153m-3.553.653a1.975 1.975 0 0 1 2.793 2.793l-.671.671l-2.793-2.792zm-2.56 7.863a2 2 0 0 1-1.431 2.478l-.461.118a4.7 4.7 0 0 0 .01 1.016l.35.083a2 2 0 0 1 1.456 2.519l-.127.422q.387.307.835.518l.325-.344a2 2 0 0 1 2.91.002l.337.358q.44-.203.822-.498l-.156-.556a2 2 0 0 1 1.43-2.479l.46-.117a4.7 4.7 0 0 0-.01-1.017l-.348-.082a2 2 0 0 1-1.456-2.52l.126-.421a4.3 4.3 0 0 0-.835-.519l-.325.344a2 2 0 0 1-2.91-.001l-.337-.358a4.3 4.3 0 0 0-.821.497zM13.5 15.5a1 1 0 1 1 0-2a1 1 0 0 1 0 2"/></svg>
+                                <span>Resources</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:policies' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M20 12V5.749a.6.6 0 0 0-.176-.425l-3.148-3.148A.6.6 0 0 0 16.252 2H4.6a.6.6 0 0 0-.6.6v18.8a.6.6 0 0 0 .6.6H13M8 10h8M8 6h4m-4 8h3"/><path d="M16 2v3.4a.6.6 0 0 0 .6.6H20m-.008 9.125l2.556.649c.266.068.453.31.445.584C22.821 22.116 19.5 23 19.5 23s-3.321-.884-3.493-6.642a.59.59 0 0 1 .445-.584l2.556-.649c.323-.082.661-.082.984 0"/></g></svg>
+                                <span>Policies</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'backend:settings' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" d="M3.661 10.64c.473.296.777.802.777 1.36s-.304 1.064-.777 1.36c-.321.203-.529.364-.676.556a2 2 0 0 0-.396 1.479c.052.394.285.798.75 1.605c.467.807.7 1.21 1.015 1.453a2 2 0 0 0 1.479.396c.24-.032.483-.13.819-.308a1.617 1.617 0 0 1 1.567.008c.483.28.77.795.79 1.353c.014.38.05.64.143.863a2 2 0 0 0 1.083 1.083C10.602 22 11.068 22 12 22c.932 0 1.398 0 1.765-.152a2 2 0 0 0 1.083-1.083c.092-.223.129-.483.143-.863c.02-.558.307-1.074.79-1.353a1.617 1.617 0 0 1 1.567-.008c.336.178.58.276.82.308a2 2 0 0 0 1.478-.396c.315-.242.548-.646 1.014-1.453c.208-.36.369-.639.489-.873m-.81-2.766a1.617 1.617 0 0 1-.777-1.36c0-.559.304-1.065.777-1.362c.321-.202.528-.363.676-.555a2 2 0 0 0 .396-1.479c-.052-.394-.285-.798-.75-1.605c-.467-.807-.7-1.21-1.015-1.453a2 2 0 0 0-1.479-.396c-.24.032-.483.13-.82.308a1.617 1.617 0 0 1-1.566-.008a1.617 1.617 0 0 1-.79-1.353c-.014-.38-.05-.64-.143-.863a2 2 0 0 0-1.083-1.083C13.398 2 12.932 2 12 2c-.932 0-1.398 0-1.765.152a2 2 0 0 0-1.083 1.083c-.092.223-.129.483-.143.863a1.617 1.617 0 0 1-.79 1.353a1.617 1.617 0 0 1-1.567.008c-.336-.178-.58-.276-.82-.308a2 2 0 0 0-1.478.396C4.04 5.79 3.806 6.193 3.34 7c-.208.36-.369.639-.489.873"/></g></svg>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{% url 'sponsor:dashboard' %}">
+                                <svg class="stroke-icon">
+                                    <use href="{% static 'backend/svg/icon-sprite.svg#stroke-home' %}"></use>
+                                </svg>
+                                <svg class="fill-icon">
+                                    <use href="{% static 'backend/svg/icon-sprite.svg#fill-home' %}"></use>
+                                </svg><span>Dashboard</span>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
