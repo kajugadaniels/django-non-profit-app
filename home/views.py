@@ -26,30 +26,8 @@ def get_logos():
     }
     return logos
 
-def user_register(request):
-    if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            authenticated_user = authenticate(request, username=user.email, password=form.cleaned_data['password1'])
-            if authenticated_user is not None:
-                login(request, authenticated_user)
-                messages.success(request, 'User registered and logged in successfully.')
-                return redirect('frontend:login')
-            else:
-                messages.error(request, 'User registration failed. Please try again.')
-        else:
-            messages.error(request, 'User registration failed. Please check your input.')
-    else:
-        form = UserRegistrationForm()
-    
-    context = {
-        'form': form
-    }
-    
-    return render(request, 'frontend/auth/account.html', context)
-
 def user_login(request):
+    logos = get_logos()
     if request.method == 'POST':
         form = MemberLoginForm(request.POST)
         if form.is_valid():
@@ -70,10 +48,46 @@ def user_login(request):
         form = MemberLoginForm()
 
     context = {
+        **logos,
         'form': form
     }
 
     return render(request, 'frontend/auth/account.html', context)
+
+def user_register(request):
+    logos = get_logos()
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            authenticated_user = authenticate(request, username=user.email, password=form.cleaned_data['password1'])
+            if authenticated_user is not None:
+                login(request, authenticated_user)
+                messages.success(request, 'User registered and logged in successfully.')
+                return redirect('frontend:login')
+            else:
+                messages.error(request, 'User registration failed. Please try again.')
+        else:
+            messages.error(request, 'User registration failed. Please check your input.')
+    else:
+        form = UserRegistrationForm()
+    
+    context = {
+        **logos,
+        'form': form
+    }
+    
+    return render(request, 'frontend/auth/account.html', context)
+
+def logout_user(request):
+    logout(request)
+    message = 'You have been logged out.'
+    
+    context = {
+        'message': message
+    }
+
+    return redirect('frontend:login')
 
 def dashboard(request):
     pass

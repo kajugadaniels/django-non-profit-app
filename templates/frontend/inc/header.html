@@ -98,7 +98,7 @@
                 <div class="header-icon"> 
                     <div class="header-button">
                         {% if user.is_authenticated %}
-                            <a href="#" class="btn border-1 btn-transparent-light-gray btn-medium left-icon btn-switch-text">
+                            <a href="{% url 'frontend:logout' %}" class="btn border-1 btn-transparent-light-gray btn-medium left-icon btn-switch-text">
                                 <span>
                                     <span style="margin-right: 10px;">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 8 8"><path fill="currentColor" d="M3 0v1h4v5H3v1h5V0zm1 2v1H0v1h4v1l2-1.5z"/></svg>
