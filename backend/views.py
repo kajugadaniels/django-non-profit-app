@@ -393,7 +393,7 @@ def donate(request):
 
 @login_required
 def donateToStudent(request):
-    donations = StudentDonation.objects.all()
+    donations = StudentDonationRecord.objects.all()
     
     context = {
         'donations': donations

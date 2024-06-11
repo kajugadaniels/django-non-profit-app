@@ -65,14 +65,14 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                                 donateGift.productid= product.id
                                 donateGift.save()
                             else:
-                                donation = StudentDonation()
+                                donation = StudentDonationRecord()
                                 donation.amount = amount
                                 donation.email = email
                                 donation.donatedBy = fullname
                                 donation.paymentMode = interval
                                 donation.donationId = payment.id
                                 donation.productId = productId,
-                                donation.beneficiary= student
+                                donation.beneficiaryName= student
                                 donation.save()
                         else: 
                             if gift is None:
