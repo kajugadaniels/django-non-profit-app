@@ -41,7 +41,7 @@ def user_logout(request):
 def dashboard(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
-        return redirect('frontend:home')
+        return redirect('sponsor:dashboard')
 
     getStudents = Student.objects.all().order_by('created_at')[:3]
     getBlog = Blog.objects.all().order_by('created_at')[:1]
@@ -70,6 +70,9 @@ def dashboard(request):
 
 @login_required
 def getStudents(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     students = Student.objects.all()
     
     context = {
@@ -80,6 +83,9 @@ def getStudents(request):
 
 @login_required
 def addStudent(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         form = StudentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -99,6 +105,9 @@ def addStudent(request):
 
 @login_required
 def editStudent(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     student = get_object_or_404(Student, slug=slug)
 
     if request.method == 'POST':
@@ -121,6 +130,9 @@ def editStudent(request, slug):
 
 @login_required
 def deleteStudent(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         student = get_object_or_404(Student, slug=slug)
         student.delete()
@@ -132,6 +144,9 @@ def deleteStudent(request, slug):
 
 @login_required
 def getTeam(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     team = Team.objects.all()
     
     context = {
@@ -142,6 +157,9 @@ def getTeam(request):
 
 @login_required
 def addTeam(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         form = TeamForm(request.POST, request.FILES)
         if form.is_valid():
@@ -161,6 +179,9 @@ def addTeam(request):
 
 @login_required
 def editTeam(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     person = get_object_or_404(Team, slug=slug)
 
     if request.method == 'POST':
@@ -183,6 +204,9 @@ def editTeam(request, slug):
 
 @login_required
 def deleteTeam(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         team = get_object_or_404(Team, slug=slug)
         team.delete()
@@ -194,6 +218,9 @@ def deleteTeam(request, slug):
 
 @login_required
 def getProduct(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     products = Product.objects.all()
     
     context = {
@@ -204,6 +231,9 @@ def getProduct(request):
 
 @login_required
 def addProduct(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -223,6 +253,9 @@ def addProduct(request):
 
 @login_required
 def editProduct(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     product = get_object_or_404(Product, slug=slug)
 
     if request.method == 'POST':
@@ -245,6 +278,9 @@ def editProduct(request, slug):
 
 @login_required
 def deleteProduct(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         product = get_object_or_404(Product, slug=slug)
         product.delete()
@@ -256,6 +292,9 @@ def deleteProduct(request, slug):
 
 @login_required
 def getProjects(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     projects = Project.objects.all()
     
     context = {
@@ -266,6 +305,9 @@ def getProjects(request):
 
 @login_required
 def addProject(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
@@ -285,6 +327,9 @@ def addProject(request):
 
 @login_required
 def editProject(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     project = get_object_or_404(Project, slug=slug)
 
     if request.method == 'POST':
@@ -306,6 +351,9 @@ def editProject(request, slug):
 
 @login_required
 def deleteProject(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         project = get_object_or_404(Project, slug=slug)
         project.delete()
@@ -317,6 +365,9 @@ def deleteProject(request, slug):
 
 @login_required
 def getBlog(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     blogs = Blog.objects.all()
 
     context = {
@@ -327,6 +378,9 @@ def getBlog(request):
 
 @login_required
 def addBlog(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
@@ -346,6 +400,9 @@ def addBlog(request):
 
 @login_required
 def editBlog(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     blog = get_object_or_404(Blog, slug=slug)
 
     if request.method == 'POST':
@@ -368,6 +425,9 @@ def editBlog(request, slug):
 
 @csrf_exempt
 def upload_image(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST' and request.FILES['image']:
         image = request.FILES['image']
         path = default_storage.save(f'blog/quill_images/{image.name}', image)
@@ -376,6 +436,9 @@ def upload_image(request):
 
 @login_required
 def deleteBlog(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         blog = get_object_or_404(Blog, slug=slug)
         blog.delete()
@@ -387,6 +450,9 @@ def deleteBlog(request, slug):
 
 @login_required
 def donate(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     donate = Donate.objects.all()
     
     context = {
@@ -397,6 +463,9 @@ def donate(request):
 
 @login_required
 def donateToStudent(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     donations = StudentDonationRecord.objects.all()
     
     context = {
@@ -407,6 +476,9 @@ def donateToStudent(request):
 
 @login_required
 def gifts(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     gifts = DonateGifts.objects.all()
     
     context = {
@@ -417,6 +489,9 @@ def gifts(request):
 
 @login_required
 def visitingRequest(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     requests = VisitingRequest.objects.all().order_by('-created_at')
 
     context = {
@@ -427,6 +502,9 @@ def visitingRequest(request):
 
 @login_required
 def visitDetails(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     visit_request = get_object_or_404(VisitingRequest, slug=slug)
 
     context = {
@@ -437,6 +515,9 @@ def visitDetails(request, slug):
 
 @login_required
 def updateStatus(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     visit_request = VisitingRequest.objects.get(slug=slug)
     visit_request.status = not visit_request.status
     visit_request.save()
@@ -445,6 +526,9 @@ def updateStatus(request, slug):
 
 @login_required
 def campaign(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     campaigns = Campaign.objects.all()
 
     context = {
@@ -455,6 +539,9 @@ def campaign(request):
 
 @login_required
 def addCampaign(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         form = CampaignForm(request.POST, request.FILES)
         if form.is_valid():
@@ -475,6 +562,9 @@ def addCampaign(request):
 
 @login_required
 def editCampaign(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     campaign = get_object_or_404(Campaign, slug=slug)
 
     if request.method == 'POST':
@@ -497,6 +587,9 @@ def editCampaign(request, slug):
 
 @login_required
 def deleteCampaign(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         campaign = get_object_or_404(Campaign, slug=slug)
         campaign.delete()
@@ -506,6 +599,9 @@ def deleteCampaign(request, slug):
 
 @login_required
 def fundraising(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     fundraising = Fundraising.objects.all()
 
     context = {
@@ -516,6 +612,9 @@ def fundraising(request):
 
 @login_required
 def volunteers(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     volunteers = Volunteer.objects.all().order_by('-created_at')
 
     context = {
@@ -526,6 +625,9 @@ def volunteers(request):
 
 @login_required
 def volunteerDetails(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     volunteer = get_object_or_404(Volunteer, slug=slug)
 
     context = {
@@ -536,6 +638,9 @@ def volunteerDetails(request, slug):
 
 @login_required
 def volunteersUpdateStatus(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     volunteer = Volunteer.objects.get(slug=slug)
     volunteer.status = not volunteer.status
     volunteer.save()
@@ -544,6 +649,9 @@ def volunteersUpdateStatus(request, slug):
 
 @login_required
 def resources(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     resources = Resource.objects.all().order_by('-created_at')
 
     context = {
@@ -554,6 +662,9 @@ def resources(request):
 
 @login_required
 def addResource(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         form = ResourceForm(request.POST, request.FILES)
         if form.is_valid():
@@ -573,6 +684,9 @@ def addResource(request):
 
 @login_required
 def editResource(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     resource = get_object_or_404(Resource, slug=slug)
 
     if request.method == 'POST':
@@ -595,6 +709,9 @@ def editResource(request, slug):
 
 @login_required
 def deleteResource(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         resource = get_object_or_404(Resource, slug=slug)
         resource.delete()
@@ -604,6 +721,9 @@ def deleteResource(request, slug):
 
 @login_required
 def setting(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         if 'slide_form' in request.POST:
             form = SlideForm(request.POST, request.FILES)
@@ -731,6 +851,9 @@ def delete_mission_vision_values(request, item_id):
 
 @login_required
 def policies(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     policies = Policy.objects.all()
     
     context = {
@@ -741,6 +864,9 @@ def policies(request):
 
 @login_required
 def addPolicy(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         form = PolicyForm(request.POST, request.FILES)
         if form.is_valid():
@@ -760,6 +886,9 @@ def addPolicy(request):
 
 @login_required
 def editPolicy(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     policy = get_object_or_404(Policy, slug=slug)
 
     if request.method == 'POST':
@@ -782,6 +911,9 @@ def editPolicy(request, slug):
 
 @login_required
 def deletePolicy(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
     if request.method == 'POST':
         policy = get_object_or_404(Policy, slug=slug)
         policy.delete()
