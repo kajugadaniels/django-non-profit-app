@@ -52,7 +52,7 @@ class Donate(models.Model):
     def __str__(self) -> str:
         return self.email
 
-class DonateToStudent(models.Model):
+class StudentDonation(models.Model):
     donationTitle= models.CharField(max_length=255)
     donationId = models.TextField(max_length=255)
     productId = models.TextField(max_length=255)
