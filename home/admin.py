@@ -30,8 +30,5 @@ admin.site.register(UserAccount, CustomUserAdmin)
 admin.site.register(Donate)
 admin.site.register(DonateToStudent)
 admin.site.register(Donation)
-<<<<<<< HEAD
 admin.site.register(DonateGifts)
-=======
 admin.site.register(DonateToBeneficiary)
->>>>>>> 0bb96b6d6011daec256c3add692103c77330e284
