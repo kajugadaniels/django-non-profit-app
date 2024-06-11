@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.utils import timezone
 from backend.models import *
@@ -26,7 +27,27 @@ def get_logos():
     return logos
 
 def auth(request):
-    return render(request, 'frontend/auth/account.html')
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, 'User registered successfully.')
+            return redirect('frontend:auth')
+        else:
+            error_message = 'User registration failed. '
+            for field, errors in form.errors.items():
+                error_message += f"{field}: {', '.join(errors)}. "
+            messages.error(request, error_message.strip())
+            return redirect('frontend:auth')
+    else:
+        form = UserRegistrationForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'frontend/auth/account.html', context)
 
 def index(request):
     students = Student.objects.all().order_by('-created_at')[:6]
