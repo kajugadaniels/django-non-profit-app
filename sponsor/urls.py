@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('dashboard/', dashboard, name="dashboard"),
 
-    path('letters/', letter, name="letter"),
+    path('letters/', getLetters, name="getLetters"),
     path('write-letter/', writeLetter, name="writeLetter"),
     path('letter/<slug>/edit/', letterEdit, name="letterEdit"),
     path('letter/<slug>/delete/', letterDelete, name="letterDelete"),
