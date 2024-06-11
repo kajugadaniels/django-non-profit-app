@@ -63,7 +63,7 @@ def dashboard(request):
     return render(request, 'backend/sponsor/dashboard.html')
 
 @login_required
-def letter(request):
+def getLetters(request):
     letters = Letter.objects.filter(sender=request.user)
 
     context = {
@@ -74,7 +74,25 @@ def letter(request):
 
 @login_required
 def writeLetter(request):
-    pass
+    if request.method == 'POST':
+        form = LetterForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Letter created successfully!')
+            return redirect('sponsor:getLetters')
+        else:
+            error_message = 'Error creating a letter. '
+            for field, errors in form.errors.items():
+                error_message += f"{field}: {', '.join(errors)}. "
+            messages.error(request, error_message.strip())
+    else:
+        form = LetterForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/sponsor/letter/create.html', context)
 
 @login_required
 def letterEdit(request, slug):

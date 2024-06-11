@@ -1,10 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from home.models import *
-
-class UserLoginForm(forms.Form):
-    email = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Email Address"}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Password"}))
+from sponsor.models import *
 
 class UserRegistrationForm(UserCreationForm):
     user_type_choices = [
@@ -41,3 +38,18 @@ class MemberLoginForm(forms.Form):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'mb-20px bg-very-light-gray form-control required', 'placeholder': 'Enter your password'})
     )
+
+class LetterForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+        if user:
+            self.initial['sender'] = user.email
+
+    class Meta:
+        model = Letter
+        fields = ['sender', 'receiver', 'letter']
+        widgets = {
+            'receiver': forms.Select(attrs={'class': 'form-control'}),
+            'letter': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write your letter here...'}),
+        }
