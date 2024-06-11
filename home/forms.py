@@ -21,39 +21,30 @@ class UserLoginForm(forms.Form):
     email = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Email Address"}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Password"}))
 
-class DonateToStudentForm(forms.ModelForm):
+class UserRegistrationForm(UserCreationForm):
+    user_type_choices = [
+        ('user', 'User'),
+        ('admin', 'Admin'),
+    ]
+
+    user_type = forms.ChoiceField(
+        choices=user_type_choices,
+        initial='user',
+        widget=forms.HiddenInput(attrs={'class': 'form-select'})
+    )
+
     class Meta:
-        model = DonateToStudent
-        fields = [
-            'donationTitle',
-            'donationId',
-            'productId',
-            'amount',
-            'status',
-            'beneficiary',
-            'paymentMode',
-            'donatedBy',
-            'email',
-        ]
-
+        model = UserAccount
+        fields = ['firstname', 'lastname', 'email', 'phonenumber', 'user_type', 'password1', 'password2']
         widgets = {
-            'donationTitle': forms.HiddenInput(attrs={'class': 'form-control', 'placeholder': 'Donation Title'}),
-            'donationId': forms.HiddenInput(),
-            'productId': forms.HiddenInput(),
-            'amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Amount'}),
-            'status': forms.Select(attrs={'class': 'form-control', 'value': 'Pending'}),
-            'beneficiary': forms.HiddenInput(attrs={'class': 'form-control'}),
-            'paymentMode': forms.Select(attrs={'class': 'form-control'}),
-            'donatedBy': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Fullname'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+            'firstname': forms.TextInput(attrs={'class': 'mb-20px bg-very-light-gray form-control required', 'placeholder': 'Firstname'}),
+            'lastname': forms.TextInput(attrs={'class': 'mb-20px bg-very-light-gray form-control required', 'placeholder': 'Lastname'}),
+            'email': forms.EmailInput(attrs={'class': 'mb-20px bg-very-light-gray form-control required', 'placeholder': 'Email'}),
+            'phonenumber': forms.NumberInput(attrs={'class': 'mb-20px bg-very-light-gray form-control required', 'placeholder': 'Phone Number'}),
         }
 
-        labels = {
-            'donationTitle': 'Donation Title',
-            'amount': 'Amount',
-            'status': 'Status',
-            'beneficiary': 'Beneficiary',
-            'paymentMode': 'Payment Mode',
-            'donatedBy': 'Fullname',
-            'email': 'Email',
-        }
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if UserAccount.objects.filter(email=email).exists():
+            raise forms.ValidationError("A user with that email already exists.")
+        return email

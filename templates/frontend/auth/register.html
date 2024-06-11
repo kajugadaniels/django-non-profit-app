@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<div class="col-lg-5 col-md-10 offset-xl-1 offset-lg-1 col-md-10 contact-form-style-04 md-mb-50px" data-anime='{ "translateY": [0, 0], "opacity": [0,1], "duration": 600, "delay":150, "staggervalue": 150, "easing": "easeOutQuad" }'>
+    <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Create an account</span>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-lg-6">
+                <label class="text-dark-gray mb-10px fw-500">Firstname<span class="text-red">*</span></label>
+                {{ form.firstname }}
+                {% if form.firstname.errors %}
+                    <div class="text-danger">{{ form.firstname.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="col-lg-6">
+                <label class="text-dark-gray mb-10px fw-500">Lastname<span class="text-red">*</span></label>
+                {{ form.lastname }}
+                {% if form.lastname.errors %}
+                    <div class="text-danger">{{ form.lastname.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            <label class="text-dark-gray mb-10px fw-500">Email address<span class="text-red">*</span></label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="text-danger">{{ form.email.errors }}</div>
+            {% endif %}
+        </div>
+        <div>
+            <label class="text-dark-gray mb-10px fw-500">Password<span class="text-red">*</span></label>
+            <input class="mb-20px bg-very-light-gray form-control required" type="password" name="password1" placeholder="Enter your password" />
+            {% if form.password1.errors %}
+                <div class="text-danger">{{ form.password1.errors }}</div>
+            {% endif %}
+        </div>
+        <div>
+            <label class="text-dark-gray mb-10px fw-500">Confirm Password<span class="text-red">*</span></label>
+            <input class="mb-20px bg-very-light-gray form-control required" type="password" name="password2" placeholder="Password Confirmation" />
+            {% if form.password2.errors %}
+                <div class="text-danger">{{ form.password2.errors }}</div>
+            {% endif %}
+        </div>
+        {{ form.user_type }}
+        <button class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
+            <span>
+                <span class="btn-double-text" data-text="Register">Register</span>
+            </span>
+        </button>
+        <div class="form-results mt-20px d-none"></div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        {% if messages %}
+            {% for message in messages %}
+                Swal.fire({
+                    icon: '{% if message.tags == "error" %}error{% else %}success{% endif %}',
+                    title: '{{ message|escapejs }}'
+                });
+            {% endfor %}
+        {% endif %}
+    });
+</script

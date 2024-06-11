@@ -402,6 +402,16 @@ def donateToStudent(request):
     return render(request, 'backend/donate/donate-to-student.html', context)
 
 @login_required
+def gifts(request):
+    gifts = DonateGifts.objects.all()
+    
+    context = {
+        'gifts': gifts
+    }
+    
+    return render(request, 'backend/donate/gifts.html', context)
+
+@login_required
 def visitingRequest(request):
     requests = VisitingRequest.objects.all().order_by('-created_at')
 

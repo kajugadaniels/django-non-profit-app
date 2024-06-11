@@ -7,6 +7,8 @@ from django.contrib import admin
 app_name = 'frontend'
 
 urlpatterns = [
+   path('auth/', auth, name="auth"),
+
    path('', index, name="home"),
 
    path('about-rwanda/', aboutRwanda, name="aboutRwanda"),
