@@ -38,10 +38,10 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                {{ letter.sender }}
+                                                {{ letter.sender.firstname }} {{ letter.sender.lastname }}
                                             </td>
                                             <td>
-                                                {{ letter.receiver }}
+                                                {{ letter.receiver.name }}
                                             </td>
                                             <td>
                                                 {{ letter.letter|safe|truncatewords:14 }}

@@ -75,7 +75,7 @@ def getLetters(request):
 @login_required
 def writeLetter(request):
     if request.method == 'POST':
-        form = LetterForm(request.POST, request.FILES)
+        form = LetterForm(request.POST, request.FILES, user=request.user)
         if form.is_valid():
             form.save()
             messages.success(request, 'Letter created successfully!')
@@ -86,8 +86,8 @@ def writeLetter(request):
                 error_message += f"{field}: {', '.join(errors)}. "
             messages.error(request, error_message.strip())
     else:
-        form = LetterForm()
-        
+        form = LetterForm(user=request.user)
+
     context = {
         'form': form
     }
