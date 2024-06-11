@@ -122,6 +122,12 @@ class Blog(models.Model):
         return self.title
 
 class Project(models.Model):
+    CATEGORY_CHOICES = [
+        ('Special Projects', 'Special Projects'),
+        ('Regular Projects', 'Regular Projects'),
+        ('Normal Projects', 'Normal Projects'),
+    ]
+
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
     image = ProcessedImageField(
@@ -130,8 +136,9 @@ class Project(models.Model):
         format='JPEG',
         options={'quality': 90},
     )
+    target = models.CharField(max_length=255)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     description = models.TextField()
-    # description = QuillField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 

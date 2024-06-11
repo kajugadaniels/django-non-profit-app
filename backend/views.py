@@ -423,17 +423,6 @@ def editBlog(request, slug):
 
     return render(request, 'backend/blog/edit.html', context)
 
-@csrf_exempt
-def upload_image(request):
-    if not request.user.is_staff:
-        messages.error(request, 'You do not have permission to access this page.')
-        return redirect('sponsor:dashboard')
-    if request.method == 'POST' and request.FILES['image']:
-        image = request.FILES['image']
-        path = default_storage.save(f'blog/quill_images/{image.name}', image)
-        return JsonResponse({'location': f'{settings.MEDIA_URL}{path}'})
-    return JsonResponse({'error': 'Invalid request'}, status=400)
-
 @login_required
 def deleteBlog(request, slug):
     if not request.user.is_staff:
@@ -445,6 +434,14 @@ def deleteBlog(request, slug):
         messages.success(request, 'Blog deleted successfully!')
         
     return redirect('backend:getBlog')
+
+@csrf_exempt
+def upload_image(request):
+    if request.method == 'POST' and request.FILES['image']:
+        image = request.FILES['image']
+        path = default_storage.save(f'quill_images/{image.name}', image)
+        return JsonResponse({'location': f'{settings.MEDIA_URL}{path}'})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
 
 # Donate Section
 

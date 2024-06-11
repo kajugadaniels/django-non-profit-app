@@ -23,7 +23,8 @@
                                         </div>
                                     </th>
                                     <th> <span class="f-light f-w-600">Title</span></th>
-                                    <th> <span class="f-light f-w-600">Description</span></th>
+                                    <th> <span class="f-light f-w-600">Target</span></th>
+                                    <th> <span class="f-light f-w-600">Category</span></th>
                                     <th> <span class="f-light f-w-600">Action</span></th>
                                     </tr>
                                 </thead>
@@ -46,7 +47,12 @@
                                             </td>
                                             <td>
                                                 <p>
-                                                    {{ project.description|safe|truncatewords:14 }}
+                                                    ${{ project.target }}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    {{ project.category }}
                                                 </p>
                                             </td>
                                             <td> 

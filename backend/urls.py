@@ -35,8 +35,9 @@ urlpatterns = [
    path('blog/', getBlog, name='getBlog'),
    path('blog/create', addBlog, name='addBlog'),
    path('blog/<slug>', editBlog, name='editBlog'),
-   path('upload_image/', upload_image, name='upload_image'),
    path('blog/<slug>/delete/', deleteBlog, name='deleteBlog'),
+
+   path('upload_image/', upload_image, name='upload_image'),
 
    path('donate/', donate, name='donate'),
    path('donate-to-student', donateToStudent, name='donateToStudent'),
@@ -76,6 +77,6 @@ urlpatterns = [
    path('settings/delete-mission-vision-values/<int:item_id>/', delete_mission_vision_values, name='delete_mission_vision_values'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = 'AOF Administration'                  
-admin.site.index_title = 'Dashboard'                
+admin.site.site_header = 'AOF Administration'
+admin.site.index_title = 'Dashboard'
 admin.site.site_title = 'AOF Admin'
