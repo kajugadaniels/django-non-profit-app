@@ -93,3 +93,26 @@ class DonateGifts(models.Model):
     status =models.CharField(max_length=255, default="Pending")
     def __str__(self) -> str:
         return self.firstname + self.lastname + self.phoneNumber 
+    
+
+class DonateToBeneficiary(models.Model):
+    donationTitle= models.CharField(max_length=255)
+    donationId = models.TextField(max_length=255)
+    productId = models.TextField(max_length=255)
+    amount = models.FloatField()
+    status = models.CharField(max_length=40, default="Pending")
+    created_on =  models.DateTimeField(default=timezone.now)
+    beneficiary = models.ForeignKey(Student, on_delete=models.CASCADE)
+    paymentMode = models.CharField(max_length=40,)
+    donatedBy = models.TextField(max_length=255)
+    email = models.TextField(max_length=255)
+    slug = models.SlugField(unique=True, max_length=150, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.donatedBy)
+            random_string = ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
+            self.slug = f"{base_slug}-{random_string}"
+        super().save(*args, **kwargs)
+    def __str__(self) -> str:
+        return self.email
