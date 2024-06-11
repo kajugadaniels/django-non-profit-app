@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from sponsor.models import *
 from sponsor.forms import *
 
 def user_login(request):
@@ -60,3 +61,25 @@ def logout_user(request):
 @login_required
 def dashboard(request):
     return render(request, 'backend/sponsor/dashboard.html')
+
+@login_required
+def letter(request):
+    letters = Letter.objects.filter(sender=request.user)
+
+    context = {
+        'letters': letters
+    }
+
+    return render(request, 'backend/sponsor/letter/index.html', context)
+
+@login_required
+def writeLetter(request):
+    pass
+
+@login_required
+def letterEdit(request, slug):
+    pass
+
+@login_required
+def letterDelete(request, slug):
+    pass
