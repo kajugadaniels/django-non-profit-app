@@ -27,7 +27,9 @@ jobs:
             source venv/bin/activate
             cd aof
             git remote set-url origin git@github.com:Shami-Og/aof.git
-            git fetch origin
+
+            # Ensure we are fetching from the correct remote and branch
+            git fetch origin main
             git reset --hard origin/main
 
             pip install -r requirements.txt
@@ -45,6 +47,6 @@ jobs:
               python manage.py makemigrations --merge --noinput --skip-checks
               python manage.py migrate --noinput --skip-checks
             }
-
+            
             python manage.py collectstatic --noinput
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart gunicorn
