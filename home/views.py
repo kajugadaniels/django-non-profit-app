@@ -25,6 +25,9 @@ def get_logos():
     }
     return logos
 
+def auth(request):
+    return render(request, 'frontend/auth/account.html')
+
 def index(request):
     students = Student.objects.all().order_by('-created_at')[:6]
     blog = Blog.objects.all().order_by('-created_at')[:4]

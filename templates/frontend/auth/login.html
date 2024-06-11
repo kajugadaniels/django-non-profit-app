@@ -1,0 +1,23 @@
+<div class="col-xl-5 col-lg-6 p-6 box-shadow-extra-large border-radius-6px" data-anime='{ "translateY": [0, 0], "opacity": [0,1], "duration": 600, "delay":100, "staggervalue": 150, "easing": "easeOutQuad" }'>
+    <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Member login</span>
+    <form method="post">
+        <div>
+            <label class="text-dark-gray mb-10px fw-500">Email address<span class="text-red">*</span></label>
+            <input class="mb-20px bg-very-light-gray form-control required" type="email" name="email" placeholder="Enter your email" />
+        </div>
+        <div>
+            <label class="text-dark-gray mb-10px fw-500">Password<span class="text-red">*</span></label>
+            <input class="mb-20px bg-very-light-gray form-control required" type="password" name="password" placeholder="Enter your password" />
+        </div>
+        <div class="position-relative terms-condition-box text-start d-flex align-items-center mb-20px">
+            <label>
+                <input type="checkbox" name="remember_me" id="remember_me" value="1" class="terms-condition check-box align-middle required">
+                <span class="box fs-14">Remember me</span>
+            </label>
+            <a href="#" class="fs-14 text-dark-gray fw-500 text-decoration-line-bottom ms-auto">Forget your password?</a>
+        </div>
+        <input type="hidden" name="redirect" value="">
+        <button class="btn btn-medium btn-round-edge btn-dark-gray btn-box-shadow submit w-100 text-transform-none" type="submit">Login</button> 
+        <div class="form-results mt-20px d-none"></div>
+    </form>
+</div>
