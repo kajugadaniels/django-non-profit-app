@@ -60,6 +60,7 @@ class StudentDonationRecord(models.Model):
     email = models.EmailField()
     paymentMode = models.CharField(max_length=100)
     paymentId = models.CharField(max_length=100)
+    status =models.CharField(max_length=255, default="Pending")
 
     def __str__(self):
         return f"Donation for {self.beneficiaryName} - {self.amount}"
