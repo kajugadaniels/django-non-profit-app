@@ -136,7 +136,7 @@ class Project(models.Model):
         format='JPEG',
         options={'quality': 90},
     )
-    target = models.CharField(max_length=255, default="Project")
+    plan = models.CharField(max_length=255, default="Project")
     type = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default="Regular Projects")
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
