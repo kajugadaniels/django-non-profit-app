@@ -58,6 +58,9 @@ urlpatterns = [
    path('volunteer/<slug>', volunteerDetails, name='volunteerDetails'),
    path('volunteer/update-status/<slug>', volunteersUpdateStatus, name='volunteersUpdateStatus'),
 
+   path('prayers/', prayers, name='prayers'),
+   path('prayer/<slug>', prayerDetails, name='prayerDetails'),
+
    path('resources/', resources, name='resources'),
    path('resources/create', addResource, name='addResource'),
    path('resources/<slug>', editResource, name='editResource'),

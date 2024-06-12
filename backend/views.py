@@ -645,6 +645,32 @@ def volunteersUpdateStatus(request, slug):
     return redirect('backend:volunteers')
 
 @login_required
+def prayers(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    prayers = MonthlyPrayer.objects.all().order_by('-created_at')
+
+    context = {
+        'prayers': prayers
+    }
+
+    return render(request, 'backend/prayers/index.html', context)
+
+@login_required
+def prayerDetails(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    prayer = get_object_or_404(MonthlyPrayer, slug=slug)
+
+    context = {
+        'prayer': prayer
+    }
+
+    return render(request, 'backend/prayers/show.html', context)
+
+@login_required
 def resources(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
