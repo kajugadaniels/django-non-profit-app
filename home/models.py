@@ -52,7 +52,7 @@ class Donate(models.Model):
     def __str__(self) -> str:
         return self.email
 
-class StudentDonationRecord(models.Model):
+class StudentDonations(models.Model):
     beneficiaryName = models.CharField(max_length=255)
     beneficiaryId = models.CharField(max_length=100, unique=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
