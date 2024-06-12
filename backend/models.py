@@ -121,34 +121,6 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-class Project(models.Model):
-    CATEGORY_CHOICES = [
-        ('Special Projects', 'Special Projects'),
-        ('Regular Projects', 'Regular Projects'),
-        ('Normal Projects', 'Normal Projects'),
-    ]
-
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True, blank=True)
-    image = ProcessedImageField(
-        upload_to='projects/',
-        processors=[ResizeToFill(3600, 2026)],
-        format='JPEG',
-        options={'quality': 90},
-    )
-    target = models.CharField(max_length=255, default="Project")
-    # type = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default="Regular Projects")
-    description = models.TextField()
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super(Project, self).save(*args, **kwargs)
-
-    def __str__(self):
-        return self.title
 
 class Slide(models.Model):
     image = ProcessedImageField(

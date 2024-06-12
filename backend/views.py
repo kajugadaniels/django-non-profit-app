@@ -46,7 +46,7 @@ def dashboard(request):
     getStudents = Student.objects.all().order_by('created_at')[:3]
     getBlog = Blog.objects.all().order_by('created_at')[:1]
     student_count = Student.objects.count()
-    project_count = Project.objects.count()
+    project_count = ProjectDetails.objects.count()
     product_count = Product.objects.count()
     blog_count = Blog.objects.count()
     

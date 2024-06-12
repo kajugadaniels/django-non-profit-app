@@ -68,7 +68,7 @@ class Donate(models.Model):
 
 class Donation(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(ProjectDetails, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class DonateGifts(models.Model):

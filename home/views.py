@@ -229,7 +229,7 @@ def getStudent(request, slug):
     return render(request, 'frontend/students/show.html', context)
 
 def give(request):
-    projects = Project.objects.all().order_by('-created_at')[:4]
+    projects = ProjectDetails.objects.all().order_by('-created_at')[:4]
     logos = get_logos()
 
     context = {
@@ -244,7 +244,7 @@ def donate(request):
     paginator = Paginator(student_list, 12)
     page_number = request.GET.get('page')
     students = paginator.get_page(page_number)
-    project_list = Project.objects.all()
+    project_list = ProjectDetails.objects.all()
     paginator = Paginator(project_list, 9)
     page_number = request.GET.get('page')
     projects = paginator.get_page(page_number)
@@ -315,7 +315,7 @@ def monthlyDonating(request):
     return render(request, 'frontend/monthly-donating.html', context)
 
 def projects(request):
-    project_list = Project.objects.all().order_by('-created_at')
+    project_list = ProjectDetails.objects.all().order_by('-created_at')
     paginator = Paginator(project_list, 12)
 
     page_number = request.GET.get('page')
@@ -331,7 +331,7 @@ def projects(request):
     return render(request, 'frontend/project/index.html', context)
 
 def viewProject(request, slug):
-    project = get_object_or_404(Project, slug=slug)
+    project = get_object_or_404(ProjectDetails, slug=slug)
     logos = get_logos()
     
     context = {
@@ -397,7 +397,7 @@ def checkout(request):
     if request.method == 'POST':
         amount = request.POST.get('selectedAmount')
         project_id = request.POST.get('selectedProject')
-        project = Project.objects.get(id=project_id)
+        project = ProjectDetails.objects.get(id=project_id)
 
         if 'cart' not in request.session:
             request.session['cart'] = []
