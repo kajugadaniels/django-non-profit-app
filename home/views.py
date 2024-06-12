@@ -33,7 +33,8 @@ def index(request):
     blog = Blog.objects.all().order_by('-created_at')[:4]
     slides = Slide.objects.filter(status=True).order_by('-created_at')[:3]
     student_count = Student.objects.count()
-    projects = ProjectDetails.objects.all().order_by('-created_at')[:6]
+    projects = ProjectDetails.objects.all().filter(category="Special Projects").order_by('-created_at')[:6]
+    projectRegular = ProjectDetails.objects.all().filter(category="Regular Projects").order_by('-created_at')[:6]
     project_count = ProjectDetails.objects.count()
     testimony_count = News.objects.count()
     mission = MissionVisionValues.objects.filter(section='mission').first()
@@ -50,6 +51,7 @@ def index(request):
         'testimony_count': testimony_count,
         'sections': sections,
         'projects': projects,
+        'projectRegular': projectRegular
         **logos
     }
     return render(request, 'frontend/index.html', context)

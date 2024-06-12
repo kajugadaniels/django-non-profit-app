@@ -9,7 +9,7 @@ from backend.models import *
 # Create your models here.
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     ADMIN = 'admin'
-    USER = 'user'
+    USER =  'user'
     choices =[
         (USER,'users'),
         (ADMIN,'admin'),
