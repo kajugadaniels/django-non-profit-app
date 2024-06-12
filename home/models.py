@@ -61,6 +61,7 @@ class StudentDonationRecord(models.Model):
     paymentMode = models.CharField(max_length=100)
     paymentId = models.CharField(max_length=100)
     status =models.CharField(max_length=255, default="Pending")
+    beneficiaryAge = models.CharField(max_length=255, default="1")
 
     def __str__(self):
         return f"Donation for {self.beneficiaryName} - {self.amount}"
