@@ -72,7 +72,8 @@ def donateFund(request, amount,interval,slug, fullname,email,template,gift):
                                 donation.paymentMode = interval
                                 donation.donationId = payment.id
                                 donation.productId = productId,
-                                donation.beneficiaryName= student
+                                donation.beneficiaryName= student.name
+                                donation.beneficiaryId= student.id
                                 donation.save()
                         else: 
                             if gift is None:
