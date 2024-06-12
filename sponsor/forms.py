@@ -12,7 +12,7 @@ class UserRegistrationForm(UserCreationForm):
     user_type = forms.ChoiceField(
         choices=user_type_choices,
         initial='user',
-        widget=forms.Select(attrs={'class': 'form-select'})
+        widget=forms.HiddenInput(attrs={'class': 'form-select'})
     )
 
     class Meta:

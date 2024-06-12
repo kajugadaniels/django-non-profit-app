@@ -42,9 +42,15 @@ def user_register(request):
                 messages.success(request, 'User registered and logged in successfully.')
                 return redirect('sponsor:login')
             else:
-                messages.error(request, 'User registration failed. Please try again.')
+                error_message = 'User registration failed. '
+                for field, errors in form.errors.items():
+                    error_message += f"{field}: {', '.join(errors)}. "
+                messages.error(request, error_message.strip())
         else:
-            messages.error(request, 'User registration failed. Please check your input.')
+            error_message = 'User registration failed. '
+            for field, errors in form.errors.items():
+                error_message += f"{field}: {', '.join(errors)}. "
+            messages.error(request, error_message.strip())
     else:
         form = UserRegistrationForm()
 
