@@ -3,6 +3,10 @@
 {% block title %} Pray With Us {% endblock %}
 {% block content %}
 
+<!-- Include SweetAlert CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
 <section class="pt-3 pb-0 md-pt-0">
     <div class="container">
         <div class="row align-items-center justify-content-center">
@@ -97,20 +101,27 @@
                 </p>
             </div>                
             <div class="col-lg-7 offset-xl-1">
-                <form  action="#" method="post" class="row row-cols-1 row-cols-md-2 justify-content-center">
+                <form method="post" class="row row-cols-1 row-cols-md-2 justify-content-center">
+                    {% csrf_token %}
                     <div class="col mb-30px">
-                        <input class="border-color-transparent-white-very-light bg-transparent placeholder-light form-control required" type="text" name="name" placeholder="Your name*" />
+                        {{ form.name }}
                     </div>
                     <div class="col mb-30px">
-                        <input class="border-color-transparent-white-very-light bg-transparent placeholder-light form-control" type="number" name="phone" placeholder="Your phone" />
+                        {{ form.phone }}
                     </div>
                     <div class="col-md-12 mb-30px">
-                        <input class="border-color-transparent-white-very-light bg-transparent placeholder-light form-control required" type="email" name="email" placeholder="Your email address*" />
+                        {{ form.email }}
                     </div>
                     <div class="col-md-12">
-                        <textarea class="border-color-transparent-white-very-light bg-transparent placeholder-light form-control" cols="40" rows="4" name="comment" placeholder="Your message"></textarea>
-                        <input type="hidden" name="redirect" value="">
-                        <button class="btn btn-medium btn-white mt-30px btn-round-edge submit fw-700">Send message</button>
+                        {{ form.message }}
+                    </div><div class="col-md-12 text-start text-md-end">
+                        <button class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
+                            <span>
+                                <span class="btn-double-text" data-text="Send Message">Send Message</span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-12">
                         <div class="form-results mt-20px d-none"></div>
                     </div>
                 </form>
@@ -118,5 +129,17 @@
         </div>
     </div>
 </section>
+
+{% if messages %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Thank you!',
+            text: 'We have successfully received your prayer.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    </script>
+{% endif %}
 
 {% endblock %}

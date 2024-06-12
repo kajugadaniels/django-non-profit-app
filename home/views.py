@@ -378,7 +378,23 @@ def faq(request):
     return render(request, 'frontend/faq.html', context)
 
 def prayWithUs(request):
-    return render(request, 'frontend/pray-with-us.html')
+    if request.method == 'POST':
+        form = MonthlyPrayerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'We have successfully received your prayer')
+            return redirect('frontend:prayWithUs')
+    else:
+        form = MonthlyPrayerForm()
+    
+    logos = get_logos()
+    
+    context = {
+        **logos,
+        'form': form
+    }
+
+    return render(request, 'frontend/pray-with-us.html', context)
 
 def contact(request):
     logos = get_logos()

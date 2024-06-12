@@ -52,20 +52,6 @@ class Donate(models.Model):
     def __str__(self) -> str:
         return self.email
 
-# class StudentDonations(models.Model):
-#     beneficiaryName = models.CharField(max_length=255)
-#     beneficiaryId = models.CharField(max_length=100, unique=True)
-#     amount = models.DecimalField(max_digits=10, decimal_places=2)
-#     donatedBy = models.CharField(max_length=255)
-#     email = models.EmailField()
-#     paymentMode = models.CharField(max_length=100)
-#     paymentId = models.CharField(max_length=100)
-#     status =models.CharField(max_length=255, default="Pending")
-#     beneficiaryAge = models.CharField(max_length=255, default="1")
-
-#     def __str__(self):
-#         return f"Donation for {self.beneficiaryName} - {self.amount}"
-
 class Donation(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     project = models.ForeignKey(ProjectDetails, on_delete=models.CASCADE)
@@ -97,3 +83,19 @@ class Studentsgifts(models.Model):
     status =models.CharField(max_length=255, default="Pending")
     def __str__(self):
         return f"Donation for {self.beneficiaryName} - {self.amount}"
+
+class MonthlyPrayer(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
