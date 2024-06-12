@@ -295,7 +295,7 @@ def getProjects(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
-    projects = Project.objects.all()
+    projects = ProjectDetails.objects.all()
     
     context = {
         'projects': projects
@@ -330,7 +330,7 @@ def editProject(request, slug):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
-    project = get_object_or_404(Project, slug=slug)
+    project = get_object_or_404(ProjectDetails, slug=slug)
 
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES, instance=project)
@@ -355,7 +355,7 @@ def deleteProject(request, slug):
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
     if request.method == 'POST':
-        project = get_object_or_404(Project, slug=slug)
+        project = get_object_or_404(ProjectDetails, slug=slug)
         project.delete()
         messages.success(request, 'Project deleted successfully!')
         
