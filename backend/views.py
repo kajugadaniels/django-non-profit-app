@@ -463,7 +463,7 @@ def donateToStudent(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
-    donations = StudentDonationRecord.objects.all()
+    donations = StudentDonations.objects.all()
     
     context = {
         'donations': donations
