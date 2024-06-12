@@ -51,7 +51,7 @@ def index(request):
         'testimony_count': testimony_count,
         'sections': sections,
         'projects': projects,
-        'projectRegular': projectRegular
+        'projectRegular': projectRegular,
         **logos
     }
     return render(request, 'frontend/index.html', context)
