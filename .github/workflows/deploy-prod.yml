@@ -32,14 +32,9 @@ jobs:
             pip install -r requirements.txt
 
             python manage.py migrate --fake
-            # Attempt to run migrations normally
-            {
-              python manage.py makemigrations --noinput
-              python manage.py migrate --noinput
-            } || {
-              # If normal migration fails, run migrations with --skip-checks
-              python manage.py makemigrations --noinput --skip-checks
-              python manage.py migrate --noinput --skip-checks
-            }
+         
+            python manage.py makemigrations --noinput
+            python manage.py migrate --noinput
+            
             python manage.py collectstatic --noinput
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart gunicorn
