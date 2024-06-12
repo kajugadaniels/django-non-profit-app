@@ -55,11 +55,11 @@ class ProductForm(forms.ModelForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = ProjectDetails
-        fields = ['title', 'image','plan','category', 'description']
+        fields = ['title', 'image','target','category', 'description']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Project Title'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
-            'plan': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Project Target Money'}),
+            'target': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Project Target Money'}),
             'category': forms.Select(attrs={'class': 'form-select'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
         }

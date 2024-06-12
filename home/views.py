@@ -33,18 +33,14 @@ def index(request):
     blog = Blog.objects.all().order_by('-created_at')[:4]
     slides = Slide.objects.filter(status=True).order_by('-created_at')[:3]
     student_count = Student.objects.count()
-    projects = Project.objects.all().order_by('-created_at')[:3]
-    project_count = Project.objects.count()
+    projects = ProjectDetails.objects.all().order_by('-created_at')[:6]
+    project_count = ProjectDetails.objects.count()
     testimony_count = News.objects.count()
-
     mission = MissionVisionValues.objects.filter(section='mission').first()
     vision = MissionVisionValues.objects.filter(section='vision').first()
     values = MissionVisionValues.objects.filter(section='values').first()
-
     sections = [mission, vision, values]
-    
     logos = get_logos()
-
     context = {
         'students': students,
         'blog': blog,
@@ -56,18 +52,14 @@ def index(request):
         'projects': projects,
         **logos
     }
-
     return render(request, 'frontend/index.html', context)
 
 def history(request):
     mission = MissionVisionValues.objects.filter(section='mission').first()
     vision = MissionVisionValues.objects.filter(section='vision').first()
     values = MissionVisionValues.objects.filter(section='values').first()
-
     sections = [mission, vision, values]
-    
     logos = get_logos()
-    
     context = {
         'sections': sections,
         **logos
@@ -79,9 +71,7 @@ def missionVisionValues(request):
     mission = MissionVisionValues.objects.filter(section='mission').first()
     vision = MissionVisionValues.objects.filter(section='vision').first()
     values = MissionVisionValues.objects.filter(section='values').first()
-    
     logos = get_logos()
-    
     context = {
         'mission': mission,
         'vision': vision,
@@ -95,24 +85,20 @@ def team(request):
     localStaff = Team.objects.filter(category='Rwanda Staff').order_by('created_at')
     statesideStaff = Team.objects.filter(category='Stateside Staff').order_by('created_at')
     logos = get_logos()
-
     context = {
         'localStaff': localStaff,
         'statesideStaff': statesideStaff,
         **logos
     }
-
     return render(request, 'frontend/team/index.html', context)
 
 def teamMember(request, slug):
     member = get_object_or_404(Team, slug=slug)
     logos = get_logos()
-    
     context = {
         'member': member,
         **logos
     }
-    
     return render(request, 'frontend/team/show.html', context)
 
 def aboutRwanda(request):
