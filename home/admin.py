@@ -28,7 +28,6 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(UserAccount, CustomUserAdmin)
 admin.site.register(Donate)
-admin.site.register(StudentDonations)
 admin.site.register(Donation)
 admin.site.register(DonateGifts)
-# admin.site.register(DonateToBeneficiary)
+admin.site.register(Studentsgifts)

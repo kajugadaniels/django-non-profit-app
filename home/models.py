@@ -52,19 +52,19 @@ class Donate(models.Model):
     def __str__(self) -> str:
         return self.email
 
-class StudentDonations(models.Model):
-    beneficiaryName = models.CharField(max_length=255)
-    beneficiaryId = models.CharField(max_length=100, unique=True)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    donatedBy = models.CharField(max_length=255)
-    email = models.EmailField()
-    paymentMode = models.CharField(max_length=100)
-    paymentId = models.CharField(max_length=100)
-    status =models.CharField(max_length=255, default="Pending")
-    beneficiaryAge = models.CharField(max_length=255, default="1")
+# class StudentDonations(models.Model):
+#     beneficiaryName = models.CharField(max_length=255)
+#     beneficiaryId = models.CharField(max_length=100, unique=True)
+#     amount = models.DecimalField(max_digits=10, decimal_places=2)
+#     donatedBy = models.CharField(max_length=255)
+#     email = models.EmailField()
+#     paymentMode = models.CharField(max_length=100)
+#     paymentId = models.CharField(max_length=100)
+#     status =models.CharField(max_length=255, default="Pending")
+#     beneficiaryAge = models.CharField(max_length=255, default="1")
 
-    def __str__(self):
-        return f"Donation for {self.beneficiaryName} - {self.amount}"
+#     def __str__(self):
+#         return f"Donation for {self.beneficiaryName} - {self.amount}"
 
 class Donation(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
@@ -86,3 +86,14 @@ class DonateGifts(models.Model):
     def __str__(self) -> str:
         return self.firstname + self.lastname + self.phoneNumber 
 
+class Studentsgifts(models.Model):
+    beneficiaryName = models.CharField(max_length=255)
+    beneficiaryId = models.CharField(max_length=100, unique=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    donatedBy = models.CharField(max_length=255)
+    email = models.EmailField()
+    paymentMode = models.CharField(max_length=100)
+    paymentId = models.CharField(max_length=100)
+    status =models.CharField(max_length=255, default="Pending")
+    def __str__(self):
+        return f"Donation for {self.beneficiaryName} - {self.amount}"
