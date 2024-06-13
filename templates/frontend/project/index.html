@@ -35,7 +35,7 @@
                             <div class="ps-50px pe-50px pt-20px pb-30px xl-ps-20px xl-pe-20px text-center progress-bar-style-01">
                                 <a href="{% url 'frontend:viewProject' project.slug %}" class="d-inline-block fs-20 fw-500 text-dark-gray text-dark-gray-hover mb-5px ls-minus-05px">{{ project.title }}</a>
                                 <p>
-                                    {{ project.description|safe|truncatechars:10 }}
+                                    {{ project.description|safe|truncatewords:4 }}
                                 </p>
                                 <!-- start progress bar item -->
                                 <div class="progress mt-50px mb-15px bg-zircon-grey"> 
