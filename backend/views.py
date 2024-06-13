@@ -649,7 +649,7 @@ def prayers(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
-    prayers = MonthlyPrayer.objects.all().order_by('-created_at')
+    prayers = SendPrayer.objects.all().order_by('-created_at')
 
     context = {
         'prayers': prayers
@@ -662,7 +662,7 @@ def prayerDetails(request, slug):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
-    prayer = get_object_or_404(MonthlyPrayer, slug=slug)
+    prayer = get_object_or_404(SendPrayer, slug=slug)
 
     context = {
         'prayer': prayer

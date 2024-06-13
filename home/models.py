@@ -84,7 +84,7 @@ class Studentsgifts(models.Model):
     def __str__(self):
         return f"Donation for {self.beneficiaryName} - {self.amount}"
 
-class MonthlyPrayer(models.Model):
+class SendPrayer(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
     email = models.EmailField()

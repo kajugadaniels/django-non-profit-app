@@ -379,13 +379,13 @@ def faq(request):
 
 def prayWithUs(request):
     if request.method == 'POST':
-        form = MonthlyPrayerForm(request.POST)
+        form = SendPrayerForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'We have successfully received your prayer')
             return redirect('frontend:prayWithUs')
     else:
-        form = MonthlyPrayerForm()
+        form = SendPrayerForm()
     
     logos = get_logos()
     

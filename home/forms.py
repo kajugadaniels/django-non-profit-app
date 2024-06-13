@@ -21,9 +21,9 @@ class UserLoginForm(forms.Form):
     email = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Email Address"}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Password"}))
 
-class MonthlyPrayerForm(forms.ModelForm):
+class SendPrayerForm(forms.ModelForm):
     class Meta:
-        model = MonthlyPrayer
+        model = SendPrayer
         fields = ['name', 'email', 'phone', 'message']
         widgets = {
             'name': forms.TextInput(attrs={
