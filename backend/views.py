@@ -49,9 +49,8 @@ def dashboard(request):
     project_count = ProjectDetails.objects.count()
     product_count = Product.objects.count()
     blog_count = Blog.objects.count()
-    
-    labels = ["January", "February", "March", "April", "May", "June", "July"]
-    data = [10, 20, 15, 25, 30, 35, 40]
+    donors_count = UserAccount.objects.filter(is_staff=False).count()
+    campaign_count = Campaign.objects.count()
     
     context ={
         'getStudents': getStudents,
@@ -60,8 +59,8 @@ def dashboard(request):
         'project_count': project_count,
         'product_count': product_count,
         'blog_count': blog_count,
-        'labels': labels,
-        'data': data,
+        'donors_count': donors_count,
+        'campaign_count': campaign_count
     }
 
     return render(request, 'backend/dashboard.html', context)
