@@ -117,7 +117,7 @@ def whatWeDo(request):
     return render(request, 'frontend/what-we-do/index.html', context)
 
 def education(request):
-    news = News.objects.filter(category='education', status=True).order_by('-created_at')
+    news = News.objects.filter(category='Education', status='Active').order_by('-created_at')
     testimonies = Testimony.objects.all().order_by('-created_at')[:3]
     logos = get_logos()
     

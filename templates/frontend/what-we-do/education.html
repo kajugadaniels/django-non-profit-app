@@ -182,48 +182,45 @@
 </section>
 
 <section class="bg-extra-dark-slate-blue background-position-center-top big-section" style="background-image: url({% static 'frontend/images/shapes/vertical-line-bg-small.svg' %})">
-    <div class="container">
-        <div class="row justify-content-center align-items-center mb-4 text-center text-md-start">
-            <div class="col-xxl-8 col-md-7 sm-mb-10px">
-                <h2 class="title-font text-white fw-300 ls-minus-3px mb-0">Testimonies</h2>
-            </div>
-            <div class="col-xxl-4 col-md-5 text-center text-md-end" data-anime='{ "translateX": [-50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                
+    <div class="container-fluid">
+        <div class="row align-items-center mb-6 sm-mb-9 text-center text-lg-start">
+            <div class="col-lg-12 md-mb-20px text-center">
+                <h3 class="title-font text-white fs-50 fw-300 mb-3 ls-minus-1px">
+                    Successful Stories
+                </h3>
             </div>
         </div>
-        <div class="position-absolute left-minus-100px" data-bottom-top="transform: translateY(-180px)" data-top-bottom="transform: translateY(180px)">
-            <img src="{% static 'frontend/images/shapes/bg-05.png' %}" alt="" >
-        </div>
-        <div class="container position-relative z-index-1">
-            <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 align-items-center mb-4 xs-mb-25px" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                {% for testimony in testimonies %}
-                    <div class="col review-style-07 mb-30px"> 
-                        <div class="d-flex justify-content-center h-100 flex-column border-radius-6px p-12 xl-p-10 bg-white box-shadow-quadruple-large">
-                            <div class="mb-20px">
-                                <img src="{{ testimony.image.url }}" class="rounded-circle w-90px lg-w-65px me-15px" alt="">
-                                <div class="d-inline-block align-middle"> 
-                                    <div class="text-dark-gray fs-18 fw-600">{{ testimony.name }}</div>
-                                    <div class="lh-24 fs-16">{{ testimony.position }}</div>
+        <div class="row">
+            <div class="col-12">
+                <ul class="blog-side-image blog-wrapper grid-loading grid grid-3col xxl-grid-2col xl-grid-2col lg-grid-2col md-grid-1col sm-grid-1col xs-grid-1col gutter-extra-large">
+                    <li class="grid-sizer"></li>
+                    {% for story in news %}
+                        <li class="grid-item">
+                            <div class="blog-box d-md-flex d-block flex-row h-100 border-radius-6px overflow-hidden box-shadow-extra-large">
+                                <div class="blog-content w-50 sm-w-100 pt-50px pb-40px ps-40px pe-40px xl-p-30px bg-white d-flex flex-column justify-content-center align-items-start last-paragraph-no-margin">
+                                    <a href="{% url 'frontend:story' story.slug %}" class="card-title text-dark-gray text-dark-gray-hover mb-5px fw-600 fs-18 lh-28">
+                                        {{ story.title }}
+                                    </a>
+                                    {{ story.description|safe|truncatewords:4 }}
+                                    <div class="mt-15px">
+                                        <span class="separator bg-dark-gray"></span>
+                                        <a href="{% url 'frontend:story' story.slug %}" class="text-dark-gray text-dark-gray-hover d-inline-block fs-15 fw-500 fw-500">More Details</a>
+                                    </div>
+                                </div>
+                                <div class="blog-image w-50 sm-w-100 cover-background" style="background-image: url({{ story.image.url }})">
+                                    <a href="{% url 'frontend:story' story.slug %}" class="blog-post-image-overlay"></a>
                                 </div>
                             </div>
-                            <p class="mb-15px md-w-85 sm-w-100">
-                                {{ testimony.message }}
-                            </p>
-                            <div class="d-flex align-items-center">
-                                <div class="d-inline-block fw-500 text-uppercase border-radius-30px ps-15px pe-15px fs-12 lh-28 bg-dark-gray text-white">
-                                    {{ testimony.created_at|date:"Y-m" }}
-                                </div>
-                            </div>
+                        </li>
+                    {% empty %}
+                        <div class="text-center">
+                            <span class="text-black">
+                                No stories available!!!
+                            </span>
                         </div>
-                    </div>
-                {% empty %}
-                    <div class="text-center">
-                        <span class="text-white">
-                            No stories available!!!
-                        </span>
-                    </div>
-                {% endfor %}
-            </div> 
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </section>
