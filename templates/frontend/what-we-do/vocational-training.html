@@ -1,11 +1,6 @@
 {% extends 'frontend/layouts/app.html' %}
 {% load static %}
 {% block title %} Vocational Projects {% endblock %}
-{% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'frontend/revolution/css/settings.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'frontend/revolution/css/layers.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'frontend/revolution/css/navigation.css' %}">
-{% endblock %}
 {% block content %}
 
 <section class="top-space-margin page-title-big-typography border-radius-6px lg-border-radius-0px p-0" data-parallax-background-ratio="0.5" style="background-image: url({% static 'frontend/images/what-we-do/farming/slider-3.jpg' %})">
@@ -160,21 +155,25 @@
             <div class="col-12">
                 <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
                     <li class="grid-sizer"></li>
-                    {% for blog in news %}
+                    {% for story in news %}
                         <li class="grid-item">
                             <div class="card bg-transparent border-0 h-100">
                                 <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                    <a href="{% url 'frontend:story' blog.slug %}">
-                                        <img src="{{ blog.image.url }}" alt />
+                                    <a href="{% url 'frontend:story' story.slug %}">
+                                        <img src="{{ story.image.url }}" alt />
                                     </a>
                                 </div>
                                 <div class="card-body px-0 pt-30px pb-30px">
-                                    <a href="{% url 'frontend:story' blog.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
-                                        {{ blog.title }}
+                                    <a href="{% url 'frontend:story' story.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
+                                        {{ story.title }}
                                     </a>
-                                    <p class="mb-10px w-100 text-white">
-                                        {{ blog.description|truncatewords:10 }}
-                                    </p>
+                                    <div class="mb-10px w-100 text-white">
+                                        {{ story.description|safe|truncatewords:4 }}
+                                    </div>
+                                    <div class="mt-15px">
+                                        <span class="separator bg-dark-gray"></span>
+                                        <a href="{% url 'frontend:story' story.slug %}" class="text-white text-white-hover d-inline-block fs-15 fw-500 fw-500">More Details</a>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -194,121 +193,4 @@
     </div>
 </section>
 
-{% endblock %}
-
-{% block js %}
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/jquery.themepunch.tools.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
-    <script type="text/javascript">
-        /* https://learn.jquery.com/using-jquery-core/document-ready/ */
-        jQuery(document).ready(function () {
-
-            let windowHeight = $(window).outerHeight();
-            $(window).resize(function() {
-                windowHeight = $(window).outerHeight();
-            })
-
-            /* initialize the slider based on the Slider's ID attribute from the wrapper above */
-            jQuery('#aof-slider').show().revolution({
-                sliderType: "standard",
-                /* options are 'auto', 'fullwidth' or 'fullscreen' */
-                sliderLayout: 'fullscreen',
-                /* sets the Slider's default timeline */
-                delay: 9000,
-                /* options that disable autoplay */
-                stopLoop: "off",
-                stopAfterLoops: 0,
-                stopAtSlide: 1,
-                navigation: {
-                    keyboardNavigation: "on",
-                    keyboard_direction: "horizontal",
-                    mouseScrollNavigation: "off",
-                    mouseScrollReverse: "default",
-                    onHoverStop: "off",
-                    touch: {
-                        touchenabled: "on",
-                        touchOnDesktop: "on",
-                        swipe_threshold: 75,
-                        swipe_min_touches: 1,
-                        swipe_direction: "horizontal",
-                        drag_block_vertical: true
-                    },
-                    arrows: {
-
-                        enable: true,
-                        style: 'uranus',
-                        rtl: false,
-                        hide_onleave: false,
-                        hide_onmobile: true,
-                        hide_under: 0,
-                        hide_over: 778,
-                        hide_delay: 200,
-                        hide_delay_mobile: 1200,
-                        left: {
-                            container: 'slider',
-                            h_align: 'left',
-                            v_align: 'center',
-                            h_offset: 10,
-                            v_offset: 10
-                        },
-                        right: {
-                            container: 'slider',
-                            h_align: 'right',
-                            v_align: 'center',
-                            h_offset: 10,
-                            v_offset: 10
-                        }
-
-                    }
-
-                },
-
-                responsiveLevels: [1240, 1024, 778, 480],
-                /* [DESKTOP, LAPTOP, TABLET, SMARTPHONE] */
-                gridwidth: [1190, 1024, 778, 480],
-                /* [DESKTOP, LAPTOP, TABLET, SMARTPHONE] */
-                gridheight: [900, 920, 700, 650],
-                /* Lazy Load options are "all", "smart", "single" and "none" */
-                lazyType: "smart",
-                spinner: "spinner0",
-                parallax: {
-                    type: "mouse+scroll",
-                    origo: "enterpoint",
-                    speed: 400,
-                    speedbg: 1500,
-                    speedls: 1000,
-                    levels: [5, 10, 15, 20, 25, 30, 35, 40, 60, 46, -10, -15, -20, -25, -30, 55],
-                }
-                ,
-                shadow: 0,
-                shuffle: "off",
-                autoHeight: "on",
-                fullScreenAutoWidth: "on",
-                fullScreenAlignForce: "on",
-                fullScreenOffsetContainer: "",
-                fullScreenOffset: "1px",
-                disableProgressBar: "on",
-                hideThumbsOnMobile: "on",
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                debugMode: false,
-                fallbacks: {
-                    simplifyAll: "off",
-                    nextSlideOnWindowFocus: "off",
-                    disableFocusListener: false,
-                }
-            }
-            );
-        });
-    </script>
 {% endblock %}

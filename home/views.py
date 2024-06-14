@@ -118,19 +118,17 @@ def whatWeDo(request):
 
 def education(request):
     news = News.objects.filter(category='Education', status='Active').order_by('-created_at')
-    testimonies = Testimony.objects.all().order_by('-created_at')[:3]
     logos = get_logos()
     
     context = {
         'news': news,
-        'testimonies': testimonies,
         **logos
     }
 
     return render(request, 'frontend/what-we-do/education.html', context)
 
 def vocationalTraining(request):
-    news = News.objects.filter(category='vocational-training', status=True).order_by('-created_at')
+    news = News.objects.filter(category='Vocational Training', status='Active').order_by('-created_at')
     logos = get_logos()
 
     context = {
