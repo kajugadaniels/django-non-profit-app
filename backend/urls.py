@@ -17,6 +17,8 @@ urlpatterns = [
    path('student/<slug>', editStudent, name='editStudent'),
    path('student/<slug>/delete/', deleteStudent, name='deleteStudent'),
 
+   path('donors/', getDonors, name='getDonors'),
+
    path('team/', getTeam, name='getTeam'),
    path('team/create', addTeam, name='addTeam'),
    path('team/<slug>', editTeam, name='editTeam'),

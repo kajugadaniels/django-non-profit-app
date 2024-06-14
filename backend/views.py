@@ -139,6 +139,21 @@ def deleteStudent(request, slug):
 
     return redirect('backend:getStudents')
 
+# Donors
+
+@login_required
+def getDonors(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    donors = UserAccount.objects.filter(is_staff=False)
+    
+    context = {
+        'donors': donors,
+    }
+    
+    return render(request, 'backend/donors/index.html', context)
+
 # Team Section
 
 @login_required

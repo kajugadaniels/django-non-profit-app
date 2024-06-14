@@ -1,0 +1,63 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row"> 
+            <div class="col-sm-12"> 
+                <div class="card"> 
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Donors</h4>
+                            </div>
+                        </div>
+                        <div class="list-product">
+                            <table class="table" id="project-status">
+                                <thead> 
+                                    <tr> 
+                                    <th>
+                                        <div class="form-check"> 
+                                            <input class="form-check-input checkbox-primary" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th> <span class="f-light f-w-600">Name</span></th>
+                                    <th> <span class="f-light f-w-600">Email</span></th>
+                                    <th> <span class="f-light f-w-600">Phone Number</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for donor in donors %}
+                                        <tr class="product-removes">
+                                            <td>
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input checkbox-primary" type="checkbox">
+                                                </div>
+                                            </td>
+                                            <td> 
+                                                <div class="product-names">
+                                                    <div class="light-product-box">
+                                                        <img class="img-fluid" src="{{ donor.image.url }}" alt="{{ donor.name }}">
+                                                    </div>
+                                                    <p>{{ donor.firstname }} {{ donor.lastname }}</p>
+                                                </div>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ donor.email }}</p>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ donor.phone }}</p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
