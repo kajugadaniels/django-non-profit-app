@@ -163,7 +163,7 @@ def communityEmpowerment(request):
     return render(request, 'frontend/what-we-do/community-empowerment.html', context)
 
 def tungaWomen(request):
-    news = News.objects.filter(category='tunga-mothers', status=True).order_by('-created_at')
+    news = News.objects.filter(category='Tunga Women Initiative', status='Active').order_by('-created_at')
     logos = get_logos()
 
     context = {

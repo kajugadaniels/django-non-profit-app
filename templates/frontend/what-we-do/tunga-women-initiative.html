@@ -69,9 +69,7 @@
                                     <a href="{% url 'frontend:story' story.slug %}" class="card-title text-dark-gray text-dark-gray-hover mb-5px fw-600 fs-18 lh-28">
                                         {{ story.title }}
                                     </a>
-                                    <p>
-                                        {{ story.description|truncatewords:10 }}
-                                    </p>
+                                    {{ story.description|safe|truncatewords:4 }}
                                     <div class="mt-15px">
                                         <span class="separator bg-dark-gray"></span>
                                         <a href="{% url 'frontend:story' story.slug %}" class="text-dark-gray text-dark-gray-hover d-inline-block fs-15 fw-500 fw-500">More Details</a>
