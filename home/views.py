@@ -139,7 +139,7 @@ def vocationalTraining(request):
     return render(request, 'frontend/what-we-do/vocational-training.html', context)
 
 def medicalCare(request):
-    news = News.objects.filter(category='medical-care', status=True).order_by('-created_at')
+    news = News.objects.filter(category='Medical Care', status='Active').order_by('-created_at')
     logos = get_logos()
 
     context = {
