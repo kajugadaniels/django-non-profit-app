@@ -19,6 +19,7 @@ urlpatterns = [
     path('letter/<slug>/delete/', letterDelete, name="letterDelete"),
 
     path('students/', students, name="students"),
+    path('student/<slug>', getStudent, name="getStudent"),
     path('students/history', studentsDonationHistory, name="studentsDonationHistory"),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

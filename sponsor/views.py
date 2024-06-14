@@ -118,6 +118,15 @@ def students(request):
 
     return render(request, 'backend/sponsor/students/index.html', context)
 
+def getStudent(request, slug):
+    student = get_object_or_404(Student, slug=slug)
+    
+    context = {
+        'student': student,
+    }
+    
+    return render(request, 'backend/sponsor/students/show.html', context)
+
 @login_required
 def studentsDonationHistory(request):
     context = {
