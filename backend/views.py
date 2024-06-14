@@ -361,6 +361,79 @@ def deleteProject(request, slug):
         
     return redirect('backend:getProjects')
 
+# Story Section
+
+@login_required
+def getStories(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    stories = News.objects.all()
+    
+    context = {
+        'stories': stories
+    }
+    
+    return render(request, 'backend/stories/index.html', context)
+
+@login_required
+def addStory(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Story created successfully!')
+            return redirect('backend:getStories')
+        else:
+            messages.error(request, 'Error creating a story. Please check the form.')
+    else:
+        form = NewsForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/stories/create.html', context)
+
+@login_required
+def editStory(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    story = get_object_or_404(News, slug=slug)
+
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES, instance=story)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Story updated successfully!')
+            return redirect('backend:getStories')
+        else:
+            messages.error(request, 'Error updating the story. Please check the form.')
+    else:
+        form = NewsForm(instance=story)
+        
+    context = {
+        'form': form,
+        'story': story
+    }
+    return render(request, 'backend/stories/edit.html', context)
+
+@login_required
+def deleteStory(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    if request.method == 'POST':
+        story = get_object_or_404(News, slug=slug)
+        story.delete()
+        messages.success(request, 'Story deleted successfully!')
+        
+    return redirect('backend:getStories')
+
 # Blog Section
 
 @login_required

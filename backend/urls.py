@@ -32,6 +32,11 @@ urlpatterns = [
    path('project/<slug>', editProject, name='editProject'),
    path('project/<slug>/delete/', deleteProject, name='deleteProject'),
 
+   path('stories/', getStories, name='getStories'),
+   path('story/create', addStory, name='addStory'),
+   path('story/<slug>', editStory, name='editStory'),
+   path('story/<slug>/delete/', deleteStory, name='deleteStory'),
+
    path('blog/', getBlog, name='getBlog'),
    path('blog/create', addBlog, name='addBlog'),
    path('blog/<slug>', editBlog, name='editBlog'),

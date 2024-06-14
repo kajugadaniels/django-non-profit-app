@@ -170,11 +170,16 @@ class MissionVisionValues(models.Model):
 
 class News(models.Model):
     CATEGORY_CHOICES = [
-        ('vocational-training', 'Vocational Training'),
-        ('education', 'Education'),
-        ('tunga-mothers', 'Tunga Mothers'),
-        ('community-empowerment', 'Community Empowerment'),
-        ('medical-care', 'Medical Care'),
+        ('Vocational Training', 'Vocational Training'),
+        ('Education', 'Education'),
+        ('Tunga Women Initiative', 'Tunga Women Initiative'),
+        ('Community Empowerment', 'Community Empowerment'),
+        ('Medical Care', 'Medical Care'),
+    ]
+
+    STATUS_CHOICES = [
+        ('Active', 'Active'),
+        ('Unactive', 'Unactive'),
     ]
     
     category = models.CharField(max_length=255, choices=CATEGORY_CHOICES)
@@ -187,7 +192,7 @@ class News(models.Model):
         options={'quality': 90},
     )
     description = models.TextField()
-    status = models.BooleanField(default=False)
+    status = models.CharField(max_length=255, choices=STATUS_CHOICES)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 

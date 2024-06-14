@@ -1,0 +1,141 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <style>
+        #description-container {
+            height: 300px; /* Adjust the height as needed */
+        }
+        .ql-editor {
+            min-height: 300px; /* Ensure the editor area has the same height */
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Edit Story ({{ story.title }})</h4>
+                                <a class="btn btn-primary" href="{% url 'backend:getStories' %}"><i class="fa fa-eye"></i>View Stories</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form theme-form">
+                            <form class="price-wrapper" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-6"> 
+                                        <label class="form-label">Story Title</label>
+                                        {{ form.title }}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">Story Image</label>
+                                        <div class="input-group flatpicker-calender product-date">
+                                            {{ form.image }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-6"> 
+                                        <label class="form-label">Story Status</label>
+                                        {{ form.status }}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">Story Category</label>
+                                        {{ form.category }}
+                                    </div>
+                                </div>
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-12">
+                                        <div class="col-12">
+                                            <label class="form-label">Description</label>
+                                            <div id="description-container"></div>
+                                            <textarea id="id_description" name="description" style="display:none;">{{ form.description.value|safe }}</textarea>
+                                            {% if form.description.errors %}
+                                                <div class="text-danger">{{ form.description.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <div class="text-end">
+                                            <button class="btn btn-primary me-3">Update Story</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var quillDescription = new Quill('#description-container', {
+                theme: 'snow',
+                modules: {
+                    toolbar: {
+                        container: [
+                            ['bold', 'italic', 'underline'],
+                            [{'header': 1}, {'header': 2}],
+                            [{'list': 'ordered'}, {'list': 'bullet'}],
+                            ['link', 'image']
+                        ],
+                        handlers: {
+                            image: function() {
+                                var input = document.createElement('input');
+                                input.setAttribute('type', 'file');
+                                input.setAttribute('accept', 'image/*');
+                                input.click();
+
+                                input.onchange = function() {
+                                    var file = input.files[0];
+                                    var formData = new FormData();
+                                    formData.append('image', file);
+
+                                    fetch("{% url 'backend:upload_image' %}", {
+                                        method: 'POST',
+                                        body: formData,
+                                        headers: {
+                                            'X-CSRFToken': '{{ csrf_token }}'
+                                        }
+                                    })
+                                    .then(response => response.json())
+                                    .then(result => {
+                                        if (result.location) {
+                                            var range = quillDescription.getSelection();
+                                            quillDescription.insertEmbed(range.index, 'image', result.location);
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                    });
+                                };
+                            }
+                        }
+                    }
+                }
+            });
+
+            var descriptionInput = document.querySelector('#id_description');
+            if (descriptionInput.value) {
+                quillDescription.root.innerHTML = descriptionInput.value;
+            }
+
+            var form = document.querySelector('.price-wrapper');
+            form.onsubmit = function() {
+                var descriptionHtml = quillDescription.root.innerHTML;
+                descriptionInput.value = descriptionHtml;
+            };
+        });
+    </script>
+
+{% endblock %}
