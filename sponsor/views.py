@@ -107,3 +107,21 @@ def letterEdit(request, slug):
 @login_required
 def letterDelete(request, slug):
     pass
+
+@login_required
+def students(request):
+    students = Student.objects.all()
+
+    context = {
+        'students': students,
+    }
+
+    return render(request, 'backend/sponsor/students/index.html', context)
+
+@login_required
+def studentsDonationHistory(request):
+    context = {
+        
+    }
+
+    return render(request, 'backend/sponsor/students/history.html', context)

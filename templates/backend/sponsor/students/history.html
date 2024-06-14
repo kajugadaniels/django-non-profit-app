@@ -1,0 +1,40 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row"> 
+            <div class="col-sm-12"> 
+                <div class="card"> 
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Donation History</h4>
+                            </div>
+                        </div>
+                        <div class="list-product">
+                            <table class="table" id="project-status">
+                                <thead> 
+                                    <tr> 
+                                    <th>
+                                        <div class="form-check"> 
+                                            <input class="form-check-input checkbox-primary" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th> <span class="f-light f-w-600">Donor</span></th>
+                                    <th> <span class="f-light f-w-600">Amount</span></th>
+                                    <th> <span class="f-light f-w-600">Beneficiary</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
