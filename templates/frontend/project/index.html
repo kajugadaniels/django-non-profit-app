@@ -37,21 +37,21 @@
                                 <p>
                                     {{ project.description|safe|truncatewords:4 }}
                                 </p>
-                                <!-- start progress bar item -->
-                                <div class="progress mt-50px mb-15px bg-zircon-grey"> 
-                                    <div class="progress-bar bg-dark-gray" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="child-issue-one">
-                                        <span class="progress-bar-percent text-center bg-dark-gray fs-11 lh-12 fw-500 text-white">0%</span>
+                                {% if project.category == "Special Projects" %}
+                                    <div class="progress mt-50px mb-15px bg-zircon-grey"> 
+                                        <div class="progress-bar bg-dark-gray" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="child-issue-one">
+                                            <span class="progress-bar-percent text-center bg-dark-gray fs-11 lh-12 fw-500 text-white">0%</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 text-start">
-                                        <div class="fs-15 lh-normal"><span class="fw-500 text-dark-gray d-block d-xl-inline-block">Goal:</span> ${{ project.target }}</div>
+                                    <div class="row">
+                                        <div class="col-6 text-start">
+                                            <div class="fs-15 lh-normal"><span class="fw-500 text-dark-gray d-block d-xl-inline-block">Goal:</span> ${{ project.target }}</div>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <div class="fs-15 lh-normal"><span class="fw-500 text-dark-gray d-block d-xl-inline-block">Raised:</span> $0</div>
+                                        </div>
                                     </div>
-                                    <div class="col-6 text-end">
-                                        <div class="fs-15 lh-normal"><span class="fw-500 text-dark-gray d-block d-xl-inline-block">Raised:</span> $0</div>
-                                    </div>
-                                </div>
-                                <!-- end progress bar item -->
+                                {% endif %}
                             </div> 
                             <div class="border-top border-color-extra-medium-gray pt-15px pb-20px text-center">
                                 <a href="{% url 'frontend:viewProject' project.slug %}" class="btn btn-link btn-hover-animation-switch btn-large text-dark-gray">

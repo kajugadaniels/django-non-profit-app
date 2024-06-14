@@ -35,8 +35,6 @@ def index(request):
     student_count = Student.objects.count()
     projects = ProjectDetails.objects.filter(category="Special Projects").order_by('-created_at')[:3]
     projectRegular = ProjectDetails.objects.filter(category="Regular Projects").order_by('-created_at')[:3]
-    project_count = ProjectDetails.objects.count()
-    testimony_count = News.objects.count()
     mission = MissionVisionValues.objects.filter(section='mission').first()
     vision = MissionVisionValues.objects.filter(section='vision').first()
     values = MissionVisionValues.objects.filter(section='values').first()
@@ -47,8 +45,6 @@ def index(request):
         'blog': blog,
         'slides': slides,
         'student_count': student_count,
-        'project_count': project_count,
-        'testimony_count': testimony_count,
         'sections': sections,
         'projects': projects,
         'projectRegular': projectRegular,
