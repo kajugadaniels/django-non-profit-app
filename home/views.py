@@ -150,7 +150,7 @@ def medicalCare(request):
     return render(request, 'frontend/what-we-do/medical-care.html', context)
 
 def communityEmpowerment(request):
-    news = News.objects.filter(category='community-empowerment', status=True).order_by('-created_at')
+    news = News.objects.filter(category='Community Empowerment', status='Active').order_by('-created_at')
     testimonies = Testimony.objects.all().order_by('-created_at')[:6]
     logos = get_logos()
 

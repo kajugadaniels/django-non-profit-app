@@ -237,7 +237,7 @@
             <div class="row justify-content-center mb-3">
                 <div class="col-md-12 text-center">
                     <h2 class="title-font text-white fw-300">
-                        Stories
+                        Successful Stories
                     </h2>
                 </div>
             </div>
@@ -245,21 +245,25 @@
                 <div class="col-12">
                     <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
                         <li class="grid-sizer"></li>
-                        {% for blog in news %}
+                        {% for story in news %}
                             <li class="grid-item">
                                 <div class="card bg-transparent border-0 h-100">
                                     <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="{% url 'frontend:story' blog.slug %}">
-                                            <img src="{{ blog.image.url }}" alt />
+                                        <a href="{% url 'frontend:story' story.slug %}">
+                                            <img src="{{ story.image.url }}" alt />
                                         </a>
                                     </div>
                                     <div class="card-body px-0 pt-30px pb-30px">
-                                        <a href="{% url 'frontend:story' blog.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
-                                            {{ blog.title }}
+                                        <a href="{% url 'frontend:story' story.slug %}" class="card-title mb-10px fw-600 fs-17 lh-26 text-white text-dark-gray-hover d-inline-block w-95">
+                                            {{ story.title }}
                                         </a>
-                                        <p class="mb-10px w-100 text-white">
-                                            {{ blog.description|truncatewords:10 }}
-                                        </p>
+                                        <div class="mb-10px w-100 text-white">
+                                            {{ story.description|safe|truncatewords:4 }}
+                                        </div>
+                                        <div class="mt-15px">
+                                            <span class="separator bg-dark-gray"></span>
+                                            <a href="{% url 'frontend:story' story.slug %}" class="text-white text-white-hover d-inline-block fs-15 fw-500 fw-500">More Details</a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
