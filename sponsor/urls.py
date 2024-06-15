@@ -15,8 +15,7 @@ urlpatterns = [
 
     path('letters/', getLetters, name="getLetters"),
     path('write-letter/<slug>', writeLetter, name="writeLetter"),
-    path('letter/<slug>/edit/', letterEdit, name="letterEdit"),
-    path('letter/<slug>/delete/', letterDelete, name="letterDelete"),
+    path('letter/<int:letter_id>/delete/', letterDelete, name="letterDelete"),
 
     path('students/', students, name="students"),
     path('student/<slug>', getStudent, name="getStudent"),

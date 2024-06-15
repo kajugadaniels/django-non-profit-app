@@ -106,12 +106,13 @@ def writeLetter(request, slug):
     return render(request, 'backend/sponsor/letter/create.html', context)
 
 @login_required
-def letterEdit(request, slug):
-    pass
+def letterDelete(request, letter_id):
+    letter = get_object_or_404(Letter, id=letter_id)
+    if request.method == 'POST':
+        letter.delete()
+        messages.success(request, 'Letter deleted successfully!')
 
-@login_required
-def letterDelete(request, slug):
-    pass
+    return redirect('sponsor:getLetters')
 
 @login_required
 def students(request):

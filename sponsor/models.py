@@ -12,7 +12,7 @@ class Letter(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"{self.sponsor.sponsor_name} - {self.student.name}"
+        return f"{self.sponsor.email} - {self.student.name}"
 
 class FavoriteStudent(models.Model):
     sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='favorite_students')

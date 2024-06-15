@@ -54,8 +54,17 @@
                                             <td>
                                                 {{ item.body|safe|truncatewords:14 }}
                                             </td>
-                                            <td> 
-                                                
+                                            <td>
+                                                <div class="product-action">
+                                                    <form method="post" action="{% url 'sponsor:letterDelete' item.id %}" style="display: inline;">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline" onclick="return confirm('Are you sure you want to delete this letter ({{ item.subject }})?');">
+                                                            <svg>
+                                                                <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     {% endfor %}
