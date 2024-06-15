@@ -16,18 +16,44 @@
                             <table class="table" id="project-status">
                                 <thead> 
                                     <tr> 
-                                    <th>
-                                        <div class="form-check"> 
-                                            <input class="form-check-input checkbox-primary" type="checkbox">
-                                        </div>
-                                    </th>
-                                    <th> <span class="f-light f-w-600">Donor</span></th>
-                                    <th> <span class="f-light f-w-600">Amount</span></th>
-                                    <th> <span class="f-light f-w-600">Beneficiary</span></th>
+                                        <th>
+                                            <div class="form-check"> 
+                                                <input class="form-check-input checkbox-primary" type="checkbox">
+                                            </div>
+                                        </th>
+                                        <th> <span class="f-light f-w-600">Beneficiary</span></th>
+                                        <th> <span class="f-light f-w-600">Amount</span></th>
+                                        <th> <span class="f-light f-w-600">Date</span></th>
+                                        <th> <span class="f-light f-w-600">Message</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    {% for item in donations %}
+                                        <tr class="product-removes">
+                                            <td>
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input checkbox-primary" type="checkbox">
+                                                </div>
+                                            </td>
+                                            <td> 
+                                                <div class="product-names">
+                                                    <div class="light-product-box">
+                                                        <img class="img-fluid" src="{{ item.student.image.url }}" alt="{{ itemstudent.name }}">
+                                                    </div>
+                                                    <p>{{ item.student.name }}</p>
+                                                </div>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">${{ item.amount }}</p>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ item.created_at|date:"F j, Y" }}</p>
+                                            </td>
+                                            <td> 
+                                                <p class="f-light">{{ item.message }}</p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>

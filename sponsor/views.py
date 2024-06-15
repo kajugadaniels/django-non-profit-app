@@ -144,11 +144,11 @@ def getStudent(request, slug):
     return render(request, 'backend/sponsor/students/show.html', context)
 
 @login_required
-def studentsDonationHistory(request):
-    students = SponsorDonateStudent.objects.all()
+def donationHistory(request):
+    donations = SponsorDonateStudent.objects.filter(sponsor=request.user).order_by('-created_at')
 
     context = {
-        'students': students
+        'donations': donations
     }
 
     return render(request, 'backend/sponsor/students/history.html', context)
