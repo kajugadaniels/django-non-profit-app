@@ -60,3 +60,8 @@ class LetterForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance
+
+class SponsorDonateStudentForm(forms.ModelForm):
+    class Meta:
+        model = SponsorDonateStudent
+        fields = ['amount', 'message']

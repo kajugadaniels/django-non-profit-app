@@ -120,8 +120,24 @@ def students(request):
 
 def getStudent(request, slug):
     student = get_object_or_404(Student, slug=slug)
+    if not FavoriteStudent.objects.filter(sponsor=request.user, student=student).exists():
+        messages.error(request, "You can only donate to your favorite students.")
+        return redirect('sponsor:students')
+
+    if request.method == 'POST':
+        form = SponsorDonateStudentForm(request.POST)
+        if form.is_valid():
+            donation = form.save(commit=False)
+            donation.sponsor = request.user
+            donation.student = student
+            donation.save()
+            messages.success(request, 'Donation successfully made!')
+            return redirect('sponsor:studentsDonationHistory')
+    else:
+        form = SponsorDonateStudentForm()
     
     context = {
+        'form': form,
         'student': student,
     }
     
