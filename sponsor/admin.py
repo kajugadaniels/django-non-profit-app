@@ -8,3 +8,4 @@ class FavoriteStudentAdmin(admin.ModelAdmin):
 admin.site.register(Letter)
 admin.site.register(SponsorDonateStudent)
 admin.site.register(FavoriteStudent, FavoriteStudentAdmin)
+admin.site.register(DonorToStudent)
