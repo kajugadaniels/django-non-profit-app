@@ -177,10 +177,6 @@ class News(models.Model):
         ('Medical Care', 'Medical Care'),
     ]
 
-    STATUS_CHOICES = [
-        ('Active', 'Active'),
-        ('Unactive', 'Unactive'),
-    ]
     
     category = models.CharField(max_length=255, choices=CATEGORY_CHOICES)
     title = models.CharField(max_length=200)
@@ -192,7 +188,6 @@ class News(models.Model):
         options={'quality': 90},
     )
     description = models.TextField()
-    status = models.CharField(max_length=255, choices=STATUS_CHOICES)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
