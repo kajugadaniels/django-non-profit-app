@@ -32,6 +32,16 @@
                         {{ student.birthday }}
                     </div>
                 </div>
+                <div class="d-block d-sm-flex align-items-center mb-20px">
+                    {% if user.is_authenticated %}
+                        <form method="POST">
+                            {% csrf_token %}
+                            <button type="submit" name="favorite_student" class="wishlist d-flex align-items-center justify-content-center border border-radius-5px border-color-extra-medium-gray order-2 order-sm-3">
+                                <i class="feather icon-feather-heart icon-small text-dark-gray"></i>
+                            </button>
+                        </form>
+                    {% endif %}
+                </div>
                 <div class="col-xl-12 col-lg-12">  
                     <h5 class="alt-font text-dark-gray fw-700 mb-10px fs-20">
                         Your Sponsorship
@@ -73,9 +83,6 @@
                                     <span><i class="bi bi-calendar-check"></i></span>
                                     <span class="btn-double-text" data-text="Donate Now">Donate Now</span> 
                                 </span>
-                            </button>
-                            <button class="wishlist d-flex align-items-center justify-content-center border border-radius-5px border-color-extra-medium-gray order-2 order-sm-3">
-                                <i class="feather icon-feather-heart icon-small text-dark-gray"></i>
                             </button>
                         </div>
                         <div class="col-12">

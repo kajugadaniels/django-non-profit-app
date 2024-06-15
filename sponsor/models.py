@@ -18,6 +18,13 @@ class Letter(models.Model):
     def __str__(self):
         return f"Letter from {self.sender.firstname} to {self.receiver.name}"
 
+class FavoriteStudent(models.Model):
+    sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='favorite_students')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='favorite_by')
+
+    def __str__(self):
+        return f"{self.sponsor.email} - {self.student.name}"
+
 class SponsorDonateStudent(models.Model):
     sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='donations')
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='donations')

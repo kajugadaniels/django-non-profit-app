@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.utils import timezone
 from backend.models import *
 from home.models import *
+from sponsor.models import *
 from django.contrib import messages
 import stripe
 from django.core.paginator import Paginator
@@ -201,10 +202,6 @@ def students(request):
 
 def getStudent(request, slug):
     student = get_object_or_404(Student, slug=slug)
-    print(f"Student: {student}")
-    print(f"Slug: {student.slug}")
-    if not slug:
-        return redirect('students')  
     logos = get_logos()
     
     context = {
@@ -212,14 +209,29 @@ def getStudent(request, slug):
         'slug': slug,
         **logos
     }
+
     if request.method == 'POST':
-        amount = request.POST['amount']
-        email =  request.POST['email']
-        fullname= request.POST['fullname']
-        interval =  request.POST['paymentOptions']
-        donate= donateFund(request,amount, interval,slug, fullname, email,'frontend/students/show.html','')
-        return donate
-    
+        # Handle donation logic if this is a donation request
+        if 'amount' in request.POST:
+            amount = request.POST['amount']
+            email = request.POST['email']
+            fullname = request.POST['fullname']
+            interval = request.POST['paymentOptions']
+            donate = donateFund(request, amount, interval, slug, fullname, email, 'frontend/students/show.html', '')
+            return donate
+        
+        # Handle favorite student logic
+        if 'favorite_student' in request.POST:
+            try:
+                favorite, created = FavoriteStudent.objects.get_or_create(sponsor=request.user, student=student)
+                if created:
+                    messages.success(request, 'You have successfully added this student to your favorites.')
+                else:
+                    messages.info(request, 'This student is already in your favorites.')
+            except Exception as e:
+                messages.error(request, 'An error occurred while trying to add this student to your favorites.')
+            return redirect('sponsor:students')
+
     return render(request, 'frontend/students/show.html', context)
 
 def give(request):

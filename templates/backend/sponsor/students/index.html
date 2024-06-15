@@ -30,7 +30,7 @@
                                 </thead>
                                 <tbody>
                                     
-                                    {% for student in students %}
+                                    {% for favorite in students %}
                                         <tr class="product-removes">
                                             <td>
                                                 <div class="form-check"> 
@@ -40,23 +40,23 @@
                                             <td> 
                                                 <div class="product-names">
                                                     <div class="light-product-box">
-                                                        <img class="img-fluid" src="{{ student.image.url }}" alt="{{ student.name }}">
+                                                        <img class="img-fluid" src="{{ favorite.student.image.url }}" alt="{{ favorite.student.name }}">
                                                     </div>
-                                                    <p>{{ student.name }}</p>
+                                                    <p>{{ favorite.student.name }}</p>
                                                 </div>
                                             </td>
                                             <td> 
-                                                <p class="f-light">{{ student.age }}</p>
+                                                <p class="f-light">{{ favorite.student.age }}</p>
                                             </td>
                                             <td> 
-                                                <p class="f-light">{{ student.birthday }}</p>
+                                                <p class="f-light">{{ favorite.student.birthday }}</p>
                                             </td>
                                             <td> 
-                                                <p class="f-light">{{ student.gender }}</p>
+                                                <p class="f-light">{{ favorite.student.gender }}</p>
                                             </td>
                                             <td> 
                                                 <div class="product-action">
-                                                    <a href="{% url 'sponsor:getStudent' student.slug %}" class="d-flex justify-content-between">
+                                                    <a href="{% url 'sponsor:getStudent' favorite.student.slug %}" class="d-flex justify-content-between">
                                                         <p style="margin-right: 20px;">
                                                             Donate
                                                         </p>

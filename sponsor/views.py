@@ -110,7 +110,7 @@ def letterDelete(request, slug):
 
 @login_required
 def students(request):
-    students = Student.objects.all()
+    students = FavoriteStudent.objects.filter(sponsor=request.user).select_related('student')
 
     context = {
         'students': students,
