@@ -10,27 +10,27 @@
                         <div class="list-product-header">
                             <div class="d-flex justify-content-between">
                                 <h4>Letters</h4>
-                                <a class="btn btn-primary" href="{% url 'sponsor:writeLetter' %}"><i class="fa fa-plus"></i>Write a Letter</a>
                             </div>
                         </div>
                         <div class="list-product">
                             <table class="table" id="project-status">
                                 <thead> 
                                     <tr> 
-                                    <th>
-                                        <div class="form-check"> 
-                                            <input class="form-check-input checkbox-primary" type="checkbox">
-                                        </div>
-                                    </th>
-                                    <th> <span class="f-light f-w-600">Sender</span></th>
-                                    <th> <span class="f-light f-w-600">Receiver</span></th>
-                                    <th> <span class="f-light f-w-600">Summary</span></th>
-                                    <th> <span class="f-light f-w-600">Action</span></th>
+                                        <th>
+                                            <div class="form-check"> 
+                                                <input class="form-check-input checkbox-primary" type="checkbox">
+                                            </div>
+                                        </th>
+                                        <th> <span class="f-light f-w-600">Receiver</span></th>
+                                        <th> <span class="f-light f-w-600">Sender</span></th>
+                                        <th> <span class="f-light f-w-600">Subject</span></th>
+                                        <th> <span class="f-light f-w-600">Summary</span></th>
+                                        <th> <span class="f-light f-w-600">Action</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
-                                    {% for letter in letters %}
+                                    {% for item in letters %}
                                         <tr class="product-removes">
                                             <td>
                                                 <div class="form-check"> 
@@ -38,30 +38,24 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                {{ letter.sender.firstname }} {{ letter.sender.lastname }}
+                                                <div class="product-names">
+                                                    <div class="light-product-box">
+                                                        <img class="img-fluid" src="{{ item.student.image.url }}" alt="{{ itemstudent.name }}">
+                                                    </div>
+                                                    <p>{{ item.student.name }}</p>
+                                                </div>
                                             </td>
                                             <td>
-                                                {{ letter.receiver.name }}
+                                                {{ item.sponsor_name }}
                                             </td>
                                             <td>
-                                                {{ letter.letter|safe|truncatewords:14 }}
+                                                {{ item.subject }}
+                                            </td>
+                                            <td>
+                                                {{ item.body|safe|truncatewords:14 }}
                                             </td>
                                             <td> 
-                                                <div class="product-action">
-                                                    <a href="{% url 'sponsor:letterEdit' letter.slug %}"> 
-                                                        <svg>    
-                                                            <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
-                                                        </svg>
-                                                    </a>
-                                                    <form method="post" action="{% url 'sponsor:letterDelete' letter.slug %}" style="display: inline;">
-                                                        {% csrf_token %}
-                                                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline" onclick="return confirm('Are you sure you want to delete this letter ({{ letter.title }})?');">
-                                                            <svg>
-                                                                <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-                                                </div>
+                                                
                                             </td>
                                         </tr>
                                     {% endfor %}

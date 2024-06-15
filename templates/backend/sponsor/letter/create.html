@@ -29,21 +29,18 @@
                         <div class="form theme-form">
                             <form class="letter-wrapper" method="post">
                                 {% csrf_token %}
-                                <div class="row g-3 custom-input">
-                                    <div class="col-sm-6"> 
-                                        <label class="form-label">Receiver</label>
-                                        {{ form.receiver }}
-                                        {% if form.receiver.errors %}
-                                            <div class="text-danger">{{ form.receiver.errors }}</div>
-                                        {% endif %}
+                                <div class="row g-3 custom-input mb-5">
+                                    <div class="col-sm-12"> 
+                                        <label class="form-label">Subject</label>
+                                        <input type="text" class="form-control" placeholder="Letter Subject" name="subject">
                                     </div>
                                 </div>
                                 <div class="row g-3 custom-input">
                                     <div class="col-sm-12">
                                         <div class="col-12">
-                                            <label class="form-label">Letter</label>
+                                            <label class="form-label">Body</label>
                                             <div id="letter-container"></div>
-                                            <textarea id="id_letter" name="letter" style="display:none;"></textarea>
+                                            <textarea id="id_letter" name="body" style="display:none;"></textarea>
                                             {% if form.letter.errors %}
                                                 <div class="text-danger">{{ form.letter.errors }}</div>
                                             {% endif %}

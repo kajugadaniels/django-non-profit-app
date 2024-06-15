@@ -4,19 +4,15 @@ from home.models import *
 from backend.models import *
 
 class Letter(models.Model):
-    sender = models.ForeignKey(UserAccount, on_delete=models.CASCADE, related_name='sent_letters')
-    receiver = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='received_letters')
-    slug = models.SlugField(unique=True, blank=True)
-    letter = models.TextField()
+    sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='sender', null=True, blank=True)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='receiver', null=True, blank=True)
+    sponsor_name = models.CharField(max_length=255, null=True, blank=True)
+    subject = models.CharField(max_length=255, null=True, blank=True)
+    body = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(f"{self.sender.firstname}-{self.receiver.name}-{timezone.now()}")
-        super().save(*args, **kwargs)
-
     def __str__(self):
-        return f"Letter from {self.sender.firstname} to {self.receiver.name}"
+        return f"{self.sponsor.sponsor_name} - {self.student.name}"
 
 class FavoriteStudent(models.Model):
     sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='favorite_students')

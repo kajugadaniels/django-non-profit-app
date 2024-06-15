@@ -70,7 +70,7 @@ def dashboard(request):
 
 @login_required
 def getLetters(request):
-    letters = Letter.objects.filter(sender=request.user)
+    letters = Letter.objects.filter(sponsor=request.user)
 
     context = {
         'letters': letters
@@ -79,23 +79,28 @@ def getLetters(request):
     return render(request, 'backend/sponsor/letter/index.html', context)
 
 @login_required
-def writeLetter(request):
+def writeLetter(request, slug):
+    student = get_object_or_404(Student, slug=slug)
+    if not FavoriteStudent.objects.filter(sponsor=request.user, student=student).exists():
+        messages.error(request, "You can only write letters to your favorite students.")
+        return redirect('sponsor_dashboard')
+
     if request.method == 'POST':
-        form = LetterForm(request.POST, request.FILES, user=request.user)
+        form = LetterForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Letter created successfully!')
+            letter = form.save(commit=False)
+            letter.sponsor = request.user
+            letter.sponsor_name = f"{request.user.firstname} {request.user.lastname}"
+            letter.student = student
+            letter.save()
+            messages.success(request, 'Letter successfully sent!')
             return redirect('sponsor:getLetters')
-        else:
-            error_message = 'Error creating a letter. '
-            for field, errors in form.errors.items():
-                error_message += f"{field}: {', '.join(errors)}. "
-            messages.error(request, error_message.strip())
     else:
-        form = LetterForm(user=request.user)
+        form = LetterForm()
 
     context = {
-        'form': form
+        'form': form,
+        'student': student
     }
 
     return render(request, 'backend/sponsor/letter/create.html', context)

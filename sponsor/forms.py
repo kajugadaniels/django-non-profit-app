@@ -42,24 +42,7 @@ class MemberLoginForm(forms.Form):
 class LetterForm(forms.ModelForm):
     class Meta:
         model = Letter
-        fields = ['receiver', 'letter']
-        widgets = {
-            'receiver': forms.Select(attrs={'class': 'form-control'}),
-            'letter': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write your letter here...'}),
-        }
-
-    def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user', None)
-        super(LetterForm, self).__init__(*args, **kwargs)
-        if self.user:
-            self.initial['sender'] = self.user
-
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-        instance.sender = self.user
-        if commit:
-            instance.save()
-        return instance
+        fields = ['subject', 'body']
 
 class SponsorDonateStudentForm(forms.ModelForm):
     class Meta:
