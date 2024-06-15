@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 import string, random
 from django.utils.text import slugify
 from backend.models import *
-# Create your models here.
+
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     ADMIN = 'admin'
     USER =  'user'

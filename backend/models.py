@@ -1,3 +1,4 @@
+import os
 from django.db import models
 from django.utils.text import slugify
 from datetime import date
@@ -5,6 +6,11 @@ from django_quill.fields import QuillField
 from django.utils import timezone
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
+
+def student_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'students/student_{slugify(instance.name)}_{instance.birthday}_{instance.gender}{file_extension}'
+
 class Student(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
@@ -21,7 +27,7 @@ class Student(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
     image = ProcessedImageField(
-        upload_to='students/',
+        upload_to=student_image_path,
         processors=[ResizeToFill(1296, 1556)],
         format='JPEG',
         options={'quality': 90},
@@ -38,37 +44,44 @@ class Student(models.Model):
         today = date.today()
         age = today.year - self.birthday.year - ((today.month, today.day) < (self.birthday.month, self.birthday.day))
         return age
-
+    
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
+        self.slug = slugify(self.name)
+        super(Student, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
+
+
+def product_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'products/product_{slugify(instance.name)}_{instance.price}_{instance.gender}{file_extension}'
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
     image = ProcessedImageField(
-        upload_to='store/',
+        upload_to=product_image_path,
         processors=[ResizeToFill(800, 800)],
         format='JPEG',
         options={'quality': 90},
     )
-    unit = models.CharField(max_length=255, default=1)
+    unit = models.CharField(max_length=255, null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
+        self.slug = slugify(self.name)
         super(Product, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
+
+def team_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'teams/team_{slugify(instance.name)}_{instance.position}_{instance.category}{file_extension}'
 
 class Team(models.Model):
     CATEGORY_CHOICES = [
@@ -80,7 +93,7 @@ class Team(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     position = models.CharField(max_length=255)
     image = ProcessedImageField(
-        upload_to='team/',
+        upload_to=team_image_path,
         processors=[ResizeToFill(1200, 1500)],
         format='JPEG',
         options={'quality': 90},
@@ -91,40 +104,44 @@ class Team(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
+        self.slug = slugify(self.name)
         super(Team, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
+
+def blog_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'blogs/blog_{slugify(instance.title)}_{instance.created_at}{file_extension}'
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     subTitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True, blank=True)
     image = ProcessedImageField(
-        upload_to='blog/',
+        upload_to=blog_image_path,
         processors=[ResizeToFill(3600, 2026)],
         format='JPEG',
         options={'quality': 90},
     )
     description = models.TextField()
-    # description = QuillField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super(Blog, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
 
+def slide_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'slides/slide_{slugify(instance.created_at)}{file_extension}'
 
 class Slide(models.Model):
     image = ProcessedImageField(
-        upload_to='slides/',
+        upload_to=slide_image_path,
         processors=[ResizeToFill(1080, 719)],
         format='JPEG',
         options={'quality': 90},
@@ -136,10 +153,14 @@ class Slide(models.Model):
     def __str__(self):
         return f"Slide {self.id}"
 
+def testimony_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'testimonies/testimony_{slugify(instance.name)}_{instance.position}{file_extension}'
+
 class Testimony(models.Model):
     name = models.CharField(max_length=100)
     image = ProcessedImageField(
-        upload_to='testimonies/',
+        upload_to=testimony_image_path,
         processors=[ResizeToFill(719, 719)],
         format='JPEG',
         options={'quality': 90},
@@ -168,6 +189,10 @@ class MissionVisionValues(models.Model):
     def __str__(self):
         return f"{self.get_section_display()}: {self.title}"
 
+def story_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'stories/story_{slugify(instance.title)}_{instance.category}_{instance.created_at}{file_extension}'
+
 class News(models.Model):
     CATEGORY_CHOICES = [
         ('Vocational Training', 'Vocational Training'),
@@ -186,7 +211,7 @@ class News(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
     image = ProcessedImageField(
-        upload_to='news/',
+        upload_to=story_image_path,
         processors=[ResizeToFill(3600, 2026)],
         format='JPEG',
         options={'quality': 90},
@@ -197,8 +222,7 @@ class News(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super(News, self).save(*args, **kwargs)
 
     def __str__(self):
@@ -260,6 +284,10 @@ class Volunteer(models.Model):
     def __str__(self):
         return self.name
 
+def resource_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'resources/resource_{slugify(instance.title)}_{instance.category}_{instance.created_at}{file_extension}'
+
 class Resource(models.Model):
     CATEGORY_CHOICES = [
         ('guidelines', 'Guidelines'),
@@ -271,24 +299,26 @@ class Resource(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
-    image = models.ImageField(upload_to='resources/', blank=True, null=True)
-    file = models.FileField(upload_to='resources/', blank=True, null=True)
+    image = models.ImageField(upload_to=resource_image_path, blank=True, null=True)
+    file = models.FileField(upload_to=resource_image_path, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super(Resource, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
 
+def campaign_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'campaigns/campaign_{slugify(instance.title)}_{instance.created_at}{file_extension}'
+
 class Campaign(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
-    image = models.ImageField(upload_to='campaigns/')
     image = ProcessedImageField(
-        upload_to='campaigns/',
+        upload_to=campaign_image_path,
         processors=[ResizeToFill(600, 413)],
         format='JPEG',
         options={'quality': 90},
@@ -297,8 +327,7 @@ class Campaign(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super(Campaign, self).save(*args, **kwargs)
 
     def __str__(self):
@@ -326,12 +355,15 @@ class Policy(models.Model):
     description = models.TextField()
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.category)
-        super().save(*args, **kwargs)
+        self.slug = slugify(self.category)
+        super(Policy, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.category
+
+def project_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'projects/project_{slugify(instance.title)}_{instance.category}_{instance.created_at}{file_extension}'
 
 class ProjectDetails(models.Model):
     CATEGORY_CHOICES = [
@@ -343,20 +375,19 @@ class ProjectDetails(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
     image = ProcessedImageField(
-        upload_to='projects/',
+        upload_to=project_image_path,
         processors=[ResizeToFill(3600, 2026)],
         format='JPEG',
         options={'quality': 90},
     )
-    target = models.CharField(max_length=255, default="Project")
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default="Regular Projects")
+    target = models.CharField(max_length=255, null=True, blank=True)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, null=True, blank=True)
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super(ProjectDetails, self).save(*args, **kwargs)
 
     def __str__(self):
