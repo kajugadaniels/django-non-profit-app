@@ -129,8 +129,10 @@ def getStudent(request, slug):
 
 @login_required
 def studentsDonationHistory(request):
+    students = SponsorDonateStudent.objects.all()
+
     context = {
-        
+        'students': students
     }
 
     return render(request, 'backend/sponsor/students/history.html', context)

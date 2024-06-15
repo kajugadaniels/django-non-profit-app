@@ -36,7 +36,6 @@
                     <h5 class="alt-font text-dark-gray fw-700 mb-10px fs-20">
                         Your Sponsorship
                     </h5>
-                 
                     <form action="{% url 'frontend:getStudent' slug=slug %}" method="post" class="row contact-form-style-02">
                         {% csrf_token %}
                         {% if error_message %}
@@ -68,12 +67,15 @@
                             <label class="fw-500 text-black">Email</label>
                             <input name="email" class="input-name border-radius-4px border-color-white box-shadow-double-large form-control required" type="text" placeholder="Email" />
                         </div>
-                        <div class="col-xl-6 col-md-7">
-                            <button class="btn btn-extra-large btn-gradient-fuel-yellow-blue fw-400" type="submit">
+                        <div class="col-xl-6 col-md-7 d-flex">
+                            <button class="btn btn-cart btn-extra-large btn-switch-text btn-box-shadow btn-none-transform btn-dark-gray left-icon btn-round-edge border-0 me-15px xs-me-0 order-3 order-sm-2" type="submit">
                                 <span>
                                     <span><i class="bi bi-calendar-check"></i></span>
-                                    <span class="btn-double-text" data-text="Send your donation">Send your donation</span> 
+                                    <span class="btn-double-text" data-text="Donate Now">Donate Now</span> 
                                 </span>
+                            </button>
+                            <button class="wishlist d-flex align-items-center justify-content-center border border-radius-5px border-color-extra-medium-gray order-2 order-sm-3">
+                                <i class="feather icon-feather-heart icon-small text-dark-gray"></i>
                             </button>
                         </div>
                         <div class="col-12">
