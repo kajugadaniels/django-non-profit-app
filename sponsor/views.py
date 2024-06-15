@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db.models import Sum
 from sponsor.models import *
 from sponsor.forms import *
 
@@ -66,7 +67,17 @@ def logout_user(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'backend/sponsor/dashboard.html')
+    students = FavoriteStudent.objects.filter(sponsor=request.user).select_related('student').count()
+    letters = Letter.objects.filter(sponsor=request.user).count()
+    total_donation = SponsorDonateStudent.objects.filter(sponsor=request.user).aggregate(total_amount=Sum('amount'))['total_amount'] or 0
+
+    context = {
+        'students': students,
+        'letters': letters,
+        'total_donation': total_donation
+    }
+
+    return render(request, 'backend/sponsor/dashboard.html', context)
 
 @login_required
 def getLetters(request):
@@ -138,7 +149,7 @@ def getStudent(request, slug):
             donation.student = student
             donation.save()
             messages.success(request, 'Donation successfully made!')
-            return redirect('sponsor:studentsDonationHistory')
+            return redirect('sponsor:donationHistory')
     else:
         form = SponsorDonateStudentForm()
     
