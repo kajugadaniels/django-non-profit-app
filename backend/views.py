@@ -8,6 +8,7 @@ from django.conf import settings
 from django.contrib import messages
 from home.forms import *
 from home.models import *
+from sponsor.models import *
 from backend.models import *
 from backend.forms import *
 
@@ -719,6 +720,19 @@ def volunteerDetails(request, slug):
     }
 
     return render(request, 'backend/volunteers/show.html', context)
+
+@login_required
+def getLetters(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    letters = Letter.objects.all()
+
+    context = {
+        'letters': letters
+    }
+
+    return render(request, 'backend/letter/index.html', context)
 
 @login_required
 def volunteersUpdateStatus(request, slug):

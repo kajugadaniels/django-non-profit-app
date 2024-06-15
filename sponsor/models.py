@@ -22,8 +22,8 @@ class FavoriteStudent(models.Model):
         return f"{self.sponsor.email} - {self.student.name}"
 
 class SponsorDonateStudent(models.Model):
-    sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='donations')
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='donations')
+    sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='sponsor_donate_student_donations')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='sponsor_donate_student_donations')
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     message = models.TextField(blank=True)
     created_at = models.DateTimeField(default=timezone.now)
@@ -32,10 +32,11 @@ class SponsorDonateStudent(models.Model):
         return f"{self.sponsor.email} -> {self.student.name}: ${self.amount}"
     
 class DonorToStudent(models.Model):
-    sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='donations')
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='donations')
+    sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='donor_to_student_donations')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='donor_to_student_donations')
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     message = models.TextField(blank=True)
     created_at = models.DateTimeField(default=timezone.now)
+
     def __str__(self):
         return f"{self.sponsor.email} -> {self.student.name}: ${self.amount}"
