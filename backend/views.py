@@ -86,14 +86,22 @@ def addStudent(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
+    
     if request.method == 'POST':
         form = StudentForm(request.POST, request.FILES)
-        if form.is_valid():
+        
+        # Check if student already exists
+        if Student.objects.filter(name=request.POST.get('name')).exists():
+            messages.error(request, 'Student with this name already exists.')
+        elif not request.FILES.get('image'):
+            messages.error(request, 'Image was not uploaded.')
+        elif form.is_valid():
             form.save()
             messages.success(request, 'Student created successfully!')
             return redirect('backend:getStudents')
         else:
-            messages.error(request, 'Error creating student. Please check the form.')
+            messages.error(request, 'Error creating student. Please check the form for errors.')
+
     else:
         form = StudentForm()
     

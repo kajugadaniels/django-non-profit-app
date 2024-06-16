@@ -52,10 +52,9 @@ class Student(models.Model):
     def __str__(self):
         return self.name
 
-
 def product_image_path(instance, filename):
     base_filename, file_extension = os.path.splitext(filename)
-    return f'products/product_{slugify(instance.name)}_{instance.price}_{instance.gender}{file_extension}'
+    return f'products/product_{slugify(instance.name)}_{instance.price}{file_extension}'
 
 class Product(models.Model):
     name = models.CharField(max_length=255)

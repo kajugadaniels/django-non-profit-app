@@ -3,8 +3,6 @@ from django_quill.forms import QuillFormField
 from backend.models import *
 
 class StudentForm(forms.ModelForm):
-    # description = QuillFormField()
-
     class Meta:
         model = Student
         fields = ['name', 'image', 'birthday', 'gender', 'benefits', 'description']
@@ -16,6 +14,21 @@ class StudentForm(forms.ModelForm):
             'benefits': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Benefits Of Sponsorship'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Additional Information'}),
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        name = cleaned_data.get("name")
+        image = cleaned_data.get("image")
+
+        # Check if student with the same name already exists
+        if Student.objects.filter(name=name).exists():
+            raise forms.ValidationError("A student with this name already exists.")
+        
+        # Check if image is uploaded
+        if not image:
+            raise forms.ValidationError("Image was not uploaded.")
+        
+        return cleaned_data
 
 class TeamForm(forms.ModelForm):
     class Meta:
