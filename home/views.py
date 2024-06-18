@@ -118,7 +118,7 @@ def whatWeDo(request):
     return render(request, 'frontend/what-we-do/index.html', context)
 
 def education(request):
-    news = News.objects.filter(category='Education', status='Active').order_by('-created_at')
+    news = News.objects.filter(category='Education').order_by('-created_at')
     logos = get_logos()
     
     context = {
@@ -129,7 +129,7 @@ def education(request):
     return render(request, 'frontend/what-we-do/education.html', context)
 
 def vocationalTraining(request):
-    news = News.objects.filter(category='Vocational Training', status='Active').order_by('-created_at')
+    news = News.objects.filter(category='Vocational Training').order_by('-created_at')
     logos = get_logos()
 
     context = {
@@ -140,7 +140,7 @@ def vocationalTraining(request):
     return render(request, 'frontend/what-we-do/vocational-training.html', context)
 
 def medicalCare(request):
-    news = News.objects.filter(category='Medical Care', status='Active').order_by('-created_at')
+    news = News.objects.filter(category='Medical Care').order_by('-created_at')
     logos = get_logos()
 
     context = {
@@ -151,7 +151,7 @@ def medicalCare(request):
     return render(request, 'frontend/what-we-do/medical-care.html', context)
 
 def communityEmpowerment(request):
-    news = News.objects.filter(category='Community Empowerment', status='Active').order_by('-created_at')
+    news = News.objects.filter(category='Community Empowerment').order_by('-created_at')
     testimonies = Testimony.objects.all().order_by('-created_at')[:6]
     logos = get_logos()
 
