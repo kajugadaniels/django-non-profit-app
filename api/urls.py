@@ -11,7 +11,7 @@ schema_view = get_schema_view(
       default_version='v1',
       description="Webo=hook",
       terms_of_service="https://africanoi.org/policies/terms/",
-      contact=openapi.Contact(email="contact@afrianoi.org"),
+      contact=openapi.Contact(email="contact@africanoasis.org"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,
