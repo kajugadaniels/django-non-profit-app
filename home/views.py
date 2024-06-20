@@ -8,6 +8,7 @@ from backend.models import *
 from home.models import *
 from sponsor.models import *
 from django.contrib import messages
+from django.db.models import Sum
 import stripe
 from django.core.paginator import Paginator
 from dotenv import load_dotenv
@@ -340,8 +341,29 @@ def viewProject(request, slug):
     project = get_object_or_404(ProjectDetails, slug=slug)
     logos = get_logos()
     
+    raised_amount = DonateGifts.objects.filter(productid=project.id).aggregate(Sum('amount'))['amount__sum'] or 0
+    total_donations = DonateGifts.objects.filter(productid=project.id).count()
+    recent_donation = DonateGifts.objects.filter(productid=project.id).order_by('-id').first()
+    highest_donor = DonateGifts.objects.filter(productid=project.id).order_by('-amount').first()
+    first_donor = DonateGifts.objects.filter(productid=project.id).order_by('id').first()
+    
+    if project.target:
+        try:
+            target = float(project.target)
+            percentage_raised = (raised_amount / target) * 100
+        except (ValueError, ZeroDivisionError):
+            percentage_raised = 0
+    else:
+        percentage_raised = 0
+    
     context = {
         'project': project,
+        'raised_amount': raised_amount,
+        'total_donations': total_donations,
+        'recent_donation': recent_donation,
+        'highest_donor': highest_donor,
+        'first_donor': first_donor,
+        'percentage_raised': percentage_raised,
         **logos
     }
 

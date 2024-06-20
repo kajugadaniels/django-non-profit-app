@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}"/>
     <link rel="stylesheet" href="{% static 'frontend/css/responsive.css' %}"/>
     <link rel="stylesheet" href="{% static 'frontend/css/custom.css' %}"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body data-mobile-nav-trigger-alignment="right" data-mobile-nav-style="modern" data-mobile-nav-bg-color="#1d1d1d">
     {% include 'frontend/inc/header.html' %}
@@ -34,6 +35,16 @@
 
     {% endblock content %}
     {% include 'frontend/inc/footer.html' %}
+
+    {% if messages %}
+        <script>
+            Swal.fire({
+                icon: '{{ messages.tags }}',
+                title: '{{ messages.title }}',
+                text: '{{ messages.message }}',
+            });
+        </script>
+    {% endif %}
 
     <script type="text/javascript" src="{% static 'frontend/js/jquery.js' %}"></script>
     <script type="text/javascript" src="{% static 'frontend/js/vendors.min.js' %}"></script>

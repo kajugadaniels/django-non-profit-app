@@ -45,8 +45,8 @@
                 <h4 class="fw-600 text-white">{{ project.title }}</h4>
                 {% if project.category == "Special Projects" %}
                     <div class="progress mt-50px mb-15px bg-white"> 
-                        <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="child-issue-one">
-                            <span class="progress-bar-percent text-center bg-dark-gray fs-11 lh-12 fw-500 text-white">0%</span>
+                        <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="{{ percentage_raised }}" aria-valuemin="0" aria-valuemax="100" aria-label="child-issue-one">
+                            <span class="progress-bar-percent text-center bg-dark-gray fs-11 lh-12 fw-500 text-white">{{ percentage_raised|floatformat:"2" }}%</span>
                         </div>
                     </div>
                     <div class="row">
@@ -54,7 +54,7 @@
                             <div class="fs-15 lh-normal text-white"><span class="fw-300 d-block d-xl-inline-block">Goal:</span> <b>${{ project.target }}</b></div>
                         </div>
                         <div class="col-6 text-end">
-                            <div class="fs-15 lh-normal text-white"><span class="fw-300 d-block d-xl-inline-block">Raised:</span> <b>$0</b></div>
+                            <div class="fs-15 lh-normal text-white"><span class="fw-300 d-block d-xl-inline-block">Raised:</span> <b>${{ raised_amount|floatformat:"2" }}</b></div>
                         </div>
                     </div>
                 {% endif %}
