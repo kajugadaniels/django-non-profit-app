@@ -852,6 +852,78 @@ def deleteResource(request, slug):
     return redirect('backend:resources')
 
 @login_required
+def referenceSheet(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    referenceSheet = ReferenceSheet.objects.all().order_by('-created_at')
+
+    context = {
+        'referenceSheet': referenceSheet
+    }
+
+    return render(request, 'backend/reference-sheet/index.html', context)
+
+@login_required
+def addReferenceSheet(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    if request.method == 'POST':
+        form = ReferenceSheetForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reference Sheet created successfully!')
+            return redirect('backend:referenceSheet')
+        else:
+            messages.error(request, 'Error creating a reference sheet. Please check the form.')
+    else:
+        form = ReferenceSheetForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/reference-sheet/create.html', context)
+
+@login_required
+def editReferenceSheet(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    referenceSheet = get_object_or_404(ReferenceSheet, slug=slug)
+
+    if request.method == 'POST':
+        form = ReferenceSheetForm(request.POST, request.FILES, instance=referenceSheet)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reference Sheet updated successfully!')
+            return redirect('backend:referenceSheet')
+        else:
+            messages.error(request, 'Error updating the Reference Sheet. Please check the form.')
+    else:
+        form = ReferenceSheetForm(instance=referenceSheet)
+        
+    context = {
+        'form': form,
+        'referenceSheet': referenceSheet
+    }
+    
+    return render(request, 'backend/reference-sheet/edit.html', context)
+
+@login_required
+def deleteReferenceSheet(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    if request.method == 'POST':
+        referenceSheet = get_object_or_404(ReferenceSheet, slug=slug)
+        referenceSheet.delete()
+        messages.success(request, 'Reference Sheet deleted successfully!')
+        
+    return redirect('backend:referenceSheet')
+
+@login_required
 def setting(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')

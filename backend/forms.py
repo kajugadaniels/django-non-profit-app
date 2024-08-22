@@ -224,6 +224,22 @@ class ResourceForm(forms.ModelForm):
                 raise forms.ValidationError("Only PDF and DOCX files are allowed.")
         return file
 
+class ReferenceSheetForm(forms.ModelForm):
+    class Meta:
+        model = ReferenceSheet
+        fields = ['title', 'file']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'file': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'}),
+        }
+
+    def clean_file(self):
+        file = self.cleaned_data.get('file')
+        if file:
+            if not file.name.lower().endswith(('.pdf', '.docx')):
+                raise forms.ValidationError("Only PDF and DOCX files are allowed.")
+        return file
+
 class CampaignForm(forms.ModelForm):
     class Meta:
         model = Campaign

@@ -76,6 +76,11 @@ urlpatterns = [
    path('resources/<slug>', editResource, name='editResource'),
    path('resources/<slug>/delete', deleteResource, name='deleteResource'),
 
+   path('reference-sheet/', referenceSheet, name='referenceSheet'),
+   path('reference-sheet/create', addReferenceSheet, name='addReferenceSheet'),
+   path('reference-sheet/<slug>', editReferenceSheet, name='editReferenceSheet'),
+   path('reference-sheet/<slug>/delete', deleteReferenceSheet, name='deleteReferenceSheet'),
+
    path('policies/', policies, name='policies'),
    path('policy/create', addPolicy, name='addPolicy'),
    path('policy/<slug>', editPolicy, name='editPolicy'),
