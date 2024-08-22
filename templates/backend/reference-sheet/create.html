@@ -1,0 +1,45 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Add Reference Sheet</h4>
+                                <a class="btn btn-primary" href="{% url 'backend:addReferenceSheet' %}"><i class="fa fa-eye"></i>View Reference Sheet</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form theme-form">
+                            <form class="price-wrapper" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row g-3 custom-input">
+                                    <div class="col-sm-6">
+                                        <label class="form-label">Title</label>
+                                        {{ form.title }}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">File</label>
+                                        <div class="input-group flatpicker-calender product-date">
+                                            {{ form.file }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <div class="text-end">
+                                            <button class="btn btn-primary me-3">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
