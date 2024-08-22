@@ -639,7 +639,7 @@ def childProtectionPolicy(request):
 
 def resources(request):
     logos = get_logos()
-    
+
     guidelines = Resource.objects.filter(category='guidelines')
     brochures = Resource.objects.filter(category='brochures')
     social_media = Resource.objects.filter(category='social_media')
@@ -657,13 +657,11 @@ def resources(request):
 
 def referenceSheet(request):
     logos = get_logos()
+    referenceSheet = ReferenceSheet.objects.all().order_by('-created_at')
     
     context = {
         **logos,
-        # 'guidelines': guidelines,
-        # 'brochures': brochures,
-        # 'social_media': social_media,
-        # 'photos': photos,
+        'referenceSheet': referenceSheet,
     }
 
     return render(request, 'frontend/reference-sheet.html', context)
