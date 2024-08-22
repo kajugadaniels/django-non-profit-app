@@ -386,3 +386,20 @@ class ProjectDetails(models.Model):
 
     def __str__(self):
         return self.title
+
+def reference_sheet_image_path(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    return f'reference-sheet/reference_sheet_{slugify(instance.title)}_{instance.created_at}{file_extension}'
+
+class ReferenceSheet(models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
+    file = models.FileField(upload_to=reference_sheet_image_path, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(ReferenceSheet, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
