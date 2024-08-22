@@ -856,10 +856,10 @@ def referenceSheet(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
-    referenceSheet = ReferenceSheet.objects.all().order_by('-created_at')
+    referenceSheets = ReferenceSheet.objects.all().order_by('-created_at')
 
     context = {
-        'referenceSheet': referenceSheet
+        'referenceSheets': referenceSheets
     }
 
     return render(request, 'backend/reference-sheet/index.html', context)
