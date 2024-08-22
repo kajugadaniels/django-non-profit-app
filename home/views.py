@@ -654,3 +654,16 @@ def resources(request):
     }
 
     return render(request, 'frontend/resources.html', context)
+
+def referenceSheet(request):
+    logos = get_logos()
+    
+    context = {
+        **logos,
+        # 'guidelines': guidelines,
+        # 'brochures': brochures,
+        # 'social_media': social_media,
+        # 'photos': photos,
+    }
+
+    return render(request, 'frontend/reference-sheet.html', context)

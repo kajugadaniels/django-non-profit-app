@@ -62,6 +62,8 @@ urlpatterns = [
    path('child-protection-policy', childProtectionPolicy, name="childProtectionPolicy"),
 
    path('resources', resources, name="resources"),
+
+   path('reference-sheet', referenceSheet, name="referenceSheet"),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'AOF Administration'                  
