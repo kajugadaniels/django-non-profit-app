@@ -438,7 +438,18 @@ def jobVacancy(request):
         **logos
     }
 
-    return render(request, 'frontend/job-vacancy.html', context)
+    return render(request, 'frontend/job-vacancy/index.html', context)
+
+def viewJobVacancy(request, slug):
+    job = JobVacancy.objects.get(slug=slug)
+    logos = get_logos()
+    
+    context = {
+        'job': job,
+        **logos
+    }
+
+    return render(request, 'frontend/job-vacancy/show.html', context)
 
 def contact(request):
     logos = get_logos()

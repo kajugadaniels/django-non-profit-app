@@ -30,7 +30,7 @@
                                 Job Type: <strong>{{ job.type }}</strong> <br>
                                 Currency: <strong>{{ job.currency }}</strong>
                             </p>
-                            <a href="{% url 'frontend:jobVacancy' %}" class="btn btn-link btn-hover-animation-switch btn-extra-large text-dark-gray fw-700 text-uppercase-inherit mt-15px">
+                            <a href="{% url 'frontend:viewJobVacancy' job.slug %}" class="btn btn-link btn-hover-animation-switch btn-extra-large text-dark-gray fw-700 text-uppercase-inherit mt-15px">
                                 <span>
                                     <span class="btn-text">Learn more</span>
                                     <span class="btn-icon">
