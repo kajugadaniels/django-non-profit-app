@@ -286,11 +286,11 @@ class JobVacancyForm(forms.ModelForm):
         model = JobVacancy
         fields = ['title', 'category', 'type', 'location', 'currency', 'description', 'deadline']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job title'}),
-            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Location'}),
-            'category': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Location'}),
-            'type': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Type'}),
-            'currency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Currency'}),
-            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Job Description'}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job title', 'required': 'true'}),
+            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Location', 'required': 'true'}),
+            'category': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Location', 'required': 'true'}),
+            'type': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Type', 'required': 'true'}),
+            'currency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Currency', 'required': 'true'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Job Description', 'required': 'true'}),
             'deadline': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }

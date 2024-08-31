@@ -84,6 +84,10 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            var deadlineInput = document.querySelector('input[name="deadline"]');
+            var today = new Date().toISOString().split('T')[0];
+            deadlineInput.setAttribute('min', today);
+
             var quillDescription = new Quill('#description-container', {
                 theme: 'snow',
                 modules: {

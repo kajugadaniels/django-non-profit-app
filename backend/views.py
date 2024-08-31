@@ -1130,7 +1130,7 @@ def getJobVacancy(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
-    getJobVacancies = JobVacancy.objects.all()
+    getJobVacancies = JobVacancy.objects.all().order_by('-created_at')
 
     context = {
         'getJobVacancies': getJobVacancies
@@ -1187,4 +1187,12 @@ def editJobVacancy(request, slug):
 
 @login_required()
 def deleteJobVacancy(request, slug):
-    pass
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    if request.method == 'POST':
+        job = get_object_or_404(JobVacancy, slug=slug)
+        job.delete()
+        messages.success(request, 'Job deleted successfully!')
+        
+    return redirect('backend:getJobVacancy')
