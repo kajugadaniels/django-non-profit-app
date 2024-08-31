@@ -86,6 +86,11 @@ urlpatterns = [
    path('policy/<slug>', editPolicy, name='editPolicy'),
    path('policy/<slug>/delete/', deletePolicy, name='deletePolicy'),
 
+   path('jobs/', getJob, name='getJob'),
+   path('job/create', addJob, name='addJob'),
+   path('job/<slug>', editJob, name='editJob'),
+   path('job/<slug>/delete/', deleteJob, name='deleteJob'),
+
    path('settings/', setting, name='settings'),
 
    path('settings/edit-slide/<int:slide_id>/', edit_slide, name='edit_slide'),

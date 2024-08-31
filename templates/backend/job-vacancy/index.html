@@ -1,0 +1,80 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row"> 
+            <div class="col-sm-12"> 
+                <div class="card"> 
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Job Vacancy</h4>
+                                <a class="btn btn-primary" href="{% url 'backend:addJobVacancy' %}"><i class="fa fa-plus"></i>Add Job Vacancy</a>
+                            </div>
+                        </div>
+                        <div class="list-product">
+                            <table class="table" id="project-status">
+                                <thead> 
+                                    <tr> 
+                                    <th>
+                                        <div class="form-check"> 
+                                            <input class="form-check-input checkbox-primary" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th> <span class="f-light f-w-600">Title</span></th>
+                                    <th> <span class="f-light f-w-600">Location</span></th>
+                                    <th> <span class="f-light f-w-600">Type</span></th>
+                                    <th> <span class="f-light f-w-600">Currency</span></th>
+                                    <th> <span class="f-light f-w-600">Action</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for job in jobVacancy %}
+                                        <tr class="product-removes">
+                                            <td>
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input checkbox-primary" type="checkbox">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{ job.title }}
+                                            </td>
+                                            <td>
+                                                {{ job.location }}
+                                            </td>
+                                            <td>
+                                                {{ job.type }}
+                                            </td>
+                                            <td>
+                                                {{ job.currency }}
+                                            </td>
+                                            <td> 
+                                                <div class="product-action">
+                                                    <a href="{% url 'backend:editBlog' job.slug %}"> 
+                                                        <svg>    
+                                                            <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <form method="post" action="{% url 'backend:deleteBlog' job.slug %}" style="display: inline;">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline" onclick="return confirm('Are you sure you want to delete this job ({{ job.title }})?');">
+                                                            <svg>
+                                                                <use href="{% static 'backend/svg/icon-sprite.svg#trash1' %}"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

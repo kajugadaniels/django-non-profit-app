@@ -1124,3 +1124,28 @@ def deletePolicy(request, slug):
         messages.success(request, 'Policy deleted successfully!')
 
     return redirect('backend:policies')
+
+@login_required()
+def getJob(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    jobs = JobVacancy.objects.all()
+
+    context = {
+        'jobs': jobs
+    }
+
+    return render(request, 'backend/job-vacancy/index.html', context)
+
+@login_required()
+def addJob(request):
+    pass
+
+@login_required()
+def editJob(request, slug):
+    pass
+
+@login_required()
+def deleteJob(request, slug):
+    pass
