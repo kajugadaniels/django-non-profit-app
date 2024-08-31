@@ -30,7 +30,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for job in jobVacancy %}
+                                    {% for job in getJobVacancies %}
                                         <tr class="product-removes">
                                             <td>
                                                 <div class="form-check"> 
@@ -51,12 +51,12 @@
                                             </td>
                                             <td> 
                                                 <div class="product-action">
-                                                    <a href="{% url 'backend:editBlog' job.slug %}"> 
+                                                    <a href="{% url 'backend:editJobVacancy' job.slug %}"> 
                                                         <svg>    
                                                             <use href="{% static 'backend/svg/icon-sprite.svg#edit-content' %}"></use>
                                                         </svg>
                                                     </a>
-                                                    <form method="post" action="{% url 'backend:deleteBlog' job.slug %}" style="display: inline;">
+                                                    <form method="post" action="{% url 'backend:deleteJobVacancy' job.slug %}" style="display: inline;">
                                                         {% csrf_token %}
                                                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline" onclick="return confirm('Are you sure you want to delete this job ({{ job.title }})?');">
                                                             <svg>

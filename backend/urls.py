@@ -86,10 +86,10 @@ urlpatterns = [
    path('policy/<slug>', editPolicy, name='editPolicy'),
    path('policy/<slug>/delete/', deletePolicy, name='deletePolicy'),
 
-   path('jobs/', getJob, name='getJob'),
-   path('job/create', addJob, name='addJob'),
-   path('job/<slug>', editJob, name='editJob'),
-   path('job/<slug>/delete/', deleteJob, name='deleteJob'),
+   path('jobs/', getJobVacancy, name='getJobVacancy'),
+   path('job/create', addJobVacancy, name='addJobVacancy'),
+   path('job/<slug>', editJobVacancy, name='editJobVacancy'),
+   path('job/<slug>/delete/', deleteJobVacancy, name='deleteJobVacancy'),
 
    path('settings/', setting, name='settings'),
 

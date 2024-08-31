@@ -1126,26 +1126,26 @@ def deletePolicy(request, slug):
     return redirect('backend:policies')
 
 @login_required()
-def getJob(request):
+def getJobVacancy(request):
     if not request.user.is_staff:
         messages.error(request, 'You do not have permission to access this page.')
         return redirect('sponsor:dashboard')
-    jobs = JobVacancy.objects.all()
+    getJobVacancies = JobVacancy.objects.all()
 
     context = {
-        'jobs': jobs
+        'getJobVacancies': getJobVacancies
     }
 
     return render(request, 'backend/job-vacancy/index.html', context)
 
 @login_required()
-def addJob(request):
+def addJobVacancy(request):
     pass
 
 @login_required()
-def editJob(request, slug):
+def editJobVacancy(request, slug):
     pass
 
 @login_required()
-def deleteJob(request, slug):
+def deleteJobVacancy(request, slug):
     pass
