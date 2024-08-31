@@ -284,11 +284,13 @@ class PolicyForm(forms.ModelForm):
 class JobVacancyForm(forms.ModelForm):
     class Meta:
         model = JobVacancy
-        fields = ['title', 'location', 'type', 'currency', 'description']
+        fields = ['title', 'category', 'type', 'location', 'currency', 'description', 'deadline']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job title'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Location'}),
+            'category': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Location'}),
             'type': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Type'}),
             'currency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Currency'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Job Description'}),
+            'deadline': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }

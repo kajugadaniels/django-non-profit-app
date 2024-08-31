@@ -405,12 +405,14 @@ class ReferenceSheet(models.Model):
         return self.title
 
 class JobVacancy(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
-    location = models.CharField(max_length=255)
-    type = models.CharField(max_length=255)
-    currency = models.CharField(max_length=255)
+    location = models.CharField(max_length=255, null=True, blank=True)
+    category = models.CharField(max_length=255, null=True, blank=True)
+    type = models.CharField(max_length=255, null=True, blank=True)
+    currency = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField()
+    deadline = models.DateField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
