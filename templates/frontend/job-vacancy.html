@@ -1,6 +1,6 @@
 {% extends 'frontend/layouts/app.html' %}
 {% load static %}
-{% block title %} FAQs {% endblock %}
+{% block title %} Job Vacancy {% endblock %}
 {% block content %}
 
 <section class="pb-0 ipad-top-space-margin md-pt-0">
@@ -13,6 +13,39 @@
                     </h1>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="pb-0 bg-white-ice">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center mb-6 sm-mb-12" data-anime='{ "el": "childs", "translateY": [0, 0], "perspective": [1200,1200], "scale": [1.1, 1], "rotateX": [50, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
+            {% for job in jobs %}
+                <div class="col icon-with-text-style-04 transition-inner-all md-mb-30px mb-4">
+                    <div class="feature-box bg-white text-start justify-content-start h-100 border-radius-6px p-16 lg-p-13 box-shadow-quadruple-large box-shadow-quadruple-large-hover">
+                        <div class="feature-box-content last-paragraph-no-margin">
+                            <span class="d-inline-block text-dark-gray fw-700 fs-18 mb-5px">{{ job.title|truncatechars:20 }}</span>
+                            <p>
+                                Location: <strong>{{ job.location }}</strong> <br>
+                                Job Type: <strong>{{ job.type }}</strong> <br>
+                                Currency: <strong>{{ job.currency }}</strong>
+                            </p>
+                            <a href="{% url 'frontend:jobVacancy' %}" class="btn btn-link btn-hover-animation-switch btn-extra-large text-dark-gray fw-700 text-uppercase-inherit mt-15px">
+                                <span>
+                                    <span class="btn-text">Learn more</span>
+                                    <span class="btn-icon">
+                                        <i class="fa-solid fa-arrow-right icon-very-small"></i>
+                                    </span>
+                                    <span class="btn-icon">
+                                        <i class="fa-solid fa-arrow-right icon-very-small"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <span class="position-absolute top-25px right-25px bg-dark-gray border-radius-18px text-white fs-11 fw-700 text-uppercase ps-15px pe-15px lh-26">{{ job.category }}</span>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>

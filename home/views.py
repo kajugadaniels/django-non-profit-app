@@ -425,9 +425,16 @@ def prayWithUs(request):
     return render(request, 'frontend/pray-with-us.html', context)
 
 def jobVacancy(request):
-    logos = get_logos()
+    job_list = JobVacancy.objects.all().order_by('-created_at')
+    paginator = Paginator(job_list, 12)
+
+    page_number = request.GET.get('page')
+    jobs = paginator.get_page(page_number)
     
+    logos = get_logos()
+
     context = {
+        'jobs': jobs,
         **logos
     }
 
