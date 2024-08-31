@@ -1162,7 +1162,28 @@ def addJobVacancy(request):
 
 @login_required()
 def editJobVacancy(request, slug):
-    pass
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    job = get_object_or_404(JobVacancy, slug=slug)
+
+    if request.method == 'POST':
+        form = JobVacancyForm(request.POST, request.FILES, instance=job)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Job updated successfully!')
+            return redirect('backend:getJobVacancy')
+        else:
+            messages.error(request, 'Error updating the job. Please check the form.')
+    else:
+        form = JobVacancyForm(instance=job)
+        
+    context = {
+        'form': form,
+        'job': job
+    }
+
+    return render(request, 'backend/job-vacancy/edit.html', context)
 
 @login_required()
 def deleteJobVacancy(request, slug):

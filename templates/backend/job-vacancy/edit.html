@@ -56,21 +56,16 @@
                                     </div>
                                 </div>
                                 <div class="row g-3 custom-input mt-2">
-                                    <div class="col-sm-12">
-                                        <div class="col-12">
-                                            <label class="form-label">Description</label>
-                                            <div id="description-container"></div>
-                                            <textarea id="id_description" name="description" style="display:none;"></textarea>
-                                            {% if form.description.errors %}
-                                                <div class="text-danger">{{ form.description.errors }}</div>
-                                            {% endif %}
-                                        </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Description</label>
+                                        <div id="description-container"></div>
+                                        <textarea id="id_description" name="description" style="display:none;">{{ form.description.value|safe }}</textarea>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col">
                                         <div class="text-end">
-                                            <button class="btn btn-primary me-3" type="submit">Add Job Vacancy</button>
+                                            <button class="btn btn-primary me-3" type="submit">Update Job Vacancy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -130,9 +125,13 @@
                 }
             });
 
+            var descriptionInput = document.querySelector('#id_description');
+            if (descriptionInput.value) {
+                quillDescription.root.innerHTML = descriptionInput.value;
+            }
+
             var form = document.querySelector('.price-wrapper');
             form.onsubmit = function() {
-                var descriptionInput = document.querySelector('#id_description');
                 var descriptionHtml = quillDescription.root.innerHTML;
                 descriptionInput.value = descriptionHtml;
             };
