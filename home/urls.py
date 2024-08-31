@@ -44,6 +44,8 @@ urlpatterns = [
 
    path('pray-with-us/', prayWithUs, name="prayWithUs"),
 
+   path('job-vacancy/', jobVacancy, name="jobVacancy"),
+
    path('contact/', contact, name="contact"),
 
    path('checkout/', checkout, name="checkout"),

@@ -424,6 +424,15 @@ def prayWithUs(request):
 
     return render(request, 'frontend/pray-with-us.html', context)
 
+def jobVacancy(request):
+    logos = get_logos()
+    
+    context = {
+        **logos
+    }
+
+    return render(request, 'frontend/job-vacancy.html', context)
+
 def contact(request):
     logos = get_logos()
     
