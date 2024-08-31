@@ -280,3 +280,15 @@ class PolicyForm(forms.ModelForm):
             'category': forms.Select(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'id': 'description-container'}),
         }
+
+class JobVacancyForm(forms.ModelForm):
+    class Meta:
+        model = JobVacancy
+        fields = ['title', 'location', 'type', 'currency', 'description']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job title'}),
+            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Location'}),
+            'type': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Type'}),
+            'currency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Job Currency'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Job Description'}),
+        }
