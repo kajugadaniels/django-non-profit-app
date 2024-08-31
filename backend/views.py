@@ -1140,7 +1140,25 @@ def getJobVacancy(request):
 
 @login_required()
 def addJobVacancy(request):
-    pass
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    if request.method == 'POST':
+        form = JobVacancyForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Job created successfully!')
+            return redirect('backend:getJobVacancy')
+        else:
+            messages.error(request, 'Error creating a job. Please check the form.')
+    else:
+        form = JobVacancyForm()
+        
+    context = {
+        'form': form
+    }
+
+    return render(request, 'backend/job-vacancy/create.html', context)
 
 @login_required()
 def editJobVacancy(request, slug):
