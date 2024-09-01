@@ -424,6 +424,11 @@ class JobVacancy(models.Model):
         return self.title
 
 class JobApplicant(models.Model):
+    YES_NO_CHOICES = [
+        ('yes', 'Yes'),
+        ('no', 'No'),
+    ]
+
     job_vacancy = models.ForeignKey(JobVacancy, on_delete=models.CASCADE, related_name='applicants')
     name = models.CharField(max_length=255)
     email = models.EmailField()
@@ -433,10 +438,10 @@ class JobApplicant(models.Model):
     town = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     social_media_handles = models.CharField(max_length=100, null=True, blank=True)
-    is_married = models.BooleanField()
-    has_children = models.BooleanField()
+    is_married = models.CharField(max_length=3, choices=YES_NO_CHOICES)
+    has_children = models.CharField(max_length=3, choices=YES_NO_CHOICES)
     church_name = models.CharField(max_length=255)
-    is_church_member = models.BooleanField()
+    is_church_member = models.CharField(max_length=3, choices=YES_NO_CHOICES)
     ministry_areas = models.TextField(null=True, blank=True)
     available_date = models.DateField()
     message = models.TextField()
@@ -454,10 +459,6 @@ class JobApplicant(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super(JobApplicant, self).save(*args, **kwargs)
-    
-    def delete(self, *args, **kwargs):
-        self.delete_status = True
-        self.save()
 
     def __str__(self):
         return self.name
