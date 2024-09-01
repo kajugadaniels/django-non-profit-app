@@ -444,8 +444,20 @@ def viewJobVacancy(request, slug):
     job = JobVacancy.objects.get(slug=slug)
     logos = get_logos()
     
+    if request.method == 'POST':
+        form = JobApplicantForm(request.POST)
+        if form.is_valid():
+            applicant = form.save(commit=False)
+            applicant.job_vacancy = job
+            applicant.save()
+            messages.success(request, 'Your application has been submitted successfully!')
+            return redirect('frontend:viewJobVacancy', slug=job.slug)
+    else:
+        form = JobApplicantForm()
+    
     context = {
         'job': job,
+        'form': form,
         **logos
     }
 
