@@ -44,3 +44,28 @@ class SendPrayerForm(forms.ModelForm):
                 'rows': 4
             })
         }
+
+class JobApplicantForm(forms.ModelForm):
+    class Meta:
+        model = JobApplicant
+        fields = ['name', 'email', 'phone', 'nationality', 'city', 'town', 'country', 'social_media_handles',
+                  'is_married', 'has_children', 'church_name', 'is_church_member', 'ministry_areas',
+                  'available_date', 'message', 'found_out_via']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name', 'required': 'true'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email', 'required': 'true'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Phone Number', 'required': 'true'}),
+            'nationality': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Nationality', 'required': 'true'}),
+            'city': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'City', 'required': 'true'}),
+            'town': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Town', 'required': 'true'}),
+            'country': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Country', 'required': 'true'}),
+            'social_media_handles': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Social Media Handles'}),
+            'is_married': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'has_children': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'church_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Church Name', 'required': 'true'}),
+            'is_church_member': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'ministry_areas': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Ministry Areas'}),
+            'available_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'required': 'true'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your Message', 'required': 'true'}),
+            'found_out_via': forms.Select(attrs={'class': 'form-control', 'required': 'true'}),
+        }
