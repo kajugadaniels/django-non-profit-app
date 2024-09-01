@@ -432,7 +432,7 @@ class JobApplicant(models.Model):
     city = models.CharField(max_length=100)
     town = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
-    social_media_handles = models.JSONField(null=True, blank=True)
+    social_media_handles = models.CharField(max_length=100, null=True, blank=True)
     is_married = models.BooleanField()
     has_children = models.BooleanField()
     church_name = models.CharField(max_length=255)
