@@ -26,6 +26,7 @@
                                     <th> <span class="f-light f-w-600">Email</span></th>
                                     <th> <span class="f-light f-w-600">Phone</span></th>
                                     <th> <span class="f-light f-w-600">Nationality</span></th>
+                                    <th> <span class="f-light f-w-600">Action</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,6 +51,9 @@
                                             </td>
                                             <td>
                                                 {{ applicant.nationality }}
+                                            </td>
+                                            <td>
+                                                <a href="{% url 'backend:viewJobApplication' applicant.slug %}" class="btn btn-primary btn-sm">View Details</a>
                                             </td>
                                         </tr>
                                     {% endfor %}

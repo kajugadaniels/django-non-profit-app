@@ -1,0 +1,52 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">Job Application Details</h4>
+                    <a class="btn btn-primary" href="{% url 'backend:getJobApplications' %}"><i class="fa fa-eye"></i> View Applications</a>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h5 class="text-primary">Personal Information</h5>
+                            <hr class="mt-0 mb-3">
+                            <p><strong>Name:</strong> {{ applicant.name }}</p>
+                            <p><strong>Email:</strong> {{ applicant.email }}</p>
+                            <p><strong>Phone:</strong> {{ applicant.phone }}</p>
+                            <p><strong>Nationality:</strong> {{ applicant.nationality }}</p>
+                            <p><strong>City:</strong> {{ applicant.city }}</p>
+                            <p><strong>Town:</strong> {{ applicant.town }}</p>
+                            <p><strong>Country:</strong> {{ applicant.country }}</p>
+                            <p><strong>Marital Status:</strong> {{ applicant.is_married|yesno:"Married,Single" }}</p>
+                            <p><strong>Children:</strong> {{ applicant.has_children|yesno:"Yes,No" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="text-primary">Church & Ministry Information</h5>
+                            <hr class="mt-0 mb-3">
+                            <p><strong>Church Name:</strong> {{ applicant.church_name }}</p>
+                            <p><strong>Is Church Member?</strong> {{ applicant.is_church_member|yesno:"Yes,No" }}</p>
+                            <p><strong>Ministry Areas:</strong> {{ applicant.ministry_areas }}</p>
+                            <p><strong>Available Date:</strong> {{ applicant.available_date }}</p>
+                            <p><strong>Social Media Handles:</strong> {{ applicant.social_media_handles }}</p>
+                            <p><strong>Found Out Via:</strong> {{ applicant.found_out_via }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-primary">Message</h5>
+                            <hr class="mt-0 mb-3">
+                            <p>{{ applicant.message }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
