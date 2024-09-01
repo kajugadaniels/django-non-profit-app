@@ -59,7 +59,7 @@ class JobApplicantForm(forms.ModelForm):
             'city': forms.TextInput(attrs={'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required', 'placeholder': 'City', 'required': 'true'}),
             'town': forms.TextInput(attrs={'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required', 'placeholder': 'Town', 'required': 'true'}),
             'country': forms.TextInput(attrs={'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required', 'placeholder': 'Country', 'required': 'true'}),
-            'social_media_handles': forms.TextInput(attrs={'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required', 'placeholder': 'Social Media Handles'}),
+            'social_media_handles': forms.Textarea(attrs={'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required', 'placeholder': 'Social Media Handles', 'required': 'true'}),
             'is_married': forms.Select(choices=JobApplicant.YES_NO_CHOICES, attrs={'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required'}),
             'has_children': forms.Select(choices=JobApplicant.YES_NO_CHOICES, attrs={'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required'}),
             'church_name': forms.TextInput(attrs={'class': 'ps-0 border-radius-0px border-color-extra-medium-gray bg-transparent form-control required', 'placeholder': 'Church Name', 'required': 'true'}),

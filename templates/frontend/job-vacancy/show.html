@@ -34,4 +34,157 @@
     </div>
 </section>
 
+<section class="bg-gradient-quartz-white position-relative z-index-0 sm-pt-0">
+    <div class="container-fluid overflow-hidden position-relative">
+        <div class="row justify-content-center mb-2 sm-mb-3">
+            <div class="col-lg-6 text-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                <h3 class="text-dark-gray fw-700 ls-minus-1px">Job Application</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xxl-8 col-xl-8 col-lg-11">
+                <form method="post" class="contact-form-style-03">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="row justify-content-center" data-anime='{ "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Enter your name*</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-emoji-smile"></i></span>
+                                {{ form.name }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Email address*</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-envelope"></i></span>
+                                {{ form.email }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Phone number*</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-phone"></i></span>
+                                {{ form.phone }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Nationality</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-flag-fill"></i></span>
+                                {{ form.nationality }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">City</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-building"></i></span>
+                                {{ form.city }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Town</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-geo-alt-fill"></i></span>
+                                {{ form.town }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Country</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-globe"></i></span>
+                                {{ form.country }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Are you married?</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-person-hearts"></i></span>
+                                {{ form.is_married }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Do you have children?</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-person-heart"></i></span>
+                                {{ form.has_children }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Church Name</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-house-door-fill"></i></span>
+                                {{ form.church_name }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Are you a member?</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"><i class="bi bi-person-fill-check"></i></span>
+                                {{ form.is_church_member }}
+                            </div>
+                        </div>
+                        <div class="col-md-3">  
+                            <label class="form-label fw-600 text-dark-gray mb-0">Date available for employment</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"></span>
+                                {{ form.available_date }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Social Media Handles (if applicable)</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"></span>
+                                {{ form.social_media_handles }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label fw-600 text-dark-gray mb-0">In what ministry areas are you serving / previously served?</label>
+                            <div class="position-relative form-group mb-25px">
+                                <span class="form-icon"></span>
+                                {{ form.ministry_areas }}
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-600 text-dark-gray mb-0">Message</label>
+                            <div class="position-relative form-group form-textarea mb-25px">
+                                <span class="form-icon"><i class="bi bi-chat-left-text"></i></span> 
+                                {{ form.message }}
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-600 text-dark-gray mb-0">How did you find out about this position?</label>
+                            <div class="position-relative form-group mb-25px">
+                                {{ form.found_out_via }}
+                            </div>  
+                        </div>
+                        <div class="col-md-12 text-start text-md-end">
+                            <button class="btn btn-dark-gray btn-extra-large btn-switch-text btn-round-edge btn-box-shadow w-100 text-transform-none mt-30px">
+                                <span>
+                                    <span class="btn-double-text" data-text="Submit Application">Submit Application</span>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-results mt-20px d-none"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if messages %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Thank you!',
+            text: 'Your visit request has been submitted successfully.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    </script>
+{% endif %}
+
 {% endblock %}
