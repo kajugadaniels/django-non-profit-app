@@ -422,3 +422,42 @@ class JobVacancy(models.Model):
 
     def __str__(self):
         return self.title
+
+class JobApplicant(models.Model):
+    job_vacancy = models.ForeignKey(JobVacancy, on_delete=models.CASCADE, related_name='applicants')
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    nationality = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    town = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    social_media_handles = models.JSONField(null=True, blank=True)
+    is_married = models.BooleanField()
+    has_children = models.BooleanField()
+    church_name = models.CharField(max_length=255)
+    is_church_member = models.BooleanField()
+    ministry_areas = models.TextField(null=True, blank=True)
+    available_date = models.DateField()
+    message = models.TextField()
+    found_out_via = models.CharField(max_length=20, choices=[
+        ('email', 'Email'),
+        ('social_media', 'Social Media'),
+        ('friends', 'Friends'),
+        ('others', 'Others')
+    ])
+    slug = models.SlugField(unique=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(JobApplicant, self).save(*args, **kwargs)
+    
+    def delete(self, *args, **kwargs):
+        self.delete_status = True
+        self.save()
+
+    def __str__(self):
+        return self.name
