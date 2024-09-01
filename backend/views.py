@@ -1211,3 +1211,17 @@ def getJobApplications(request):
     }
 
     return render(request, 'backend/job-applications/index.html', context)
+
+@login_required()
+def viewJobApplication(request, slug):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+
+    applicant = get_object_or_404(JobApplicant, slug=slug)
+
+    context = {
+        'applicant': applicant
+    }
+
+    return render(request, 'backend/job-applications/show.html', context)
