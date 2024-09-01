@@ -1,0 +1,61 @@
+{% extends 'backend/layouts/app.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row"> 
+            <div class="col-sm-12"> 
+                <div class="card"> 
+                    <div class="card-body">
+                        <div class="list-product-header">
+                            <div class="d-flex justify-content-between">
+                                <h4>Job Applications</h4>
+                            </div>
+                        </div>
+                        <div class="list-product">
+                            <table class="table" id="project-status">
+                                <thead> 
+                                    <tr> 
+                                    <th>
+                                        <div class="form-check"> 
+                                            <input class="form-check-input checkbox-primary" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th> <span class="f-light f-w-600">Name</span></th>
+                                    <th> <span class="f-light f-w-600">Email</span></th>
+                                    <th> <span class="f-light f-w-600">Phone</span></th>
+                                    <th> <span class="f-light f-w-600">Nationality</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for applicant in getJobApplications %}
+                                        <tr class="product-removes">
+                                            <td>
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input checkbox-primary" type="checkbox">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{ applicant.name }}
+                                            </td>
+                                            <td>
+                                                {{ applicant.email }}
+                                            </td>
+                                            <td>
+                                                {{ applicant.phone }}
+                                            </td>
+                                            <td>
+                                                {{ applicant.nationality }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
