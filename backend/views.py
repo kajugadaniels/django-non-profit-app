@@ -1196,3 +1196,18 @@ def deleteJobVacancy(request, slug):
         messages.success(request, 'Job deleted successfully!')
         
     return redirect('backend:getJobVacancy')
+
+
+
+@login_required()
+def getJobApplications(request):
+    if not request.user.is_staff:
+        messages.error(request, 'You do not have permission to access this page.')
+        return redirect('sponsor:dashboard')
+    getJobApplications = JobApplicant.objects.all().order_by('-created_at')
+
+    context = {
+        'getJobApplications': getJobApplications
+    }
+
+    return render(request, 'backend/job-applications/index.html', context)

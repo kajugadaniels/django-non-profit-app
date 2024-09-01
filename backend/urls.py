@@ -91,6 +91,8 @@ urlpatterns = [
    path('job/<slug>', editJobVacancy, name='editJobVacancy'),
    path('job/<slug>/delete/', deleteJobVacancy, name='deleteJobVacancy'),
 
+   path('job-applications', getJobApplications, name='getJobApplications'),
+
    path('settings/', setting, name='settings'),
 
    path('settings/edit-slide/<int:slide_id>/', edit_slide, name='edit_slide'),
