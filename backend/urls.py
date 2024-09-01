@@ -92,6 +92,7 @@ urlpatterns = [
    path('job/<slug>/delete/', deleteJobVacancy, name='deleteJobVacancy'),
 
    path('job-applications', getJobApplications, name='getJobApplications'),
+   path('job-applications/<slug:slug>/', viewJobApplication, name='viewJobApplication'),
 
    path('settings/', setting, name='settings'),
 
