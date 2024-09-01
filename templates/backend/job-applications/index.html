@@ -21,6 +21,7 @@
                                             <input class="form-check-input checkbox-primary" type="checkbox">
                                         </div>
                                     </th>
+                                    <th> <span class="f-light f-w-600">Job Title</span></th>
                                     <th> <span class="f-light f-w-600">Name</span></th>
                                     <th> <span class="f-light f-w-600">Email</span></th>
                                     <th> <span class="f-light f-w-600">Phone</span></th>
@@ -34,6 +35,9 @@
                                                 <div class="form-check"> 
                                                     <input class="form-check-input checkbox-primary" type="checkbox">
                                                 </div>
+                                            </td>
+                                            <td>
+                                                {{ applicant.job_vacancy.title }}
                                             </td>
                                             <td>
                                                 {{ applicant.name }}

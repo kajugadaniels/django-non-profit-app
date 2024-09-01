@@ -452,6 +452,8 @@ def viewJobVacancy(request, slug):
             applicant.save()
             messages.success(request, 'Your application has been submitted successfully!')
             return redirect('frontend:viewJobVacancy', slug=job.slug)
+        else:
+            messages.error(request, 'There was an error in your application. Please check the form and try again.')
     else:
         form = JobApplicantForm()
     
